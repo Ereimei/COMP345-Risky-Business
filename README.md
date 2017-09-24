@@ -26,7 +26,7 @@ Don't forget to set the assignment number
  * 
  *** AUTHORS ***
  * Patrick Bednarski, 40002239
- * Emily Lam, 26311326
+ * Hiu Tung Lam (Emily), 26311326
  * James Ferreira-Fernandez, 21964216
  * Olivier Trepanier-Desfosses, 27850956
  *	
