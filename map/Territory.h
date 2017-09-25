@@ -1,5 +1,5 @@
 /* 
- * File:   Continent.h
+ * File:   Territory.h
  *  *** AUTHORS ***
  * Patrick Bednarski, 40002239
  * Hiu Tung Lam (Emily), 26311326
@@ -10,20 +10,20 @@
  * Assignment #
  * Professor: Dr. Joey Paquet
  *
- * Created on September 25, 2017, 3:19 PM
+ * Created on September 25, 2017, 3:20 PM
  */
 
-#ifndef CONTINENT_H
-#define CONTINENT_H
+#ifndef TERRITORY_H
+#define TERRITORY_H
 
-class Continent {
+class Territory {
 public:
-    Continent();
-    Continent(const Continent& orig);
-    virtual ~Continent();
+    Territory();
+    Territory(const Territory& orig);
+    virtual ~Territory();
 private:
 
 };
 
-#endif /* CONTINENT_H */
+#endif /* TERRITORY_H */
 

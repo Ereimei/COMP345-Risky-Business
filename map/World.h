@@ -1,5 +1,5 @@
 /* 
- * File:   Continent.h
+ * File:   World.h
  *  *** AUTHORS ***
  * Patrick Bednarski, 40002239
  * Hiu Tung Lam (Emily), 26311326
@@ -10,20 +10,20 @@
  * Assignment #
  * Professor: Dr. Joey Paquet
  *
- * Created on September 25, 2017, 3:19 PM
+ * Created on September 25, 2017, 3:17 PM
  */
 
-#ifndef CONTINENT_H
-#define CONTINENT_H
+#ifndef WORLD_H
+#define WORLD_H
 
-class Continent {
+class World {
 public:
-    Continent();
-    Continent(const Continent& orig);
-    virtual ~Continent();
+    World();
+    World(const World& orig);
+    virtual ~World();
 private:
 
 };
 
-#endif /* CONTINENT_H */
+#endif /* WORLD_H */
 
