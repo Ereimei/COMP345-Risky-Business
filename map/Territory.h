@@ -26,20 +26,14 @@ class Territory {
 public:
     Territory();
     Territory(const Territory& orig);
-    Territory(unsigned int inf, unsigned int cav, unsigned int art, string own);
+    Territory(unsigned int arm, string own);
     virtual ~Territory();
-    unsigned int getInfantry();
-    unsigned int getCavalry();
-    unsigned int getArtillery();
+    unsigned int getArmies();
     string getOwner();
-    void setInfantry(unsigned int inf);
-    void setCavalry(unsigned int cav);
-    void setArtillery(unsigned int art);
+    void setArmies(unsigned int arm);
     void setOwner(string own);
 private:
-    unsigned int infantry;
-    unsigned int cavalry;
-    unsigned int artillery;
+    unsigned int armies;
     string owner;
 };
 

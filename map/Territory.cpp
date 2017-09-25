@@ -16,28 +16,18 @@
 #include "Territory.h"
 
 
-Territory::Territory() : infantry(0),
-        cavalry(0),
-        artillery(0),
+Territory::Territory() : armies(0),
         owner("") {}
 
-Territory::Territory(unsigned int inf, unsigned int cav, unsigned int art, string own) : infantry(inf),
-        cavalry(cav),
-        artillery(art),
+Territory::Territory(unsigned int arm, string own) : armies(arm),
         owner(own) {}
 
-Territory::Territory(const Territory& orig) : infantry(orig->getInfantry()),
-    cavalry(orig->getCavalry()),
-    artillery(orig->getArtillery()),
+Territory::Territory(const Territory& orig) : armies(orig->getArmies()),
     owner(orig->getOwner()) {}
 
 Territory::~Territory() {}
 
-unsigned int Territory::getInfantry() {return infantry;}
-unsigned int Territory::getCavalry() {return cavalry;}
-unsigned int Territory::getArtillery() {return artillery;}
+unsigned int Territory::getArmies() {return armies;}
 string Territory::getOwner() {return owner;}
-void Territory::setInfantry(unsigned int inf) {infantry = inf;}
-void Territory::setCavalry(unsigned int cav) {cavalry = cav;}
-void Territory::setArtillery(unsigned int art) {artillery = art;}
+void Territory::setArmies(unsigned int arm) {armies = arm;}
 void Territory::setOwner(string own) {owner = own;}
