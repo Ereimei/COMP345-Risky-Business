@@ -7,14 +7,24 @@
 
 #include <cstdlib>
 #include <iostream>
+#include <string>
 
 using std::cout;
+using std::string;
+
+#include "Territory.h"
+
+#define NEWLINE '\n'
 
 /*
  * 
  */
 int main(int argc, char** argv) {
-    cout << "If you guys can run this then you've setup correctly!";
+    Territory* territory = new Territory(0, 0, 0, "Patrick");
+    cout << territory->getOwner() << NEWLINE;
+    territory->setOwner("Emily");
+    cout << territory->getOwner() << NEWLINE;
+    cout << territory->getInfantry() << NEWLINE;
     return 0;
 }
 

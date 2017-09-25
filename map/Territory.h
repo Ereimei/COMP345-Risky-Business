@@ -16,13 +16,31 @@
 #ifndef TERRITORY_H
 #define TERRITORY_H
 
+#include <string>
+#include <iostream>
+
+using std::string;
+using std::cout;
+
 class Territory {
 public:
     Territory();
     Territory(const Territory& orig);
+    Territory(unsigned int inf, unsigned int cav, unsigned int art, string own);
     virtual ~Territory();
+    unsigned int getInfantry();
+    unsigned int getCavalry();
+    unsigned int getArtillery();
+    string getOwner();
+    void setInfantry(unsigned int inf);
+    void setCavalry(unsigned int cav);
+    void setArtillery(unsigned int art);
+    void setOwner(string own);
 private:
-
+    unsigned int infantry;
+    unsigned int cavalry;
+    unsigned int artillery;
+    string owner;
 };
 
 #endif /* TERRITORY_H */
