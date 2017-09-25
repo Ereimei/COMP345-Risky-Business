@@ -20,11 +20,11 @@ using std::string;
  * 
  */
 int main(int argc, char** argv) {
-    Territory* territory = new Territory(0, 0, 0, "Patrick");
-    cout << territory->getOwner() << NEWLINE;
+    Territory* territory = new Territory("Alaska", "North America");
     territory->setOwner("Emily");
     cout << territory->getOwner() << NEWLINE;
-    cout << territory->getInfantry() << NEWLINE;
+    cout << territory->getName() << NEWLINE;
+    cout << territory->getContinent() << NEWLINE;
     return 0;
 }
 

@@ -15,19 +15,21 @@
 
 #include "Territory.h"
 
+Territory::Territory(string n, string cont) : armies(0),
+    owner(""),
+    name(n),
+    continent(cont) {}
 
-Territory::Territory() : armies(0),
-        owner("") {}
-
-Territory::Territory(unsigned int arm, string own) : armies(arm),
-        owner(own) {}
-
-Territory::Territory(const Territory& orig) : armies(orig->getArmies()),
-    owner(orig->getOwner()) {}
+Territory::Territory(const Territory& orig) : armies(0),
+    owner(""),
+    name(orig.getName()),
+    continent(orig.getContinent()){}
 
 Territory::~Territory() {}
 
-unsigned int Territory::getArmies() {return armies;}
-string Territory::getOwner() {return owner;}
+unsigned int Territory::getArmies() const {return armies;}
+string Territory::getOwner() const {return owner;}
+string Territory::getName() const {return name;}
+string Territory::getContinent() const {return continent;}
 void Territory::setArmies(unsigned int arm) {armies = arm;}
 void Territory::setOwner(string own) {owner = own;}

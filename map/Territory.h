@@ -24,17 +24,20 @@ using std::cout;
 
 class Territory {
 public:
-    Territory();
     Territory(const Territory& orig);
-    Territory(unsigned int arm, string own);
+    Territory(string n, string cont);
     virtual ~Territory();
-    unsigned int getArmies();
-    string getOwner();
+    unsigned int getArmies() const;
+    string getOwner() const;
+    string getName() const;
+    string getContinent() const;
     void setArmies(unsigned int arm);
     void setOwner(string own);
 private:
     unsigned int armies;
     string owner;
+    const string name;
+    const string continent;
 };
 
 #endif /* TERRITORY_H */
