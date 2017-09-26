@@ -13,6 +13,7 @@ using std::cout;
 using std::string;
 
 #include "Territory.h"
+#include "World.h"
 
 #define NEWLINE '\n'
 
@@ -25,6 +26,7 @@ int main(int argc, char** argv) {
     cout << territory->getOwner() << NEWLINE;
     cout << territory->getName() << NEWLINE;
     cout << territory->getContinent() << NEWLINE;
+    World* world = new World(10);
     return 0;
 }
 

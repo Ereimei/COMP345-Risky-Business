@@ -16,13 +16,25 @@
 #ifndef WORLD_H
 #define WORLD_H
 
+#include "Territory.h"
+
 class World {
 public:
-    World();
+    World(unsigned int territoriesCount);
     World(const World& orig);
     virtual ~World();
+    addTerritory(Territory* terr);
 private:
-
+    class Node {
+    public:
+        Node();
+    private:
+        Territory* territory;
+        Territory* adjacentTerritories;
+    };
+    unsigned int territoriesCount;
+    unsigned int insertPosition;
+    Node* territories;
 };
 
 #endif /* WORLD_H */

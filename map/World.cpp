@@ -15,12 +15,18 @@
 
 #include "World.h"
 
-World::World() {
+World::World(unsigned int terrcount) : territoriesCount(terrcount), insertPosition(0) {
+    Node terr[territoriesCount];
 }
 
-World::World(const World& orig) {
+World::World(const World& orig) {}
+
+World::~World() {}
+
+World::addTerritory(Territory* terr) {
+
 }
 
-World::~World() {
+World::Node::Node() : territory(NULL), adjacentTerritories(NULL) {
+    
 }
-
