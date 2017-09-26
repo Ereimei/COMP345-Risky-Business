@@ -23,13 +23,12 @@ Created on September 24, 2017, 4:23 PM */
 #define CARD_H
 #include <list>
 #include <string>
-
-std::list<std::string> countries[9] = {"Canada", "US", "China", "Brazil", "Mexico", "India", "Japan", "Germany", "France"};
-std::list<std::string> cardTypes[3] = {"Infantry", "Artillery", "Cavalry"};
     
 class Card{
         
 private:
+    std::list<std::string> countries[9] = {"Canada", "US", "China", "Brazil", "Mexico", "India", "Japan", "Germany", "France"};
+    std::list<std::string> cardTypes[3] = {"Infantry", "Artillery", "Cavalry"};
     char* country;
     char* type;
     

@@ -23,6 +23,8 @@ Created on September 25, 2017, 9:49 PM */
 #define HAND_H
 #include <list>
 
+static const int counterArmy = 0;
+
 class Hand{
 private:
     std::list<Card> playerHand;
