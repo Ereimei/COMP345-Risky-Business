@@ -4,6 +4,9 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>card.h</itemPath>
+      <itemPath>deck.h</itemPath>
+      <itemPath>nbproject/hand.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -12,6 +15,9 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>card.cpp</itemPath>
+      <itemPath>deck.cpp</itemPath>
+      <itemPath>nbproject/hand.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -30,13 +36,25 @@
   <confs>
     <conf name="Debug" type="1">
       <toolsSet>
-        <compilerSet>default</compilerSet>
+        <compilerSet>MinGW|MinGW</compilerSet>
         <dependencyChecking>true</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="card.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="card.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="deck.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="deck.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="nbproject/hand.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="nbproject/hand.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -59,7 +77,19 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="card.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="card.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="deck.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="deck.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="nbproject/hand.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="nbproject/hand.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>
