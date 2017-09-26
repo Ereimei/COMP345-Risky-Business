@@ -15,18 +15,31 @@
 
 #include "World.h"
 
+World::World() : territoriesCount(0), insertPosition(0) {
+    Node* terr = new Node[territoriesCount];
+    territories = terr;
+}
+
 World::World(unsigned int terrcount) : territoriesCount(terrcount), insertPosition(0) {
-    Node terr[territoriesCount];
+    Node* terr = new Node[territoriesCount];
+    territories = terr;
 }
 
 World::World(const World& orig) {}
 
 World::~World() {}
 
-World::addTerritory(Territory* terr) {
-
+void World::addTerritory(Territory* terr, unsigned int adjCount, Territory** adjTerrs) {
+    if (insertPosition < territoriesCount) {
+        territories[insertPosition].territory = terr;
+        territories[insertPosition].adjacentCount = adjCount;
+        territories[insertPosition].adjacentTerritories = adjTerrs;
+        ++insertPosition;
+    }
 }
 
-World::Node::Node() : territory(NULL), adjacentTerritories(NULL) {
+World::Node::Node() : territory(NULL), adjacentTerritories(NULL), adjacentCount(0) {
     
 }
+
+World::Node* World::getTerritories() {return territories;}

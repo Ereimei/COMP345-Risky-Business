@@ -20,21 +20,24 @@
 
 class World {
 public:
+    World();
     World(unsigned int territoriesCount);
     World(const World& orig);
     virtual ~World();
-    addTerritory(Territory* terr);
+    void addTerritory(Territory* terr, unsigned int adjCount, Territory** adjTerrs);  
 private:
     class Node {
     public:
         Node();
-    private:
         Territory* territory;
-        Territory* adjacentTerritories;
+        Territory** adjacentTerritories;
+        unsigned int adjacentCount;
     };
     unsigned int territoriesCount;
     unsigned int insertPosition;
     Node* territories;
+public:
+    Node* getTerritories(); //temporary function just for testing
 };
 
 #endif /* WORLD_H */
