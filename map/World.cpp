@@ -7,7 +7,7 @@
  * Olivier Trepanier-Desfosses, 27850956
  *	
  *** COMP 345 SECTION D ***
- * Assignment #
+ * Assignment #1
  * Professor: Dr. Joey Paquet
  *
  * Created on September 25, 2017, 3:17 PM
