@@ -15,14 +15,18 @@
 
 #include <cstdlib>
 #include <iostream>
+#include "Maploader.h"
 
-using std::cout;
+using namespace std;
 
-/*
- * 
- */
 int main(int argc, char** argv) {
-    cout << "If you guys can run this then you've setup correctly!";
-    return 0;
+    const string fileName;
+    cout << "Please enter the name of the map file." << endl;
+    cin >> fileName;
+    
+    //Generating the world
+    Maploader mapLoader(fileName);
+    
 }
+
 
