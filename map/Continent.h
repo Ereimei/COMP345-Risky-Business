@@ -33,6 +33,7 @@ public:
     void addTerritory(Territory* terr);
     string getName() const;
     unsigned int getTerritoriesCount() const;
+    Territory** getTerritories() const;
 private:
     const string name;
     const unsigned int territoriesCount;

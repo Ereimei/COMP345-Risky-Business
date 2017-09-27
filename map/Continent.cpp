@@ -43,3 +43,5 @@ void Continent::addTerritory(Territory* terr) {
 string Continent::getName() const {return name;}
 
 unsigned int Continent::getTerritoriesCount() const {return territoriesCount;}
+
+Territory** Continent::getTerritories() const {return territories;}

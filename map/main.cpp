@@ -32,6 +32,8 @@ int main(int argc, char** argv) {
     cout << world->getTerritories()[1].territory->getName() << NEWLINE;
     cout << world->getTerritories()[1].adjacentTerritories[0]->getName() << NEWLINE;
     cout << world->getTerritories()[1].adjacentTerritories[1]->getName() << NEWLINE;
+    cout << world->getContinents()[0]->getName() << NEWLINE;
+    cout << world->getContinents()[0]->getTerritories()[0]->getName() << NEWLINE;
     return 0;
 }
 
