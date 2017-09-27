@@ -17,14 +17,23 @@
 #define WORLD_H
 
 #include "Territory.h"
+#include "Continent.h"
+
+#include <iostream>
+#include <cstdlib>
+
+using std::cout;
+using std::cerr;
 
 class World {
 public:
     World();
-    World(unsigned int territoriesCount);
-    World(const World& orig);
+    World(unsigned int terrsCount, unsigned int contsCount);
     virtual ~World();
-    void addTerritory(Territory* terr, unsigned int adjCount, Territory** adjTerrs);  
+    void addTerritory(Territory* terr, unsigned int adjCount, Territory** adjTerrs);
+    void addContinents(Continent** conts);
+    unsigned int getContinentsCount() const;
+    unsigned int getTerritoriesCount() const;
 private:
     class Node {
     public:
@@ -33,11 +42,14 @@ private:
         Territory** adjacentTerritories;
         unsigned int adjacentCount;
     };
-    unsigned int territoriesCount;
+    const unsigned int territoriesCount;
+    const unsigned int continentsCount;
     unsigned int insertPosition;
     Node* territories;
+    Continent** continents;
 public:
-    Node* getTerritories(); //temporary function just for testing
+    Node* getTerritories() const; //temporary function just for testing
+    Continent** getContinents() const; //temporary function just for testing
 };
 
 #endif /* WORLD_H */

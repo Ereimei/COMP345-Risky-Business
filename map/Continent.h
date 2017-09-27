@@ -16,13 +16,28 @@
 #ifndef CONTINENT_H
 #define CONTINENT_H
 
+#include "Territory.h"
+
+#include <string>
+#include <cstdlib>
+#include <iostream>
+
+using std::string;
+using std::cerr;
+
 class Continent {
 public:
     Continent();
-    Continent(const Continent& orig);
+    Continent(string n, unsigned int terrsCount);
     virtual ~Continent();
+    void addTerritory(Territory* terr);
+    string getName() const;
+    unsigned int getTerritoriesCount() const;
 private:
-
+    const string name;
+    const unsigned int territoriesCount;
+    unsigned int insertPosition;
+    Territory** territories;
 };
 
 #endif /* CONTINENT_H */

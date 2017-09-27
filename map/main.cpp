@@ -14,6 +14,7 @@ using std::string;
 
 #include "Territory.h"
 #include "World.h"
+#include "Continent.h"
 
 #define NEWLINE '\n'
 
@@ -23,21 +24,44 @@ void createMap(World* world);
  * 
  */
 int main(int argc, char** argv) {
-    World* world = new World(10);
+    World* world = new World(4, 2);
     createMap(world);
     cout << world->getTerritories()[0].territory->getName() << NEWLINE;
     cout << world->getTerritories()[0].adjacentTerritories[0]->getName() << NEWLINE;
     cout << world->getTerritories()[0].adjacentTerritories[1]->getName() << NEWLINE;
+    cout << world->getTerritories()[1].territory->getName() << NEWLINE;
+    cout << world->getTerritories()[1].adjacentTerritories[0]->getName() << NEWLINE;
+    cout << world->getTerritories()[1].adjacentTerritories[1]->getName() << NEWLINE;
     return 0;
 }
 
 void createMap(World* world) {
+    Continent** continents = new Continent*[world->getContinentsCount()];
+    continents[0] = new Continent("North America", 3);
+    continents[1] = new Continent("Asia", 1);
     Territory* territory1 = new Territory("Alaska", "North America");
+    continents[0]->addTerritory(territory1);
     Territory* territory2 = new Territory("Yukon", "North America");
+    continents[0]->addTerritory(territory2);
     Territory* territory3 = new Territory("North Pole", "North America");
-    Territory** adjTerrs = new Territory*[2];
-    adjTerrs[0] = territory2;
-    adjTerrs[1] = territory3;
-    world->addTerritory(territory1, 2, adjTerrs);
+    continents[0]->addTerritory(territory3);
+    Territory* territory4 = new Territory("Russia", "Asia");
+    continents[1]->addTerritory(territory4);
+    Territory** adjTerrs1 = new Territory*[2];
+    Territory** adjTerrs2 = new Territory*[2];
+    Territory** adjTerrs3 = new Territory*[2];
+    Territory** adjTerrs4 = new Territory*[1];
+    world->addContinents(continents);
+    adjTerrs1[0] = territory2;
+    adjTerrs1[1] = territory3;
+    world->addTerritory(territory1, 2, adjTerrs1);
+    adjTerrs2[0] = territory1;
+    adjTerrs2[1] = territory3;
+    world->addTerritory(territory2, 2, adjTerrs2);
+    adjTerrs3[0] = territory1;
+    adjTerrs3[1] = territory2;
+    world->addTerritory(territory3, 2, adjTerrs3);
+    adjTerrs4[0] = territory3;
+    world->addTerritory(territory4, 1, adjTerrs4); //just testing to see if you can go out of bounds
 }
 

@@ -15,17 +15,18 @@
 
 #include "World.h"
 
-World::World() : territoriesCount(0), insertPosition(0) {
+World::World() : territoriesCount(0),
+    insertPosition(0),
+    continentsCount(0) {
+    exit(EXIT_FAILURE);
+}
+
+World::World(unsigned int terrsCount, unsigned int contsCount) : territoriesCount(terrsCount),
+    insertPosition(0),
+    continentsCount(contsCount) {
     Node* terr = new Node[territoriesCount];
     territories = terr;
 }
-
-World::World(unsigned int terrcount) : territoriesCount(terrcount), insertPosition(0) {
-    Node* terr = new Node[territoriesCount];
-    territories = terr;
-}
-
-World::World(const World& orig) {}
 
 World::~World() {}
 
@@ -35,6 +36,8 @@ void World::addTerritory(Territory* terr, unsigned int adjCount, Territory** adj
         territories[insertPosition].adjacentCount = adjCount;
         territories[insertPosition].adjacentTerritories = adjTerrs;
         ++insertPosition;
+    } else {
+        cerr << "World is already full!\n";
     }
 }
 
@@ -42,4 +45,23 @@ World::Node::Node() : territory(NULL), adjacentTerritories(NULL), adjacentCount(
     
 }
 
-World::Node* World::getTerritories() {return territories;}
+unsigned int World::getContinentsCount() const {return continentsCount;}
+
+unsigned int World::getTerritoriesCount() const {return territoriesCount;}
+
+void World::addContinents(Continent** conts) {
+    unsigned int terrsCount = 0;
+    for (unsigned int n = 0; n < continentsCount; ++n) {
+        terrsCount += conts[n]->getTerritoriesCount(); //what if the pointer is null? yolo!
+    }
+    if (terrsCount == territoriesCount) {
+        continents = conts;
+    } else {
+        cerr << "Your continents have to have the same number of territories as the whole map!\n";
+        exit(EXIT_FAILURE);
+    }
+}
+
+World::Node* World::getTerritories() const {return territories;}
+
+Continent** World::getContinents() const {return continents;}
