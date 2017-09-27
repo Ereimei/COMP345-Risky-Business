@@ -14,11 +14,11 @@
 #ifndef MAPLOADER_H
 #define MAPLOADER_H
 
-class MapLoader {
+class Maploader {
 public:
-    MapLoader();
-    MapLoader(const MapLoader& orig);
-    virtual ~MapLoader();
+    Maploader();
+    Maploader(const Maploader& orig);
+    virtual ~Maploader();
 private:
 
 };

@@ -11,14 +11,14 @@
  * Created on September 25, 2017, 7:12 PM
  */
 
-#include "MapLoader.h"
+#include "Maploader.h"
 
-MapLoader::MapLoader() {
+Maploader::Maploader() {
 }
 
-MapLoader::MapLoader(const MapLoader& orig) {
+Maploader::Maploader(const Maploader& orig) {
 }
 
-MapLoader::~MapLoader() {
+Maploader::~Maploader() {
 }
 
