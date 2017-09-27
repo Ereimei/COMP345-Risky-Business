@@ -13,7 +13,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>MapLoader.cpp</itemPath>
+      <itemPath>Maploader.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -38,9 +38,9 @@
       </toolsSet>
       <compileType>
       </compileType>
-      <item path="MapLoader.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="MapLoader.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Maploader.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -65,9 +65,9 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="MapLoader.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="MapLoader.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Maploader.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>

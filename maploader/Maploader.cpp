@@ -13,12 +13,18 @@
 
 #include "Maploader.h"
 
-Maploader::Maploader() {
-}
+//Default constructor
+Maploader::Maploader(const string fileName) : fileName(fileName) {this->generateWorld(fileName);}
+//Copy constructor
+Maploader::Maploader(const Maploader& orig) : fileName(orig.getFileName()) {}
+//Destructor
+Maploader::~Maploader() {}
 
-Maploader::Maploader(const Maploader& orig) {
-}
+//Getters
+const string Maploader::getFileName() const {return fileName;}
 
-Maploader::~Maploader() {
-}
-
+//Other functions
+Maploader::generateWorld(string fileName) {}
+Maploader::analyseFile() {}
+Maploader::generateTerritories() {}
+Maploader::generateContinents() {}
