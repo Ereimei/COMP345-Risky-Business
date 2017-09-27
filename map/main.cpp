@@ -26,10 +26,10 @@ void createMap(World* world);
 int main(int argc, char** argv) {
     World* world = new World(4, 2);
     createMap(world);
-    cout << world->getTerritories()[0].territory->getName() << NEWLINE;
+    cout << world->getTerritories()[0].territory->getName() << " id: " << world->getTerritories()[0].territory->getId() << NEWLINE;
     cout << world->getTerritories()[0].adjacentTerritories[0]->getName() << NEWLINE;
     cout << world->getTerritories()[0].adjacentTerritories[1]->getName() << NEWLINE;
-    cout << world->getTerritories()[1].territory->getName() << NEWLINE;
+    cout << world->getTerritories()[1].territory->getName() << " id: " << world->getTerritories()[1].territory->getId() << NEWLINE;
     cout << world->getTerritories()[1].adjacentTerritories[0]->getName() << NEWLINE;
     cout << world->getTerritories()[1].adjacentTerritories[1]->getName() << NEWLINE;
     cout << world->getContinents()[0]->getName() << NEWLINE;

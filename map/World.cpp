@@ -62,6 +62,10 @@ void World::addContinents(Continent** conts) {
     }
 }
 
+void World::DFS() {
+    
+}
+
 World::Node* World::getTerritories() const {return territories;}
 
 Continent** World::getContinents() const {return continents;}

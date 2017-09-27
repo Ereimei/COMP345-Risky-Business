@@ -15,9 +15,12 @@
 
 #include "Territory.h"
 
+unsigned int Territory::objectCount = 0;
+
 Territory::Territory(string n) : armies(0),
     owner(""),
-    name(n) {}
+    name(n),
+    id(objectCount++) {}
 
 Territory::~Territory() {}
 
@@ -26,3 +29,4 @@ string Territory::getOwner() const {return owner;}
 string Territory::getName() const {return name;}
 void Territory::setArmies(unsigned int arm) {armies = arm;}
 void Territory::setOwner(string own) {owner = own;}
+unsigned int Territory::getId() {return id;}

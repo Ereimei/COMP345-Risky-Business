@@ -42,6 +42,7 @@ private:
         Territory** adjacentTerritories;
         unsigned int adjacentCount;
     };
+    void DFS();
     const unsigned int territoriesCount;
     const unsigned int continentsCount;
     unsigned int insertPosition;

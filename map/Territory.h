@@ -32,8 +32,10 @@ public:
     string getName() const;
     void setArmies(unsigned int arm);
     void setOwner(string own);
+    unsigned int getId();
 private:
-    unsigned int armies;
+    static unsigned int objectCount;
+    unsigned int armies, id;
     string owner;
     const string name;
 };
