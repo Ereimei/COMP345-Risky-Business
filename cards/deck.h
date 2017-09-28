@@ -25,7 +25,7 @@ Created on September 24, 2017, 3:48 PM */
 #define DECK_H
 #include <vector>
 
-/*
+
 class Deck 
 {
 private:
@@ -35,7 +35,8 @@ public:
     void shuffle();
     Card draw();
     const bool isEmpty() { return deck.empty(); }
+    void display();
 };
-*/
+
 
 #endif /* DECK_H */

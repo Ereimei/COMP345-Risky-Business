@@ -24,13 +24,16 @@ Created on September 24, 2017, 3:48 PM */
 
 #include <cmath>
 #include <algorithm>
+#include <string>
+#include <iostream>
 
-/*
+using std::cout;
+
 void Deck::shuffle()
 {
     // Get the maximum amount of each card type available
     int typesRemaining[Card::CARD_TYPES.size()];
-    for (int i = 0; i < sizeof(typesRemaining)/sizeof(int); i++ )
+    for (int i = 0; i < Card::CARD_TYPES.size(); i++ )
     {
         typesRemaining[i] = ceil((double)Card::COUNTRIES.size() / Card::CARD_TYPES.size());
     }
@@ -42,7 +45,7 @@ void Deck::shuffle()
     {
         int randomCountryIndex = rand() % countries.size();
         std::string randomCountry = countries.at(randomCountryIndex);
-        countries.erase(countries.begin() + randomCountryIndex - 1);
+        countries.erase(countries.begin() + randomCountryIndex);
         
         int randomTypeIndex = rand() % Card::CARD_TYPES.size();
         while(typesRemaining[randomTypeIndex] == 0){
@@ -51,6 +54,7 @@ void Deck::shuffle()
         
         std::string randomType = Card::CARD_TYPES.at(randomTypeIndex);
         typesRemaining[randomTypeIndex] -= 1; 
+        
         
         deck.push_back(Card(randomCountry, randomType));
     }
@@ -62,4 +66,10 @@ Card Deck::draw()
     deck.pop_back();
     return drawnCard;
 }
-*/
+
+void Deck::display()
+{
+    for(int i = 0; i < deck.size(); i++){
+        cout << "Country: " << deck[i].getCountry() << ", Type: " << deck[i].getType() << std::endl;
+    }
+}

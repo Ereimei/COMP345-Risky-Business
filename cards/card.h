@@ -23,13 +23,12 @@ Created on September 24, 2017, 4:23 PM */
 #define CARD_H
 #include <vector>
 #include <string>
-    
 
 class Card{
         
 public:
-    //static const std::vector<std::string> COUNTRIES;
-    //static const std::vector<std::string> CARD_TYPES;
+    static const std::vector<std::string> COUNTRIES;
+    static const std::vector<std::string> CARD_TYPES;
     
 private:
     

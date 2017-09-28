@@ -25,15 +25,21 @@ Created on September 25, 2017, 9:49 PM */
 #define HAND_H
 #include <vector>
 
-/*
+
 class Hand{
 private:
     static int counterArmy;
-
+    int army = 4;
     std::vector<Card> playerHand = std::vector<Card>();
 public:
     int exchange();
+    void insert(Card card);
+    void display();
+    int countType(std::string type);
+    void removeThree(std::string type);
+    void removeEach();
+    int getArmy();
 };
-*/
+
 #endif /* HAND_H */
 
