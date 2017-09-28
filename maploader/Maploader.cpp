@@ -12,15 +12,8 @@
  *
  * Created on September 25, 2017, 7:09 PM
  */
-#include <iostream>
-#include <fstream>
-#include <vector>
 
 #include "Maploader.h"
-
-using std::endl;
-using std::string;
-using std::vector;
 
 //Default constructor
 Maploader::Maploader(string fileName){

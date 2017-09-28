@@ -17,6 +17,13 @@
 #define MAPLOADER_H
 
 #include <vector>
+#include <iostream>
+#include <fstream>
+#include <vector>
+
+using std::endl;
+using std::string;
+using std::vector;
 
 #include "../map/map.h"
 
