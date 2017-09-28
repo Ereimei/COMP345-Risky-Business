@@ -1,3 +1,9 @@
 .dep.inc
 build
 private.xml
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
