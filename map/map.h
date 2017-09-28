@@ -23,11 +23,13 @@
 using std::string;
 using std::cout;
 using std::cerr;
+using std::endl;
 
 class Territory {
 public:
-    Territory(const Territory& orig);
+    Territory();
     Territory(string n);
+    Territory(const Territory& orig);
     virtual ~Territory();
     unsigned int getArmies() const;
     string getOwner() const;
@@ -46,6 +48,7 @@ class Continent {
 public:
     Continent();
     Continent(string n, unsigned int terrsCount);
+    Continent(const Continent& orig);
     virtual ~Continent();
     void addTerritory(Territory* terr);
     string getName() const;
@@ -62,6 +65,7 @@ class World {
 public:
     World();
     World(unsigned int terrsCount, unsigned int contsCount);
+    World(const World& orig);
     virtual ~World();
     void addTerritory(Territory* terr, unsigned int adjCount, Territory** adjTerrs);
     void addContinents(Continent** conts);

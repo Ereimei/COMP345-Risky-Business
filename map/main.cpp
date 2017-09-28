@@ -12,7 +12,7 @@
 using std::cout;
 using std::string;
 
-#include "map.h";
+#include "map.h"
 
 #define NEWLINE '\n'
 
@@ -22,7 +22,7 @@ void createMap(World* world);
  * 
  */
 int main(int argc, char** argv) {
-    World* world = new World(5, 2);
+    World* world = new World(4, 2);
     createMap(world);
     return 0;
 }
@@ -30,7 +30,7 @@ int main(int argc, char** argv) {
 void createMap(World* world) {
     Continent** continents = new Continent*[world->getContinentsCount()];
     continents[0] = new Continent("North America", 3);
-    continents[1] = new Continent("Asia", 2);
+    continents[1] = new Continent("Asia", 1);
     world->addContinents(continents);
     Territory* territory1 = new Territory("Alaska");
     continents[0]->addTerritory(territory1);
@@ -40,7 +40,6 @@ void createMap(World* world) {
     continents[0]->addTerritory(territory3);
     Territory* territory4 = new Territory("Russia");
     continents[1]->addTerritory(territory4);
-    Territory* territory5 = new Territory("Moon");
     Territory** adjTerrs1 = new Territory*[2];
     Territory** adjTerrs2 = new Territory*[2];
     Territory** adjTerrs3 = new Territory*[3];
@@ -57,6 +56,5 @@ void createMap(World* world) {
     world->addTerritory(territory3, 3, adjTerrs3);
     adjTerrs4[0] = territory3;
     world->addTerritory(territory4, 1, adjTerrs4);
-    world->addTerritory(territory5, 0, NULL);
 }
 
