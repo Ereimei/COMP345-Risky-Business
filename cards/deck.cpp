@@ -35,7 +35,16 @@ void Deck::shuffle()
     int typesRemaining[Card::CARD_TYPES.size()];
     for (int i = 0; i < Card::CARD_TYPES.size(); i++ )
     {
-        typesRemaining[i] = ceil((double)Card::COUNTRIES.size() / Card::CARD_TYPES.size());
+        typesRemaining[i] = (Card::COUNTRIES.size() / Card::CARD_TYPES.size());
+    }
+    
+    if(typesRemaining[0] * Card::CARD_TYPES.size() != Card::COUNTRIES.size())
+    {
+        int mod = (Card::COUNTRIES.size()% Card::CARD_TYPES.size());
+        for(int x = 0; x < mod ; x++)
+        {
+            typesRemaining[x]++;
+        }
     }
     
     // Copy the list of countries into another list to modify
