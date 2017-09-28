@@ -5,14 +5,14 @@
  */
 
 /* 
- * File:   dice.h
+ * File:   Diepool.h
  * Author: James
  *
  * Created on September 25, 2017, 9:20 PM
  */
 
-#ifndef DICE_H
-#define DICE_H
+#ifndef DIEPOOL_H
+#define DIEPOOL_H
 
 class Diepool{
     private:

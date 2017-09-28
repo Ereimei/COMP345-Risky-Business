@@ -7,7 +7,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <ctime>
-#include "dice.h"
+#include "Diepool.h"
 
 using std::cout;
 
