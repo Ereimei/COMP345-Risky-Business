@@ -16,6 +16,8 @@
 #ifndef MAPLOADER_H
 #define MAPLOADER_H
 
+#include <vector>
+
 #include "../map/Continent.h"
 #include "../map/Territory.h"
 #include "../map/World.h"
@@ -24,13 +26,11 @@ class Maploader {
 public:
     //Default Constructor
     Maploader(string fileName);
-    //Copy constructor
-    Maploader(const Maploader& orig);
     //Destructor
     virtual ~Maploader();
     
     //Getters
-    const string getFileName();
+    string getFileName();
     
 private:
     //Attributes
@@ -38,8 +38,8 @@ private:
 
     //Other functions
     generateWorld(string fileName);
-    analyseFile();
-    generateMap();
+    std::vector<int> analyseFile(string fileName);
+    generateMap(string fileName, World* world);
 
     
 };

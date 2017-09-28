@@ -17,15 +17,18 @@
 #include <iostream>
 #include "Maploader.h"
 
+#include "../map/World.h"
+
 using namespace std;
 
 int main(int argc, char** argv) {
-    const string fileName;
+    string fileName;
     cout << "Please enter the name of the map file." << endl;
     cin >> fileName;
     
     //Generating the world
     Maploader mapLoader(fileName);
+    
     
 }
 

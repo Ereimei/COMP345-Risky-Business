@@ -13,48 +13,117 @@
  * Created on September 25, 2017, 7:09 PM
  */
 #include <iostream>
-#include <tuple>
+#include <fstream>
+#include <vector>
+
 #include "Maploader.h"
 #include "../map/Continent.h"
 #include "../map/World.h"
 #include "../map/Territory.h"
 
+using std::endl;
+using std::string;
+using std::vector;
 
 //Default constructor
 Maploader::Maploader(const string fileName) : fileName(fileName) {this->generateWorld(fileName);}
-//Copy constructor
-Maploader::Maploader(const Maploader& orig) : fileName(orig.getFileName()) {}
+
 //Destructor
 Maploader::~Maploader() {}
 
 //Getters
-const string Maploader::getFileName() const {return fileName;}
+string Maploader::getFileName() {return fileName;}
 
 //Other functions
 Maploader::generateWorld(string fileName) {
-    int* values;
+    vector<int> values;
     int numTerritories;
     int numContinents;
     
     values = analyseFile(fileName);
-    numTerritories = &values++;
-    numContinents = &values;
+    numTerritories = values.at(0);
+    numContinents = values.at(1);
     
-    World* world = new World(numTerritories, numContinents);
+    cout << numTerritories << endl;
+    cout << numContinents << endl;
     
-    generateMap(fileName, world);
+    //World* world = new World(numTerritories, numContinents);
+    //Maploader::generateMap(fileName, world);
+
     
 }
 //Returns a pointer to an array that contains two int: the amount of territories & continents
-int* Maploader::analyseFile(string fileName) {}
+vector<int> Maploader::analyseFile(string fileName) {
+    
+    int continentsAmount = 0;
+    int territoriesAmount = 0;
+    
+    std::ifstream reader(fileName);
+    
+    if (!reader){
+        
+        cout << "Error opening map file." << endl;
+        vector<int> err(2);
+        return err;
+        
+    } else {
+        
+        string line;
+        
+        //Skipping useless information at top of file
+        for (int i = 0; i < 8; i ++){
+            std::getline(reader, line);
+        }
+        //Counting the amount of 
+        for (;reader.peek() != '\n';){
+            std::getline(reader, line);
+            cout << line << endl;
+            continentsAmount++;
+        }
+        std::getline(reader, line);
+        for (;!reader.eof();){
+            std::getline(reader, line);
+            cout << line << endl;
+            territoriesAmount++;
+        }
+
+        
+        reader.close();
+        
+    }
+
+    vector<int> test(2);
+    
+    test.at(0) = territoriesAmount;
+    test.at(1) = continentsAmount;
+    
+    return test;
+}
 
 //Will add the required continents to the world
 Maploader::generateMap(string fileName, World* world) {
-
+    
     //First we generate the continents of the world
-    Continent** continents = new Continent*[world->getContinentsCount()];
+    //Continent** continents = new Continent*[world->getContinentsCount()];
     
+    //Opening input file stream
+    std::ifstream reader(fileName);
     
+    if (!reader){
+        
+        cout << "Error opening map file." << endl;
+        return -1;
+        
+    } else {
+        string line;
+        for (int i = 0; !reader.eof(); i++){
+            
+            std::getline(reader, line);
+            cout << line;
+            
+            reader.close();
+        }
+    }
     
     
     
