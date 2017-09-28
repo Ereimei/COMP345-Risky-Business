@@ -26,7 +26,7 @@ int main(int argc, char** argv) {
     cout << "Please enter the name of the map file." << endl;
     cin >> fileName;
     //Generating the world
-    Maploader mapLoader(fileName);
+    Maploader* mapLoader = new Maploader(fileName);
     
 }
 

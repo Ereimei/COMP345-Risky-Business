@@ -24,31 +24,28 @@
 using std::endl;
 using std::string;
 using std::vector;
+using std::ifstream;
+using std::cout;
+using std::cerr;
 
 #include "../map/map.h"
 
 class Maploader {
 public:
-    //Default Constructor
-    Maploader(string fileName);
-    //Destructor
-    virtual ~Maploader();
-    
-    //Getters
+    Maploader(string fn);
+    virtual ~Maploader();    
     string getFileName();
-    
-    generateWorld(World* world, string fileName);
-    
+    generateWorld(World* world, string fileName);    
 private:
-    //Attributes
+    std::vector<int> analyseFile(string fileName);
+    generateMap(string fileName, World* world);  
+    void scanFile();
+    bool fileExists();
+    bool validMapFile();
+    unsigned int countContinents();
+    unsigned int countTerritories();
     const string fileName;
     World* world;
-    
-    //Other functions
-    std::vector<int> analyseFile(string fileName);
-    generateMap(string fileName, World* world);
-
-    
 };
 
 #endif /* MAPLOADER_H */

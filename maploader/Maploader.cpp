@@ -15,113 +15,127 @@
 
 #include "Maploader.h"
 
-//Default constructor
-Maploader::Maploader(string fileName){
-    fileName = fileName; 
-    generateWorld(world, fileName);
+Maploader::Maploader(string fn) : fileName(fn) {
+    scanFile();
 }
 
-//Destructor
 Maploader::~Maploader() {}
 
-//Getters
 string Maploader::getFileName() {return fileName;}
 
-
-
-//Other functions
-Maploader::generateWorld(World* world, string fileName) {
-    vector<int> values;
-    int numTerritories;
-    int numContinents;
-    
-    values = analyseFile(fileName);
-    numTerritories = values.at(0);
-    numContinents = values.at(1);
-
-    Maploader::generateMap(fileName, world);
-
-    
-}
-//Returns a pointer to an array that contains two int: the amount of territories & continents
-vector<int> Maploader::analyseFile(string fileName) {
-    
-    int continentsAmount = 0;
-    int territoriesAmount = 0;
-    
-    std::ifstream reader(fileName);
-    
-    if (!reader){
-        
-        cout << "Error opening map file." << endl;
-        vector<int> err(2);
-        return err;
-        
+void Maploader::scanFile() {
+    unsigned int territoriesCount, continentsCount;
+    if (fileExists()){
+        cout << fileName << " found, beginning scan..." << endl;
+        if (validMapFile()) {
+            //count the continents / territories
+            cout << "This is a valid map file" << endl;
+            continentsCount = countContinents();
+            cout << "Number of continents: " << continentsCount << endl;
+            territoriesCount = countTerritories();
+            cout << "Number of territories: " << territoriesCount << endl;
+            
+            //create the world
+            world = new World(territoriesCount, continentsCount);
+            cout << "Map has been initialized, now populating map..." << endl;
+            
+            
+            
+        } else {
+            cout << "This is not a valid map file" << endl;
+        }        
     } else {
-        
-        string line;
-        
-        //Skipping useless information at top of file
-        for (int i = 0; i < 8; i ++){
-            std::getline(reader, line);
-        }
-        
-        //Counting the amount of continents
-        for (;line != "";){
-            std::getline(reader, line);
-            if (line != ""){
-                continentsAmount++;
-            }
-        }
-        
-        std::getline(reader, line);
-        
-        //Counting amount of territories
-        for (;!reader.eof();){
-            std::getline(reader, line);
-            if (line != ""){
-                territoriesAmount++;
-            }
-        }
-        
-        reader.close();
+        cout << fileName << " not found, terminating map loader..." << endl;
     }
-
-    vector<int> test(2);
-    
-    test.at(0) = territoriesAmount;
-    test.at(1) = continentsAmount;
-    
-    return test;
 }
 
-//Will add the required continents to the world
-Maploader::generateMap(string fileName, World* world) {
+bool Maploader::fileExists() {
+    bool result = false;
+    if (ifstream(fileName)) {
+        result = true;
+    }
+    return result;
+}
+
+//3 conditions for valid map, has: [Map], [Continents], [Territories]
+bool Maploader::validMapFile() {
+    unsigned int conditionsCount = 3, conditionsPosition = 0;
+    bool result = true;
+    bool conditionsMet[conditionsCount];
+    string line;
+    string conditions[3];
+    ifstream file(fileName);
+    for (int n = 0; n < conditionsCount; ++n) {
+        conditionsMet[n] = false;
+    }
+    conditions[0] = "[Map]";
+    conditions[1] = "[Continents]";
+    conditions[2] = "[Territories]";
     
-    //First we generate the continents of the world
-    //Continent** continents = new Continent*[world->getContinentsCount()];
-    
-    //Opening input file stream
-    std::ifstream reader(fileName);
-    
-    if (!reader){
-        
-        cout << "Error opening map file." << endl;
-        return -1;
-        
+    if (file.is_open()) {
+        while (getline(file, line)) {
+            if (line == conditions[conditionsPosition]) {
+                conditionsMet[conditionsPosition] = true;
+                ++conditionsPosition;
+            }    
+        }
+        file.close();
     } else {
-        string line;
-        for (int i = 0; !reader.eof(); i++){
-            
-            std::getline(reader, line);
-            cout << line;
-            
-            reader.close();
+        cerr << "An error occurred trying to open " << fileName << endl;
+    }
+    for (int n = 0; n < conditionsCount; ++n) {
+        if (!conditionsMet[n]) {
+            result = false;
+            break;
         }
     }
-    
-    
-    
+    return result;
 }
 
+unsigned int Maploader::countContinents() {
+    unsigned int result = 0;
+    bool startCounting = false;
+    string line;
+    ifstream file(fileName);
+    if (file.is_open()) {
+        while (getline (file, line)) {
+            if (line == "[Continents]") {
+                startCounting = true;
+                continue;
+            }
+            if (startCounting) {
+                if (line == "") {
+                    break;
+                }
+                ++result;
+            }
+        }
+    } else {
+        cerr << "An error occurred trying to open " << fileName << endl;
+    }
+    return result;
+}
 
+unsigned int Maploader::countTerritories() {
+    unsigned int result = 0;
+    bool startCounting = false;
+    string line;
+    ifstream file(fileName);
+    if (file.is_open()) {
+        while (getline (file, line)) {
+            if (line == "[Territories]") {
+                startCounting = true;
+                continue;
+            }
+            if (startCounting) {
+                if (line == "") {
+                    continue;
+                }
+                ++result;
+            }
+        }
+    } else {
+        cerr << "An error occurred trying to open " << fileName << endl;
+    }
+    return result;
+}
