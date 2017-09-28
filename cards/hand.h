@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+#include "card.h"
+
 /*
 
 File: hand.h
@@ -21,16 +23,17 @@ Created on September 25, 2017, 9:49 PM */
 
 #ifndef HAND_H
 #define HAND_H
-#include <list>
+#include <vector>
 
-static const int counterArmy = 0;
-
+/*
 class Hand{
 private:
-    std::list<Card> playerHand;
+    static int counterArmy;
+
+    std::vector<Card> playerHand = std::vector<Card>();
 public:
     int exchange();
 };
-
+*/
 #endif /* HAND_H */
 

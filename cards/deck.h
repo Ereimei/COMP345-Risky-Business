@@ -23,18 +23,19 @@ Created on September 24, 2017, 3:48 PM */
 
 #ifndef DECK_H
 #define DECK_H
-#include <list>
+#include <vector>
 
+/*
 class Deck 
 {
 private:
-    std::list <Card> deck[sizeof(countries)];
+    std::vector<Card> deck = std::vector<Card>();
         
 public:
     void shuffle();
     Card draw();
-    
+    const bool isEmpty() { return deck.empty(); }
 };
-
+*/
 
 #endif /* DECK_H */

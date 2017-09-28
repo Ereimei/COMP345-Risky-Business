@@ -22,40 +22,39 @@ Assignment # 1
 Professor: Dr. Joey Paquet
 Created on September 24, 2017, 3:48 PM */
 
-#include <list>
+#include <cmath>
+#include <algorithm>
 
+/*
 void Deck::shuffle()
 {
-    int typesRemaining[sizeof(cardTypes)];
-    
-    for (int i = 0; i < sizeof(typesRemaining); i++ )
+    // Get the maximum amount of each card type available
+    int typesRemaining[Card::CARD_TYPES.size()];
+    for (int i = 0; i < sizeof(typesRemaining)/sizeof(int); i++ )
     {
-        typesRemaining[i] = ceil(sizeof(countries) / sizeof(cardTypes));
+        typesRemaining[i] = ceil((double)Card::COUNTRIES.size() / Card::CARD_TYPES.size());
     }
     
-    std::list<std::string> listCountry = getAllCountry();
-    int typePosition;
-    std::string randomCountry;
-    std::string randomType;
+    // Copy the list of countries into another list to modify
+    std::vector<std::string> countries(Card::COUNTRIES.begin(), Card::COUNTRIES.end());
     
-    for (int n = 0; n < sizeof(countries); n++ )
+    for (int n = 0; n < Card::COUNTRIES.size(); n++ )
     {
-        randomCountry = std[rand()/sizeof(countries)];
-        listCountry.remove(randomCountry);
+        int randomCountryIndex = rand() % countries.size();
+        std::string randomCountry = countries.at(randomCountryIndex);
+        countries.erase(countries.begin() + randomCountryIndex - 1);
         
-        typePosition = rand()/sizeof(cardTypes);
-        while(typesRemaining[typePosition] == 0){
-            typePosition++;
+        int randomTypeIndex = rand() % Card::CARD_TYPES.size();
+        while(typesRemaining[randomTypeIndex] == 0){
+            randomTypeIndex = (randomTypeIndex + 1) % Card::CARD_TYPES.size();
         }
         
-        randomType = cardTypes[typePosition];
-        typesRemaining[typePosition] -= 1; 
+        std::string randomType = Card::CARD_TYPES.at(randomTypeIndex);
+        typesRemaining[randomTypeIndex] -= 1; 
         
-        deck[n] = Card(randomCountry, randomType);
+        deck.push_back(Card(randomCountry, randomType));
     }
 }
-
-
 
 Card Deck::draw()
 {
@@ -63,3 +62,4 @@ Card Deck::draw()
     deck.pop_back();
     return drawnCard;
 }
+*/

@@ -5,8 +5,8 @@
  */
 
 #include "hand.h"
-#include "deck.h"
 #include "card.h"
+#include "deck.h"
 
 /*
 
@@ -23,11 +23,15 @@ Assignment # 1
 Professor: Dr. Joey Paquet
 Created on September 25, 2017, 9:49 PM */
 
+/*
+int Hand::counterArmy = 0;
+
 int Hand::exchange(){
     
+    std::string ownedCountry = "";
     int army = 4;
-    int counterType[3];
-    for(int i = 0; i < sizeof(counterType); i++)
+    int counterType[Card::CARD_TYPES.size()];
+    for(int i = 0; i < sizeof(counterType)/sizeof(int); i++)
     {
         counterType[i] = 0;
     }
@@ -48,8 +52,8 @@ int Hand::exchange(){
         }
         /*if(playerHand[n].getCountry == "owned country")
         {
-            that country get two extra armies
-        }*/
+         ownedCountry == "owned country"
+        }*//*
     }   
     if(counterType[0]==3 || counterType[1]==3 || counterType[2]==3 )
     {
@@ -60,23 +64,34 @@ int Hand::exchange(){
         counterArmy ++;
     }
     
+
+     if(ownedCountry != ""){
+         //add two armies to country
+    }
+
+    
     if(counterArmy == 1)
     {
+        counterArmy ++;
         return army;
     }else
     if(counterArmy<=5)
     {
+        counterArmy ++;
         army+=2;
         return army;
     }else
     if(counterArmy==6)
     {
+        counterArmy ++;
         army+=3;
         return army;
     }else{
+        counterArmy ++;
         army+=5;
         return army;
     }
     
     
 }
+*/

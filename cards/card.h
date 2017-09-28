@@ -21,23 +21,25 @@ Created on September 24, 2017, 4:23 PM */
 
 #ifndef CARD_H
 #define CARD_H
-#include <list>
+#include <vector>
 #include <string>
     
+
 class Card{
         
+public:
+    //static const std::vector<std::string> COUNTRIES;
+    //static const std::vector<std::string> CARD_TYPES;
+    
 private:
-    std::list<std::string> countries[9] = {"Canada", "US", "China", "Brazil", "Mexico", "India", "Japan", "Germany", "France"};
-    std::list<std::string> cardTypes[3] = {"Infantry", "Artillery", "Cavalry"};
-    char* country;
-    char* type;
+    
+    std::string m_Country;
+    std::string m_Type;
     
 public:
-    Card(std::string country, std::string cardType);    
-    const std::string getCountry(){return country;}
-    const std::string getType(){return type;}
-    const std::list<std::string> getAllCountry(){return countries;}
-    const std::list<std::string> getAllTypes(){return cardTypes;}
+    Card(std::string country, std::string type) : m_Country(country), m_Type(type) { }  
+    const std::string getCountry(){return m_Country;}
+    const std::string getType(){return m_Type;}
     
 };
 
