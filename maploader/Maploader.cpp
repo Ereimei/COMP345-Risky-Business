@@ -74,18 +74,25 @@ vector<int> Maploader::analyseFile(string fileName) {
         for (int i = 0; i < 8; i ++){
             std::getline(reader, line);
         }
-        //Counting the amount of 
-        for (;reader.peek() != '\n';){
-            std::getline(reader, line);
-            cout << line << endl;
-            continentsAmount++;
-        }
-        std::getline(reader, line);
-        std::getline(reader, line);
+        
+        //Counting the amount of continents
         for (;!reader.eof();){
             std::getline(reader, line);
-            cout << line << endl;
-            territoriesAmount++;
+            if (line != ""){
+                continentsAmount++;
+            } else {
+                break;
+            }    
+        }
+        
+        std::getline(reader, line);
+        cout << line << endl;
+        //Counting amount of territories
+        for (;!reader.eof();){
+            std::getline(reader, line);
+            if (line != ""){
+                territoriesAmount++;
+            }
         }
 
         
@@ -95,7 +102,7 @@ vector<int> Maploader::analyseFile(string fileName) {
 
     vector<int> test(2);
     
-    test.at(0) = --territoriesAmount;
+    test.at(0) = territoriesAmount;
     test.at(1) = continentsAmount;
     
     return test;
