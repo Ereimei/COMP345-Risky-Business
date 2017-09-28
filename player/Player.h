@@ -16,39 +16,48 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "../map/Territory.h"
+
+#include <iostream>
+#include <vector>
+
+
+#include "../map/map.h"
 #include "../dice/Diepool.h"
-#include "../cards/Hand.h"
+#include "../cards/hand.h"
+
+
+using std::vector;
+
 
 class Player {
 public:
-    //Default Constructor
-    Player(vector<Territory> territories, Hand hand, Diepool diepool);
     //Constructor
-    Player(const Player& orig);
+    Player(vector<Territory> territories, Hand* hand, Diepool* diepool);
     //Destructor
     virtual ~Player();
     
     //Getters
     vector<Territory> getTerritories();
-    Hand getHand();
-    Diepool getDiepool();
+    Hand* getHand();
+    Diepool* getDiepool();
     
     //Setters
-    setTerritories(vector<Territory>);
-    setHand(Hand hand);
-    setDiePool(Diepool diepool);
+    setHand(Hand* hand);
+    setDiePool(Diepool* diepool);
     
     //Player functions
-    reinforce();
-    attack();
-    fortify();
+    addTerritory(Territory);
+    removeTerritory(Territory);
+    
+    string reinforce();
+    string attack();
+    string fortify();
     
 private:
     //Player attributes
     vector<Territory> territories;
-    Hand hand;
-    Diepool diepool;
+    Hand* hand;
+    Diepool* diepool;
     
 };
 
