@@ -81,6 +81,7 @@ vector<int> Maploader::analyseFile(string fileName) {
             continentsAmount++;
         }
         std::getline(reader, line);
+        std::getline(reader, line);
         for (;!reader.eof();){
             std::getline(reader, line);
             cout << line << endl;
@@ -94,7 +95,7 @@ vector<int> Maploader::analyseFile(string fileName) {
 
     vector<int> test(2);
     
-    test.at(0) = territoriesAmount;
+    test.at(0) = --territoriesAmount;
     test.at(1) = continentsAmount;
     
     return test;
