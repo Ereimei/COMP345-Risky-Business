@@ -17,9 +17,22 @@
 
 unsigned int Territory::objectCount = 1;
 
+Territory::Territory() : armies(0),
+    owner(""),
+    name("Default"),
+    id(objectCount++) {
+    cerr << "Called Territory default constructor" << endl;
+    exit(EXIT_FAILURE);
+}
+
 Territory::Territory(string n) : armies(0),
     owner(""),
     name(n),
+    id(objectCount++) {}
+
+Territory::Territory(const Territory& orig) : armies(orig.getArmies()),
+    owner(orig.getOwner()),
+    name(orig.getName()),
     id(objectCount++) {}
 
 Territory::~Territory() {}
@@ -34,6 +47,7 @@ unsigned int Territory::getId() {return id;}
 Continent::Continent() : name(""),
     territoriesCount(0),
     insertPosition(0) {
+    cerr << "Called Continent default constructor" << endl;
     exit(EXIT_FAILURE);
 }
 
@@ -43,6 +57,10 @@ Continent::Continent(string n, unsigned int terrsCount) : name(n),
     Territory** terrs = new Territory*[territoriesCount];
     territories = terrs;
 }
+
+Continent::Continent(const Continent& orig) : name(orig.getName()),
+    territoriesCount(orig.getTerritoriesCount()),
+    insertPosition(0) {}
 
 Continent::~Continent() {
 }
@@ -65,12 +83,20 @@ Territory** Continent::getTerritories() const {return territories;}
 World::World() : territoriesCount(0),
     insertPosition(0),
     continentsCount(0) {
+    cerr << "Called World default constructor" << endl;
     exit(EXIT_FAILURE);
 }
 
 World::World(unsigned int terrsCount, unsigned int contsCount) : territoriesCount(terrsCount),
     insertPosition(0),
     continentsCount(contsCount) {
+    Node* terr = new Node[territoriesCount];
+    territories = terr;
+}
+
+World::World(const World& orig) : territoriesCount(orig.getTerritoriesCount()),
+    insertPosition(0),
+    continentsCount(orig.getContinentsCount()) {
     Node* terr = new Node[territoriesCount];
     territories = terr;
 }
