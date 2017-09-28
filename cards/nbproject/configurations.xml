@@ -6,7 +6,7 @@
                    projectFiles="true">
       <itemPath>card.h</itemPath>
       <itemPath>deck.h</itemPath>
-      <itemPath>nbproject/hand.h</itemPath>
+      <itemPath>hand.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -17,7 +17,7 @@
                    projectFiles="true">
       <itemPath>card.cpp</itemPath>
       <itemPath>deck.cpp</itemPath>
-      <itemPath>nbproject/hand.cpp</itemPath>
+      <itemPath>hand.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -50,11 +50,11 @@
       </item>
       <item path="deck.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="hand.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="hand.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="nbproject/hand.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="nbproject/hand.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -85,11 +85,11 @@
       </item>
       <item path="deck.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="hand.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="hand.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="nbproject/hand.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="nbproject/hand.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

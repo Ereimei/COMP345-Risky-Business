@@ -37,8 +37,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/card.o \
 	${OBJECTDIR}/deck.o \
-	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/nbproject/hand.o
+	${OBJECTDIR}/hand.o \
+	${OBJECTDIR}/main.o
 
 
 # C Compiler Flags
@@ -75,15 +75,15 @@ ${OBJECTDIR}/deck.o: deck.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/deck.o deck.cpp
 
+${OBJECTDIR}/hand.o: hand.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/hand.o hand.cpp
+
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
-
-${OBJECTDIR}/nbproject/hand.o: nbproject/hand.cpp
-	${MKDIR} -p ${OBJECTDIR}/nbproject
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/nbproject/hand.o nbproject/hand.cpp
 
 # Subprojects
 .build-subprojects:
