@@ -12,8 +12,13 @@
  *
  * Created on September 25, 2017, 7:09 PM
  */
-
+#include <iostream>
+#include <tuple>
 #include "Maploader.h"
+#include "../map/Continent.h"
+#include "../map/World.h"
+#include "../map/Territory.h"
+
 
 //Default constructor
 Maploader::Maploader(const string fileName) : fileName(fileName) {this->generateWorld(fileName);}
@@ -26,7 +31,33 @@ Maploader::~Maploader() {}
 const string Maploader::getFileName() const {return fileName;}
 
 //Other functions
-Maploader::generateWorld(string fileName) {}
-Maploader::analyseFile() {}
-Maploader::generateTerritories() {}
-Maploader::generateContinents() {}
+Maploader::generateWorld(string fileName) {
+    int* values;
+    int numTerritories;
+    int numContinents;
+    
+    values = analyseFile(fileName);
+    numTerritories = &values++;
+    numContinents = &values;
+    
+    World* world = new World(numTerritories, numContinents);
+    
+    generateMap(fileName, world);
+    
+}
+//Returns a pointer to an array that contains two int: the amount of territories & continents
+int* Maploader::analyseFile(string fileName) {}
+
+//Will add the required continents to the world
+Maploader::generateMap(string fileName, World* world) {
+
+    //First we generate the continents of the world
+    Continent** continents = new Continent*[world->getContinentsCount()];
+    
+    
+    
+    
+    
+}
+
+

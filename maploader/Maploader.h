@@ -39,8 +39,8 @@ private:
     //Other functions
     generateWorld(string fileName);
     analyseFile();
-    generateTerritories();
-    generateContinents();
+    generateMap();
+
     
 };
 
