@@ -18,9 +18,7 @@
 
 #include <vector>
 
-#include "../map/Territory.h"
-#include "../map/Continent.h"
-#include "../map/World.h"
+#include "../map/map.h"
 
 class Maploader {
 public:

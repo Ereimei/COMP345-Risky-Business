@@ -18,11 +18,6 @@
 
 #include "Maploader.h"
 
-#include "../map/Territory.h"
-#include "../map/Continent.h"
-#include "../map/World.h"
-
-
 using std::endl;
 using std::string;
 using std::vector;
@@ -30,7 +25,6 @@ using std::vector;
 //Default constructor
 Maploader::Maploader(string fileName){
     fileName = fileName; 
-    World* world = new World();
     generateWorld(world, fileName);
 }
 

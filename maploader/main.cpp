@@ -17,9 +17,7 @@
 #include <iostream>
 #include "Maploader.h"
 
-#include "../map/World.h"
-#include "../map/Continent.h"
-#include "../map/Territory.h"
+#include "../map/map.h"
 
 using namespace std;
 
