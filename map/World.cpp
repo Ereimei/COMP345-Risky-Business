@@ -36,6 +36,9 @@ void World::addTerritory(Territory* terr, unsigned int adjCount, Territory** adj
         territories[insertPosition].adjacentCount = adjCount;
         territories[insertPosition].adjacentTerritories = adjTerrs;
         ++insertPosition;
+        if (insertPosition == territoriesCount) {
+            DFS();
+        }
     } else {
         cerr << "World is already full!\n";
     }
@@ -52,7 +55,7 @@ unsigned int World::getTerritoriesCount() const {return territoriesCount;}
 void World::addContinents(Continent** conts) {
     unsigned int terrsCount = 0;
     for (unsigned int n = 0; n < continentsCount; ++n) {
-        terrsCount += conts[n]->getTerritoriesCount(); //what if the pointer is null? yolo!
+        terrsCount += conts[n]->getTerritoriesCount(); //what if the pointer points to null? yolo!
     }
     if (terrsCount == territoriesCount) {
         continents = conts;
@@ -63,7 +66,78 @@ void World::addContinents(Continent** conts) {
 }
 
 void World::DFS() {
-    
+    bool visited[territoriesCount];
+    unsigned int stack[territoriesCount + 1];
+    unsigned int idToVisit, stackPosition = 0, positionInArray, adjacentId, adjacentPositionInArray;
+    bool keepGoing = true, isConnected = true;
+    for (unsigned int n = 0; n < territoriesCount; ++n) {
+        visited[n] = false;
+        stack[n] = 0;
+    }
+    stack[stackPosition] = territories[0].territory->getId(); //set the point of entry into the graph
+    ++stackPosition;
+    while (keepGoing) {
+        keepGoing = false;
+        
+        //pop the stack
+        (stackPosition == 0) ? : --stackPosition;
+        idToVisit = stack[stackPosition];
+        stack[stackPosition] = 0;
+        
+        //visit the node
+        positionInArray = findPositionInArrayById(idToVisit);
+        cout << "trying to find id: " << idToVisit << "\n";
+        if (positionInArray >= territoriesCount) {
+            cerr << "Id not found in the array\n";
+            break;
+        }
+        visited[positionInArray] = true;
+        
+        //add adjacent territories to stack if they aren't visited
+        for (unsigned int n = 0; n < territories[positionInArray].adjacentCount; ++n) {
+            adjacentId = territories[positionInArray].adjacentTerritories[n]->getId();
+            adjacentPositionInArray = findPositionInArrayById(adjacentId);
+            if (!visited[adjacentPositionInArray]) {
+                
+                //push to stack
+                stack[stackPosition] = adjacentId;
+                ++stackPosition;
+                visited[adjacentPositionInArray] = true;
+                //I know the above statement hasn't actually visited the node
+                //but it's already in the stack so it will have to be visited
+                //this way if there is a cycle in the graph it won't get added
+                //to the stack another time in case there is a cycle in the graph
+            }
+        }
+        
+        //check if stack is empty        
+        for (unsigned int n = 0; n < territoriesCount; ++n) {
+            if (stack[n] > 0) {
+                keepGoing = true;
+                break;
+            }
+        }
+    }
+    for (int n = 0; n < territoriesCount; ++n) {
+        if (!visited[n]) {
+            isConnected = false;
+        }
+    }
+    if (isConnected) {
+        cout << "This is a connected graph!\n";
+    } else {
+        cerr << "This is not a connected graph\n";
+    }
+}
+
+unsigned int World::findPositionInArrayById(unsigned int id) {
+    unsigned int n;
+    for (n = 0; n < territoriesCount; ++n) {
+        if (territories[n].territory->getId() == id) {
+            break;
+        }
+    }
+    return n;
 }
 
 World::Node* World::getTerritories() const {return territories;}

@@ -43,6 +43,8 @@ private:
         unsigned int adjacentCount;
     };
     void DFS();
+    unsigned int findPositionInArrayById(unsigned int id); 
+    
     const unsigned int territoriesCount;
     const unsigned int continentsCount;
     unsigned int insertPosition;

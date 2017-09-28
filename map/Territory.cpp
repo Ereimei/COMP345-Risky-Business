@@ -15,7 +15,7 @@
 
 #include "Territory.h"
 
-unsigned int Territory::objectCount = 0;
+unsigned int Territory::objectCount = 1;
 
 Territory::Territory(string n) : armies(0),
     owner(""),
