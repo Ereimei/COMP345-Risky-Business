@@ -1,5 +1,5 @@
 /* 
- * File:   World.h
+ * File:   World.cpp
  *  *** AUTHORS ***
  * Patrick Bednarski, 40002239
  * Hiu Tung Lam (Emily), 26311326
@@ -13,17 +13,50 @@
  * Created on September 25, 2017, 3:17 PM
  */
 
-#ifndef WORLD_H
-#define WORLD_H
+#ifndef MAP_H
+#define MAP_H
 
-#include "Territory.h"
-#include "Continent.h"
-
+#include <string>
 #include <iostream>
 #include <cstdlib>
 
+using std::string;
 using std::cout;
 using std::cerr;
+
+class Territory {
+public:
+    Territory(const Territory& orig);
+    Territory(string n);
+    virtual ~Territory();
+    unsigned int getArmies() const;
+    string getOwner() const;
+    string getName() const;
+    void setArmies(unsigned int arm);
+    void setOwner(string own);
+    unsigned int getId();
+private:
+    static unsigned int objectCount;
+    unsigned int armies, id;
+    string owner;
+    const string name;
+};
+
+class Continent {
+public:
+    Continent();
+    Continent(string n, unsigned int terrsCount);
+    virtual ~Continent();
+    void addTerritory(Territory* terr);
+    string getName() const;
+    unsigned int getTerritoriesCount() const;
+    Territory** getTerritories() const;
+private:
+    const string name;
+    const unsigned int territoriesCount;
+    unsigned int insertPosition;
+    Territory** territories;
+};
 
 class World {
 public:
@@ -55,5 +88,4 @@ public:
     Continent** getContinents() const; //temporary function just for testing
 };
 
-#endif /* WORLD_H */
-
+#endif /* MAP_H */
