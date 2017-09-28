@@ -7,7 +7,7 @@
  * Olivier Trepanier-Desfosses, 27850956
  *	
  *** COMP 345 SECTION D ***
- * Assignment #
+ * Assignment #1
  * Professor: Dr. Joey Paquet
  *
  * Created on September 25, 2017, 3:20 PM
@@ -25,19 +25,19 @@ using std::cout;
 class Territory {
 public:
     Territory(const Territory& orig);
-    Territory(string n, string cont);
+    Territory(string n);
     virtual ~Territory();
     unsigned int getArmies() const;
     string getOwner() const;
     string getName() const;
-    string getContinent() const;
     void setArmies(unsigned int arm);
     void setOwner(string own);
+    unsigned int getId();
 private:
-    unsigned int armies;
+    static unsigned int objectCount;
+    unsigned int armies, id;
     string owner;
     const string name;
-    const string continent;
 };
 
 #endif /* TERRITORY_H */
