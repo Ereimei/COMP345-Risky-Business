@@ -18,6 +18,8 @@
 #include "Maploader.h"
 
 #include "../map/World.h"
+#include "../map/Continent.h"
+#include "../map/Territory.h"
 
 using namespace std;
 
@@ -25,10 +27,8 @@ int main(int argc, char** argv) {
     string fileName;
     cout << "Please enter the name of the map file." << endl;
     cin >> fileName;
-    
     //Generating the world
     Maploader mapLoader(fileName);
-    
     
 }
 

@@ -17,16 +17,22 @@
 #include <vector>
 
 #include "Maploader.h"
+
+#include "../map/Territory.h"
 #include "../map/Continent.h"
 #include "../map/World.h"
-#include "../map/Territory.h"
+
 
 using std::endl;
 using std::string;
 using std::vector;
 
 //Default constructor
-Maploader::Maploader(const string fileName) : fileName(fileName) {this->generateWorld(fileName);}
+Maploader::Maploader(string fileName){
+    fileName = fileName; 
+    World* world = new World();
+    generateWorld(world, fileName);
+}
 
 //Destructor
 Maploader::~Maploader() {}
@@ -34,8 +40,10 @@ Maploader::~Maploader() {}
 //Getters
 string Maploader::getFileName() {return fileName;}
 
+
+
 //Other functions
-Maploader::generateWorld(string fileName) {
+Maploader::generateWorld(World* world, string fileName) {
     vector<int> values;
     int numTerritories;
     int numContinents;
@@ -43,12 +51,8 @@ Maploader::generateWorld(string fileName) {
     values = analyseFile(fileName);
     numTerritories = values.at(0);
     numContinents = values.at(1);
-    
-    cout << numTerritories << endl;
-    cout << numContinents << endl;
-    
-    //World* world = new World(numTerritories, numContinents);
-    //Maploader::generateMap(fileName, world);
+
+    Maploader::generateMap(fileName, world);
 
     
 }
@@ -76,17 +80,15 @@ vector<int> Maploader::analyseFile(string fileName) {
         }
         
         //Counting the amount of continents
-        for (;!reader.eof();){
+        for (;line != "";){
             std::getline(reader, line);
             if (line != ""){
                 continentsAmount++;
-            } else {
-                break;
-            }    
+            }
         }
         
         std::getline(reader, line);
-        cout << line << endl;
+        
         //Counting amount of territories
         for (;!reader.eof();){
             std::getline(reader, line);
@@ -94,10 +96,8 @@ vector<int> Maploader::analyseFile(string fileName) {
                 territoriesAmount++;
             }
         }
-
         
         reader.close();
-        
     }
 
     vector<int> test(2);

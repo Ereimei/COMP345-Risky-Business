@@ -18,8 +18,8 @@
 
 #include <vector>
 
-#include "../map/Continent.h"
 #include "../map/Territory.h"
+#include "../map/Continent.h"
 #include "../map/World.h"
 
 class Maploader {
@@ -32,12 +32,14 @@ public:
     //Getters
     string getFileName();
     
+    generateWorld(World* world, string fileName);
+    
 private:
     //Attributes
     const string fileName;
-
+    World* world;
+    
     //Other functions
-    generateWorld(string fileName);
     std::vector<int> analyseFile(string fileName);
     generateMap(string fileName, World* world);
 
