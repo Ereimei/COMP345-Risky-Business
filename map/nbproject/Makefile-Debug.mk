@@ -36,8 +36,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Continent.o \
-	${OBJECTDIR}/Country.o \
-	${OBJECTDIR}/Globe.o \
+	${OBJECTDIR}/Territory.o \
+	${OBJECTDIR}/World.o \
 	${OBJECTDIR}/main.o
 
 
@@ -70,15 +70,15 @@ ${OBJECTDIR}/Continent.o: Continent.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Continent.o Continent.cpp
 
-${OBJECTDIR}/Country.o: Country.cpp
+${OBJECTDIR}/Territory.o: Territory.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Country.o Country.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Territory.o Territory.cpp
 
-${OBJECTDIR}/Globe.o: Globe.cpp
+${OBJECTDIR}/World.o: World.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Globe.o Globe.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/World.o World.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}

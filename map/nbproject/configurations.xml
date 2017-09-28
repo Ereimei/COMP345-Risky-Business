@@ -5,8 +5,8 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>Continent.h</itemPath>
-      <itemPath>Country.h</itemPath>
-      <itemPath>Globe.h</itemPath>
+      <itemPath>Territory.h</itemPath>
+      <itemPath>World.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -16,8 +16,8 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>Continent.cpp</itemPath>
-      <itemPath>Country.cpp</itemPath>
-      <itemPath>Globe.cpp</itemPath>
+      <itemPath>Territory.cpp</itemPath>
+      <itemPath>World.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -46,13 +46,13 @@
       </item>
       <item path="Continent.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Country.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Territory.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Country.h" ex="false" tool="3" flavor2="0">
+      <item path="Territory.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Globe.cpp" ex="false" tool="1" flavor2="0">
+      <item path="World.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Globe.h" ex="false" tool="3" flavor2="0">
+      <item path="World.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -81,13 +81,13 @@
       </item>
       <item path="Continent.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Country.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Territory.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Country.h" ex="false" tool="3" flavor2="0">
+      <item path="Territory.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Globe.cpp" ex="false" tool="1" flavor2="0">
+      <item path="World.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Globe.h" ex="false" tool="3" flavor2="0">
+      <item path="World.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
