@@ -12,9 +12,7 @@
 using std::cout;
 using std::string;
 
-#include "Territory.h"
-#include "World.h"
-#include "Continent.h"
+#include "map.h";
 
 #define NEWLINE '\n'
 

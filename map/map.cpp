@@ -13,7 +13,54 @@
  * Created on September 25, 2017, 3:17 PM
  */
 
-#include "World.h"
+#include "map.h"
+
+unsigned int Territory::objectCount = 1;
+
+Territory::Territory(string n) : armies(0),
+    owner(""),
+    name(n),
+    id(objectCount++) {}
+
+Territory::~Territory() {}
+
+unsigned int Territory::getArmies() const {return armies;}
+string Territory::getOwner() const {return owner;}
+string Territory::getName() const {return name;}
+void Territory::setArmies(unsigned int arm) {armies = arm;}
+void Territory::setOwner(string own) {owner = own;}
+unsigned int Territory::getId() {return id;}
+
+Continent::Continent() : name(""),
+    territoriesCount(0),
+    insertPosition(0) {
+    exit(EXIT_FAILURE);
+}
+
+Continent::Continent(string n, unsigned int terrsCount) : name(n),
+    territoriesCount(terrsCount),
+    insertPosition(0) {
+    Territory** terrs = new Territory*[territoriesCount];
+    territories = terrs;
+}
+
+Continent::~Continent() {
+}
+
+void Continent::addTerritory(Territory* terr) {
+    if (insertPosition < territoriesCount) {
+        territories[insertPosition] = terr;
+        ++insertPosition;
+    } else {
+        cerr << "Continent is already full!\n";
+    }
+}
+
+string Continent::getName() const {return name;}
+
+unsigned int Continent::getTerritoriesCount() const {return territoriesCount;}
+
+Territory** Continent::getTerritories() const {return territories;}
 
 World::World() : territoriesCount(0),
     insertPosition(0),
@@ -106,7 +153,7 @@ void World::DFS() {
                 //I know the above statement hasn't actually visited the node
                 //but it's already in the stack so it will have to be visited
                 //this way if there is a cycle in the graph it won't get added
-                //to the stack another time in case there is a cycle in the graph
+                //to the stack another time.
             }
         }
         
