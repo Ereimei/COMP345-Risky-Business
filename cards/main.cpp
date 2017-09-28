@@ -36,11 +36,15 @@ int main(int argc, char *argv[]) {
     
     cout << "-----------------" << std:: endl;
     
-    cout << "player draws five cards" << std:: endl;
+    cout << "player exchange cards" << std:: endl;
+    int army1 = hand.exchange();
+    cout << "player receives " << army1 << " armies" << std:: endl;
     
     cout << "-----------------" << std:: endl;
     
-    for(int i = 0; i < 5; i++)
+    cout << "player draws four cards" << std:: endl;
+    
+    for(int i = 0; i < 4; i++)
     {
         hand.insert(deck.draw());
     }
@@ -50,8 +54,8 @@ int main(int argc, char *argv[]) {
     cout << "-----------------" << std:: endl;
     
     cout << "player exchange cards" << std:: endl;
-    int army = hand.exchange();
-    cout << "player receives " << army << " armies" << std:: endl;
+    int army2 = hand.exchange();
+    cout << "player receives " << army2 << " armies" << std:: endl;
     
     cout << "-----------------" << std:: endl;
     
@@ -60,6 +64,38 @@ int main(int argc, char *argv[]) {
     
     cout << "-----------------" << std:: endl;
     
+    cout << "player draws three cards" << std:: endl;
+    
+    for(int i = 0; i < 3; i++)
+    {
+        hand.insert(deck.draw());
+    }
+    cout << "player's current hand:" << std:: endl;
+    hand.display();
+    
+    cout << "-----------------" << std:: endl;
+    
+    cout << "player exchange cards" << std:: endl;
+    int army3 = hand.exchange();
+    cout << "player receives " << army3 << " armies" << std:: endl;
+    
+    cout << "-----------------" << std:: endl;
+    
+    cout << "player's current hand:" << std:: endl;
+    hand.display();
+    
+    cout << "-----------------" << std:: endl;
+    
+        cout << "player exchange cards" << std:: endl;
+    int army4 = hand.exchange();
+    cout << "player receives " << army4 << " armies" << std:: endl;
+    
+    cout << "-----------------" << std:: endl;
+    
+    cout << "player's current hand:" << std:: endl;
+    hand.display();
+    
+    cout << "-----------------" << std:: endl;
     return 0;
 }
 

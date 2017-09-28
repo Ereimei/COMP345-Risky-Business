@@ -55,19 +55,23 @@ int Hand::countType(std::string type)
 void Hand::removeThree(std::string type)
 {
     int counter = 0;
-    int size = playerHand.size();
-    for(int k = 0; k < size; k++)
+    int index[3];
+    for(int k = 0; k < playerHand.size(); k++)
     {
         if(playerHand[k].getType() == type){
-            cout << playerHand[k].getCountry() << std::endl; 
-            playerHand.erase(playerHand.begin()+k);
+            index[counter] = k;
             counter ++;
         }
         if(counter == 3)
         {
+            for(int m = 0; m < 3; m ++)
+            {
+            playerHand.erase(playerHand.begin()+index[m]-m);
+            }
             return;
         }
     }
+    
 }
 
 void Hand::removeEach()
@@ -75,23 +79,32 @@ void Hand::removeEach()
     bool type1 = false;
     bool type2 = false;
     bool type3 = false;
+    int index[3];
+    int counter = 0;
     
     for(int k = 0; k < playerHand.size(); k++)
     {
         if(playerHand[k].getType() == "Infantry" && type1 == false){
-            playerHand.erase(playerHand.begin()+k);
+            index[counter] = k;
+            counter++;
             type1 = true;
         }
         if(playerHand[k].getType() == "Artillery" && type2 == false){
-            playerHand.erase(playerHand.begin()+k);
+            index[counter] = k;
+            counter++;
             type2 = true;
         }
         if(playerHand[k].getType() == "Cavalry" && type3 == false){
-            playerHand.erase(playerHand.begin()+k);
+            index[counter] = k;
+            counter++;
             type3 = true;
         }
         if(type1 == true && type2 == true && type3 == true)
         {
+            for(int m = 0; m < 3; m ++)
+            {
+            playerHand.erase(playerHand.begin()+index[m]-m);
+            }
             return;
         }
     }
@@ -148,5 +161,7 @@ int Hand::exchange(){
     
     if (exchanged == true){
         return getArmy();
+    }else{
+        return 0;
     }
 }
