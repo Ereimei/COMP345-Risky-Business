@@ -7,7 +7,7 @@
  * Olivier Trepanier-Desfosses, 27850956
  *	
  *** COMP 345 SECTION D ***
- * Assignment #
+ * Assignment #1
  * Professor: Dr. Joey Paquet
  *
  * Created on September 25, 2017, 3:20 PM
@@ -24,23 +24,20 @@ using std::cout;
 
 class Territory {
 public:
-    Territory();
     Territory(const Territory& orig);
-    Territory(unsigned int inf, unsigned int cav, unsigned int art, string own);
+    Territory(string n);
     virtual ~Territory();
-    unsigned int getInfantry();
-    unsigned int getCavalry();
-    unsigned int getArtillery();
-    string getOwner();
-    void setInfantry(unsigned int inf);
-    void setCavalry(unsigned int cav);
-    void setArtillery(unsigned int art);
+    unsigned int getArmies() const;
+    string getOwner() const;
+    string getName() const;
+    void setArmies(unsigned int arm);
     void setOwner(string own);
+    unsigned int getId();
 private:
-    unsigned int infantry;
-    unsigned int cavalry;
-    unsigned int artillery;
+    static unsigned int objectCount;
+    unsigned int armies, id;
     string owner;
+    const string name;
 };
 
 #endif /* TERRITORY_H */

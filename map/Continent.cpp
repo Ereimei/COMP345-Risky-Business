@@ -7,7 +7,7 @@
  * Olivier Trepanier-Desfosses, 27850956
  *	
  *** COMP 345 SECTION D ***
- * Assignment #
+ * Assignment #1
  * Professor: Dr. Joey Paquet
  *
  * Created on September 25, 2017, 3:19 PM
@@ -15,12 +15,33 @@
 
 #include "Continent.h"
 
-Continent::Continent() {
+Continent::Continent() : name(""),
+    territoriesCount(0),
+    insertPosition(0) {
+    exit(EXIT_FAILURE);
 }
 
-Continent::Continent(const Continent& orig) {
+Continent::Continent(string n, unsigned int terrsCount) : name(n),
+    territoriesCount(terrsCount),
+    insertPosition(0) {
+    Territory** terrs = new Territory*[territoriesCount];
+    territories = terrs;
 }
 
 Continent::~Continent() {
 }
 
+void Continent::addTerritory(Territory* terr) {
+    if (insertPosition < territoriesCount) {
+        territories[insertPosition] = terr;
+        ++insertPosition;
+    } else {
+        cerr << "Continent is already full!\n";
+    }
+}
+
+string Continent::getName() const {return name;}
+
+unsigned int Continent::getTerritoriesCount() const {return territoriesCount;}
+
+Territory** Continent::getTerritories() const {return territories;}

@@ -7,7 +7,7 @@
  * Olivier Trepanier-Desfosses, 27850956
  *	
  *** COMP 345 SECTION D ***
- * Assignment #
+ * Assignment #1
  * Professor: Dr. Joey Paquet
  *
  * Created on September 25, 2017, 3:20 PM
@@ -15,20 +15,18 @@
 
 #include "Territory.h"
 
+unsigned int Territory::objectCount = 1;
 
-Territory::Territory() : infantry(0), cavalry(0), artillery(0), owner("") {}
-
-Territory::Territory(unsigned int inf, unsigned int cav, unsigned int art, string own) : infantry(inf), cavalry(cav), artillery(art), owner(own) {}
-
-Territory::Territory(const Territory& orig) {}
+Territory::Territory(string n) : armies(0),
+    owner(""),
+    name(n),
+    id(objectCount++) {}
 
 Territory::~Territory() {}
 
-unsigned int Territory::getInfantry() {return infantry;}
-unsigned int Territory::getCavalry() {return cavalry;}
-unsigned int Territory::getArtillery() {return artillery;}
-string Territory::getOwner() {return owner;}
-void Territory::setInfantry(unsigned int inf) {infantry = inf;}
-void Territory::setCavalry(unsigned int cav) {cavalry = cav;}
-void Territory::setArtillery(unsigned int art) {artillery = art;}
+unsigned int Territory::getArmies() const {return armies;}
+string Territory::getOwner() const {return owner;}
+string Territory::getName() const {return name;}
+void Territory::setArmies(unsigned int arm) {armies = arm;}
 void Territory::setOwner(string own) {owner = own;}
+unsigned int Territory::getId() {return id;}
