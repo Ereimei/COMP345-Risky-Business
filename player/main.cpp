@@ -27,11 +27,14 @@ using namespace std;
 int main(int argc, char** argv) {
   
     cout << "Creating player object." << endl;
-    vector<Territory> territories;
+    vector<Territory*> territories;
+    territories.push_back(new Territory("Alaska"));
+    territories.push_back(new Territory("Mars"));
+    territories.push_back(new Territory("Canada"));
     Hand* hand = new Hand();
     Diepool* diepool = new Diepool();
-    
-    Player* demoplayer = new Player(territories, hand, diepool);
+    vector<Territory*>* point = &territories;
+    Player* demoplayer = new Player(point, hand, diepool);
     
     cout << endl << "Player owns a hand of Risk cards" << endl;
     //cout << demoplayer.getHand() << endl;
@@ -43,9 +46,9 @@ int main(int argc, char** argv) {
     //cout << demoplayer.getTerritories() << endl;
     
     cout << "Player's functions" << endl << "-------------------" << endl;
-    cout << demoplayer->attack() << endl;
-    cout << demoplayer->fortify() << endl;
-    cout << demoplayer->reinforce() << endl;
+    //cout << demoplayer->attack() << endl;
+    //cout << demoplayer->fortify() << endl;
+    //cout << demoplayer->reinforce() << endl;
     
   
 }

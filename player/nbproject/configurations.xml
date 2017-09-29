@@ -35,6 +35,8 @@
                    projectFiles="false"
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
+      <itemPath>Player.cpp</itemPath>
+      <itemPath>Player.h</itemPath>
     </logicalFolder>
     <itemPath>../dice/Diepool.cpp</itemPath>
     <itemPath>../dice/Diepool.h</itemPath>
@@ -71,10 +73,6 @@
       </item>
       <item path="../map/map.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Player.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Player.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
@@ -109,10 +107,6 @@
       <item path="../map/map.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../map/map.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Player.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Player.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
