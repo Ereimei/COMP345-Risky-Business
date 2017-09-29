@@ -20,28 +20,29 @@
 #include "../dice/Diepool.h"
 #include "../map/map.h"
 #include "Player.h"
+
 using namespace std;
         
 //Constructor
-Player::Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool) : territories(territories),
+Player::Player(vector<Territory*> territories, Hand* hand, Diepool* diepool) : territories(territories),
     hand(hand),
     diepool(diepool) {}
 //Destructors
 Player::~Player() {}
 
 //Getters
-vector<Territory*>* Player::getTerritories() {return territories;}
+vector<Territory*> Player::getTerritories() {return territories;}
 Hand* Player::getHand() {return hand;}
 Diepool* Player::getDiepool() {return diepool;}
 
 //Setters
-Player::setHand(Hand* hand) {this->hand = hand;}
-Player::setDiePool(Diepool* diepool) {this->diepool = diepool;}
+void Player::setHand(Hand* hand) {hand = hand;}
+void Player::setDiePool(Diepool* diepool) {diepool = diepool;}
 
-Player::addTerritory(Territory*){};
-Player::removeTerritory(Territory*){};
+void Player::addTerritory(Territory*){};
+void Player::removeTerritory(Territory*){};
 
 //Other functions
-Player::reinforce(){ return "This player can reinforce!";}
-Player::attack(){ return "This player can attack!";}
-Player::fortify(){ return "This player can fortify";}
+string Player::reinforce(){ return "This player can reinforce!";}
+string Player::attack(){ return "This player can attack!";}
+string Player::fortify(){ return "This player can fortify";}

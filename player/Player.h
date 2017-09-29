@@ -32,12 +32,12 @@ using std::vector;
 class Player {
 public:
     //Constructor
-    Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool);
+    Player(vector<Territory*> territories, Hand* hand, Diepool* diepool);
     //Destructor
     virtual ~Player();
     
     //Getters
-    vector<Territory*>* getTerritories();
+    vector<Territory*> getTerritories();
     Hand* getHand();
     Diepool* getDiepool();
     
@@ -55,7 +55,7 @@ public:
     
 private:
     //Player attributes
-    vector<Territory*>* territories;
+    vector<Territory*> territories;
     Hand* hand;
     Diepool* diepool;
     
