@@ -25,6 +25,8 @@ string Maploader::getFileName() {return fileName;}
 
 void Maploader::scanFile() {
     unsigned int territoriesCount, continentsCount;
+    string** continentNames;
+    unsigned int continentTerritoriesCount;
     if (fileExists()){
         cout << fileName << " found, beginning scan..." << endl;
         if (validMapFile()) {
@@ -37,8 +39,19 @@ void Maploader::scanFile() {
             
             //create the world
             world = new World(territoriesCount, continentsCount);
+            continents = new Continent*[world->getContinentsCount()];
             cout << "Map has been initialized, now populating map..." << endl;
             
+            //create continents with how many territories they have;
+            continentNames = getContinentNames();
+            for (unsigned int n = 0; n < continentsCount; ++n) {
+                continentTerritoriesCount = countTerritoriesInContinent(*continentNames[n]);
+                continents[n] = new Continent(*continentNames[n], continentTerritoriesCount);
+                cout << "Created continent " << continents[n]->getName() << " with " << continentTerritoriesCount << " territories" << endl;
+            }
+            world->addContinents(continents);
+            
+            //create territories
             
             
         } else {
@@ -47,6 +60,7 @@ void Maploader::scanFile() {
     } else {
         cout << fileName << " not found, terminating map loader..." << endl;
     }
+    delete continentNames;
 }
 
 bool Maploader::fileExists() {
@@ -132,6 +146,70 @@ unsigned int Maploader::countTerritories() {
                     continue;
                 }
                 ++result;
+            }
+        }
+    } else {
+        cerr << "An error occurred trying to open " << fileName << endl;
+    }
+    return result;
+}
+
+string** Maploader::getContinentNames() {
+    unsigned int position = 0, continentsCount = world->getContinentsCount();
+    string** continentNames = new string*[continentsCount];    
+    bool startNaming = false;
+    string segment, line, delimiter = "=";
+    ifstream file(fileName);
+    if (file.is_open()) {
+        while (getline (file, line)) {
+            if (line == "[Continents]") {
+                startNaming = true;
+                continue;
+            }
+            if (startNaming) {
+                if (line == "") {
+                    break;
+                }
+                segment = line.substr(0, line.find(delimiter));
+                continentNames[position] = new string(segment);
+                ++position;
+                if (position >= continentsCount) {
+                    break;
+                }
+            }
+        }
+    } else {
+        cerr << "An error occurred trying to open " << fileName << endl;
+    }
+    return continentNames;
+}
+
+unsigned int Maploader::countTerritoriesInContinent(string continentName) {
+    unsigned int iterationCounter, result = 0;
+    bool startCounting = false;
+    string line;
+    ifstream file(fileName);
+    if (file.is_open()) {
+        while (getline (file, line)) {
+            if (line == "[Territories]") {
+                startCounting = true;
+                continue;
+            }
+            if (startCounting) {
+                if (line == "") {
+                    continue;
+                }
+                iterationCounter = 0;
+                stringstream stream(line);
+                string token;
+                while (getline(stream, token, ',')) {
+                    if (iterationCounter == 3) {
+                        if (token == continentName) {
+                            ++result;
+                        }
+                    }
+                    ++iterationCounter;
+                }
             }
         }
     } else {

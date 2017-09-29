@@ -19,7 +19,9 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
-#include <vector>
+#include <string>
+#include <sstream>
+#include <algorithm>
 
 using std::endl;
 using std::string;
@@ -27,6 +29,7 @@ using std::vector;
 using std::ifstream;
 using std::cout;
 using std::cerr;
+using std::stringstream;
 
 #include "../map/map.h"
 
@@ -40,12 +43,17 @@ private:
     std::vector<int> analyseFile(string fileName);
     generateMap(string fileName, World* world);  
     void scanFile();
+    void createTerritories();
     bool fileExists();
     bool validMapFile();
     unsigned int countContinents();
     unsigned int countTerritories();
+    unsigned int countTerritoriesInContinent(string continentName);
+    string** getContinentNames();
     const string fileName;
     World* world;
+    Continent** continents;
+    Territory** territories;
 };
 
 #endif /* MAPLOADER_H */
