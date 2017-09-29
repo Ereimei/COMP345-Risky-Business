@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>MapLoader.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -12,6 +13,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>Maploader.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -25,6 +27,8 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>../map/map.cpp</itemPath>
+    <itemPath>../map/map.h</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -36,6 +40,14 @@
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="../map/map.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../map/map.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MapLoader.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Maploader.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
@@ -59,6 +71,14 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="../map/map.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../map/map.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MapLoader.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Maploader.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
