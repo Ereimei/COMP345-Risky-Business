@@ -52,7 +52,13 @@ void Maploader::scanFile() {
             world->addContinents(continents);
             
             //create territories
+            createTerritories();
             
+            //link each territory to their continents and adjacent territories
+            //and add them to the world
+            for (int n = 0; n < territoriesCount; ++n) {
+                linkTerritory(n);
+            }
             
         } else {
             cout << "This is not a valid map file" << endl;
@@ -124,6 +130,7 @@ unsigned int Maploader::countContinents() {
                 ++result;
             }
         }
+        file.close();
     } else {
         cerr << "An error occurred trying to open " << fileName << endl;
     }
@@ -148,6 +155,7 @@ unsigned int Maploader::countTerritories() {
                 ++result;
             }
         }
+        file.close();
     } else {
         cerr << "An error occurred trying to open " << fileName << endl;
     }
@@ -178,6 +186,7 @@ string** Maploader::getContinentNames() {
                 }
             }
         }
+        file.close();
     } else {
         cerr << "An error occurred trying to open " << fileName << endl;
     }
@@ -212,8 +221,95 @@ unsigned int Maploader::countTerritoriesInContinent(string continentName) {
                 }
             }
         }
+        file.close();
     } else {
         cerr << "An error occurred trying to open " << fileName << endl;
     }
     return result;
+}
+
+void Maploader::createTerritories() {
+    unsigned int position = 0, territoriesCount = world->getTerritoriesCount();
+    territories = new Territory*[territoriesCount];
+    bool startCounting = false;
+    string line;
+    ifstream file(fileName);
+    if (file.is_open()) {
+        while (getline (file, line)) {
+            if (line == "[Territories]") {
+                startCounting = true;
+                continue;
+            }
+            if (startCounting) {
+                if (line == "") {
+                    continue;
+                }
+                stringstream stream(line);
+                string token;
+                getline(stream, token, ',');
+                territories[position] = new Territory(token);
+                ++position;
+            }
+        }
+        file.close();
+    } else {
+        cerr << "An error occurred trying to open " << fileName << endl;
+    }
+}
+
+void Maploader::linkTerritory(unsigned int position) {
+    bool startCounting = false;
+    unsigned int adjacentCount, territoriesCount = world->getTerritoriesCount();
+    unsigned int continentsCount = world->getContinentsCount();
+    string territoryName = territories[position]->getName();
+    string line;
+    vector<string> segments;
+    Territory** adjacentTerritories;
+    ifstream file(fileName);
+    if (file.is_open()) {
+        while (getline (file, line)) {
+            if (line == "[Territories]") {
+                startCounting = true;
+                continue;
+            }
+            if (startCounting) {
+                if (line == "") {
+                    continue;
+                }
+                stringstream stream(line);
+                string token;
+                getline(stream, token, ',');
+                if (territoryName == token) {
+                    while(getline(stream, token, ',')) {
+                        segments.push_back(token);
+                    }
+                    break;
+                }
+            }
+        }
+        //cout << segments.at(2) << endl; //position of continent
+        //cout << segments.size() - 3 << endl; number of adjacent continents
+        if (segments.size() > 0) {
+            
+            for (int n = 0; n < continentsCount; ++n) {
+                if (continents[n]->getName() == segments.at(2)) {
+                    continents[n]->addTerritory(territories[position]);
+                }
+            }
+            
+            adjacentCount = segments.size() - 3;
+            adjacentTerritories = new Territory*[adjacentCount];
+            for (int n = 0; n < adjacentCount; ++n) {
+                for (int m = 0; m < territoriesCount; ++m) {
+                    if (segments.at(n + 3) == territories[m]->getName()) {
+                        adjacentTerritories[n] = territories[m];
+                    }
+                }
+            }
+            world->addTerritory(territories[position], adjacentCount, adjacentTerritories);
+        }
+        file.close();
+    } else {
+        cerr << "An error occurred trying to open " << fileName << endl;
+    }
 }

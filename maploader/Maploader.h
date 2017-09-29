@@ -44,6 +44,7 @@ private:
     generateMap(string fileName, World* world);  
     void scanFile();
     void createTerritories();
+    void linkTerritory(unsigned int position);
     bool fileExists();
     bool validMapFile();
     unsigned int countContinents();
