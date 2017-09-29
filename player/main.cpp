@@ -48,8 +48,6 @@ int main(int argc, char** argv) {
     card = deck->draw();
     hand->insert(card);
     
-    hand->display();
-    
     //Creating player's diepool object
     Diepool* diepool = new Diepool();
     
