@@ -7,7 +7,7 @@
  * Olivier Trepanier-Desfosses, 27850956
  *	
  *** COMP 345 SECTION D ***
- * Assignment #
+ * Assignment #1
  * Professor: Dr. Joey Paquet
  *
  * Created on September 25, 2017, 7:09 PM
@@ -29,14 +29,14 @@ int main(int argc, char** argv) {
     cin >> fileName;
     //Generating the world
     Maploader* mapLoader = new Maploader(fileName);
-    World* world;
-    if (mapLoader->worldValid()) {
-        world = mapLoader->getWorld();
-        delete mapLoader;
-    }
-    cout << world->getTerritories()[0].territory->getName() << endl;
-    cout << world->getContinents()[0]->getName() << endl;
-    delete world;
+//    World* world;
+//    if (mapLoader->worldValid()) {
+//        world = mapLoader->getWorld();
+//        delete mapLoader;
+//    }
+//    cout << world->getTerritories()[0].territory->getName() << endl;
+//    cout << world->getContinents()[0]->getName() << endl;
+//    delete world;
 }
 
 

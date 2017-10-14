@@ -76,16 +76,18 @@ void Maploader::scanFile() {
             //lets us check if everything was created successfully
             worldCreatedSuccessfully = true;
             
+            //free up the continentNames memory
+            for (int n = 0; n < continentsCount; ++n) {
+                delete continentNames[n];
+            }
+            delete[] continentNames;
+            
         } else {
             cout << "This is not a valid map file" << endl;
         }        
     } else {
         cout << fileName << " not found, terminating map loader..." << endl;
     }
-    for (int n = 0; n < continentsCount; ++n) {
-        delete continentNames[n];
-    }
-    delete[] continentNames;
 }
 
 bool Maploader::fileExists() {

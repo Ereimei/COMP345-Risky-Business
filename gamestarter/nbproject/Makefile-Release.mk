@@ -37,6 +37,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/_ext/511e288d/map.o \
 	${OBJECTDIR}/_ext/5d43fae0/Maploader.o \
+	${OBJECTDIR}/GameStarter.o \
 	${OBJECTDIR}/main.o
 
 
@@ -73,6 +74,11 @@ ${OBJECTDIR}/_ext/5d43fae0/Maploader.o: ../maploader/Maploader.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/5d43fae0
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/5d43fae0/Maploader.o ../maploader/Maploader.cpp
+
+${OBJECTDIR}/GameStarter.o: GameStarter.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/GameStarter.o GameStarter.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
