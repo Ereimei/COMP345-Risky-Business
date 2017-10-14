@@ -20,20 +20,6 @@ using std::endl;
 using std::string;
 
 int main(int argc, char** argv) {
-//    bool mapNotSelected = true;
-//    string mapSelection;
-//    Maploader* maploader;
-//    cout << GAME_START << endl;
-//    while (mapNotSelected) {
-//        cout << SELECT_MAP << endl;
-//        cin >> mapSelection;
-//        cout << mapSelection << endl;
-//        mapNotSelected = false;
-//        maploader = new Maploader(MAP_DIRECTORY + mapSelection);
-//        if (maploader->worldValid()) {
-//            
-//        }
-//    }
     GameStarter* gameStarter = new GameStarter();
     cout << GAME_START << endl;
     gameStarter->startGame();

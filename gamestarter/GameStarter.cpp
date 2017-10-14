@@ -21,13 +21,12 @@ const string GameStarter::MAP_DIRECTORY = "maps/";
 const string GameStarter::ASSIGN_NUM_PLAYERS = "Enter how many players (between 2 and 6):";
 const string GameStarter::PLAYER_NUM_ERROR = "Incorrect number of players...";
 const string GameStarter::INIT_PLAYERS = "===== INITIALIZING PLAYERS =====";
+const string GameStarter::CHOOSE_MAP = "Enter a map contained in /maps/:";
 
-GameStarter::GameStarter() : numPlayers(0),
-    filename("") {
+GameStarter::GameStarter() : numPlayers(0) {
 }
 
-GameStarter::GameStarter(const GameStarter& orig) : numPlayers(orig.getNumPlayers()),
-    filename(orig.getFilename()) {
+GameStarter::GameStarter(const GameStarter& orig) : numPlayers(orig.getNumPlayers()) {
 }
 
 GameStarter::~GameStarter() {
@@ -37,26 +36,43 @@ unsigned int GameStarter::getNumPlayers() const {
     return numPlayers;
 }
 
-string GameStarter::getFilename() const {
-    return filename;
-}
-
 void GameStarter::startGame() {
     assignNumOfPlayers();
+    chooseAndCreateWorld();
+    createPlayers();
 }
 
 void GameStarter::assignNumOfPlayers() {
     bool invalidInput = true;
-    unsigned int np;
+    unsigned int np = 0;
     while (invalidInput) {
         cout << ASSIGN_NUM_PLAYERS << endl;
         cin >> np;
         if (np >= MIN_PLAYERS && np <= MAX_PLAYERS) {
             numPlayers = np;
             invalidInput = false;
-            cout << INIT_PLAYERS << endl;
         } else {
             cout << PLAYER_NUM_ERROR << endl;
         }
+    }
+}
+
+void GameStarter::createPlayers() {
+    cout << INIT_PLAYERS << endl;
+}
+
+void GameStarter::chooseAndCreateWorld() {
+    bool invalidMap = true;
+    string filename = "";
+    Maploader* maploader;
+    while (invalidMap) {
+        cout << CHOOSE_MAP << endl;
+        cin >> filename;
+        maploader = new Maploader(MAP_DIRECTORY + filename);
+        if (maploader->worldValid()) {
+            world = maploader->getWorld();
+            invalidMap = false;
+        }
+        delete maploader;
     }
 }

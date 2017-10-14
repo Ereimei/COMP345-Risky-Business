@@ -171,7 +171,6 @@ void World::DFS() {
         
         //visit the node
         positionInArray = findPositionInArrayById(idToVisit);
-        cout << "trying to find id: " << idToVisit << "\n";
         if (positionInArray >= territoriesCount) {
             cerr << "Id not found in the array\n";
             break;
@@ -206,6 +205,7 @@ void World::DFS() {
     for (int n = 0; n < territoriesCount; ++n) {
         if (!visited[n]) {
             isConnected = false;
+            break;
         }
     }
     if (isConnected) {

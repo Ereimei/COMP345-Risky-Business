@@ -269,6 +269,7 @@ void Maploader::createTerritories() {
                 string token;
                 getline(stream, token, ',');
                 territories[position] = new Territory(token);
+                cout << "Created territory: " << territories[position]->getName() << endl;
                 ++position;
             }
         }

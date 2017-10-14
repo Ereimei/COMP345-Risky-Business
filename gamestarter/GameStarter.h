@@ -35,17 +35,19 @@ public:
     virtual ~GameStarter();
     void startGame();
     unsigned int getNumPlayers() const;
-    string getFilename() const;
 private:
     void assignNumOfPlayers();
+    void createPlayers();
+    void chooseAndCreateWorld();
+    World* world;
     unsigned int numPlayers;
-    string filename;
     static const unsigned int MIN_PLAYERS;
     static const unsigned int MAX_PLAYERS;
     static const string MAP_DIRECTORY;
     static const string PLAYER_NUM_ERROR;
     static const string INIT_PLAYERS;
     static const string ASSIGN_NUM_PLAYERS;
+    static const string CHOOSE_MAP;
 };
 
 #endif /* GAMESTARTER_H */
