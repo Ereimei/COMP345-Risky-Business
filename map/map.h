@@ -75,13 +75,13 @@ private:
     class Node {
     public:
         Node();
+        virtual ~Node();
         Territory* territory;
         Territory** adjacentTerritories;
         unsigned int adjacentCount;
     };
     void DFS();
-    unsigned int findPositionInArrayById(unsigned int id); 
-    
+    unsigned int findPositionInArrayById(unsigned int id);    
     const unsigned int territoriesCount;
     const unsigned int continentsCount;
     unsigned int insertPosition;

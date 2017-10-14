@@ -128,3 +128,4 @@ GNUmakefile             text
 ## Self-reference =)
 .gitignore              text
 .gitattributes          text
+/JavaApplication1/nbproject/private/
