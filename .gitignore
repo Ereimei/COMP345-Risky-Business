@@ -7,6 +7,11 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+/cards/nbproject/private/
+/dice/nbproject/private/
+/map/nbproject/private/
+/maploader/nbproject/private/
+/player/nbproject/private/
 
 ##### Global default #####
 
@@ -128,4 +133,3 @@ GNUmakefile             text
 ## Self-reference =)
 .gitignore              text
 .gitattributes          text
-/JavaApplication1/nbproject/private/
