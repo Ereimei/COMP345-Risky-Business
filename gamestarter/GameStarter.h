@@ -40,6 +40,9 @@ public:
     virtual ~GameStarter();
     void startGame();
     unsigned int getNumPlayers() const;
+    World* getWorld() const;
+    Deck* getDeck() const;
+    Player** getPlayers() const;
 private:
     void assignNumOfPlayers();
     void createPlayers();

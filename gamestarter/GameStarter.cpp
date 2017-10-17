@@ -37,10 +37,6 @@ GameStarter::GameStarter(const GameStarter& orig) : numPlayers(orig.getNumPlayer
 GameStarter::~GameStarter() {
 }
 
-unsigned int GameStarter::getNumPlayers() const {
-    return numPlayers;
-}
-
 void GameStarter::startGame() {
     assignNumOfPlayers();
     chooseAndCreateWorld();
@@ -102,4 +98,20 @@ void GameStarter::createDeck() {
     deck = new Deck();
     deck->shuffle();
     cout << SHUFFLING_DECK << endl;
+}
+
+World* GameStarter::getWorld() const {
+    return world;
+}
+
+Deck* GameStarter::getDeck() const {
+    return deck;
+}
+
+Player** GameStarter::getPlayers() const {
+    return players;
+}
+
+unsigned int GameStarter::getNumPlayers() const {
+    return numPlayers;
 }
