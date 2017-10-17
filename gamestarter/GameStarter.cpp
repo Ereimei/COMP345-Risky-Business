@@ -26,6 +26,7 @@ const string GameStarter::INIT_MAP = "===== INITIALIZING MAP =====";
 const string GameStarter::INVALID_MAP = "This map is not valid...";
 const string GameStarter::INIT_DECK = "===== INITIALIZING DECK =====";
 const string GameStarter::SHUFFLING_DECK = "Deck has been created and shuffled";
+const string GameStarter::CREATING_PLAYER = "Creating player #";
 
 GameStarter::GameStarter() : numPlayers(0) {
 }
@@ -63,7 +64,18 @@ void GameStarter::assignNumOfPlayers() {
 }
 
 void GameStarter::createPlayers() {
+    Hand* hand;
+    vector<Territory*>* territories;
+    Diepool* diepool;
     cout << INIT_PLAYERS << endl;
+    players = new Player*[numPlayers];
+    for (int n = 0; n < numPlayers; ++n) {
+        cout << CREATING_PLAYER << n << endl;
+        hand = new Hand();
+        diepool = new Diepool();
+        territories = new vector<Territory*>;
+        players[n] = new Player(territories, hand, diepool);
+    }
 }
 
 void GameStarter::chooseAndCreateWorld() {

@@ -26,6 +26,7 @@
 #include <cstdlib>
 #include <string>
 #include <iostream>
+#include <vector>
 
 using std::string;
 using std::cout;
@@ -59,6 +60,7 @@ private:
     static const string INVALID_MAP;
     static const string INIT_DECK;
     static const string SHUFFLING_DECK;
+    static const string CREATING_PLAYER;
 };
 
 #endif /* GAMESTARTER_H */

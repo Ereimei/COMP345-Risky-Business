@@ -24,14 +24,14 @@
 using namespace std;
         
 //Constructor
-Player::Player(vector<Territory*> territories, Hand* hand, Diepool* diepool) : territories(territories),
+Player::Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool) : territories(territories),
     hand(hand),
     diepool(diepool) {}
 //Destructors
 Player::~Player() {}
 
 //Getters
-vector<Territory*> Player::getTerritories() {return territories;}
+vector<Territory*>* Player::getTerritories() {return territories;}
 Hand* Player::getHand() {return hand;}
 Diepool* Player::getDiepool() {return diepool;}
 
