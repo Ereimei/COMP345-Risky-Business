@@ -22,6 +22,10 @@ const string GameStarter::ASSIGN_NUM_PLAYERS = "Enter how many players (between 
 const string GameStarter::PLAYER_NUM_ERROR = "Incorrect number of players...";
 const string GameStarter::INIT_PLAYERS = "===== INITIALIZING PLAYERS =====";
 const string GameStarter::CHOOSE_MAP = "Enter a map contained in /maps/:";
+const string GameStarter::INIT_MAP = "===== INITIALIZING MAP =====";
+const string GameStarter::INVALID_MAP = "This map is not valid...";
+const string GameStarter::INIT_DECK = "===== INITIALIZING DECK =====";
+const string GameStarter::SHUFFLING_DECK = "Deck has been created and shuffled";
 
 GameStarter::GameStarter() : numPlayers(0) {
 }
@@ -39,6 +43,7 @@ unsigned int GameStarter::getNumPlayers() const {
 void GameStarter::startGame() {
     assignNumOfPlayers();
     chooseAndCreateWorld();
+    createDeck();
     createPlayers();
 }
 
@@ -65,6 +70,7 @@ void GameStarter::chooseAndCreateWorld() {
     bool invalidMap = true;
     string filename = "";
     Maploader* maploader;
+    cout << INIT_MAP << endl;
     while (invalidMap) {
         cout << CHOOSE_MAP << endl;
         cin >> filename;
@@ -72,7 +78,16 @@ void GameStarter::chooseAndCreateWorld() {
         if (maploader->worldValid()) {
             world = maploader->getWorld();
             invalidMap = false;
+        } else {
+            cout << INVALID_MAP << endl;
         }
         delete maploader;
     }
+}
+
+void GameStarter::createDeck() {
+    cout << INIT_DECK << endl;
+    deck = new Deck();
+    deck->shuffle();
+    cout << SHUFFLING_DECK << endl;
 }

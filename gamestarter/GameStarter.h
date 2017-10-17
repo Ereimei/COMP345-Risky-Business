@@ -18,6 +18,10 @@
 
 #include "../map/map.h"
 #include "../maploader/Maploader.h"
+#include "../dice/Diepool.h"
+#include "../cards/hand.h"
+#include "../cards/deck.h"
+#include "../player/Player.h"
 
 #include <cstdlib>
 #include <string>
@@ -39,7 +43,10 @@ private:
     void assignNumOfPlayers();
     void createPlayers();
     void chooseAndCreateWorld();
+    void createDeck();
     World* world;
+    Deck* deck;
+    Player** players;
     unsigned int numPlayers;
     static const unsigned int MIN_PLAYERS;
     static const unsigned int MAX_PLAYERS;
@@ -48,6 +55,10 @@ private:
     static const string INIT_PLAYERS;
     static const string ASSIGN_NUM_PLAYERS;
     static const string CHOOSE_MAP;
+    static const string INIT_MAP;
+    static const string INVALID_MAP;
+    static const string INIT_DECK;
+    static const string SHUFFLING_DECK;
 };
 
 #endif /* GAMESTARTER_H */
