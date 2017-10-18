@@ -7,6 +7,12 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+/cards/nbproject/private/
+/dice/nbproject/private/
+/map/nbproject/private/
+/maploader/nbproject/private/
+/player/nbproject/private/
+/gamestarter/nbproject/private/
 
 ##### Global default #####
 

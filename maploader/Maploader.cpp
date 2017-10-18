@@ -7,26 +7,39 @@
  * Olivier Trepanier-Desfosses, 27850956
  *	
  *** COMP 345 SECTION D ***
- * Assignment #
+ * Assignment #1
  * Professor: Dr. Joey Paquet
  *
  * Created on September 25, 2017, 7:09 PM
  */
 
 #include "Maploader.h"
+//unsigned int territoriesCount, continentsCount, continentTerritoriesCount;
 
-Maploader::Maploader(string fn) : fileName(fn) {
+Maploader::Maploader() : fileName(""),
+    territoriesCount(0),
+    continentsCount(0),
+    continentTerritoriesCount(0),
+    worldCreatedSuccessfully(false) {
     scanFile();
 }
 
-Maploader::~Maploader() {}
+Maploader::Maploader(string fn) : fileName(fn),
+    territoriesCount(0),
+    continentsCount(0),
+    continentTerritoriesCount(0),
+    worldCreatedSuccessfully(false) {
+    scanFile();
+}
+
+Maploader::~Maploader() {
+    delete[] territories;
+}
 
 string Maploader::getFileName() {return fileName;}
 
 void Maploader::scanFile() {
-    unsigned int territoriesCount, continentsCount;
     string** continentNames;
-    unsigned int continentTerritoriesCount;
     if (fileExists()){
         cout << fileName << " found, beginning scan..." << endl;
         if (validMapFile()) {
@@ -60,13 +73,21 @@ void Maploader::scanFile() {
                 linkTerritory(n);
             }
             
+            //lets us check if everything was created successfully
+            worldCreatedSuccessfully = true;
+            
+            //free up the continentNames memory
+            for (int n = 0; n < continentsCount; ++n) {
+                delete continentNames[n];
+            }
+            delete[] continentNames;
+            
         } else {
             cout << "This is not a valid map file" << endl;
         }        
     } else {
         cout << fileName << " not found, terminating map loader..." << endl;
     }
-    delete continentNames;
 }
 
 bool Maploader::fileExists() {
@@ -248,6 +269,7 @@ void Maploader::createTerritories() {
                 string token;
                 getline(stream, token, ',');
                 territories[position] = new Territory(token);
+                cout << "Created territory: " << territories[position]->getName() << endl;
                 ++position;
             }
         }
@@ -312,4 +334,12 @@ void Maploader::linkTerritory(unsigned int position) {
     } else {
         cerr << "An error occurred trying to open " << fileName << endl;
     }
+}
+
+bool Maploader::worldValid() const {
+    return worldCreatedSuccessfully;
+}
+
+World* Maploader::getWorld() const {
+    return world;
 }
