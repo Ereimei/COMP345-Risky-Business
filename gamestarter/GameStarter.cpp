@@ -22,6 +22,11 @@ const string GameStarter::ASSIGN_NUM_PLAYERS = "Enter how many players (between 
 const string GameStarter::PLAYER_NUM_ERROR = "Incorrect number of players...";
 const string GameStarter::INIT_PLAYERS = "===== INITIALIZING PLAYERS =====";
 const string GameStarter::CHOOSE_MAP = "Enter a map contained in /maps/:";
+const string GameStarter::INIT_MAP = "===== INITIALIZING MAP =====";
+const string GameStarter::INVALID_MAP = "This map is not valid...";
+const string GameStarter::INIT_DECK = "===== INITIALIZING DECK =====";
+const string GameStarter::SHUFFLING_DECK = "Deck has been created and shuffled";
+const string GameStarter::CREATING_PLAYER = "Creating player #";
 
 GameStarter::GameStarter() : numPlayers(0) {
 }
@@ -32,13 +37,10 @@ GameStarter::GameStarter(const GameStarter& orig) : numPlayers(orig.getNumPlayer
 GameStarter::~GameStarter() {
 }
 
-unsigned int GameStarter::getNumPlayers() const {
-    return numPlayers;
-}
-
 void GameStarter::startGame() {
     assignNumOfPlayers();
     chooseAndCreateWorld();
+    createDeck();
     createPlayers();
 }
 
@@ -58,13 +60,25 @@ void GameStarter::assignNumOfPlayers() {
 }
 
 void GameStarter::createPlayers() {
+    Hand* hand;
+    vector<Territory*>* territories;
+    Diepool* diepool;
     cout << INIT_PLAYERS << endl;
+    players = new Player*[numPlayers];
+    for (int n = 0; n < numPlayers; ++n) {
+        cout << CREATING_PLAYER << n << endl;
+        hand = new Hand();
+        diepool = new Diepool();
+        territories = new vector<Territory*>;
+        players[n] = new Player(territories, hand, diepool);
+    }
 }
 
 void GameStarter::chooseAndCreateWorld() {
     bool invalidMap = true;
     string filename = "";
     Maploader* maploader;
+    cout << INIT_MAP << endl;
     while (invalidMap) {
         cout << CHOOSE_MAP << endl;
         cin >> filename;
@@ -72,7 +86,32 @@ void GameStarter::chooseAndCreateWorld() {
         if (maploader->worldValid()) {
             world = maploader->getWorld();
             invalidMap = false;
+        } else {
+            cout << INVALID_MAP << endl;
         }
         delete maploader;
     }
+}
+
+void GameStarter::createDeck() {
+    cout << INIT_DECK << endl;
+    deck = new Deck();
+    deck->shuffle();
+    cout << SHUFFLING_DECK << endl;
+}
+
+World* GameStarter::getWorld() const {
+    return world;
+}
+
+Deck* GameStarter::getDeck() const {
+    return deck;
+}
+
+Player** GameStarter::getPlayers() const {
+    return players;
+}
+
+unsigned int GameStarter::getNumPlayers() const {
+    return numPlayers;
 }
