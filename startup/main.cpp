@@ -22,6 +22,9 @@ Created on October 15, 2017, 11:25 PM */
 #include <cstdlib>
 #include <iostream>
 
+#include "startup.h"
+#include "../gamestarter/GameStarter.h"
+
 using namespace std;
 
 /*
@@ -29,7 +32,18 @@ using namespace std;
  */
 int main(int argc, char** argv) {
     
-    cout << "hello" << endl;
+    cout << "start up ..." << endl;
+    cout << "===========================" << endl;
+    GameStarter* gs = new GameStarter();
+    gs->startGame();
+    cout << "===========================" << endl;
+    cout << "There are " << gs->getNumPlayers() <<" players." << endl;
+    Startup* su = new Startup(gs->getPlayers(),gs->getNumPlayers());
+    cout <<"ccc"<<endl;
+    su->displayPlayerOrder();
+    cout << "===========================" << endl;
+    su->displayTerritory();
+   
     return 0;
 }
 

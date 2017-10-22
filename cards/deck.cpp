@@ -37,7 +37,7 @@ void Deck::shuffle()
     {
         typesRemaining[i] = (Card::COUNTRIES.size() / Card::CARD_TYPES.size());
     }
-    
+    //Assign the maximum amount of cards each type can have 
     if(typesRemaining[0] * Card::CARD_TYPES.size() != Card::COUNTRIES.size())
     {
         int mod = (Card::COUNTRIES.size()% Card::CARD_TYPES.size());
