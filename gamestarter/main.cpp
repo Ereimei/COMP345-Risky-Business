@@ -23,6 +23,7 @@ int main(int argc, char** argv) {
     GameStarter* gameStarter = new GameStarter();
     cout << GAME_START << endl;
     gameStarter->startGame();
+    cout << gameStarter->getWorld()->getTerritories()->territory[0].getName() << endl;
     return 0;
 }
 

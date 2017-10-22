@@ -39,7 +39,6 @@ Maploader::~Maploader() {
 string Maploader::getFileName() {return fileName;}
 
 void Maploader::scanFile() {
-    string** continentNames;
     if (fileExists()){
         cout << fileName << " found, beginning scan..." << endl;
         if (validMapFile()) {
@@ -56,11 +55,11 @@ void Maploader::scanFile() {
             cout << "Map has been initialized, now populating map..." << endl;
             
             //create continents with how many territories they have;
-            continentNames = getContinentNames();
+            getContinentNames();
             for (unsigned int n = 0; n < continentsCount; ++n) {
                 continentTerritoriesCount = countTerritoriesInContinent(*continentNames[n]);
-                continents[n] = new Continent(*continentNames[n], continentTerritoriesCount);
-                cout << "Created continent " << continents[n]->getName() << " with " << continentTerritoriesCount << " territories" << endl;
+                continents[n] = new Continent(*continentNames[n], continentTerritoriesCount, armyBonuses[n]);
+                cout << "Created continent " << continents[n]->getName() << " with " << continentTerritoriesCount << " territories" << " and an army bonus of: " << continents[n]->getArmyBonus() << endl;
             }
             world->addContinents(continents);
             
@@ -81,6 +80,7 @@ void Maploader::scanFile() {
                 delete continentNames[n];
             }
             delete[] continentNames;
+            delete[] armyBonuses;
             
         } else {
             cout << "This is not a valid map file" << endl;
@@ -196,11 +196,15 @@ unsigned int Maploader::countTerritories() {
     return result;
 }
 
-string** Maploader::getContinentNames() {
-    unsigned int position = 0, continentsCount = world->getContinentsCount();
-    string** continentNames = new string*[continentsCount];    
+void Maploader::getContinentNames() {
+    unsigned int position = 0, continentsCount = world->getContinentsCount(), bonus = 0;
+    continentNames = new string*[continentsCount];
+    armyBonuses = new unsigned int[continentsCount];
     bool startNaming = false;
-    string segment, line, delimiter = "=";
+    string segment, nextSegment, line, delimiter = "=";
+    for (int n = 0; n < continentsCount; ++n) {
+        armyBonuses[n] = 0;
+    }
     ifstream file(fileName);
     if (file.is_open()) {
         while (getline (file, line)) {
@@ -217,6 +221,9 @@ string** Maploader::getContinentNames() {
                     break;
                 }
                 segment = line.substr(0, line.find(delimiter));
+                nextSegment = line.substr(line.find(delimiter) + 1, line.find(delimiter) + 1);
+                bonus = std::stoi(nextSegment);
+                armyBonuses[position] = bonus;
                 continentNames[position] = new string(segment);
                 ++position;
                 if (position >= continentsCount) {
@@ -228,7 +235,6 @@ string** Maploader::getContinentNames() {
     } else {
         cerr << "An error occurred trying to open " << fileName << endl;
     }
-    return continentNames;
 }
 
 unsigned int Maploader::countTerritoriesInContinent(string continentName) {

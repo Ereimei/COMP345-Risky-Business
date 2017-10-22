@@ -50,13 +50,15 @@ private:
     unsigned int countContinents();
     unsigned int countTerritories();
     unsigned int countTerritoriesInContinent(string continentName);
-    string** getContinentNames();
+    void getContinentNames();
     const string fileName;
     World* world;
     Continent** continents;
     Territory** territories;
     unsigned int territoriesCount, continentsCount, continentTerritoriesCount;
     bool worldCreatedSuccessfully;
+    string** continentNames;
+    unsigned int* armyBonuses;
 };
 
 #endif /* MAPLOADER_H */
