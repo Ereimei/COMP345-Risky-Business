@@ -34,6 +34,11 @@ Maploader::Maploader(string fn) : fileName(fn),
 
 Maploader::~Maploader() {
     delete[] territories;
+    for (int n = 0; n < continentsCount; ++n) {
+        delete continentNames[n];
+    }
+    delete[] continentNames;
+    delete[] armyBonuses;
 }
 
 string Maploader::getFileName() {return fileName;}
@@ -73,15 +78,7 @@ void Maploader::scanFile() {
             }
             
             //lets us check if everything was created successfully
-            worldCreatedSuccessfully = true;
-            
-            //free up the continentNames memory
-            for (int n = 0; n < continentsCount; ++n) {
-                delete continentNames[n];
-            }
-            delete[] continentNames;
-            delete[] armyBonuses;
-            
+            worldCreatedSuccessfully = true;            
         } else {
             cout << "This is not a valid map file" << endl;
         }        
