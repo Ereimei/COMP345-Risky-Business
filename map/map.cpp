@@ -46,21 +46,24 @@ unsigned int Territory::getId() {return id;}
 
 Continent::Continent() : name(""),
     territoriesCount(0),
-    insertPosition(0) {
+    insertPosition(0),
+    armyBonus(0) {
     cerr << "Called Continent default constructor" << endl;
     exit(EXIT_FAILURE);
 }
 
-Continent::Continent(string n, unsigned int terrsCount) : name(n),
+Continent::Continent(string n, unsigned int terrsCount, unsigned int bonus) : name(n),
     territoriesCount(terrsCount),
-    insertPosition(0) {
+    insertPosition(0),
+    armyBonus(bonus) {
     Territory** terrs = new Territory*[territoriesCount];
     territories = terrs;
 }
 
 Continent::Continent(const Continent& orig) : name(orig.getName()),
     territoriesCount(orig.getTerritoriesCount()),
-    insertPosition(0) {}
+    insertPosition(0),
+    armyBonus(orig.getArmyBonus()) {}
 
 Continent::~Continent() {
     delete[] territories;    
@@ -80,6 +83,8 @@ string Continent::getName() const {return name;}
 unsigned int Continent::getTerritoriesCount() const {return territoriesCount;}
 
 Territory** Continent::getTerritories() const {return territories;}
+
+unsigned int Continent::getArmyBonus() const {return armyBonus;}
 
 World::World() : territoriesCount(0),
     insertPosition(0),

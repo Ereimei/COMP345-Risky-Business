@@ -47,16 +47,18 @@ private:
 class Continent {
 public:
     Continent();
-    Continent(string n, unsigned int terrsCount);
+    Continent(string n, unsigned int terrsCount, unsigned int bonus);
     Continent(const Continent& orig);
     virtual ~Continent();
     void addTerritory(Territory* terr);
     string getName() const;
     unsigned int getTerritoriesCount() const;
+    unsigned int getArmyBonus() const;
     Territory** getTerritories() const;
 private:
     const string name;
     const unsigned int territoriesCount;
+    const unsigned int armyBonus;
     unsigned int insertPosition;
     Territory** territories;
 };
@@ -88,8 +90,8 @@ private:
     Node* territories;
     Continent** continents;
 public:
-    Node* getTerritories() const; //temporary function just for testing
-    Continent** getContinents() const; //temporary function just for testing
+    Node* getTerritories() const;
+    Continent** getContinents() const;
 };
 
 #endif /* MAP_H */
