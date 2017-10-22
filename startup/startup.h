@@ -71,6 +71,7 @@ public:
     //display information
     void displayPlayerOrder();
     void displayTerritory();
+    void displayArmiesInTerritory();
 };
 
 

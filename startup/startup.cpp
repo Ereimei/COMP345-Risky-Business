@@ -37,11 +37,12 @@ Startup::Startup(Player** pl, int size){
     vector<PlayerInGame> vplayer;
     Player* player; 
     
-    //put all players into a tamp vector to randomize
+    //put all players into a temp vector to randomize
     for(int x = 0; x < size; x++){
         vplayer.push_back(PlayerInGame(pl[x], x));
     }
     
+    //get a random player and assign it to setOfPlayer
     int randomInd;
     for(int y = 0; y < size; y++){
         randomInd = rand() % vplayer.size();
@@ -50,11 +51,13 @@ Startup::Startup(Player** pl, int size){
     }
 }
 
+//add a territory to a player's vector of territory
 void Startup::addTerritory(Player* pl, Territory* tr){
     vector<Territory*>* vcTr = pl->getTerritories();
     vcTr->push_back(tr);
 };
 
+//remove a territory from a player's vector of territory
 void Startup::removeTerritory(Player* pl, Territory* tr){
     vector<Territory*>* vcTr = pl->getTerritories();
     for(int i = 0; i<vcTr->size(); i++){
@@ -63,6 +66,8 @@ void Startup::removeTerritory(Player* pl, Territory* tr){
         }
     }
 };
+
+//get a list of all the territories and assign them to a vector
 /*
 vector<Territory*> Startup::getAllTerritories(World* world){
     int countryCont = world->getContinentsCount(); 
@@ -77,6 +82,7 @@ vector<Territory*> Startup::getAllTerritories(World* world){
 }
  */
     
+//assign all the territories randomly to the players in round robin
 void Startup::assignTerritory(vector<Territory*> vTerritory){
     cout << "Assigning countries..." << endl;
     int randomTerritory; 
@@ -92,25 +98,7 @@ void Startup::assignTerritory(vector<Territory*> vTerritory){
     
 }
 
-void Startup::displayPlayerOrder(){
-    cout<<"Players are going in this order."<< endl;
-    for(int i = 0; i< setOfPlayer.size(); i++){
-        cout<<"Player #"<< setOfPlayer.at(i).getPlayerNum() <<endl;
-    }
-}
-
-void Startup::displayTerritory(){
-    cout<<"Territory assigned."<<endl;
-    vector<Territory*>* vTr; 
-    for(int i = 0; setOfPlayer.size(); i++){
-        cout<<"Player #"<< setOfPlayer.at(i).getPlayerNum() <<"'s territories:" <<endl;
-        vTr = setOfPlayer.at(i).getPlayer()->getTerritories();
-        for(int j = 0; j < 2; j++){
-            cout<<&vTr->begin()[j]<<endl;
-        }
-    }
-}
-
+//assign a set of armies to the players depending on the amount
 int Startup::assignArmies(){
     int playerAmount = setOfPlayer.size();
     int armies = 0;
@@ -131,7 +119,9 @@ int Startup::assignArmies(){
     }
     return armies;
 };
-    
+
+//place the armies for all the players
+ /*
 void Startup::placeArmies(int armies){
     int splitedArmies = 0;
     int remainArmies = 0;
@@ -148,4 +138,31 @@ void Startup::placeArmies(int armies){
             }
         }
     }
+};
+*/
+
+//display the order of players
+void Startup::displayPlayerOrder(){
+    cout<<"Players are going in this order."<< endl;
+    for(int i = 0; i< setOfPlayer.size(); i++){
+        cout<<"Player #"<< setOfPlayer.at(i).getPlayerNum() <<endl;
+    }
+}
+
+//display the territories owned by the player
+void Startup::displayTerritory(){
+    cout<<"Territory assigned."<<endl;
+    vector<Territory*>* vTr; 
+    for(int i = 0; setOfPlayer.size(); i++){
+        cout<<"Player #"<< setOfPlayer.at(i).getPlayerNum() <<"'s territories:" <<endl;
+        vTr = setOfPlayer.at(i).getPlayer()->getTerritories();
+        for(int j = 0; j < 2; j++){
+            cout<<&vTr->begin()[j]<<endl;
+        }
+    }
+}
+
+//display the amount of armies per territory 
+void Startup::displayArmiesInTerritory(){
+    
 };

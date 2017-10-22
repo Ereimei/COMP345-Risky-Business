@@ -4,28 +4,17 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>startup.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
-    </logicalFolder>
-    <logicalFolder name="SourceFiles"
-                   displayName="Source Files"
-                   projectFiles="true">
-      <itemPath>main.cpp</itemPath>
-    </logicalFolder>
-    <logicalFolder name="TestFiles"
-                   displayName="Test Files"
-                   projectFiles="false"
-                   kind="TEST_LOGICAL_FOLDER">
-    </logicalFolder>
-    <logicalFolder name="ExternalFiles"
-                   displayName="Important Files"
-                   projectFiles="false"
-                   kind="IMPORTANT_FILES_FOLDER">
       <itemPath>../dice/Diepool.cpp</itemPath>
       <itemPath>../dice/Diepool.h</itemPath>
-      <itemPath>Makefile</itemPath>
+      <itemPath>../gamestarter/GameStarter.cpp</itemPath>
+      <itemPath>../gamestarter/GameStarter.h</itemPath>
+      <itemPath>../maploader/Maploader.cpp</itemPath>
+      <itemPath>../maploader/Maploader.h</itemPath>
       <itemPath>../player/Player.cpp</itemPath>
       <itemPath>../player/Player.h</itemPath>
       <itemPath>../cards/card.cpp</itemPath>
@@ -36,6 +25,23 @@
       <itemPath>../cards/hand.h</itemPath>
       <itemPath>../map/map.cpp</itemPath>
       <itemPath>../map/map.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>main.cpp</itemPath>
+      <itemPath>startup.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
@@ -48,7 +54,43 @@
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="../cards/card.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../cards/card.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../cards/deck.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../cards/deck.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../cards/hand.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../cards/hand.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../dice/Diepool.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../dice/Diepool.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../gamestarter/GameStarter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../gamestarter/GameStarter.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../map/map.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../map/map.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../maploader/Maploader.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../maploader/Maploader.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../player/Player.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../player/Player.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="startup.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="startup.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -71,7 +113,43 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="../cards/card.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../cards/card.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../cards/deck.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../cards/deck.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../cards/hand.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../cards/hand.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../dice/Diepool.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../dice/Diepool.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../gamestarter/GameStarter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../gamestarter/GameStarter.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../map/map.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../map/map.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../maploader/Maploader.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../maploader/Maploader.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../player/Player.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../player/Player.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="startup.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="startup.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

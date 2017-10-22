@@ -39,11 +39,21 @@ int main(int argc, char** argv) {
     cout << "===========================" << endl;
     cout << "There are " << gs->getNumPlayers() <<" players." << endl;
     Startup* su = new Startup(gs->getPlayers(),gs->getNumPlayers());
-    cout <<"ccc"<<endl;
     su->displayPlayerOrder();
     cout << "===========================" << endl;
-    su->displayTerritory();
-   
+    int size = gs->getWorld()->getTerritoriesCount();
+    cout << "There are " << size << " territories." << endl;
+    //vector <Territory*> vTr = su->getAllTerritories(); 
+    //su->assignTerritory(vTr);
+    //su->displayTerritory();
+    cout << "===========================" << endl;
+    int armies = su->assignArmies();
+    cout << "Each player gets " << armies << " armies." << endl;
+    //su->placeArmies(armies);
+
+    for(int t = 0; t < size; t++){
+        cout<< gs->getWorld()->getTerritories()->territory[t].getName() <<endl;
+    }
     return 0;
 }
 
