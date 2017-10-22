@@ -46,23 +46,27 @@ unsigned int Territory::getId() {return id;}
 
 Continent::Continent() : name(""),
     territoriesCount(0),
-    insertPosition(0) {
+    insertPosition(0),
+    armyBonus(0) {
     cerr << "Called Continent default constructor" << endl;
     exit(EXIT_FAILURE);
 }
 
-Continent::Continent(string n, unsigned int terrsCount) : name(n),
+Continent::Continent(string n, unsigned int terrsCount, unsigned int bonus) : name(n),
     territoriesCount(terrsCount),
-    insertPosition(0) {
+    insertPosition(0),
+    armyBonus(bonus) {
     Territory** terrs = new Territory*[territoriesCount];
     territories = terrs;
 }
 
 Continent::Continent(const Continent& orig) : name(orig.getName()),
     territoriesCount(orig.getTerritoriesCount()),
-    insertPosition(0) {}
+    insertPosition(0),
+    armyBonus(orig.getArmyBonus()) {}
 
 Continent::~Continent() {
+    delete[] territories;    
 }
 
 void Continent::addTerritory(Territory* terr) {
@@ -79,6 +83,8 @@ string Continent::getName() const {return name;}
 unsigned int Continent::getTerritoriesCount() const {return territoriesCount;}
 
 Territory** Continent::getTerritories() const {return territories;}
+
+unsigned int Continent::getArmyBonus() const {return armyBonus;}
 
 World::World() : territoriesCount(0),
     insertPosition(0),
@@ -101,7 +107,13 @@ World::World(const World& orig) : territoriesCount(orig.getTerritoriesCount()),
     territories = terr;
 }
 
-World::~World() {}
+World::~World() {
+    delete[] territories;
+    for (int n = 0; n < continentsCount; ++n) {
+        delete continents[n];
+    }
+    delete[] continents;
+}
 
 void World::addTerritory(Territory* terr, unsigned int adjCount, Territory** adjTerrs) {
     if (insertPosition < territoriesCount) {
@@ -119,6 +131,11 @@ void World::addTerritory(Territory* terr, unsigned int adjCount, Territory** adj
 
 World::Node::Node() : territory(NULL), adjacentTerritories(NULL), adjacentCount(0) {
     
+}
+
+World::Node::~Node() {
+    delete territory;
+    delete[] adjacentTerritories;
 }
 
 unsigned int World::getContinentsCount() const {return continentsCount;}
@@ -159,7 +176,6 @@ void World::DFS() {
         
         //visit the node
         positionInArray = findPositionInArrayById(idToVisit);
-        cout << "trying to find id: " << idToVisit << "\n";
         if (positionInArray >= territoriesCount) {
             cerr << "Id not found in the array\n";
             break;
@@ -194,6 +210,7 @@ void World::DFS() {
     for (int n = 0; n < territoriesCount; ++n) {
         if (!visited[n]) {
             isConnected = false;
+            break;
         }
     }
     if (isConnected) {

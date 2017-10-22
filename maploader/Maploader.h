@@ -7,7 +7,7 @@
  * Olivier Trepanier-Desfosses, 27850956
  *	
  *** COMP 345 SECTION D ***
- * Assignment #
+ * Assignment #1
  * Professor: Dr. Joey Paquet
  *
  * Created on September 25, 2017, 7:09 PM
@@ -35,13 +35,13 @@ using std::stringstream;
 
 class Maploader {
 public:
+    Maploader();
     Maploader(string fn);
     virtual ~Maploader();    
     string getFileName();
-    generateWorld(World* world, string fileName);    
+    bool worldValid() const;
+    World* getWorld() const;
 private:
-    std::vector<int> analyseFile(string fileName);
-    generateMap(string fileName, World* world);  
     void scanFile();
     void createTerritories();
     void linkTerritory(unsigned int position);
@@ -50,11 +50,15 @@ private:
     unsigned int countContinents();
     unsigned int countTerritories();
     unsigned int countTerritoriesInContinent(string continentName);
-    string** getContinentNames();
+    void getContinentNames();
     const string fileName;
     World* world;
     Continent** continents;
     Territory** territories;
+    unsigned int territoriesCount, continentsCount, continentTerritoriesCount;
+    bool worldCreatedSuccessfully;
+    string** continentNames;
+    unsigned int* armyBonuses;
 };
 
 #endif /* MAPLOADER_H */
