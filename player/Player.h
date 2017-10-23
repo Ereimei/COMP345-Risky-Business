@@ -52,7 +52,7 @@ public:
     void addTerritory(Territory*);
     void removeTerritory(Territory*);
     
-    string reinforce();
+    void reinforce(int reinforcements);
     string attack();
     string fortify();
     

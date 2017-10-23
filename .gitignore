@@ -1,5 +1,6 @@
 .dep.inc
 build
+dist
 private.xml
 nbproject/private/
 build/
@@ -13,6 +14,7 @@ nbdist/
 /maploader/nbproject/private/
 /player/nbproject/private/
 /gamestarter/nbproject/private/
+*.exe
 
 ##### Global default #####
 
