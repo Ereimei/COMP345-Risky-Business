@@ -112,6 +112,10 @@ bool Maploader::validMapFile() {
     
     if (file.is_open()) {
         while (getline(file, line)) {
+            // Remove line endings for the comparison
+            line.erase(std::find_if(line.rbegin(), line.rend(), [](int ch) {
+                return !std::isspace(ch);
+            }).base(), line.end());
             if (line == conditions[conditionsPosition]) {
                 conditionsMet[conditionsPosition] = true;
                 ++conditionsPosition;
@@ -137,6 +141,10 @@ unsigned int Maploader::countContinents() {
     ifstream file(fileName);
     if (file.is_open()) {
         while (getline (file, line)) {
+            // Remove line endings for the comparison
+            line.erase(std::find_if(line.rbegin(), line.rend(), [](int ch) {
+                return !std::isspace(ch);
+            }).base(), line.end());
             if (line == "[Continents]") {
                 startCounting = true;
                 continue;
@@ -162,6 +170,11 @@ unsigned int Maploader::countTerritories() {
     ifstream file(fileName);
     if (file.is_open()) {
         while (getline (file, line)) {
+            // Remove line endings for the comparison
+            line.erase(std::find_if(line.rbegin(), line.rend(), [](int ch) {
+                return !std::isspace(ch);
+            }).base(), line.end());
+            
             if (line == "[Territories]") {
                 startCounting = true;
                 continue;
@@ -192,6 +205,10 @@ void Maploader::getContinentNames() {
     ifstream file(fileName);
     if (file.is_open()) {
         while (getline (file, line)) {
+            // Remove line endings for the comparison
+            line.erase(std::find_if(line.rbegin(), line.rend(), [](int ch) {
+                return !std::isspace(ch);
+            }).base(), line.end());
             if (line == "[Continents]") {
                 startNaming = true;
                 continue;
@@ -224,6 +241,10 @@ unsigned int Maploader::countTerritoriesInContinent(string continentName) {
     ifstream file(fileName);
     if (file.is_open()) {
         while (getline (file, line)) {
+            // Remove line endings for the comparison
+            line.erase(std::find_if(line.rbegin(), line.rend(), [](int ch) {
+                return !std::isspace(ch);
+            }).base(), line.end());
             if (line == "[Territories]") {
                 startCounting = true;
                 continue;
@@ -260,6 +281,10 @@ void Maploader::createTerritories() {
     ifstream file(fileName);
     if (file.is_open()) {
         while (getline (file, line)) {
+            // Remove line endings for the comparison
+            line.erase(std::find_if(line.rbegin(), line.rend(), [](int ch) {
+                return !std::isspace(ch);
+            }).base(), line.end());
             if (line == "[Territories]") {
                 startCounting = true;
                 continue;
@@ -293,6 +318,10 @@ void Maploader::linkTerritory(unsigned int position) {
     ifstream file(fileName);
     if (file.is_open()) {
         while (getline (file, line)) {
+            // Remove line endings for the comparison
+            line.erase(std::find_if(line.rbegin(), line.rend(), [](int ch) {
+                return !std::isspace(ch);
+            }).base(), line.end());
             if (line == "[Territories]") {
                 startCounting = true;
                 continue;

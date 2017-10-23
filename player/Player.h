@@ -33,6 +33,7 @@ class Player {
 public:
     //Constructor
     Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool);
+    Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool, int n);
     //Destructor
     virtual ~Player();
     
@@ -40,10 +41,12 @@ public:
     vector<Territory*>* getTerritories();
     Hand* getHand();
     Diepool* getDiepool();
+    int getPlayerNum(){return playerNum;};
     
     //Setters
     void setHand(Hand* hand);
     void setDiePool(Diepool* diepool);
+    void setPlayerNum(int x){playerNum = x;};
     
     //Player functions
     void addTerritory(Territory*);
@@ -58,6 +61,7 @@ private:
     vector<Territory*>* territories;
     Hand* hand;
     Diepool* diepool;
+    int playerNum;
     
 };
 
