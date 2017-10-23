@@ -22,24 +22,18 @@ Created on October 17, 2017, 10:20 PM */
 #include <cmath>
 #include <algorithm>
 #include <iostream>
+#include <queue>
 # include "startup.h"
 
 using namespace std;
 
-//constructor for playerInGame, it takes a player and add a number to the player
-PlayerInGame::PlayerInGame(Player* pl, int n){
-    *player = *pl;
-    playerNum = n;
-}
-
 //constructor for set up, it creates a vector of players and randomizes the order of the players
 Startup::Startup(Player** pl, int size){
-    vector<PlayerInGame> vplayer;
-    Player* player; 
-    
+    vector<Player*> vplayer;
+  
     //put all players into a temp vector to randomize
     for(int x = 0; x < size; x++){
-        vplayer.push_back(PlayerInGame(pl[x], x));
+        vplayer.push_back(new Player(pl[x]->getTerritories(), pl[x]->getHand(), pl[x]->getDiepool(), x));
     }
     
     //get a random player and assign it to setOfPlayer
@@ -53,8 +47,7 @@ Startup::Startup(Player** pl, int size){
 
 //add a territory to a player's vector of territory
 void Startup::addTerritory(Player* pl, Territory* tr){
-    vector<Territory*>* vcTr = pl->getTerritories();
-    vcTr->push_back(tr);
+    pl->getTerritories()->push_back(tr);
 };
 
 //remove a territory from a player's vector of territory
@@ -68,34 +61,28 @@ void Startup::removeTerritory(Player* pl, Territory* tr){
 };
 
 //get a list of all the territories and assign them to a vector
-/*
 vector<Territory*> Startup::getAllTerritories(World* world){
-    int countryCont = world->getContinentsCount(); 
-    Continent** continent; 
-    Territory* territory;
-    for(int y = 0; y<countryCont; y++){
-        continent = world->getContinents();
-        territory = continent->getTerritories();
-        
+    vector<Territory*> vTerritory; 
+    for(int e = 0; e < world->getTerritoriesCount(); e++){
+        vTerritory.push_back(world->getTerritories()[e].territory);
     }
-    
 }
- */
-    
+ 
+
 //assign all the territories randomly to the players in round robin
 void Startup::assignTerritory(vector<Territory*> vTerritory){
     cout << "Assigning countries..." << endl;
     int randomTerritory; 
-    int playerCounter;
+    int playerCounter=0;
     Player* player;
     for(int x = 0; x < vTerritory.size(); x++){
         randomTerritory = rand() % vTerritory.size();
-        player = setOfPlayer.at(playerCounter).getPlayer(); 
-        addTerritory(player, vTerritory.at(randomTerritory));
-        vTerritory.erase(vTerritory.begin() + randomTerritory);
-        playerCounter ++;
+        player = setOfPlayer.at(playerCounter); 
+       //addTerritory(player, vTerritory.at(randomTerritory));
+        //vTerritory.erase(vTerritory.begin() + randomTerritory);
+        playerCounter = (playerCounter + 1)%4;
     }
-    
+    cout << "Assigning countries... finished" << endl;
 }
 
 //assign a set of armies to the players depending on the amount
@@ -145,7 +132,7 @@ void Startup::placeArmies(int armies){
 void Startup::displayPlayerOrder(){
     cout<<"Players are going in this order."<< endl;
     for(int i = 0; i< setOfPlayer.size(); i++){
-        cout<<"Player #"<< setOfPlayer.at(i).getPlayerNum() <<endl;
+        cout<<"Player #"<< setOfPlayer.at(i)->getPlayerNum() <<endl;
     }
 }
 
@@ -154,8 +141,8 @@ void Startup::displayTerritory(){
     cout<<"Territory assigned."<<endl;
     vector<Territory*>* vTr; 
     for(int i = 0; setOfPlayer.size(); i++){
-        cout<<"Player #"<< setOfPlayer.at(i).getPlayerNum() <<"'s territories:" <<endl;
-        vTr = setOfPlayer.at(i).getPlayer()->getTerritories();
+        cout<<"Player #"<< setOfPlayer.at(i)->getPlayerNum() <<"'s territories:" <<endl;
+        vTr = setOfPlayer.at(i)->getTerritories();
         for(int j = 0; j < 2; j++){
             cout<<&vTr->begin()[j]<<endl;
         }

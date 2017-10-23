@@ -21,6 +21,8 @@ Created on October 15, 2017, 11:25 PM */
 
 #include <cstdlib>
 #include <iostream>
+#include <map>
+#include <vector> 
 
 #include "startup.h"
 #include "../gamestarter/GameStarter.h"
@@ -43,17 +45,13 @@ int main(int argc, char** argv) {
     cout << "===========================" << endl;
     int size = gs->getWorld()->getTerritoriesCount();
     cout << "There are " << size << " territories." << endl;
-    //vector <Territory*> vTr = su->getAllTerritories(); 
-    //su->assignTerritory(vTr);
+    su->assignTerritory(su->getAllTerritories(gs->getWorld()));
     //su->displayTerritory();
     cout << "===========================" << endl;
     int armies = su->assignArmies();
     cout << "Each player gets " << armies << " armies." << endl;
     //su->placeArmies(armies);
 
-    for(int t = 0; t < size; t++){
-        cout<< gs->getWorld()->getTerritories()->territory[t].getName() <<endl;
-    }
     return 0;
 }
 

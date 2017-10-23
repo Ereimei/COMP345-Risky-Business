@@ -23,34 +23,17 @@ Created on October 17, 2017, 10:20 PM */
 #define STARTUP_H
 
 #include "../gamestarter/Gamestarter.h"
+#include "../player/Player.h"
 
 #include <cstdlib>
 #include <string>
 #include <iostream>
 #include <vector>
-
-//class playerInGame, inherit from class Player
-class PlayerInGame{
-private:
-    Player* player;
-    int playerNum;
-    
-public:
-    //default constructor
-    PlayerInGame();
-    PlayerInGame(Player* pl, int n);
-    //getters
-    int getPlayerNum(){return playerNum;};
-    Player* getPlayer(){return player;};
-    //setters
-    void setPlayerNum(int x){playerNum = x;};
-    void setPlayer(Player* pl){*player=*pl;};
-    
-};
+#include <set>
 
 class Startup{
 private:
-    vector<PlayerInGame> setOfPlayer;
+    vector<Player*> setOfPlayer;
     
 public:
     //constructor that will create a dynamic array of players

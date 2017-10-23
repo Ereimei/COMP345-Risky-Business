@@ -73,6 +73,7 @@ public:
     void addContinents(Continent** conts);
     unsigned int getContinentsCount() const;
     unsigned int getTerritoriesCount() const;
+    
 private:
     class Node {
     public:
@@ -82,6 +83,7 @@ private:
         Territory** adjacentTerritories;
         unsigned int adjacentCount;
     };
+    
     void DFS();
     unsigned int findPositionInArrayById(unsigned int id);    
     const unsigned int territoriesCount;
