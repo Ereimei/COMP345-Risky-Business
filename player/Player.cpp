@@ -39,10 +39,44 @@ Diepool* Player::getDiepool() {return diepool;}
 void Player::setHand(Hand* hand) {hand = hand;}
 void Player::setDiePool(Diepool* diepool) {diepool = diepool;}
 
-void Player::addTerritory(Territory*){};
-void Player::removeTerritory(Territory*){};
+void Player::addTerritory(Territory* territory){
+    this->territories->insert(territories->begin(), territory);
+};
+void Player::removeTerritory(Territory* territory){};
 
 //Other functions
-string Player::reinforce(){ return "This player can reinforce!";}
+void Player::reinforce(int reinforcements){ 
+    string territory;
+    int reinAmount;
+    
+    while (reinforcements != 0){
+        cout << "You have " << reinforcements << " army available for reinforcements." << endl;
+        cout << "Your territories" << endl;
+        cout << "----------------" << endl;
+        for (int i = 0; i < this->territories->size(); i++){
+            cout << this->territories->at(i)->getName() << " army: " << this->territories->at(i)->getArmies() << endl;
+        }
+        cout << "Please type the name of the territory you wish to to reinforce followed by the amount of reinforcement." << endl;
+        cin >> territory >> reinAmount;
+        for (int i = 0; i < this->territories->size(); i++){
+            if (this->territories->at(i)->getName() == territory){
+                //If the player entered a # higher than the max amount of reinforcements
+                if (reinAmount > reinforcements){
+                   this->territories->at(i)->setArmies(this->territories->at(i)->getArmies() + reinforcements);
+                    reinforcements = 0;
+                }
+                else if (reinAmount < 0){
+                    cout << "Please enter a number greater than 0." << endl;
+                }
+                else {
+                    this->territories->at(i)->setArmies(this->territories->at(i)->getArmies() + reinAmount);
+                    reinforcements -= reinAmount;
+                }    
+            }
+        }
+    }
+    
+}
+
 string Player::attack(){ return "This player can attack!";}
 string Player::fortify(){ return "This player can fortify";}

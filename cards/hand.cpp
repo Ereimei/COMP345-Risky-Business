@@ -110,7 +110,11 @@ void Hand::removeEach()
     }
 }
 
-int Hand::getArmy()
+int Hand::getArmy(){
+    return army;
+}
+
+int Hand::exchangeArmy()
 {
      if(counterArmy == 1)
     {
@@ -160,8 +164,12 @@ int Hand::exchange(){
                 }
     
     if (exchanged == true){
-        return getArmy();
+        return exchangeArmy();
     }else{
         return 0;
     }
+}
+
+std::vector<Card> Hand::getCards(){
+    return this->playerHand;
 }

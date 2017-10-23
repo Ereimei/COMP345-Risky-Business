@@ -31,6 +31,7 @@ private:
     static int counterArmy;
     int army = 4;
     std::vector<Card> playerHand = std::vector<Card>();
+    int exchangeArmy();
 public:
     int exchange();
     void insert(Card card);
@@ -39,6 +40,7 @@ public:
     void removeThree(std::string type);
     void removeEach();
     int getArmy();
+    std::vector<Card> getCards();
 };
 
 #endif /* HAND_H */
