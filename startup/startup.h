@@ -38,10 +38,6 @@ private:
 public:
     //constructor that will create a dynamic array of players
     Startup(Player** pl, int size);
-    //add territory to player
-    void addTerritory(Player* pl, Territory* tr);
-    //remove territory from player
-    void removeTerritory(Player* pl, Territory* tr);
     //assign all the territories in round robin style
     void assignTerritory(vector<Territory*> vTerritory);
     //get a list of all territories

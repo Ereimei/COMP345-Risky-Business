@@ -50,8 +50,10 @@ int main(int argc, char** argv) {
     cout << "===========================" << endl;
     int armies = su->assignArmies();
     cout << "Each player gets " << armies << " armies." << endl;
-    //su->placeArmies(armies);
-
+    su->placeArmies(armies);
+    su->displayArmiesInTerritory();
+    cout << "===========================" << endl;
+     cout << "start up finished" << endl;
     return 0;
 }
 

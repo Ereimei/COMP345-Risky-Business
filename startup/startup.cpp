@@ -45,27 +45,13 @@ Startup::Startup(Player** pl, int size){
     }
 }
 
-//add a territory to a player's vector of territory
-void Startup::addTerritory(Player* pl, Territory* tr){
-    pl->getTerritories()->push_back(tr);
-};
-
-//remove a territory from a player's vector of territory
-void Startup::removeTerritory(Player* pl, Territory* tr){
-    vector<Territory*>* vcTr = pl->getTerritories();
-    for(int i = 0; i<vcTr->size(); i++){
-        if(&tr == &vcTr->at(i)){
-            vcTr->erase(vcTr->begin() + i);
-        }
-    }
-};
-
 //get a list of all the territories and assign them to a vector
 vector<Territory*> Startup::getAllTerritories(World* world){
     vector<Territory*> vTerritory; 
     for(int e = 0; e < world->getTerritoriesCount(); e++){
         vTerritory.push_back(world->getTerritories()[e].territory);
     }
+    return vTerritory;
 }
  
 
@@ -78,11 +64,10 @@ void Startup::assignTerritory(vector<Territory*> vTerritory){
     for(int x = 0; x < vTerritory.size(); x++){
         randomTerritory = rand() % vTerritory.size();
         player = setOfPlayer.at(playerCounter); 
-        addTerritory(player, vTerritory.at(randomTerritory));
+        player->addTerritory(vTerritory.at(randomTerritory));
         vTerritory.erase(vTerritory.begin() + randomTerritory);
-        playerCounter = (playerCounter + 1)%4;
+        playerCounter = (playerCounter + 1)%setOfPlayer.size();
     }
-    cout << "Assigning countries... finished" << endl;
 }
 
 //assign a set of armies to the players depending on the amount
@@ -108,25 +93,27 @@ int Startup::assignArmies(){
 };
 
 //place the armies for all the players
- /*
 void Startup::placeArmies(int armies){
-    int splitedArmies = 0;
+    cout<<"Assigning armies..."<<endl;
+    unsigned int splitArmies = 0;
     int remainArmies = 0;
-    for(int k = 0; k < setOfPlayer.size(); k++){
-        Player* pl = setOfPlayer.at(k).getPlayer();
-        splitedArmies = armies / pl->getTerritories()->size();
-        for(int d = 0; d < pl->getTerritories()->size(); d++){
-            pl->getTerritories()[d]->setArmies(splitedArmies);
-       }
+    for(int i = 0; i < setOfPlayer.size(); i++){
+        Player* pl = setOfPlayer.at(i);
+        splitArmies = (unsigned int)(armies / pl->getTerritories()->size());
+        
+        for(int j = 0; j < pl->getTerritories()->size(); j++){
+            pl->getTerritories()->at(j)->setArmies(splitArmies);
+        }
+        
         if(armies % pl->getTerritories()->size() != 0){
             remainArmies = armies % pl->getTerritories()->size();
-            for(int h = 0; h < remainArmies; h++){
-                pl->getTerritories()[h]->setArmies(splitedArmies++);
+            for(int j = 0; j < remainArmies; j++){
+                pl->getTerritories()->at(j)->setArmies(splitArmies+1);
             }
         }
     }
 };
-*/
+
 
 //display the order of players
 void Startup::displayPlayerOrder(){
@@ -140,16 +127,27 @@ void Startup::displayPlayerOrder(){
 void Startup::displayTerritory(){
     cout<<"Territory assigned."<<endl;
     vector<Territory*>* vTr; 
-    for(int i = 0; setOfPlayer.size(); i++){
+    for(int i = 0; i<setOfPlayer.size(); i++){
+        cout<<"------------------"<<endl;
         cout<<"Player #"<< setOfPlayer.at(i)->getPlayerNum() <<"'s territories:" <<endl;
         vTr = setOfPlayer.at(i)->getTerritories();
-        for(int j = 0; j < 2; j++){
-            cout<<&vTr->begin()[j]<<endl;
+        for(int j = 0; j < vTr->size(); j++){
+            cout << vTr->at(j)->getName() << endl;
         }
     }
 }
 
 //display the amount of armies per territory 
 void Startup::displayArmiesInTerritory(){
+    cout<<"Armies assigned."<<endl;
+    vector<Territory*>* vTr; 
+    for(int i = 0; i<setOfPlayer.size(); i++){
+        cout<<"------------------"<<endl;
+        cout<<"Player #"<< setOfPlayer.at(i)->getPlayerNum() <<"'s territories:" <<endl;
+        vTr = setOfPlayer.at(i)->getTerritories();
+        for(int j = 0; j < vTr->size(); j++){
+            cout << vTr->at(j)->getName() <<": "<< vTr->at(j)->getArmies() <<" armies"<< endl;
+        }
+    }
     
 };
