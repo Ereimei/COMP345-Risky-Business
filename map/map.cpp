@@ -96,15 +96,13 @@ World::World() : territoriesCount(0),
 World::World(unsigned int terrsCount, unsigned int contsCount) : territoriesCount(terrsCount),
     insertPosition(0),
     continentsCount(contsCount) {
-    Node* terr = new Node[territoriesCount];
-    territories = terr;
+    territories = new Node[territoriesCount];
 }
 
 World::World(const World& orig) : territoriesCount(orig.getTerritoriesCount()),
     insertPosition(0),
     continentsCount(orig.getContinentsCount()) {
-    Node* terr = new Node[territoriesCount];
-    territories = terr;
+    territories = new Node[territoriesCount];
 }
 
 World::~World() {
