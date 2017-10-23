@@ -78,8 +78,8 @@ void Startup::assignTerritory(vector<Territory*> vTerritory){
     for(int x = 0; x < vTerritory.size(); x++){
         randomTerritory = rand() % vTerritory.size();
         player = setOfPlayer.at(playerCounter); 
-       //addTerritory(player, vTerritory.at(randomTerritory));
-        //vTerritory.erase(vTerritory.begin() + randomTerritory);
+        addTerritory(player, vTerritory.at(randomTerritory));
+        vTerritory.erase(vTerritory.begin() + randomTerritory);
         playerCounter = (playerCounter + 1)%4;
     }
     cout << "Assigning countries... finished" << endl;
