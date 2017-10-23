@@ -25,23 +25,12 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <logicalFolder name="TestFiles"
-                   displayName="Test Files"
-                   projectFiles="false"
-                   kind="TEST_LOGICAL_FOLDER">
-    </logicalFolder>
-    <logicalFolder name="ExternalFiles"
-                   displayName="Important Files"
-                   projectFiles="false"
-                   kind="IMPORTANT_FILES_FOLDER">
-      <itemPath>Makefile</itemPath>
-      <itemPath>Player.cpp</itemPath>
-      <itemPath>Player.h</itemPath>
-    </logicalFolder>
     <itemPath>../dice/Diepool.cpp</itemPath>
     <itemPath>../dice/Diepool.h</itemPath>
-    <itemPath>Player.cpp</itemPath>
-    <itemPath>Player.h</itemPath>
+    <itemPath>../maploader/Maploader.cpp</itemPath>
+    <itemPath>../maploader/Maploader.h</itemPath>
+    <itemPath>../player/Player.cpp</itemPath>
+    <itemPath>../player/Player.h</itemPath>
     <itemPath>../cards/card.cpp</itemPath>
     <itemPath>../cards/card.h</itemPath>
     <itemPath>../cards/deck.cpp</itemPath>
@@ -60,11 +49,8 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
-        <cTool>
-          <standard>10</standard>
-        </cTool>
         <ccTool>
-          <standard>11</standard>
+          <standard>8</standard>
         </ccTool>
       </compileType>
       <item path="../cards/card.cpp" ex="false" tool="1" flavor2="0">
@@ -87,9 +73,13 @@
       </item>
       <item path="../map/map.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Player.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../maploader/Maploader.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Player.h" ex="false" tool="3" flavor2="0">
+      <item path="../maploader/Maploader.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../player/Player.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../player/Player.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -134,9 +124,13 @@
       </item>
       <item path="../map/map.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Player.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../maploader/Maploader.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Player.h" ex="false" tool="3" flavor2="0">
+      <item path="../maploader/Maploader.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../player/Player.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../player/Player.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
