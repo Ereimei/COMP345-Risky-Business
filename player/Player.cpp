@@ -14,12 +14,9 @@
  */
 
 
-<<<<<<< HEAD
-
-=======
 #include <iostream>
 #include <ostream>
->>>>>>> 111cf225a447a3142b5368a02d6646cef6419ad2
+
 #include "../cards/hand.h"
 #include "../dice/Diepool.h"
 #include "../map/map.h"
@@ -293,6 +290,7 @@ void Player::attack(World* world, vector<Player*> players){
     //world->getTerritories()[i].adjacentTerritories[j]->getOwner();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 string Player::attack(){ return "This player can attack!";}
 
 
@@ -424,6 +422,8 @@ void Player::fortify(World* world){
     
 }
 =======
+=======
+>>>>>>> 111cf225a447a3142b5368a02d6646cef6419ad2
 }
 string Player::fortify(){ return "This player can fortify";}
 >>>>>>> 111cf225a447a3142b5368a02d6646cef6419ad2

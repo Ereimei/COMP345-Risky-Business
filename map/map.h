@@ -23,9 +23,12 @@ class Player;
 #include <vector>
 
 //#include "../player/Player.h"
+<<<<<<< HEAD
 
 class Player;
 
+=======
+>>>>>>> 111cf225a447a3142b5368a02d6646cef6419ad2
 
 using std::string;
 using std::cout;

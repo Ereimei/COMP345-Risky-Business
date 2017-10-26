@@ -6,16 +6,6 @@
 CND_BASEDIR=`pwd`
 CND_BUILDDIR=build
 CND_DISTDIR=dist
-# Debug configuration
-<<<<<<< HEAD
-CND_PLATFORM_Debug=GNU-Linux
-CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux
-CND_ARTIFACT_NAME_Debug=startup
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/startup
-CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux/package
-CND_PACKAGE_NAME_Debug=startup.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/startup.tar
-=======
 CND_PLATFORM_Debug=MinGW-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/MinGW-Windows
 CND_ARTIFACT_NAME_Debug=startup

@@ -21,13 +21,6 @@ FC=gfortran
 AS=as
 
 # Macros
-<<<<<<< HEAD
-CND_PLATFORM=GNU-Linux
-CND_DLIB_EXT=so
-=======
-CND_PLATFORM=MinGW-Windows
-CND_DLIB_EXT=dll
->>>>>>> 111cf225a447a3142b5368a02d6646cef6419ad2
 CND_CONF=Debug
 CND_DISTDIR=dist
 CND_BUILDDIR=build

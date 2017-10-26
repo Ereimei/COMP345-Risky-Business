@@ -6,9 +6,6 @@
 
 # Macros
 TOP=`pwd`
-<<<<<<< HEAD
-CND_PLATFORM=GNU-Linux
-=======
 CND_PLATFORM=MinGW-Windows
 >>>>>>> 111cf225a447a3142b5368a02d6646cef6419ad2
 CND_CONF=Debug

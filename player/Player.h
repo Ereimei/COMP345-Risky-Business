@@ -29,12 +29,9 @@ class World;
 #include "../player/Player.h"
 
 
-<<<<<<< HEAD
 using std::vector;
 using std::string;
-=======
-using namespace std;
->>>>>>> 111cf225a447a3142b5368a02d6646cef6419ad2
+
 
 
 class Player {
@@ -63,9 +60,12 @@ public:
     
     void reinforce(int reinforcements);
 <<<<<<< HEAD
+<<<<<<< HEAD
     string attack();
     void fortify(World* world);
 =======
+=======
+>>>>>>> 111cf225a447a3142b5368a02d6646cef6419ad2
     void attack(World* world, vector<Player*> players);
     string fortify();
 >>>>>>> 111cf225a447a3142b5368a02d6646cef6419ad2
