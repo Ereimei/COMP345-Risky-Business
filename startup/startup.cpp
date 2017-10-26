@@ -23,7 +23,9 @@ Created on October 17, 2017, 10:20 PM */
 #include <algorithm>
 #include <iostream>
 #include <queue>
-# include "startup.h"
+#include <string>
+
+#include "startup.h"
 
 using namespace std;
 
@@ -65,6 +67,7 @@ void Startup::assignTerritory(vector<Territory*> vTerritory){
         randomTerritory = rand() % vTerritory.size();
         player = setOfPlayer.at(playerCounter); 
         player->addTerritory(vTerritory.at(randomTerritory));
+        vTerritory.at(randomTerritory)->setOwner(to_string(player->getPlayerNum()));
         vTerritory.erase(vTerritory.begin() + randomTerritory);
         playerCounter = (playerCounter + 1)%setOfPlayer.size();
     }
