@@ -15,10 +15,14 @@
 
 #ifndef MAP_H
 #define MAP_H
+class Player;
 
 #include <string>
 #include <iostream>
 #include <cstdlib>
+#include <vector>
+
+//#include "../player/Player.h"
 
 class Player;
 

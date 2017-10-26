@@ -24,22 +24,14 @@ using std::cout;
         dice[2] = 1;
     }
     
-    void Diepool::roll(){
-        srand((int)time(NULL));
-        int numDice = 0;
-        std::cout << "Enter number of dice to be used(1,2 or 3)" << std::endl;
-        std::cin >> numDice;
-       
-        while(numDice < 1 || numDice > 3){
-            std::cout << "Incorrect value. Please enter a 1,2 or 3." << std::endl;
-            std::cin >> numDice;
-        }
-        for(int i = 0; i <= numDice - 1; i++){
+    
+    void Diepool::roll(int n){
+        
+        for(int i = 0; i <= n - 1; i++){
             this->dice[i] = (rand() % 6) + 1;
-            std::cout << "you rolled a " << dice[i] << std::endl;
 
             this->numt++;
-            switch(dice[i]){
+            switch(this->dice[i]){
                 case 1: 
                     this->num1++;
                     break;
@@ -69,4 +61,31 @@ using std::cout;
         std::cout << "You have rolled 4 " << (100 * this->num4 / this->numt) << " % of the time" << std::endl;
         std::cout << "You have rolled 5 " << (100 * this->num5 / this->numt) << " % of the time" << std::endl;
         std::cout << "You have rolled 6 " << (100 * this->num6 / this->numt) << " % of the time" << std::endl;
+    }
+    
+     void Diepool::sortDice(int numDice){
+        int temp;
+        if (numDice > 2){
+            for(int i=0; i< numDice - 1; i++){
+                for (int j = 0; j < numDice - 1; j++){
+                    if (i == 1){
+                        j += 2;
+                    }
+                    if (dice[i] < dice[j]){
+                        temp = dice[j];
+                        dice[j] = dice[i];
+                        dice[i] = temp;
+                    }
+            
+                }
+                i++;
+            }
+        }
+        else if (numDice = 2) {
+            if (dice[0] < dice[1]){
+                temp = dice[1];
+                dice[0] = dice[1];
+                dice[1] = temp;
+            }
+        }
     }

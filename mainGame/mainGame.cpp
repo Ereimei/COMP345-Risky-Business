@@ -82,10 +82,10 @@ bool MainGame:: playerOwnsAll(GameStarter* gameSt){
     
     int terrCount = gameSt->getWorld()->getTerritoriesCount();
     //set name to the first player of the game
-    string name = gameSt->getWorld()->getTerritories()[0].territory->getOwner();
+    Player* player = gameSt->getWorld()->getTerritories()[0].territory->getOwner();
     //check if all the territories have the same owner, if it doesn't then it will return false
     for(int i = 0; i < terrCount; i++){
-        if(name.compare(gameSt->getWorld()->getTerritories()[i].territory->getOwner()) != 0){
+        if(gameSt->getWorld()->getTerritories()[i].territory->getOwner() != player){
             return false;
         }
     }
@@ -99,12 +99,9 @@ bool MainGame:: playerOwnsAll(GameStarter* gameSt){
 void MainGame:: forceEnd(GameStarter* gameSt, Startup* startup){
     
     int terrCount = gameSt->getWorld()->getTerritoriesCount();
-    //get number of the first player
-    int firstPlayer = startup->getSetOfPlayer().at(0)->getPlayerNum();
-    //convert it to string
-    string playerName = to_string(firstPlayer);
+    Player * player = gameSt->getWorld()->getTerritories()[0].territory->getOwner();
     for(int i = 0; i < terrCount; i++){
-        gameSt->getWorld()->getTerritories()[i].territory->setOwner(playerName);
+        gameSt->getWorld()->getTerritories()[i].territory->setOwner(player);
     }
     cout << "==================================" << endl;
     cout << "A player owns all the territories." << endl;
