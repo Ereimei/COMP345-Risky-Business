@@ -1,6 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configurationDescriptor version="100">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="COMP345-Risky-Business"
+                   displayName="COMP345-Risky-Business"
+                   projectFiles="true">
+      <logicalFolder name="attackphase" displayName="attackphase" projectFiles="true">
+        <logicalFolder name="dist" displayName="dist" projectFiles="true">
+          <logicalFolder name="Debug" displayName="Debug" projectFiles="true">
+            <logicalFolder name="MinGW-Windows"
+                           displayName="MinGW-Windows"
+                           projectFiles="true">
+            </logicalFolder>
+          </logicalFolder>
+        </logicalFolder>
+        <itemPath>.dep.inc</itemPath>
+        <itemPath>Antarctica.map</itemPath>
+        <itemPath>Makefile</itemPath>
+      </logicalFolder>
+      <logicalFolder name="cards" displayName="cards" projectFiles="true">
+        <logicalFolder name="dist" displayName="dist" projectFiles="true">
+          <logicalFolder name="Debug" displayName="Debug" projectFiles="true">
+            <logicalFolder name="MinGW-Windows"
+                           displayName="MinGW-Windows"
+                           projectFiles="true">
+              <itemPath>../cards/dist/Debug/MinGW-Windows/cards.exe</itemPath>
+            </logicalFolder>
+          </logicalFolder>
+        </logicalFolder>
+        <itemPath>../cards/Makefile</itemPath>
+        <itemPath>../cards/card.cpp</itemPath>
+        <itemPath>../cards/card.h</itemPath>
+        <itemPath>../cards/deck.cpp</itemPath>
+        <itemPath>../cards/deck.h</itemPath>
+        <itemPath>../cards/hand.cpp</itemPath>
+        <itemPath>../cards/hand.h</itemPath>
+        <itemPath>../cards/main.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="dice" displayName="dice" projectFiles="true">
+        <itemPath>../dice/Diepool.cpp</itemPath>
+        <itemPath>../dice/Diepool.h</itemPath>
+        <itemPath>../dice/Makefile</itemPath>
+        <itemPath>../dice/main.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="gamestarter" displayName="gamestarter" projectFiles="true">
+        <logicalFolder name="maps" displayName="maps" projectFiles="true">
+          <itemPath>../gamestarter/maps/Antarctica.map</itemPath>
+          <itemPath>../gamestarter/maps/World.map</itemPath>
+        </logicalFolder>
+        <itemPath>../gamestarter/GameStarter.cpp</itemPath>
+        <itemPath>../gamestarter/GameStarter.h</itemPath>
+        <itemPath>../gamestarter/Makefile</itemPath>
+        <itemPath>../gamestarter/gamestarter.exe.stackdump</itemPath>
+        <itemPath>../gamestarter/main.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="mainGame" displayName="mainGame" projectFiles="true">
+        <logicalFolder name="maps" displayName="maps" projectFiles="true">
+          <itemPath>../mainGame/maps/Antarctica.map</itemPath>
+          <itemPath>../mainGame/maps/World.map</itemPath>
+        </logicalFolder>
+        <itemPath>../mainGame/Makefile</itemPath>
+        <itemPath>../mainGame/main.cpp</itemPath>
+        <itemPath>../mainGame/mainGame.cpp</itemPath>
+        <itemPath>../mainGame/mainGame.h</itemPath>
+        <itemPath>../mainGame/maingame.exe.stackdump</itemPath>
+      </logicalFolder>
+      <logicalFolder name="map" displayName="map" projectFiles="true">
+        <itemPath>../map/Makefile</itemPath>
+        <itemPath>../map/main.cpp</itemPath>
+        <itemPath>../map/map.cpp</itemPath>
+        <itemPath>../map/map.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="maploader" displayName="maploader" projectFiles="true">
+        <logicalFolder name=".vs" displayName=".vs" projectFiles="true">
+          <logicalFolder name="maploader" displayName="maploader" projectFiles="true">
+            <logicalFolder name="v15" displayName="v15" projectFiles="true">
+              <logicalFolder name="ipch" displayName="ipch" projectFiles="true">
+                <logicalFolder name="AutoPCH" displayName="AutoPCH" projectFiles="true">
+                  <logicalFolder name="c97651dc6779501f"
+                                 displayName="c97651dc6779501f"
+                                 projectFiles="true">
+                    <itemPath>../maploader/.vs/maploader/v15/ipch/AutoPCH/c97651dc6779501f/MAIN.ipch</itemPath>
+                  </logicalFolder>
+                </logicalFolder>
+              </logicalFolder>
+              <itemPath>../maploader/.vs/maploader/v15/.suo</itemPath>
+              <itemPath>../maploader/.vs/maploader/v15/Browse.VC.db</itemPath>
+            </logicalFolder>
+          </logicalFolder>
+          <itemPath>../maploader/.vs/ProjectSettings.json</itemPath>
+          <itemPath>../maploader/.vs/VSWorkspaceState.json</itemPath>
+          <itemPath>../maploader/.vs/slnx.sqlite</itemPath>
+        </logicalFolder>
+        <itemPath>../maploader/Antarctica.map</itemPath>
+        <itemPath>../maploader/Makefile</itemPath>
+        <itemPath>../maploader/Maploader.cpp</itemPath>
+        <itemPath>../maploader/Maploader.h</itemPath>
+        <itemPath>../maploader/World.map</itemPath>
+        <itemPath>../maploader/main.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="player" displayName="player" projectFiles="true">
+        <itemPath>../player/.dep.inc</itemPath>
+        <itemPath>../player/Makefile</itemPath>
+        <itemPath>../player/Player.cpp</itemPath>
+        <itemPath>../player/Player.h</itemPath>
+        <itemPath>../player/main.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="reinforcement"
+                     displayName="reinforcement"
+                     projectFiles="true">
+        <itemPath>../reinforcement/Antarctica.map</itemPath>
+        <itemPath>../reinforcement/Makefile</itemPath>
+        <itemPath>../reinforcement/main.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="startup" displayName="startup" projectFiles="true">
+        <logicalFolder name="maps" displayName="maps" projectFiles="true">
+          <itemPath>../startup/maps/Antarctica.map</itemPath>
+          <itemPath>../startup/maps/World.map</itemPath>
+        </logicalFolder>
+        <itemPath>../startup/Makefile</itemPath>
+        <itemPath>../startup/main.cpp</itemPath>
+        <itemPath>../startup/startup.cpp</itemPath>
+        <itemPath>../startup/startup.exe.stackdump</itemPath>
+        <itemPath>../startup/startup.h</itemPath>
+      </logicalFolder>
+      <itemPath>../.gitignore</itemPath>
+      <itemPath>../README.md</itemPath>
+    </logicalFolder>
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
@@ -23,9 +148,27 @@
                    displayName="Important Files"
                    projectFiles="false"
                    kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>../maploader/Antarctica.map</itemPath>
+      <itemPath>../dice/Diepool.cpp</itemPath>
+      <itemPath>../dice/Diepool.h</itemPath>
       <itemPath>Makefile</itemPath>
+      <itemPath>../maploader/Maploader.cpp</itemPath>
+      <itemPath>../maploader/Maploader.h</itemPath>
+      <itemPath>../player/Player.cpp</itemPath>
+      <itemPath>../player/Player.h</itemPath>
+      <itemPath>../cards/card.cpp</itemPath>
+      <itemPath>../cards/card.h</itemPath>
+      <itemPath>../cards/deck.cpp</itemPath>
+      <itemPath>../cards/deck.h</itemPath>
+      <itemPath>../cards/hand.cpp</itemPath>
+      <itemPath>../cards/hand.h</itemPath>
+      <itemPath>../map/map.cpp</itemPath>
+      <itemPath>../map/map.h</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>..</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="Debug" type="1">
@@ -35,7 +178,157 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
+        <ccTool>
+          <standard>8</standard>
+        </ccTool>
       </compileType>
+      <item path="../.gitignore" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../README.md" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../cards/Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../cards/card.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../cards/card.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../cards/deck.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../cards/deck.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../cards/dist/Debug/MinGW-Windows/cards.exe"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../cards/hand.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../cards/hand.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../cards/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../dice/Diepool.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../dice/Diepool.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../dice/Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../dice/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../gamestarter/GameStarter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../gamestarter/GameStarter.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../gamestarter/Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../gamestarter/gamestarter.exe.stackdump"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../gamestarter/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../gamestarter/maps/Antarctica.map" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../gamestarter/maps/World.map" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../mainGame/Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../mainGame/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../mainGame/mainGame.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../mainGame/mainGame.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../mainGame/maingame.exe.stackdump" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../mainGame/maps/Antarctica.map" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../mainGame/maps/World.map" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../map/Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../map/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../map/map.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../map/map.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../maploader/.vs/ProjectSettings.json"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../maploader/.vs/VSWorkspaceState.json"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../maploader/.vs/maploader/v15/.suo"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../maploader/.vs/maploader/v15/Browse.VC.db"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../maploader/.vs/maploader/v15/ipch/AutoPCH/c97651dc6779501f/MAIN.ipch"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../maploader/.vs/slnx.sqlite" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../maploader/Antarctica.map" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../maploader/Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../maploader/Maploader.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../maploader/Maploader.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../maploader/World.map" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../maploader/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../player/.dep.inc" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../player/Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../player/Player.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../player/Player.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../player/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../reinforcement/Antarctica.map" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../reinforcement/Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../reinforcement/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../startup/Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../startup/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../startup/maps/Antarctica.map" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../startup/maps/World.map" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../startup/startup.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../startup/startup.exe.stackdump" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../startup/startup.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path=".dep.inc" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Antarctica.map" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Makefile" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
@@ -59,6 +352,153 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="../.gitignore" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../README.md" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../cards/Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../cards/card.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../cards/card.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../cards/deck.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../cards/deck.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../cards/dist/Debug/MinGW-Windows/cards.exe"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../cards/hand.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../cards/hand.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../cards/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../dice/Diepool.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../dice/Diepool.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../dice/Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../dice/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../gamestarter/GameStarter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../gamestarter/GameStarter.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../gamestarter/Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../gamestarter/gamestarter.exe.stackdump"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../gamestarter/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../gamestarter/maps/Antarctica.map" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../gamestarter/maps/World.map" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../mainGame/Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../mainGame/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../mainGame/mainGame.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../mainGame/mainGame.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../mainGame/maingame.exe.stackdump" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../mainGame/maps/Antarctica.map" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../mainGame/maps/World.map" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../map/Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../map/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../map/map.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../map/map.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../maploader/.vs/ProjectSettings.json"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../maploader/.vs/VSWorkspaceState.json"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../maploader/.vs/maploader/v15/.suo"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../maploader/.vs/maploader/v15/Browse.VC.db"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../maploader/.vs/maploader/v15/ipch/AutoPCH/c97651dc6779501f/MAIN.ipch"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../maploader/.vs/slnx.sqlite" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../maploader/Antarctica.map" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../maploader/Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../maploader/Maploader.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../maploader/Maploader.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../maploader/World.map" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../maploader/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../player/.dep.inc" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../player/Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../player/Player.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../player/Player.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../player/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../reinforcement/Antarctica.map" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../reinforcement/Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../reinforcement/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../startup/Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../startup/main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../startup/maps/Antarctica.map" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../startup/maps/World.map" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../startup/startup.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../startup/startup.exe.stackdump" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../startup/startup.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path=".dep.inc" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Antarctica.map" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Makefile" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>

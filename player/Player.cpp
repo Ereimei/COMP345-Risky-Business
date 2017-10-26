@@ -12,15 +12,18 @@
  *
  * Created on September 27, 2017, 3:40 PM
  */
+
+
 #include <iostream>
-#include <vector>
-
-
+#include <ostream>
 #include "../cards/hand.h"
 #include "../dice/Diepool.h"
 #include "../map/map.h"
 #include "Player.h"
 
+using std::cout;
+using std::cin;
+using std::string;
 using namespace std;
         
 //Constructor
@@ -31,7 +34,8 @@ Player::Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool) : 
 //Constructor with player number
 Player::Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool, int n) : territories(territories),
     hand(hand),
-    diepool(diepool), playerNum(n) {}
+    diepool(diepool),
+    playerNum(n) {}
 
 //Destructors
 Player::~Player() {}
@@ -84,23 +88,28 @@ void Player::reinforce(int reinforcements){
     
 }
 void Player::attack(World* world, vector<Player*> players){
+    
     string answer;
     cout << "Do you want to attack? (y/n)" << endl;
     cin >> answer;
+    //loop to ensure answer is in proper format
     while (answer != "y" && answer != "n"){
         cout << "Please answer in proper format (y/n)" << endl;
         cin >> answer;
     }
     
+    //start of attack phase loop, user can keep attacking
     while (answer == "y"){
+        
+        //prints out territories that can be attacked
         cout << "Possible territories to attack" << endl << endl;
         for (int i = 0; i < this->getTerritories()->size(); i++){
-            cout << "From territory " << this->getTerritories()[i] << endl;
-            for (int j = 0; j < world->getTerritoriesCount(); j++){
-                if (this->getTerritories()->at(i)->getName() == world->getTerritories()->territory->getName()){
+            cout << "From territory " << this->getTerritories()->at(i)->getName() << endl;
+            for (int j = 0; j < world->getTerritoriesCount() ; j++){
+                if (this->getTerritories()->at(i)->getName() == world->getTerritories()[j].territory->getName()){
                     for (int k = 0; k < this->getTerritories()->size(); k++){
-                        if (world->getTerritories()[j]->adjacentTerritories->getOwner() != this->getPlayerNum()){
-                            cout << world->getTerritories()[j]->adjacentTerritories->getName() << endl;
+                        if (world->getTerritories()[j].adjacentTerritories[k]->getOwner() != this){
+                        cout << world->getTerritories()[j].adjacentTerritories[k]->getName()<< endl;
                         }
                     } 
                 }
@@ -111,6 +120,7 @@ void Player::attack(World* world, vector<Player*> players){
         cout << "Please enter attacking territory" << endl;
         cin >> attacker;
         bool exists = false;
+        //loop to ensure that the name entered corresponds to an existing territory
         while(exists == false)
         {
             for (int i = 0; i <this->getTerritories()->size(); i++)
@@ -138,15 +148,16 @@ void Player::attack(World* world, vector<Player*> players){
         int atkPos, defPos;
         
         cout << "Please enter territory you wish to conquer champion" << endl;
-        cin >> defender
+        cin >> defender;
         exists = false;
+        //loop ensures that name entered corresponds to an existing territory
         while(exists == false)
         {
             for (int i = 0; i < world->getTerritoriesCount(); i++)
             {
                 if (world->getTerritories()[i].territory->getName() == attacker){
                     atkPos = i;
-                    for (int j = 0; j < world->getTerritories()[i]->adjacentCount; j++){
+                    for (int j = 0; j < world->getTerritories()[i].adjacentCount; j++){
                         if (world->getTerritories()[i].adjacentTerritories[j]->getName() == defender){
                             exists = true;
                             defPos = j;
@@ -191,21 +202,15 @@ void Player::attack(World* world, vector<Player*> players){
             this->getDiepool()->roll();
             this->getDiepool()->sortDice(atkDie);
         
-            int idDefender = static_cast<int>(world->getTerritories()[atkPos].adjacentTerritories[defPos]->getOwner());
-            Player* defendingPlayer;
-            for (int i = 0; i < players.size(); i++){
-                if (idDefender == players.at(i)->playerNum){
-                defendingPlayer = players.at(i);    
-                }
-            }
+            Player* defendingPlayer = (world->getTerritories()[atkPos].adjacentTerritories[defPos]->getOwner());
         
             defendingPlayer->getDiepool()->roll();
             defendingPlayer->getDiepool()->sortDice(defDie);
             
-            cout << "Attacker rolled " << getDiepool()->getDie1() << " Defender rolled " << defendingPlayer.getDiepool()->getDie1() << endl;
+            cout << "Attacker rolled " << getDiepool()->getDie1() << " Defender rolled " << defendingPlayer->getDiepool()->getDie1() << endl;
             
             
-            if (this->getDiepool()->getDie1()> defendingPlayer.getDiepool()->getDie1()){
+            if (this->getDiepool()->getDie1()> defendingPlayer->getDiepool()->getDie1()){
                 int n = world->getTerritories()[atkPos].adjacentTerritories[defPos]->getArmies() - 1;
                 world->getTerritories()[atkPos].adjacentTerritories[defPos]->setArmies(n);
                 cout << "attacker wins" << endl;
@@ -217,9 +222,9 @@ void Player::attack(World* world, vector<Player*> players){
             }
             
             if(defDie = 2){
-                cout << "Attacker rolled " << getDiepool()->getDie2() << " Defender rolled " << defendingPlayer.getDiepool()->getDie2() << endl;
+                cout << "Attacker rolled " << getDiepool()->getDie2() << " Defender rolled " << defendingPlayer->getDiepool()->getDie2() << endl;
                 
-                if (this->getDiepool()->getDie2()> defendingPlayer.getDiepool()->getDie2()){
+                if (this->getDiepool()->getDie2()> defendingPlayer->getDiepool()->getDie2()){
                     int n = world->getTerritories()[atkPos].adjacentTerritories[defPos]->getArmies() - 1;
                     world->getTerritories()[atkPos].adjacentTerritories[defPos]->setArmies(n);
                     cout << "attacker wins" << endl;
@@ -238,7 +243,7 @@ void Player::attack(World* world, vector<Player*> players){
                 cout << "min = 1, max = " << transMax << endl;
                 int transfer;
                 cin >> transfer;
-                while(transfer !< transMax || transfer !> 1 ){
+                while(transfer > transMax || transfer < 1 ){
                     cout << "please enter a number in the proper range champion" << endl;
                     cout << " min = 1, max = " << transMax << endl;
                     cin >> transfer;
@@ -260,7 +265,7 @@ void Player::attack(World* world, vector<Player*> players){
                     cout << defendingPlayer->territories->at(i)->getName()<< endl;
                 }   
             }
-            if(world->getTerritories()[atkPos].territory->getArmies() = 1){
+            if(world->getTerritories()[atkPos].territory->getArmies() == 1){
                 attacking = "n";
             }
             else{

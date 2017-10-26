@@ -19,19 +19,23 @@
 
 #include <iostream>
 #include <vector>
+#include <string>
 
+class Territory;
+class World;
 
 #include "../map/map.h"
 #include "../dice/Diepool.h"
 #include "../cards/hand.h"
 
 
-using std::vector;
+using namespace std;
 
 
 class Player {
 public:
     //Constructor
+    //Normally, you dont want multiple constructors like that... it doesnt make sense... but wtv
     Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool);
     Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool, int n);
     //Destructor
@@ -53,7 +57,7 @@ public:
     void removeTerritory(Territory*);
     
     void reinforce(int reinforcements);
-    void attack();
+    void attack(World* world, vector<Player*> players);
     string fortify();
     
 private:
