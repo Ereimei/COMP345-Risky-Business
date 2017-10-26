@@ -66,63 +66,63 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/maingame
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/maingame.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/maingame: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/maingame.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/maingame ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/_ext/81a96254/card.o: ../cards/card.cpp 
+${OBJECTDIR}/_ext/81a96254/card.o: ../cards/card.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/81a96254
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/81a96254/card.o ../cards/card.cpp
 
-${OBJECTDIR}/_ext/81a96254/deck.o: ../cards/deck.cpp 
+${OBJECTDIR}/_ext/81a96254/deck.o: ../cards/deck.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/81a96254
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/81a96254/deck.o ../cards/deck.cpp
 
-${OBJECTDIR}/_ext/81a96254/hand.o: ../cards/hand.cpp 
+${OBJECTDIR}/_ext/81a96254/hand.o: ../cards/hand.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/81a96254
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/81a96254/hand.o ../cards/hand.cpp
 
-${OBJECTDIR}/_ext/d2a2ee96/Diepool.o: ../dice/Diepool.cpp 
+${OBJECTDIR}/_ext/d2a2ee96/Diepool.o: ../dice/Diepool.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/d2a2ee96
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/d2a2ee96/Diepool.o ../dice/Diepool.cpp
 
-${OBJECTDIR}/_ext/febfc28e/GameStarter.o: ../gamestarter/GameStarter.cpp 
+${OBJECTDIR}/_ext/febfc28e/GameStarter.o: ../gamestarter/GameStarter.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/febfc28e
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/febfc28e/GameStarter.o ../gamestarter/GameStarter.cpp
 
-${OBJECTDIR}/_ext/511e288d/map.o: ../map/map.cpp 
+${OBJECTDIR}/_ext/511e288d/map.o: ../map/map.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/511e288d
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/511e288d/map.o ../map/map.cpp
 
-${OBJECTDIR}/_ext/5d43fae0/Maploader.o: ../maploader/Maploader.cpp 
+${OBJECTDIR}/_ext/5d43fae0/Maploader.o: ../maploader/Maploader.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/5d43fae0
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/5d43fae0/Maploader.o ../maploader/Maploader.cpp
 
-${OBJECTDIR}/_ext/ca457e10/Player.o: ../player/Player.cpp 
+${OBJECTDIR}/_ext/ca457e10/Player.o: ../player/Player.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/ca457e10
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/ca457e10/Player.o ../player/Player.cpp
 
-${OBJECTDIR}/_ext/2ac0c52e/startup.o: ../startup/startup.cpp 
+${OBJECTDIR}/_ext/2ac0c52e/startup.o: ../startup/startup.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/2ac0c52e
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/2ac0c52e/startup.o ../startup/startup.cpp
 
-${OBJECTDIR}/main.o: main.cpp 
+${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
 
-${OBJECTDIR}/mainGame.o: mainGame.cpp 
+${OBJECTDIR}/mainGame.o: mainGame.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/mainGame.o mainGame.cpp
@@ -133,7 +133,6 @@ ${OBJECTDIR}/mainGame.o: mainGame.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/maingame
 
 # Subprojects
 .clean-subprojects:
