@@ -38,22 +38,10 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/81a96254/card.o \
 	${OBJECTDIR}/_ext/81a96254/deck.o \
 	${OBJECTDIR}/_ext/81a96254/hand.o \
-	${OBJECTDIR}/_ext/81a96254/main.o \
 	${OBJECTDIR}/_ext/d2a2ee96/Diepool.o \
-	${OBJECTDIR}/_ext/d2a2ee96/main.o \
-	${OBJECTDIR}/_ext/febfc28e/GameStarter.o \
-	${OBJECTDIR}/_ext/febfc28e/main.o \
-	${OBJECTDIR}/_ext/de5414ba/main.o \
-	${OBJECTDIR}/_ext/de5414ba/mainGame.o \
-	${OBJECTDIR}/_ext/511e288d/main.o \
 	${OBJECTDIR}/_ext/511e288d/map.o \
 	${OBJECTDIR}/_ext/5d43fae0/Maploader.o \
-	${OBJECTDIR}/_ext/5d43fae0/main.o \
 	${OBJECTDIR}/_ext/ca457e10/Player.o \
-	${OBJECTDIR}/_ext/ca457e10/main.o \
-	${OBJECTDIR}/_ext/c9453d22/main.o \
-	${OBJECTDIR}/_ext/2ac0c52e/main.o \
-	${OBJECTDIR}/_ext/2ac0c52e/startup.o \
 	${OBJECTDIR}/main.o
 
 
@@ -96,45 +84,10 @@ ${OBJECTDIR}/_ext/81a96254/hand.o: ../cards/hand.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/81a96254/hand.o ../cards/hand.cpp
 
-${OBJECTDIR}/_ext/81a96254/main.o: ../cards/main.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/81a96254
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/81a96254/main.o ../cards/main.cpp
-
 ${OBJECTDIR}/_ext/d2a2ee96/Diepool.o: ../dice/Diepool.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/d2a2ee96
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/d2a2ee96/Diepool.o ../dice/Diepool.cpp
-
-${OBJECTDIR}/_ext/d2a2ee96/main.o: ../dice/main.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/d2a2ee96
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/d2a2ee96/main.o ../dice/main.cpp
-
-${OBJECTDIR}/_ext/febfc28e/GameStarter.o: ../gamestarter/GameStarter.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/febfc28e
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/febfc28e/GameStarter.o ../gamestarter/GameStarter.cpp
-
-${OBJECTDIR}/_ext/febfc28e/main.o: ../gamestarter/main.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/febfc28e
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/febfc28e/main.o ../gamestarter/main.cpp
-
-${OBJECTDIR}/_ext/de5414ba/main.o: ../mainGame/main.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/de5414ba
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/de5414ba/main.o ../mainGame/main.cpp
-
-${OBJECTDIR}/_ext/de5414ba/mainGame.o: ../mainGame/mainGame.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/de5414ba
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/de5414ba/mainGame.o ../mainGame/mainGame.cpp
-
-${OBJECTDIR}/_ext/511e288d/main.o: ../map/main.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/511e288d
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/511e288d/main.o ../map/main.cpp
 
 ${OBJECTDIR}/_ext/511e288d/map.o: ../map/map.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/511e288d
@@ -146,35 +99,10 @@ ${OBJECTDIR}/_ext/5d43fae0/Maploader.o: ../maploader/Maploader.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/5d43fae0/Maploader.o ../maploader/Maploader.cpp
 
-${OBJECTDIR}/_ext/5d43fae0/main.o: ../maploader/main.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/5d43fae0
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/5d43fae0/main.o ../maploader/main.cpp
-
 ${OBJECTDIR}/_ext/ca457e10/Player.o: ../player/Player.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/ca457e10
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/ca457e10/Player.o ../player/Player.cpp
-
-${OBJECTDIR}/_ext/ca457e10/main.o: ../player/main.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/ca457e10
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/ca457e10/main.o ../player/main.cpp
-
-${OBJECTDIR}/_ext/c9453d22/main.o: ../reinforcement/main.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/c9453d22
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/c9453d22/main.o ../reinforcement/main.cpp
-
-${OBJECTDIR}/_ext/2ac0c52e/main.o: ../startup/main.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/2ac0c52e
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/2ac0c52e/main.o ../startup/main.cpp
-
-${OBJECTDIR}/_ext/2ac0c52e/startup.o: ../startup/startup.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/2ac0c52e
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/2ac0c52e/startup.o ../startup/startup.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}

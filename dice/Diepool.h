@@ -35,7 +35,7 @@ class Diepool{
         void setDie1(int d6){dice[0] = d6;}
         void setDie2(int d6){dice[1] = d6;}
         void setDie3(int d6){dice[2] = d6;}
-        void roll();
+        void roll(int n);
         void showPercentage();
         void sortDice(int numDice);
         Diepool();

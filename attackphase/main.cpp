@@ -1,36 +1,27 @@
 #include <cstdlib>
 #include <vector>
 #include <string>
-#include <map>
+#include <ctime>
 
 #include "../player/Player.h"
-#include "../dice/Diepool.h"
 #include "../cards/deck.h"
 #include "../cards/hand.h"
 #include "../cards/card.h"
 #include "../map/map.h"
 #include "../maploader/Maploader.h"
 
-
-
-
-
 using namespace std;
 
-/*
- * 
- */
-int main(int argc, char** argv) {
+int numArmies(Player* player, World* world);
 
-     //Generating the world
+
+
+int main(int argc, char** argv) {
+    srand((int)time(NULL));
+    //Generating the world
     cout << "Generating Antarctica world" << endl;
     Maploader* mapLoader = new Maploader("Antarctica.map");
     World* world = mapLoader->getWorld();
-    
-    //Generating the deck
-    cout << "Generating deck" << endl;
-    Deck* deck = new Deck;//Creating deck
-    deck->shuffle();
     
     //Generating players
     cout << "Generating 2 players" << endl;
@@ -40,8 +31,8 @@ int main(int argc, char** argv) {
     Hand* hand2 = new Hand();
     Diepool* diepool1 = new Diepool();
     Diepool* diepool2 = new Diepool();
-    Player* player1 = new Player(territories1, hand1, diepool1, 1);
-    Player* player2 = new Player(territories2, hand2, diepool2, 2);
+    Player* player1 = new Player(territories1, hand1, diepool1);
+    Player* player2 = new Player(territories2, hand2, diepool2);
     cout << "----------------------" << endl << endl;
     
     
@@ -53,30 +44,31 @@ int main(int argc, char** argv) {
         if (i < 5){
             cout << "Giving " << world->getTerritories()[i].territory->getName() << " to player 1." << endl;
             player1->addTerritory(world->getTerritories()[i].territory);
-            world->getTerritories()[i].territory->setArmies(5);
-            
         }
         //Giving other territories to player 2
-        else{
+        else {
             cout << "Giving " << world->getTerritories()[i].territory->getName() << " to player 2." << endl;
             player2->addTerritory(world->getTerritories()[i].territory);
-            world->getTerritories()[i].territory->setArmies(5);
         }
     }
     cout << "-----------------------------------" << endl;
     
-    cout << endl << "Amount of territories owned by players" << endl;
-    cout << "------------------------------------" << endl;
-    cout << "Player1: " << player1->getTerritories()->size() << endl;
-    cout << "Player2: " << player2->getTerritories()->size() << endl;
-    cout << "------------------------------------" << endl << endl;
+    //Giving armies to every territory
+    cout << "Giving every territory a random amount of armies." << endl;
+    for (int i = 0; i < world->getTerritoriesCount(); i++){
+        world->getTerritories()[i].territory->setArmies(5);
+    }
     
+    vector<Player*> players;
+    players.insert(players.begin(), player1);
+    players.insert(players.begin(), player2);
     
+    cout << "Attack phase" << endl;
+    cout << "-------------------" << endl;
+    cout << "Player 1 attack phase";
+    player1->attack(world, players);
     
-
+    cout << "Attack completed for both players!" << endl;
 
     return 0;
 }
-
-
-
