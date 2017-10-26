@@ -7,6 +7,7 @@ CND_BASEDIR=`pwd`
 CND_BUILDDIR=build
 CND_DISTDIR=dist
 # Debug configuration
+<<<<<<< HEAD
 CND_PLATFORM_Debug=GNU-Linux
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux
 CND_ARTIFACT_NAME_Debug=maingame
@@ -14,14 +15,23 @@ CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/maingame
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux/package
 CND_PACKAGE_NAME_Debug=maingame.tar
 CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/maingame.tar
+=======
+CND_PLATFORM_Debug=MinGW-Windows
+CND_ARTIFACT_DIR_Debug=dist/Debug/MinGW-Windows
+CND_ARTIFACT_NAME_Debug=maingame
+CND_ARTIFACT_PATH_Debug=dist/Debug/MinGW-Windows/maingame
+CND_PACKAGE_DIR_Debug=dist/Debug/MinGW-Windows/package
+CND_PACKAGE_NAME_Debug=maingame.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/MinGW-Windows/package/maingame.tar
+>>>>>>> 111cf225a447a3142b5368a02d6646cef6419ad2
 # Release configuration
-CND_PLATFORM_Release=Cygwin-Windows
-CND_ARTIFACT_DIR_Release=dist/Release/Cygwin-Windows
+CND_PLATFORM_Release=MinGW-Windows
+CND_ARTIFACT_DIR_Release=dist/Release/MinGW-Windows
 CND_ARTIFACT_NAME_Release=maingame
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/maingame
-CND_PACKAGE_DIR_Release=dist/Release/Cygwin-Windows/package
+CND_ARTIFACT_PATH_Release=dist/Release/MinGW-Windows/maingame
+CND_PACKAGE_DIR_Release=dist/Release/MinGW-Windows/package
 CND_PACKAGE_NAME_Release=maingame.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/maingame.tar
+CND_PACKAGE_PATH_Release=dist/Release/MinGW-Windows/package/maingame.tar
 #
 # include compiler specific variables
 #

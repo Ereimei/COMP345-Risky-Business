@@ -70,3 +70,18 @@ using std::cout;
         std::cout << "You have rolled 5 " << (100 * this->num5 / this->numt) << " % of the time" << std::endl;
         std::cout << "You have rolled 6 " << (100 * this->num6 / this->numt) << " % of the time" << std::endl;
     }
+    
+     void Diepool::sortDice(int numDice){
+        int temp;
+        for(int i=0; i< numDice; i++){
+            for (int j=0; j< numDice; j++){
+                if(this->dice[i] < this->dice[j])
+                {
+                    temp = this->dice[i];
+                    this->dice[i] = this->dice[j];
+                    this->dice[j] = temp;
+                }
+            }
+        }
+        
+    }

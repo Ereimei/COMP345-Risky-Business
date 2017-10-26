@@ -19,6 +19,7 @@
 
 #include <iostream>
 #include <vector>
+#include <string>
 
 class Territory;
 class World;
@@ -28,13 +29,18 @@ class World;
 #include "../player/Player.h"
 
 
+<<<<<<< HEAD
 using std::vector;
 using std::string;
+=======
+using namespace std;
+>>>>>>> 111cf225a447a3142b5368a02d6646cef6419ad2
 
 
 class Player {
 public:
     //Constructor
+    //Normally, you dont want multiple constructors like that... it doesnt make sense... but wtv
     Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool);
     Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool, int n);
     //Destructor
@@ -56,8 +62,13 @@ public:
     void removeTerritory(Territory*);
     
     void reinforce(int reinforcements);
+<<<<<<< HEAD
     string attack();
     void fortify(World* world);
+=======
+    void attack(World* world, vector<Player*> players);
+    string fortify();
+>>>>>>> 111cf225a447a3142b5368a02d6646cef6419ad2
     
 private:
     //Player attributes
