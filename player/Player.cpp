@@ -89,19 +89,30 @@ void Player::reinforce(int reinforcements){
     }
     
 }
+/*
+ * attack command for players
+ * enables player to attack another player, if possible
+ * 
+ * 
+ */
 void Player::attack(World* world, vector<Player*> players){
     
     string answer;
     cout << "Do you want to attack? (y/n)" << endl;
     cin >> answer;
+    
     //loop to ensure answer is in proper format
+    
     while (answer != "y" && answer != "n"){
         cout << "Please answer in proper format (y/n)" << endl;
         cin >> answer;
     }
     
+    //variables needed to check if player can attack
     bool canAtk = false;
     int atkTerr = 0;
+    
+    //loops to increment the atkTerr counter, which regulates amount of territories that can attack
     
     for (int i = 0; i < this->getTerritories()->size(); i++){
         for (int j = 0; j < world->getTerritoriesCount() ; j++){
@@ -125,6 +136,8 @@ void Player::attack(World* world, vector<Player*> players){
     while (answer == "y" && atkTerr > 0){
         
         //prints out territories that can be attacked
+        //Territories that can be attacked will be listed under owned territories
+        
         cout << "Possible territories to attack" << endl << endl;
         for (int i = 0; i < this->getTerritories()->size(); i++){
             cout << "From territory " << this->getTerritories()->at(i)->getName() << endl;
@@ -139,10 +152,13 @@ void Player::attack(World* world, vector<Player*> players){
             }
         }
         
+        //user enter who they wish to attack with
+        
         string attacker, defender;
         cout << "Please enter attacking territory" << endl;
         cin >> attacker;
         bool exists = false;
+        
         //loop to ensure that the name entered corresponds to an existing territory
         while(exists == false)
         {
@@ -170,9 +186,12 @@ void Player::attack(World* world, vector<Player*> players){
         
         int atkPos, defPos;
         
+        //user enters which territory they wish to attack
+        
         cout << "Please enter territory you wish to conquer champion" << endl;
         cin >> defender;
         exists = false;
+        
         //loop ensures that name entered corresponds to an existing territory
         while(exists == false)
         {
@@ -196,9 +215,18 @@ void Player::attack(World* world, vector<Player*> players){
             }
         }
         
+        //attacker and defender selected, time to roll
+        
+        //variables required for dice rolling
+        
         int atkDie, defDie, atkMax, defMax;
         string attacking = "y";
+        //loop for current attack pattern , current attacker vs current defender
+        
         while (attacking == "y"){
+            
+            //asks attacker how many dice they wish to roll with
+            //checks that it is valid
             
             cout << attacker << " has " << world->getTerritories()[atkPos].territory->getArmies() << " armies" << endl;
             atkMax =  world->getTerritories()[atkPos].territory->getArmies() - 1;
@@ -211,6 +239,10 @@ void Player::attack(World* world, vector<Player*> players){
                 cin >> atkDie;    
             }
         
+            
+            //asks defender how many dice they wish to roll with
+            //checks that it is valid
+            
             cout << defender << " is being attacked!!! and has " << world->getTerritories()[atkPos].adjacentTerritories[defPos]->getArmies() << " armies" << endl;
             defMax =  world->getTerritories()[atkPos].adjacentTerritories[defPos]->getArmies();
             if(defMax > 2){
@@ -221,18 +253,23 @@ void Player::attack(World* world, vector<Player*> players){
                 cout << "I have no time for your shenanigans vaunted defender, enter an appropriate number (min 1, max " << defMax << " )" << endl;
                 cin >> defDie;    
             }
-          
+            
+            //rolls and sorts attackers dice
+            
             this->getDiepool()->roll(atkDie);
             this->getDiepool()->sortDice(atkDie);
         
             Player* defendingPlayer = (world->getTerritories()[atkPos].adjacentTerritories[defPos]->getOwner());
         
+            // rolls and sorts defenders dice
+            
             defendingPlayer->getDiepool()->roll(defDie);
             defendingPlayer->getDiepool()->sortDice(defDie);
             
             cout << "Attacker rolled " << getDiepool()->getDie1() << " Defender rolled " << defendingPlayer->getDiepool()->getDie1() << endl;
             
-            //compares the dice rolls
+            //compares the dice rolls and distributes damage appropriately
+            
             if (this->getDiepool()->getDie1()> defendingPlayer->getDiepool()->getDie1()){
                 int n = world->getTerritories()[atkPos].adjacentTerritories[defPos]->getArmies() - 1;
                 world->getTerritories()[atkPos].adjacentTerritories[defPos]->setArmies(n);
@@ -259,6 +296,9 @@ void Player::attack(World* world, vector<Player*> players){
                 }
             }
             
+            //checks to see if defender has ran out of units
+            //if yes, proceeds to transfer units from attacker to conquered territory
+            
             if (world->getTerritories()[atkPos].adjacentTerritories[defPos]->getArmies() == 0){
                 cout << "defending territory has been defeated" << endl;
                 cout << "champion, please select how many armies you wish to transfer to your new territory" << endl;
@@ -272,11 +312,14 @@ void Player::attack(World* world, vector<Player*> players){
                     cin >> transfer;
                 }
                 
+                //performs the transfer
+                
                 world->getTerritories()[atkPos].adjacentTerritories[defPos]->setArmies(transfer);
                 this->addTerritory(world->getTerritories()[atkPos].adjacentTerritories[defPos]);
                 defendingPlayer->removeTerritory(world->getTerritories()[atkPos].adjacentTerritories[defPos]);
                 world->getTerritories()[atkPos].territory->setArmies(world->getTerritories()[atkPos].territory->getArmies()-transfer);
                 
+                //checks to see if counter needs to be incremented or decremented
                 if (world->getTerritories()[atkPos].territory->getArmies() == 1){
                     atkTerr -= 1;
                 }
@@ -298,10 +341,13 @@ void Player::attack(World* world, vector<Player*> players){
                 }   
             }
             
+            //if attacker can no longer attack, decrement the counter
+            
             if (world->getTerritories()[atkPos].territory->getArmies() == 1){
                 atkTerr -= 1;
             }
                 
+            //if the current atk and def setup is no longer valid, end the current setup loop
             
             if(world->getTerritories()[atkPos].territory->getArmies() == 1 || world->getTerritories()[atkPos].adjacentTerritories[defPos]->getOwner() == this){
                 attacking = "n";
@@ -315,6 +361,9 @@ void Player::attack(World* world, vector<Player*> players){
                 }  
             }
         }
+        
+        //ask user if they want to keep attacking
+        
         cout << "Do you want to attack? (y/n)" << endl;
         cin >> answer;
         while (answer != "y" && answer != "n"){
