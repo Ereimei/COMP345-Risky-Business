@@ -39,12 +39,10 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/81a96254/deck.o \
 	${OBJECTDIR}/_ext/81a96254/hand.o \
 	${OBJECTDIR}/_ext/d2a2ee96/Diepool.o \
-	${OBJECTDIR}/_ext/febfc28e/GameStarter.o \
 	${OBJECTDIR}/_ext/511e288d/map.o \
 	${OBJECTDIR}/_ext/5d43fae0/Maploader.o \
 	${OBJECTDIR}/_ext/ca457e10/Player.o \
-	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/startup.o
+	${OBJECTDIR}/main.o
 
 
 # C Compiler Flags
@@ -65,11 +63,11 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/startup
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/fortification
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/startup: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/fortification: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/startup ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/fortification ${OBJECTFILES} ${LDLIBSOPTIONS}
 
 ${OBJECTDIR}/_ext/81a96254/card.o: ../cards/card.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/81a96254
@@ -91,11 +89,6 @@ ${OBJECTDIR}/_ext/d2a2ee96/Diepool.o: ../dice/Diepool.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/d2a2ee96/Diepool.o ../dice/Diepool.cpp
 
-${OBJECTDIR}/_ext/febfc28e/GameStarter.o: ../gamestarter/GameStarter.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/febfc28e
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/febfc28e/GameStarter.o ../gamestarter/GameStarter.cpp
-
 ${OBJECTDIR}/_ext/511e288d/map.o: ../map/map.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/511e288d
 	${RM} "$@.d"
@@ -115,11 +108,6 @@ ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
-
-${OBJECTDIR}/startup.o: startup.cpp
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/startup.o startup.cpp
 
 # Subprojects
 .build-subprojects:

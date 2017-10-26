@@ -20,6 +20,9 @@
 #include <iostream>
 #include <cstdlib>
 
+class Player;
+
+
 using std::string;
 using std::cout;
 using std::cerr;
@@ -32,15 +35,15 @@ public:
     Territory(const Territory& orig);
     virtual ~Territory();
     unsigned int getArmies() const;
-    string getOwner() const;
+    Player* getOwner() const;
     string getName() const;
     void setArmies(unsigned int arm);
-    void setOwner(string own);
+    void setOwner(Player* own);
     unsigned int getId();
 private:
     static unsigned int objectCount;
     unsigned int armies, id;
-    string owner;
+    Player* owner;
     const string name;
 };
 
