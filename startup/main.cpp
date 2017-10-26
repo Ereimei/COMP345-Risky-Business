@@ -30,7 +30,12 @@ Created on October 15, 2017, 11:25 PM */
 using namespace std;
 
 /*
+ * part 2
+ * system will set up the game by determining the amount of players and territories 
+ * then it will set up the order and assign territories to the players
  * 
+ * system will also determine the amount of armies each player gets by the amount of players
+ * then the players will assign the armies to their territories
  */
 int main(int argc, char** argv) {
     

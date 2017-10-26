@@ -38,6 +38,8 @@ private:
 public:
     //constructor that will create a dynamic array of players
     Startup(Player** pl, int size);
+    //getter for setOfPlayer;
+    vector<Player*> getSetOfPlayer(){ return setOfPlayer; };
     //assign all the territories in round robin style
     void assignTerritory(vector<Territory*> vTerritory);
     //get a list of all territories
