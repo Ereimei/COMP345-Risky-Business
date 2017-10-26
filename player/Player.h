@@ -20,13 +20,16 @@
 #include <iostream>
 #include <vector>
 
+class Territory;
+class World;
 
-#include "../map/map.h"
 #include "../dice/Diepool.h"
 #include "../cards/hand.h"
+#include "../player/Player.h"
 
 
 using std::vector;
+using std::string;
 
 
 class Player {
@@ -54,7 +57,7 @@ public:
     
     void reinforce(int reinforcements);
     string attack();
-    string fortify();
+    void fortify(World* world);
     
 private:
     //Player attributes

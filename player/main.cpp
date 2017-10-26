@@ -31,7 +31,7 @@ int main(int argc, char** argv) {
     cout << "Creating player object." << endl;
     
     //Creating pointers to territories owned by player
-    vector<Territory*> territories;
+    vector<Territory*>* territories;
     territories.push_back(new Territory("Alaska"));
     territories.push_back(new Territory("Mars"));
     territories.push_back(new Territory("Canada"));

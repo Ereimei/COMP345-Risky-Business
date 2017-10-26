@@ -14,11 +14,12 @@
  */
 
 #include "map.h"
+#include "../player/Player.h"
 
 unsigned int Territory::objectCount = 1;
 
 Territory::Territory() : armies(0),
-    owner(""),
+    owner(NULL),
     name("Default"),
     id(objectCount++) {
     cerr << "Called Territory default constructor" << endl;
@@ -26,7 +27,7 @@ Territory::Territory() : armies(0),
 }
 
 Territory::Territory(string n) : armies(0),
-    owner(""),
+    owner(NULL),
     name(n),
     id(objectCount++) {}
 
@@ -38,10 +39,10 @@ Territory::Territory(const Territory& orig) : armies(orig.getArmies()),
 Territory::~Territory() {}
 
 unsigned int Territory::getArmies() const {return armies;}
-string Territory::getOwner() const {return owner;}
+Player* Territory::getOwner() const {return owner;}
 string Territory::getName() const {return name;}
 void Territory::setArmies(unsigned int arm) {armies = arm;}
-void Territory::setOwner(string own) {owner = own;}
+void Territory::setOwner(Player* own) {owner = own;}
 unsigned int Territory::getId() {return id;}
 
 Continent::Continent() : name(""),

@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux
-CND_ARTIFACT_NAME_Debug=dice
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/dice
+CND_ARTIFACT_NAME_Debug=fortification
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/fortification
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux/package
-CND_PACKAGE_NAME_Debug=dice.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/dice.tar
+CND_PACKAGE_NAME_Debug=fortification.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/fortification.tar
 # Release configuration
-CND_PLATFORM_Release=MinGW-Windows
-CND_ARTIFACT_DIR_Release=dist/Release/MinGW-Windows
-CND_ARTIFACT_NAME_Release=dice
-CND_ARTIFACT_PATH_Release=dist/Release/MinGW-Windows/dice
-CND_PACKAGE_DIR_Release=dist/Release/MinGW-Windows/package
-CND_PACKAGE_NAME_Release=dice.tar
-CND_PACKAGE_PATH_Release=dist/Release/MinGW-Windows/package/dice.tar
+CND_PLATFORM_Release=GNU-Linux
+CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux
+CND_ARTIFACT_NAME_Release=fortification
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/fortification
+CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux/package
+CND_PACKAGE_NAME_Release=fortification.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/fortification.tar
 #
 # include compiler specific variables
 #

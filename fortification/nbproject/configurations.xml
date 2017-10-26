@@ -25,6 +25,7 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>../maploader/Antarctica.map</itemPath>
     <itemPath>../dice/Diepool.cpp</itemPath>
     <itemPath>../dice/Diepool.h</itemPath>
     <itemPath>../maploader/Maploader.cpp</itemPath>
@@ -44,13 +45,13 @@
   <confs>
     <conf name="Debug" type="1">
       <toolsSet>
-        <compilerSet>GNU|GNU</compilerSet>
+        <compilerSet>default</compilerSet>
         <dependencyChecking>true</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
         <ccTool>
-          <standard>11</standard>
+          <standard>8</standard>
         </ccTool>
       </compileType>
       <item path="../cards/card.cpp" ex="false" tool="1" flavor2="0">
@@ -72,6 +73,8 @@
       <item path="../map/map.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../map/map.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../maploader/Antarctica.map" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../maploader/Maploader.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -123,6 +126,8 @@
       <item path="../map/map.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../map/map.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../maploader/Antarctica.map" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../maploader/Maploader.cpp" ex="false" tool="1" flavor2="0">
       </item>
