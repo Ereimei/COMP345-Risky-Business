@@ -36,18 +36,24 @@ int main(int argc, char** argv) {
     
     cout << "start up ..." << endl;
     cout << "===========================" << endl;
+    //create object GameStarter to get the amount of players and the map for the game
     GameStarter* gs = new GameStarter();
     gs->startGame();
     cout << "===========================" << endl;
     cout << "There are " << gs->getNumPlayers() <<" players." << endl;
+    //shuffle the order of the player and display it
     Startup* su = new Startup(gs->getPlayers(),gs->getNumPlayers());
     su->displayPlayerOrder();
     cout << "===========================" << endl;
     int size = gs->getWorld()->getTerritoriesCount();
     cout << "There are " << size << " territories." << endl;
+    //get all the territories and assign them to the players
     su->assignTerritory(su->getAllTerritories(gs->getWorld()));
+    //code to display territory
     //su->displayTerritory();
     cout << "===========================" << endl;
+    //assign the amount of armies depending on the amount of players
+    //and place the armies into the territories
     int armies = su->assignArmies();
     cout << "Each player gets " << armies << " armies." << endl;
     su->placeArmies(armies);
