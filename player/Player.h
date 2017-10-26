@@ -53,7 +53,7 @@ public:
     void removeTerritory(Territory*);
     
     void reinforce(int reinforcements);
-    string attack();
+    void attack();
     string fortify();
     
 private:

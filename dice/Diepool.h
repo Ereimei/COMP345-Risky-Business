@@ -37,6 +37,7 @@ class Diepool{
         void setDie3(int d6){dice[2] = d6;}
         void roll();
         void showPercentage();
+        void sortDice();
         Diepool();
 };
 
