@@ -25,7 +25,6 @@
 using std::cout;
 using std::cin;
 using std::string;
-using namespace std;
         
 //Constructor
 Player::Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool) : territories(territories),
@@ -57,38 +56,44 @@ void Player::addTerritory(Territory* territory){
 void Player::removeTerritory(Territory* territory){};
 
 //Other functions
+/*
+ *Function which will control reinforcement phase for player objects
+ */
 void Player::reinforce(int reinforcements){ 
     string territory;
     int reinAmount;
     
-    while (reinforcements != 0){
-        cout << "You have " << reinforcements << " army available for reinforcements." << endl;
-        cout << "Your territories" << endl;
-        cout << "----------------" << endl;
-        for (int i = 0; i < this->territories->size(); i++){
-            cout << this->territories->at(i)->getName() << " army: " << this->territories->at(i)->getArmies() << endl;
-        }
-        cout << "Please type the name of the territory you wish to to reinforce followed by the amount of reinforcement." << endl;
-        cin >> territory >> reinAmount;
-        for (int i = 0; i < this->territories->size(); i++){
-            if (this->territories->at(i)->getName() == territory){
-                //If the player entered a # higher than the max amount of reinforcements
-                if (reinAmount > reinforcements){
-                   this->territories->at(i)->setArmies(this->territories->at(i)->getArmies() + reinforcements);
-                    reinforcements = 0;
+        while (reinforcements != 0){
+            cout << "You have " << reinforcements << " army available for reinforcements." << endl;
+            cout << "Your territories" << endl;
+            cout << "----------------" << endl;
+            for (int i = 0; i < this->territories->size(); i++){
+                cout << this->territories->at(i)->getName() << " army: " << this->territories->at(i)->getArmies() << endl;
+            }
+            cout << "Please type the name of the territory you wish to to reinforce followed by the amount of reinforcement." << endl;
+            cin >> territory >> reinAmount;
+            for (int i = 0; i < this->territories->size(); i++){
+                if (this->territories->at(i)->getName() == territory){
+                    //If the player entered a # higher than the max amount of reinforcements
+                    if (reinAmount > reinforcements){
+                       this->territories->at(i)->setArmies(this->territories->at(i)->getArmies() + reinforcements);
+                        reinforcements = 0;
+                    }
+                    else if (reinAmount < 0){
+                        cout << "Please enter a number greater than 0." << endl;
+                    }
+                    else {
+                        this->territories->at(i)->setArmies(this->territories->at(i)->getArmies() + reinAmount);
+                        reinforcements -= reinAmount;
+                    }    
                 }
-                else if (reinAmount < 0){
-                    cout << "Please enter a number greater than 0." << endl;
-                }
-                else {
-                    this->territories->at(i)->setArmies(this->territories->at(i)->getArmies() + reinAmount);
-                    reinforcements -= reinAmount;
-                }    
             }
         }
-    }
     
 }
+
+
+
 /*
  * attack command for players
  * enables player to attack another player, if possible
@@ -375,14 +380,24 @@ void Player::attack(World* world, vector<Player*> players){
     //world->getTerritories()[i].adjacentTerritories[j]->getOwner();
 }
 
-
+/*
+ *Function that will handle fortification phase of player objects
+ */
 void Player::fortify(World* world){ 
-    
-    string source, target;
+    string source, target, choice;
     int xferArmies, sourceArmies, sourceIndex, targetIndex;
     bool valid = false, adjacentTerr;
     vector <Territory*> validTerritories;
     
+    
+    cout << "Do you want to fortify? (y/n)" << endl;
+    cin >> choice;
+    
+    while(choice != "y" && choice !="n"){
+        cout << "Give me a valid input, peasant." << endl;
+        cin >> choice;
+    }
+    if (choice == "y"){
     //Printing out in console all the owned territories and their respective adjacent territories.
     for (int i = 0; i < this->getTerritories()->size(); i++){
         adjacentTerr = false;
@@ -501,6 +516,6 @@ void Player::fortify(World* world){
         cout << endl;
     
     }
-    
+    }
 }
 

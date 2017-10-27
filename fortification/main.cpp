@@ -1,3 +1,18 @@
+/* 
+ * File:   main.cpp
+ *  *** AUTHORS ***
+ * Patrick Bednarski, 40002239
+ * Hiu Tung Lam (Emily), 26311326
+ * James Ferreira-Fernandez, 21964216
+ * Olivier Trepanier-Desfosses, 27850956
+ *	
+ *** COMP 345 SECTION D ***
+ * Assignment #2
+ * Professor: Dr. Joey Paquet
+ *
+ * Created on October 20, 2017, 3:40 PM
+ */
+
 #include <cstdlib>
 #include <vector>
 #include <string>
