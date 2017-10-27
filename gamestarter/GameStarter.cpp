@@ -37,6 +37,11 @@ GameStarter::GameStarter(const GameStarter& orig) : numPlayers(orig.getNumPlayer
 GameStarter::~GameStarter() {
 }
 
+/**
+ * Control method for starting the game
+ * It calls helper methods to get
+ * everything going
+ */
 void GameStarter::startGame() {
     assignNumOfPlayers();
     chooseAndCreateWorld();
@@ -44,6 +49,9 @@ void GameStarter::startGame() {
     createPlayers();
 }
 
+/**
+ * Choose how many players and validate
+ */
 void GameStarter::assignNumOfPlayers() {
     bool invalidInput = true;
     unsigned int np = 0;
@@ -59,6 +67,11 @@ void GameStarter::assignNumOfPlayers() {
     }
 }
 
+/**
+ * Actually create players and assign
+ * an empty hands of cards, a vector
+ * of territories, and a die pool
+ */
 void GameStarter::createPlayers() {
     Hand* hand;
     vector<Territory*>* territories;
@@ -74,6 +87,9 @@ void GameStarter::createPlayers() {
     }
 }
 
+/**
+ * Choose a world and try to load it from file
+ */
 void GameStarter::chooseAndCreateWorld() {
     bool invalidMap = true;
     string filename = "";
@@ -93,25 +109,45 @@ void GameStarter::chooseAndCreateWorld() {
     }
 }
 
+/**
+ * Create a deck of cards and shuffle them
+ */
 void GameStarter::createDeck() {
     cout << INIT_DECK << endl;
     deck = new Deck();
     deck->shuffle();
+    deck->shuffle();
     cout << SHUFFLING_DECK << endl;
 }
 
+/**
+ * Accessor for World
+ * @return {World*} world
+ */
 World* GameStarter::getWorld() const {
     return world;
 }
 
+/**
+ * Accessor for the deck of cards
+ * @return {Deck*} deck
+ */
 Deck* GameStarter::getDeck() const {
     return deck;
 }
 
+/**
+ * Accessor for players
+ * @return {Player**} players
+ */
 Player** GameStarter::getPlayers() const {
     return players;
 }
 
+/**
+ * Accessor for number of players
+ * @return {unsigned int} numPLayers
+ */
 unsigned int GameStarter::getNumPlayers() const {
     return numPlayers;
 }
