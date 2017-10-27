@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=MinGW-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/MinGW-Windows
-CND_ARTIFACT_NAME_Debug=dice
-CND_ARTIFACT_PATH_Debug=dist/Debug/MinGW-Windows/dice
+CND_ARTIFACT_NAME_Debug=attackphase
+CND_ARTIFACT_PATH_Debug=dist/Debug/MinGW-Windows/attackphase
 CND_PACKAGE_DIR_Debug=dist/Debug/MinGW-Windows/package
-CND_PACKAGE_NAME_Debug=dice.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/MinGW-Windows/package/dice.tar
+CND_PACKAGE_NAME_Debug=attackphase.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/MinGW-Windows/package/attackphase.tar
 # Release configuration
 CND_PLATFORM_Release=MinGW-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/MinGW-Windows
-CND_ARTIFACT_NAME_Release=dice
-CND_ARTIFACT_PATH_Release=dist/Release/MinGW-Windows/dice
+CND_ARTIFACT_NAME_Release=attackphase
+CND_ARTIFACT_PATH_Release=dist/Release/MinGW-Windows/attackphase
 CND_PACKAGE_DIR_Release=dist/Release/MinGW-Windows/package
-CND_PACKAGE_NAME_Release=dice.tar
-CND_PACKAGE_PATH_Release=dist/Release/MinGW-Windows/package/dice.tar
+CND_PACKAGE_NAME_Release=attackphase.tar
+CND_PACKAGE_PATH_Release=dist/Release/MinGW-Windows/package/attackphase.tar
 #
 # include compiler specific variables
 #

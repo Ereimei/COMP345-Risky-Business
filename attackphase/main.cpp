@@ -16,7 +16,7 @@
 #include <cstdlib>
 #include <vector>
 #include <string>
-
+#include <ctime>
 
 #include "../player/Player.h"
 #include "../cards/deck.h"
@@ -32,7 +32,7 @@ int numArmies(Player* player, World* world);
 
 
 int main(int argc, char** argv) {
-    
+    srand((int)time(NULL));
     //Generating the world
     cout << "Generating Antarctica world" << endl;
     Maploader* mapLoader = new Maploader("Antarctica.map");
@@ -61,7 +61,7 @@ int main(int argc, char** argv) {
             player1->addTerritory(world->getTerritories()[i].territory);
         }
         //Giving other territories to player 2
-        else if (i >= 5 && i < 12) {
+        else {
             cout << "Giving " << world->getTerritories()[i].territory->getName() << " to player 2." << endl;
             player2->addTerritory(world->getTerritories()[i].territory);
         }
@@ -71,23 +71,19 @@ int main(int argc, char** argv) {
     //Giving armies to every territory
     cout << "Giving every territory a random amount of armies." << endl;
     for (int i = 0; i < world->getTerritoriesCount(); i++){
-        world->getTerritories()[i].territory->setArmies(3);
+        world->getTerritories()[i].territory->setArmies(5);
     }
     
+    vector<Player*> players;
+    players.insert(players.begin(), player1);
+    players.insert(players.begin(), player2);
     
-    cout << "Fortification phase" << endl;
+    cout << "Attack phase" << endl;
     cout << "-------------------" << endl;
-    cout << "Player 1 fortification phase";
-    player1->fortify(world);
+    cout << "Player 1 attack phase";
+    player1->attack(world, players);
     
-    cout << "Player 2 fortification phase";
-    player2->fortify(world);
-    cout << "-------------------" << endl << endl;
-    cout << "Player 2 fortification phase";
-    player2->fortify(world);
-    cout << "-------------------" << endl << endl;
-    
-    cout << "Fortification completed for both players!" << endl;
+    cout << "Attack completed for both players!" << endl;
 
     return 0;
 }

@@ -13,6 +13,11 @@
  * Created on September 25, 2017, 3:17 PM
  */
 
+#include <string>
+#include <iostream>
+#include <cstdlib>
+#include <vector>
+
 #include "map.h"
 #include "../player/Player.h"
 
