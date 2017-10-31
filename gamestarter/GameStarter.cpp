@@ -15,6 +15,16 @@
 
 #include "GameStarter.h"
 
+#include <cstdlib>
+#include <string>
+#include <iostream>
+#include <vector>
+
+using std::string;
+using std::cout;
+using std::cin;
+using std::endl;
+
 const unsigned int GameStarter::MIN_PLAYERS = 2;
 const unsigned int GameStarter::MAX_PLAYERS = 6;
 const string GameStarter::MAP_DIRECTORY = "maps/";

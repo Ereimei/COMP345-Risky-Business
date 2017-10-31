@@ -23,16 +23,6 @@
 #include "../cards/deck.h"
 #include "../player/Player.h"
 
-#include <cstdlib>
-#include <string>
-#include <iostream>
-#include <vector>
-
-using std::string;
-using std::cout;
-using std::cin;
-using std::endl;
-
 class GameStarter {
 public:
     GameStarter();

@@ -15,22 +15,13 @@
 
 #ifndef MAP_H
 #define MAP_H
+
+/*
+ * Just for future knowledge. Instead of adding a forward declaration for player,
+ * effectively coupling Player and Territory together, we could've created a
+ * struct which contains pairs of Player and Territory.
+ */
 class Player;
-
-#include <string>
-#include <iostream>
-#include <cstdlib>
-#include <vector>
-
-//#include "../player/Player.h"
-
-class Player;
-
-
-using std::string;
-using std::cout;
-using std::cerr;
-using std::endl;
 
 class Territory {
 public:

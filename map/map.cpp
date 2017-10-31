@@ -13,13 +13,18 @@
  * Created on September 25, 2017, 3:17 PM
  */
 
+#include "map.h"
+#include "../player/Player.h"
+
 #include <string>
 #include <iostream>
 #include <cstdlib>
 #include <vector>
 
-#include "map.h"
-#include "../player/Player.h"
+using std::string;
+using std::cout;
+using std::cerr;
+using std::endl;
 
 unsigned int Territory::objectCount = 1;
 

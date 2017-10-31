@@ -16,21 +16,6 @@
 #ifndef MAPLOADER_H
 #define MAPLOADER_H
 
-#include <vector>
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <sstream>
-#include <algorithm>
-
-using std::endl;
-using std::string;
-using std::vector;
-using std::ifstream;
-using std::cout;
-using std::cerr;
-using std::stringstream;
-
 #include "../map/map.h"
 
 class Maploader {
