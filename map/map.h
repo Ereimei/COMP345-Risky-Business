@@ -81,6 +81,10 @@ public:
     void addContinents(Continent** conts);
     unsigned int getContinentsCount() const;
     unsigned int getTerritoriesCount() const;
+    unsigned int findPositionInArrayByName(string name) const;
+    bool setTerritoryOwner(string territoryName, Player* owner);
+    bool setTerritoryOwner(unsigned int arrayPosition, Player* owner);
+    bool checkSearchResult(unsigned int arrayPosition);
     
 private:
     class Node {

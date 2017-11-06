@@ -24,6 +24,9 @@ int main(int argc, char** argv) {
     cout << GAME_START << endl;
     gameStarter->startGame();
     cout << gameStarter->getWorld()->getTerritories()[2].territory->getName()<< endl;
+    cout << gameStarter->getWorld()->findPositionInArrayByName("Alberta") << endl;
+    cout << gameStarter->getWorld()->checkSearchResult(12123123) << endl;
+    cout << gameStarter->getWorld()->checkSearchResult(4) << endl;
     return 0;
 }
 
