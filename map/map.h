@@ -16,6 +16,16 @@
 #ifndef MAP_H
 #define MAP_H
 
+#include <string>
+#include <iostream>
+#include <cstdlib>
+#include <vector>
+
+using std::string;
+using std::cout;
+using std::cerr;
+using std::endl;
+
 /*
  * Just for future knowledge. Instead of adding a forward declaration for player,
  * effectively coupling Player and Territory together, we could've created a

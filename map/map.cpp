@@ -16,16 +16,6 @@
 #include "map.h"
 #include "../player/Player.h"
 
-#include <string>
-#include <iostream>
-#include <cstdlib>
-#include <vector>
-
-using std::string;
-using std::cout;
-using std::cerr;
-using std::endl;
-
 unsigned int Territory::objectCount = 1;
 
 Territory::Territory() : armies(0),
