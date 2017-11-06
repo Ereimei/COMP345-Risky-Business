@@ -23,3 +23,6 @@ Statistics::Statistics(const Statistics& orig) {
 Statistics::~Statistics() {
 }
 
+void Statistics::update() {
+    
+}

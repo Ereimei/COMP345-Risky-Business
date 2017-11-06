@@ -15,11 +15,14 @@
 #ifndef STATISTICS_H
 #define STATISTICS_H
 
-class Statistics {
+#include "../interfaces/interfaces.h"
+
+class Statistics : public Observer {
 public:
     Statistics();
     Statistics(const Statistics& orig);
     virtual ~Statistics();
+    void update();
 private:
 
 };
