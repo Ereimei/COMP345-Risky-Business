@@ -16,8 +16,8 @@
 #define STATISTICS_H
 
 #include "../interfaces/interfaces.h"
-#include "../player/Player.h"
 #include "../map/map.h"
+#include "../player/Player.h"
 #include "../dice/Diepool.h"
 
 #include <iostream>
@@ -26,12 +26,11 @@ using std::cout;
 
 class Statistics : public Observer {
 public:
-    Statistics(World* w, unsigned int nplayers, Player** p);
+    Statistics(World* w, unsigned int nplayers);
     virtual ~Statistics();
     void update();
 private:
     World* worldSubject;
-    Player** players;
     unsigned int numPlayers, numTerritories;
     unsigned int* playerTerritoriesCount;
 };

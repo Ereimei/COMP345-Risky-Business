@@ -26,8 +26,6 @@ class World;
 
 #include "../dice/Diepool.h"
 #include "../cards/hand.h"
-#include "../player/Player.h"
-
 
 using std::vector;
 using std::string;

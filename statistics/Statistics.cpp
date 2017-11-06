@@ -14,12 +14,11 @@
 
 #include "Statistics.h"
 
-Statistics::Statistics(World* w, unsigned int nplayers, Player** p) :
+Statistics::Statistics(World* w, unsigned int nplayers) :
     numPlayers(nplayers),
     numTerritories(w->getTerritoriesCount()) {
     worldSubject = w;
     worldSubject->attach(this);
-    players = p;
     playerTerritoriesCount = new unsigned int[numPlayers];
 }
 
@@ -31,7 +30,13 @@ Statistics::~Statistics() {
 void Statistics::update() {
     unsigned int ownerlessTerritories;
     ownerlessTerritories = numTerritories;
+    for (int n = 0; n < numPlayers; ++n) {
+        playerTerritoriesCount[n] = 0;
+    }
     for (int n = 0; n < numTerritories; ++n) {
-        
+        if (worldSubject->getTerritories()[n].territory->getOwner() != NULL) {
+            --ownerlessTerritories;
+            ++playerTerritoriesCount[worldSubject->getTerritories()[n].territory->getOwner()->getPlayerNum()];
+        }
     }
 }

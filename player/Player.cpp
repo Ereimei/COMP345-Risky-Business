@@ -34,12 +34,6 @@ Player::Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool) : 
     diepool(diepool),
     playerNum(objectCount++){}
 
-//Constructor with player number
-Player::Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool, int n) : territories(territories),
-    hand(hand),
-    diepool(diepool),
-    playerNum(n) {}
-
 //Destructors
 Player::~Player() {}
 

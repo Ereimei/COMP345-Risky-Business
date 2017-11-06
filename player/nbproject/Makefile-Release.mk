@@ -40,7 +40,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/81a96254/hand.o \
 	${OBJECTDIR}/_ext/d2a2ee96/Diepool.o \
 	${OBJECTDIR}/_ext/511e288d/map.o \
-	${OBJECTDIR}/Player.o \
 	${OBJECTDIR}/main.o
 
 
@@ -92,11 +91,6 @@ ${OBJECTDIR}/_ext/511e288d/map.o: ../map/map.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/511e288d
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/511e288d/map.o ../map/map.cpp
-
-${OBJECTDIR}/Player.o: Player.cpp
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Player.o Player.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}

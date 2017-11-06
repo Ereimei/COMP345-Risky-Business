@@ -21,6 +21,8 @@
       <itemPath>../cards/deck.h</itemPath>
       <itemPath>../cards/hand.cpp</itemPath>
       <itemPath>../cards/hand.h</itemPath>
+      <itemPath>../interfaces/interfaces.cpp</itemPath>
+      <itemPath>../interfaces/interfaces.h</itemPath>
       <itemPath>../map/map.cpp</itemPath>
       <itemPath>../map/map.h</itemPath>
     </logicalFolder>
@@ -41,8 +43,6 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>../interfaces/interfaces.cpp</itemPath>
-    <itemPath>../interfaces/interfaces.h</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
