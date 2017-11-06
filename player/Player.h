@@ -27,6 +27,7 @@ class World;
 #include "../dice/Diepool.h"
 #include "../cards/hand.h"
 #include "../player/Player.h"
+#include "../strategy/Strategy.h"
 
 
 using std::vector;
@@ -69,6 +70,7 @@ private:
     vector<Territory*>* territories;
     Hand* hand;
     Diepool* diepool;
+    Strategy* strategy;
     int playerNum;
     
 };
