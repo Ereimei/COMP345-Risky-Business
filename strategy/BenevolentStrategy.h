@@ -14,11 +14,19 @@
 #ifndef BENEVOLENTSTRATEGY_H
 #define BENEVOLENTSTRATEGY_H
 
-class BenevolentStrategy {
+#include "Strategy.h"
+
+class BenevolentStrategy : public Strategy {
 public:
     BenevolentStrategy();
     BenevolentStrategy(const BenevolentStrategy& orig);
     virtual ~BenevolentStrategy();
+    
+    void reinforce(int reinforcements, Player* player);
+    void attack(World* world, vector<Player*> players, Player* player);
+    void fortify(World* world, Player* player);
+    
+    
 private:
 
 };

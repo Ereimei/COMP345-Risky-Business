@@ -14,11 +14,20 @@
 #ifndef STRATEGY_H
 #define STRATEGY_H
 
+
+#include "../map/map.h"
+#include "../player/Player.h"
+
 class Strategy {
 public:
     Strategy();
     Strategy(const Strategy& orig);
     virtual ~Strategy();
+    
+    virtual void reinforce(int reinforcements, Player* player);
+    virtual void attack(World* world, vector<Player*> players, Player* player);
+    virtual void fortify(World* world, Player* player);
+    
 private:
 
 };

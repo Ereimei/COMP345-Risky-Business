@@ -4,6 +4,10 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>AggressiveStrategy.h</itemPath>
+      <itemPath>BenevolentStrategy.h</itemPath>
+      <itemPath>PlayerStrategy.h</itemPath>
+      <itemPath>Strategy.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -12,6 +16,10 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>AggressiveStrategy.cpp</itemPath>
+      <itemPath>BenevolentStrategy.cpp</itemPath>
+      <itemPath>PlayerStrategy.cpp</itemPath>
+      <itemPath>Strategy.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -25,6 +33,10 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>../player/Player.cpp</itemPath>
+    <itemPath>../player/Player.h</itemPath>
+    <itemPath>../map/map.cpp</itemPath>
+    <itemPath>../map/map.h</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -35,7 +47,34 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
+        <ccTool>
+          <standard>8</standard>
+        </ccTool>
       </compileType>
+      <item path="../map/map.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../map/map.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../player/Player.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../player/Player.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="AggressiveStrategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="AggressiveStrategy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="BenevolentStrategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="BenevolentStrategy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PlayerStrategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PlayerStrategy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Strategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Strategy.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
@@ -59,6 +98,30 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="../map/map.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../map/map.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../player/Player.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../player/Player.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="AggressiveStrategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="AggressiveStrategy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="BenevolentStrategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="BenevolentStrategy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PlayerStrategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PlayerStrategy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Strategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Strategy.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>

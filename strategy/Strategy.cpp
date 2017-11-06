@@ -22,3 +22,14 @@ Strategy::Strategy(const Strategy& orig) {
 Strategy::~Strategy() {
 }
 
+void Strategy::reinforce(int reinforcements, Player* player){
+    
+}
+
+void Strategy::attack(World* world, vector<Player*> players, Player* player){
+    
+}
+void Strategy::fortify(World* world, Player* player){
+    
+}
+

@@ -16,6 +16,7 @@
 #ifndef MAP_H
 #define MAP_H
 
+
 /*
  * Just for future knowledge. Instead of adding a forward declaration for player,
  * effectively coupling Player and Territory together, we could've created a

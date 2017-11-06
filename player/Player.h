@@ -38,9 +38,7 @@ using std::string;
 class Player {
 public:
     //Constructor
-    //Normally, you dont want multiple constructors like that... it doesnt make sense... but wtv
-    Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool);
-    Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool, int n);
+    Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool, int n, Strategy* strategy);
     //Destructor
     virtual ~Player();
     
@@ -53,17 +51,14 @@ public:
     //Setters
     void setHand(Hand* hand);
     void setDiePool(Diepool* diepool);
-    void setPlayerNum(int x){playerNum = x;};
+    void setPlayerNum(int x);
+    void setStrategy(Strategy* strategy);
     
     //Player functions
     void addTerritory(Territory*);
     void removeTerritory(Territory*);
     
-    void reinforce(int reinforcements);
-
-    void fortify(World* world);
-
-    void attack(World* world, vector<Player*> players);
+    void executeTurn(int reinforcements, World* world, vector<Player*> players);
     
 private:
     //Player attributes

@@ -40,7 +40,7 @@
       </toolsSet>
       <compileType>
         <ccTool>
-          <standard>8</standard>
+          <standard>11</standard>
         </ccTool>
       </compileType>
       <item path="../player/Player.cpp" ex="false" tool="1" flavor2="0">

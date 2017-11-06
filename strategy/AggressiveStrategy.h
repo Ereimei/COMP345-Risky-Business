@@ -14,11 +14,18 @@
 #ifndef AGGRESSIVESTRATEGY_H
 #define AGGRESSIVESTRATEGY_H
 
-class AggressiveStrategy {
+#include "Strategy.h"
+
+class AggressiveStrategy : public Strategy {
 public:
     AggressiveStrategy();
     AggressiveStrategy(const AggressiveStrategy& orig);
     virtual ~AggressiveStrategy();
+    
+    void reinforce(int reinforcements, Player* player);
+    void attack(World* world, vector<Player*> players, Player* player);
+    void fortify(World* world, Player* player);
+    
 private:
 
 };

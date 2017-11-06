@@ -14,11 +14,15 @@
 #ifndef PLAYERSTRATEGY_H
 #define PLAYERSTRATEGY_H
 
-class PlayerStrategy {
+class PlayerStrategy : public Strategy {
 public:
     PlayerStrategy();
     PlayerStrategy(const PlayerStrategy& orig);
     virtual ~PlayerStrategy();
+    
+    void reinforce(int reinforcements, Player* player);
+    void attack(World* world, vector<Player*> players, Player* player);
+    void fortify(World* world, Player* player);
 private:
 
 };
