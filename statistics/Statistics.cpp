@@ -14,15 +14,24 @@
 
 #include "Statistics.h"
 
-Statistics::Statistics() {
-}
-
-Statistics::Statistics(const Statistics& orig) {
+Statistics::Statistics(World* w, unsigned int nplayers, Player** p) :
+    numPlayers(nplayers),
+    numTerritories(w->getTerritoriesCount()) {
+    worldSubject = w;
+    worldSubject->attach(this);
+    players = p;
+    playerTerritoriesCount = new unsigned int[numPlayers];
 }
 
 Statistics::~Statistics() {
+    worldSubject->detach(this);
+    delete[] playerTerritoriesCount;
 }
 
 void Statistics::update() {
-    
+    unsigned int ownerlessTerritories;
+    ownerlessTerritories = numTerritories;
+    for (int n = 0; n < numTerritories; ++n) {
+        
+    }
 }

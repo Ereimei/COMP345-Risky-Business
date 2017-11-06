@@ -16,6 +16,8 @@
 #ifndef MAP_H
 #define MAP_H
 
+#include "../interfaces/interfaces.h"
+
 #include <string>
 #include <iostream>
 #include <cstdlib>
@@ -71,7 +73,7 @@ private:
     Territory** territories;
 };
 
-class World {
+class World : public Subject {
 public:
     World();
     World(unsigned int terrsCount, unsigned int contsCount);

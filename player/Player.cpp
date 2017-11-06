@@ -25,11 +25,14 @@
 using std::cout;
 using std::cin;
 using std::string;
+
+unsigned int Player::objectCount = 0;
         
 //Constructor
 Player::Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool) : territories(territories),
     hand(hand),
-    diepool(diepool) {}
+    diepool(diepool),
+    playerNum(objectCount++){}
 
 //Constructor with player number
 Player::Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool, int n) : territories(territories),

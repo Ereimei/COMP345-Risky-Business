@@ -35,7 +35,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/_ext/d2a2ee96/Diepool.o \
 	${OBJECTDIR}/_ext/342bee09/interfaces.o \
+	${OBJECTDIR}/_ext/511e288d/map.o \
+	${OBJECTDIR}/_ext/ca457e10/Player.o \
 	${OBJECTDIR}/Statistics.o \
 	${OBJECTDIR}/main.o
 
@@ -64,10 +67,25 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/statistics.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/statistics ${OBJECTFILES} ${LDLIBSOPTIONS}
 
+${OBJECTDIR}/_ext/d2a2ee96/Diepool.o: ../dice/Diepool.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/d2a2ee96
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/d2a2ee96/Diepool.o ../dice/Diepool.cpp
+
 ${OBJECTDIR}/_ext/342bee09/interfaces.o: ../interfaces/interfaces.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/342bee09
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/342bee09/interfaces.o ../interfaces/interfaces.cpp
+
+${OBJECTDIR}/_ext/511e288d/map.o: ../map/map.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/511e288d
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/511e288d/map.o ../map/map.cpp
+
+${OBJECTDIR}/_ext/ca457e10/Player.o: ../player/Player.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/ca457e10
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/ca457e10/Player.o ../player/Player.cpp
 
 ${OBJECTDIR}/Statistics.o: Statistics.cpp
 	${MKDIR} -p ${OBJECTDIR}

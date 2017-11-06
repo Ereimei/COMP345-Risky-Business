@@ -22,6 +22,7 @@
 #include "../cards/hand.h"
 #include "../cards/deck.h"
 #include "../player/Player.h"
+#include "../interfaces/interfaces.h"
 
 #include <cstdlib>
 #include <string>

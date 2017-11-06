@@ -9,6 +9,14 @@
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
+      <itemPath>../dice/Diepool.cpp</itemPath>
+      <itemPath>../dice/Diepool.h</itemPath>
+      <itemPath>../player/Player.cpp</itemPath>
+      <itemPath>../player/Player.h</itemPath>
+      <itemPath>../interfaces/interfaces.cpp</itemPath>
+      <itemPath>../interfaces/interfaces.h</itemPath>
+      <itemPath>../map/map.cpp</itemPath>
+      <itemPath>../map/map.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
@@ -27,8 +35,6 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>../interfaces/interfaces.cpp</itemPath>
-    <itemPath>../interfaces/interfaces.h</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -40,9 +46,21 @@
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="../dice/Diepool.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../dice/Diepool.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../interfaces/interfaces.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../interfaces/interfaces.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../map/map.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../map/map.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../player/Player.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../player/Player.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Statistics.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -71,9 +89,21 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="../dice/Diepool.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../dice/Diepool.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../interfaces/interfaces.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../interfaces/interfaces.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../map/map.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../map/map.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../player/Player.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../player/Player.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Statistics.cpp" ex="false" tool="1" flavor2="0">
       </item>

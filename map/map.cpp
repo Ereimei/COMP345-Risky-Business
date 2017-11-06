@@ -261,6 +261,7 @@ bool World::setTerritoryOwner(string territoryName, Player* owner) {
     bool result = false;
     if (checkSearchResult(arrayPosition)) {
         territories[arrayPosition].territory->setOwner(owner);
+        notify();
         result = true;
     }
     return result;
@@ -276,6 +277,7 @@ bool World::setTerritoryOwner(unsigned int arrayPosition, Player* owner) {
     bool result = false;
     if (checkSearchResult(arrayPosition)) {
         territories[arrayPosition].territory->setOwner(owner);
+        notify();
         result = true;
     }
     return result;
