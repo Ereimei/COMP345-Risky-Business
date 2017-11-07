@@ -9,6 +9,8 @@
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
+      <itemPath>../dice/Diepool.cpp</itemPath>
+      <itemPath>../dice/Diepool.h</itemPath>
       <itemPath>../player/Player.cpp</itemPath>
       <itemPath>../player/Player.h</itemPath>
       <itemPath>../interfaces/interfaces.cpp</itemPath>
@@ -33,8 +35,6 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>../dice/Diepool.cpp</itemPath>
-    <itemPath>../dice/Diepool.h</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
