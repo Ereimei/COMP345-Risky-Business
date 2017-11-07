@@ -21,8 +21,12 @@
 #include "../dice/Diepool.h"
 
 #include <iostream>
+#include <string>
+#include <cstdlib>
 
 using std::cout;
+using std::string;
+using std::endl;
 
 class Statistics : public Observer {
 public:
@@ -33,6 +37,14 @@ private:
     World* worldSubject;
     unsigned int numPlayers, numTerritories;
     unsigned int* playerTerritoriesCount;
+    static string PLAYER_OWNERSHIP_GRAPH;
+    static string PLAYER;
+    static string OWNERLESS;
+    static string GRAPH_DELIMITER_START;
+    static string GRAPH_DELIMITER_END;
+    static string GRAPH_ELEMENT;
+    static string SPACE;
+    static unsigned int GRAPH_MULTIPLIER;
 };
 
 #endif /* STATISTICS_H */

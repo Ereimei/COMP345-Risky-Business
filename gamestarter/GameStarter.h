@@ -23,6 +23,7 @@
 #include "../cards/deck.h"
 #include "../player/Player.h"
 #include "../interfaces/interfaces.h"
+#include "../statistics/Statistics.h"
 
 #include <cstdlib>
 #include <string>
@@ -44,14 +45,17 @@ public:
     World* getWorld() const;
     Deck* getDeck() const;
     Player** getPlayers() const;
+    Statistics* getStatistics() const;
 private:
     void assignNumOfPlayers();
     void createPlayers();
     void chooseAndCreateWorld();
     void createDeck();
+    void createStatistics();
     World* world;
     Deck* deck;
     Player** players;
+    Statistics* statistics;
     unsigned int numPlayers;
     static const unsigned int MIN_PLAYERS;
     static const unsigned int MAX_PLAYERS;

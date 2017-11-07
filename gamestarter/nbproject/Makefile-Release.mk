@@ -43,6 +43,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/511e288d/map.o \
 	${OBJECTDIR}/_ext/5d43fae0/Maploader.o \
 	${OBJECTDIR}/_ext/ca457e10/Player.o \
+	${OBJECTDIR}/_ext/8dd064d2/Statistics.o \
 	${OBJECTDIR}/GameStarter.o \
 	${OBJECTDIR}/main.o
 
@@ -110,6 +111,11 @@ ${OBJECTDIR}/_ext/ca457e10/Player.o: ../player/Player.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/ca457e10
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/ca457e10/Player.o ../player/Player.cpp
+
+${OBJECTDIR}/_ext/8dd064d2/Statistics.o: ../statistics/Statistics.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/8dd064d2
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/8dd064d2/Statistics.o ../statistics/Statistics.cpp
 
 ${OBJECTDIR}/GameStarter.o: GameStarter.cpp
 	${MKDIR} -p ${OBJECTDIR}

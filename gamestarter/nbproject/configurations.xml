@@ -15,6 +15,8 @@
       <itemPath>../maploader/Maploader.h</itemPath>
       <itemPath>../player/Player.cpp</itemPath>
       <itemPath>../player/Player.h</itemPath>
+      <itemPath>../statistics/Statistics.cpp</itemPath>
+      <itemPath>../statistics/Statistics.h</itemPath>
       <itemPath>../cards/card.cpp</itemPath>
       <itemPath>../cards/card.h</itemPath>
       <itemPath>../cards/deck.cpp</itemPath>
@@ -89,6 +91,10 @@
       </item>
       <item path="../player/Player.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="../statistics/Statistics.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../statistics/Statistics.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="GameStarter.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="GameStarter.h" ex="false" tool="3" flavor2="0">
@@ -147,6 +153,10 @@
       <item path="../player/Player.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../player/Player.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../statistics/Statistics.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../statistics/Statistics.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="GameStarter.cpp" ex="false" tool="1" flavor2="0">
       </item>

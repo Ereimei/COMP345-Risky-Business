@@ -9,6 +9,8 @@
 
 #include "../maploader/Maploader.h"
 #include "GameStarter.h"
+#include "../map/map.h"
+#include "../player/Player.h"
 
 #include <cstdlib>
 #include <iostream>
@@ -23,10 +25,11 @@ int main(int argc, char** argv) {
     GameStarter* gameStarter = new GameStarter();
     cout << GAME_START << endl;
     gameStarter->startGame();
-    cout << gameStarter->getWorld()->getTerritories()[2].territory->getName()<< endl;
-    cout << gameStarter->getWorld()->findPositionInArrayByName("Alberta") << endl;
-    cout << gameStarter->getWorld()->checkSearchResult(12123123) << endl;
-    cout << gameStarter->getWorld()->checkSearchResult(4) << endl;
+    World* world = gameStarter->getWorld();
+    Player** players = gameStarter->getPlayers();
+    world->setTerritoryOwner("Alberta", players[0]);
+    world->setTerritoryOwner("Greenland", players[0]);
+    world->setTerritoryOwner("Alaska", players[0]);
     return 0;
 }
 

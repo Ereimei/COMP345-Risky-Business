@@ -47,6 +47,7 @@ void GameStarter::startGame() {
     chooseAndCreateWorld();
     createDeck();
     createPlayers();
+    createStatistics();
 }
 
 /**
@@ -121,6 +122,13 @@ void GameStarter::createDeck() {
 }
 
 /**
+ * Create the map statistics object
+ */
+void GameStarter::createStatistics() {
+    statistics = new Statistics(world, numPlayers);
+}
+
+/**
  * Accessor for World
  * @return {World*} world
  */
@@ -150,4 +158,8 @@ Player** GameStarter::getPlayers() const {
  */
 unsigned int GameStarter::getNumPlayers() const {
     return numPlayers;
+}
+
+Statistics* GameStarter::getStatistics() const {
+    return statistics;
 }
