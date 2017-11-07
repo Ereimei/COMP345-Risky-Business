@@ -116,8 +116,8 @@ void GameStarter::chooseAndCreateWorld() {
 void GameStarter::createDeck() {
     cout << INIT_DECK << endl;
     deck = new Deck();
-    deck->shuffle();
-    deck->shuffle();
+    deck->shuffle(getWorld() );
+    deck->shuffle(getWorld() );
     cout << SHUFFLING_DECK << endl;
 }
 
