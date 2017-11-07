@@ -29,6 +29,9 @@ Statistics::Statistics(World* w, unsigned int nplayers) :
     worldSubject = w;
     worldSubject->attach(this);
     playerTerritoriesCount = new unsigned int[numPlayers];
+    if (numTerritories < GRAPH_MULTIPLIER) {
+        GRAPH_MULTIPLIER = numTerritories;
+    }
 }
 
 Statistics::~Statistics() {
