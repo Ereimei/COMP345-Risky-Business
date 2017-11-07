@@ -26,8 +26,6 @@ class World;
 
 #include "../dice/Diepool.h"
 #include "../cards/hand.h"
-#include "../player/Player.h"
-
 
 using std::vector;
 using std::string;
@@ -37,9 +35,7 @@ using std::string;
 class Player {
 public:
     //Constructor
-    //Normally, you dont want multiple constructors like that... it doesnt make sense... but wtv
     Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool);
-    Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool, int n);
     //Destructor
     virtual ~Player();
     
@@ -47,12 +43,11 @@ public:
     vector<Territory*>* getTerritories();
     Hand* getHand();
     Diepool* getDiepool();
-    int getPlayerNum(){return playerNum;};
+    unsigned int getPlayerNum(){return playerNum;};
     
     //Setters
     void setHand(Hand* hand);
     void setDiePool(Diepool* diepool);
-    void setPlayerNum(int x){playerNum = x;};
     
     //Player functions
     void addTerritory(Territory*);
@@ -69,7 +64,8 @@ private:
     vector<Territory*>* territories;
     Hand* hand;
     Diepool* diepool;
-    int playerNum;
+    unsigned int playerNum;
+    static unsigned int objectCount;
     
 };
 

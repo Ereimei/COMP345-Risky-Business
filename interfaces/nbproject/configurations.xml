@@ -4,21 +4,16 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>map.h</itemPath>
+      <itemPath>interfaces.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
-      <itemPath>../player/Player.cpp</itemPath>
-      <itemPath>../player/Player.h</itemPath>
-      <itemPath>../interfaces/interfaces.cpp</itemPath>
-      <itemPath>../interfaces/interfaces.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>main.cpp</itemPath>
-      <itemPath>map.cpp</itemPath>
+      <itemPath>interfaces.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -41,23 +36,10 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
-        <ccTool>
-          <standard>8</standard>
-        </ccTool>
       </compileType>
-      <item path="../interfaces/interfaces.cpp" ex="false" tool="1" flavor2="0">
+      <item path="interfaces.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="../interfaces/interfaces.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../player/Player.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../player/Player.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="main.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="map.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="map.h" ex="false" tool="3" flavor2="0">
+      <item path="interfaces.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -80,19 +62,9 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="../interfaces/interfaces.cpp" ex="false" tool="1" flavor2="0">
+      <item path="interfaces.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="../interfaces/interfaces.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../player/Player.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../player/Player.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="main.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="map.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="map.h" ex="false" tool="3" flavor2="0">
+      <item path="interfaces.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

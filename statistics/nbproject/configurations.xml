@@ -4,28 +4,22 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>Statistics.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
-      <itemPath>../dice/Diepool.cpp</itemPath>
-      <itemPath>../dice/Diepool.h</itemPath>
-      <itemPath>../maploader/Maploader.cpp</itemPath>
-      <itemPath>../maploader/Maploader.h</itemPath>
       <itemPath>../player/Player.cpp</itemPath>
       <itemPath>../player/Player.h</itemPath>
-      <itemPath>../cards/card.cpp</itemPath>
-      <itemPath>../cards/card.h</itemPath>
-      <itemPath>../cards/deck.cpp</itemPath>
-      <itemPath>../cards/deck.h</itemPath>
-      <itemPath>../cards/hand.cpp</itemPath>
-      <itemPath>../cards/hand.h</itemPath>
+      <itemPath>../interfaces/interfaces.cpp</itemPath>
+      <itemPath>../interfaces/interfaces.h</itemPath>
       <itemPath>../map/map.cpp</itemPath>
       <itemPath>../map/map.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>Statistics.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -37,12 +31,11 @@
                    displayName="Important Files"
                    projectFiles="false"
                    kind="IMPORTANT_FILES_FOLDER">
-      <itemPath>../maploader/Antarctica.map</itemPath>
+      <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>../dice/Diepool.cpp</itemPath>
+    <itemPath>../dice/Diepool.h</itemPath>
   </logicalFolder>
-  <sourceRootList>
-    <Elem>..</Elem>
-  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="Debug" type="1">
@@ -52,37 +45,26 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
-        <ccTool>
-          <standard>8</standard>
-        </ccTool>
       </compileType>
-      <item path="../cards/card.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../cards/card.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../cards/deck.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../cards/deck.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../cards/hand.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../cards/hand.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="../dice/Diepool.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../dice/Diepool.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../interfaces/interfaces.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../interfaces/interfaces.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../map/map.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../map/map.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../maploader/Maploader.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../maploader/Maploader.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="../player/Player.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../player/Player.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Statistics.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Statistics.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -107,33 +89,25 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="../cards/card.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../cards/card.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../cards/deck.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../cards/deck.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="../cards/hand.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../cards/hand.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="../dice/Diepool.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../dice/Diepool.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../interfaces/interfaces.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../interfaces/interfaces.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="../map/map.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../map/map.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../maploader/Maploader.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../maploader/Maploader.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="../player/Player.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../player/Player.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Statistics.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Statistics.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>

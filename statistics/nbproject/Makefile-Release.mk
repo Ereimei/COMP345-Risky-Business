@@ -23,7 +23,7 @@ AS=as
 # Macros
 CND_PLATFORM=MinGW-Windows
 CND_DLIB_EXT=dll
-CND_CONF=Debug
+CND_CONF=Release
 CND_DISTDIR=dist
 CND_BUILDDIR=build
 
@@ -35,10 +35,12 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/_ext/d2a2ee96/Diepool.o \
 	${OBJECTDIR}/_ext/342bee09/interfaces.o \
+	${OBJECTDIR}/_ext/511e288d/map.o \
 	${OBJECTDIR}/_ext/ca457e10/Player.o \
-	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/map.o
+	${OBJECTDIR}/Statistics.o \
+	${OBJECTDIR}/main.o
 
 
 # C Compiler Flags
@@ -59,31 +61,41 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/map.exe
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/statistics.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/map.exe: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/statistics.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/map ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/statistics ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/_ext/d2a2ee96/Diepool.o: ../dice/Diepool.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/d2a2ee96
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/d2a2ee96/Diepool.o ../dice/Diepool.cpp
 
 ${OBJECTDIR}/_ext/342bee09/interfaces.o: ../interfaces/interfaces.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/342bee09
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/342bee09/interfaces.o ../interfaces/interfaces.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/342bee09/interfaces.o ../interfaces/interfaces.cpp
+
+${OBJECTDIR}/_ext/511e288d/map.o: ../map/map.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/511e288d
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/511e288d/map.o ../map/map.cpp
 
 ${OBJECTDIR}/_ext/ca457e10/Player.o: ../player/Player.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/ca457e10
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/ca457e10/Player.o ../player/Player.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/ca457e10/Player.o ../player/Player.cpp
+
+${OBJECTDIR}/Statistics.o: Statistics.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Statistics.o Statistics.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
-
-${OBJECTDIR}/map.o: map.cpp
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/map.o map.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
 
 # Subprojects
 .build-subprojects:

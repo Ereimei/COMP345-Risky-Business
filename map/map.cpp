@@ -16,16 +16,6 @@
 #include "map.h"
 #include "../player/Player.h"
 
-#include <string>
-#include <iostream>
-#include <cstdlib>
-#include <vector>
-
-using std::string;
-using std::cout;
-using std::cerr;
-using std::endl;
-
 unsigned int Territory::objectCount = 1;
 
 Territory::Territory() : armies(0),
@@ -242,3 +232,62 @@ unsigned int World::findPositionInArrayById(unsigned int id) {
 World::Node* World::getTerritories() const {return territories;}
 
 Continent** World::getContinents() const {return continents;}
+
+/**
+ * 
+ * @param {string} name the territory name
+ * @return {unsigned int} position in array if found
+ * if not, returns result > territoryCount
+ */
+unsigned int World::findPositionInArrayByName(string name) const {
+    unsigned int result = -1;
+    for (int n = 0; n < territoriesCount; ++n) {
+        if (territories[n].territory->getName() == name) {
+            result = n;
+            break;
+        }
+    }
+    return result;
+}
+
+/**
+ * 
+ * @param {string} territoryName the territory whose owner will be changed
+ * @param {Player*} owner the new owner
+ * @return {bool} if the territory is found and owner is set
+ */
+bool World::setTerritoryOwner(string territoryName, Player* owner) {
+    unsigned int arrayPosition = findPositionInArrayByName(territoryName);
+    bool result = false;
+    if (checkSearchResult(arrayPosition)) {
+        territories[arrayPosition].territory->setOwner(owner);
+        notify();
+        result = true;
+    }
+    return result;
+}
+
+/**
+ * 
+ * @param {unsigned int} arrayPosition the position in the array which the territory is in
+ * @param {Player*} owner the new owner
+ * @return {bool} result if the territory owner has been set
+ */
+bool World::setTerritoryOwner(unsigned int arrayPosition, Player* owner) {
+    bool result = false;
+    if (checkSearchResult(arrayPosition)) {
+        territories[arrayPosition].territory->setOwner(owner);
+        notify();
+        result = true;
+    }
+    return result;
+}
+
+/**
+ * 
+ * @param {unsigned int} arrayPosition the position of a territory in the array
+ * @return {bool} is the array position within bounds
+ */
+bool World::checkSearchResult(unsigned int arrayPosition) {
+    return arrayPosition >= 0 && arrayPosition < territoriesCount;
+}

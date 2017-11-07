@@ -15,21 +15,6 @@
 
 #include "Maploader.h"
 
-#include <vector>
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <sstream>
-#include <algorithm>
-
-using std::endl;
-using std::string;
-using std::vector;
-using std::ifstream;
-using std::cout;
-using std::cerr;
-using std::stringstream;
-
 Maploader::Maploader() : fileName(""),
     territoriesCount(0),
     continentsCount(0),
