@@ -4,14 +4,26 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>Player.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
+      <itemPath>../dice/Diepool.cpp</itemPath>
+      <itemPath>../dice/Diepool.h</itemPath>
+      <itemPath>../cards/card.cpp</itemPath>
+      <itemPath>../cards/card.h</itemPath>
+      <itemPath>../cards/deck.cpp</itemPath>
+      <itemPath>../cards/deck.h</itemPath>
+      <itemPath>../cards/hand.cpp</itemPath>
+      <itemPath>../cards/hand.h</itemPath>
+      <itemPath>../map/map.cpp</itemPath>
+      <itemPath>../map/map.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>Player.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -35,21 +47,7 @@
                    projectFiles="false"
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
-      <itemPath>Player.cpp</itemPath>
-      <itemPath>Player.h</itemPath>
     </logicalFolder>
-    <itemPath>../dice/Diepool.cpp</itemPath>
-    <itemPath>../dice/Diepool.h</itemPath>
-    <itemPath>Player.cpp</itemPath>
-    <itemPath>Player.h</itemPath>
-    <itemPath>../cards/card.cpp</itemPath>
-    <itemPath>../cards/card.h</itemPath>
-    <itemPath>../cards/deck.cpp</itemPath>
-    <itemPath>../cards/deck.h</itemPath>
-    <itemPath>../cards/hand.cpp</itemPath>
-    <itemPath>../cards/hand.h</itemPath>
-    <itemPath>../map/map.cpp</itemPath>
-    <itemPath>../map/map.h</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

@@ -15,14 +15,20 @@
       <itemPath>../maploader/Maploader.h</itemPath>
       <itemPath>../player/Player.cpp</itemPath>
       <itemPath>../player/Player.h</itemPath>
+      <itemPath>../statistics/Statistics.cpp</itemPath>
+      <itemPath>../statistics/Statistics.h</itemPath>
       <itemPath>../cards/card.cpp</itemPath>
       <itemPath>../cards/card.h</itemPath>
       <itemPath>../cards/deck.cpp</itemPath>
       <itemPath>../cards/deck.h</itemPath>
       <itemPath>../cards/hand.cpp</itemPath>
       <itemPath>../cards/hand.h</itemPath>
+      <itemPath>../interfaces/interfaces.cpp</itemPath>
+      <itemPath>../interfaces/interfaces.h</itemPath>
       <itemPath>../map/map.cpp</itemPath>
       <itemPath>../map/map.h</itemPath>
+      <itemPath>../phaseObserver/phaseObserver.cpp</itemPath>
+      <itemPath>../phaseObserver/phaseObserver.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
@@ -71,6 +77,10 @@
       </item>
       <item path="../dice/Diepool.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="../interfaces/interfaces.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../interfaces/interfaces.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../map/map.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../map/map.h" ex="false" tool="3" flavor2="0">
@@ -79,9 +89,17 @@
       </item>
       <item path="../maploader/Maploader.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="../phaseObserver/phaseObserver.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../phaseObserver/phaseObserver.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../player/Player.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../player/Player.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../statistics/Statistics.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../statistics/Statistics.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="GameStarter.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -126,6 +144,10 @@
       </item>
       <item path="../dice/Diepool.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="../interfaces/interfaces.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../interfaces/interfaces.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../map/map.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../map/map.h" ex="false" tool="3" flavor2="0">
@@ -134,9 +156,17 @@
       </item>
       <item path="../maploader/Maploader.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="../phaseObserver/phaseObserver.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../phaseObserver/phaseObserver.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../player/Player.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../player/Player.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../statistics/Statistics.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../statistics/Statistics.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="GameStarter.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -15,16 +15,6 @@
 
 #include "GameStarter.h"
 
-#include <cstdlib>
-#include <string>
-#include <iostream>
-#include <vector>
-
-using std::string;
-using std::cout;
-using std::cin;
-using std::endl;
-
 const unsigned int GameStarter::MIN_PLAYERS = 2;
 const unsigned int GameStarter::MAX_PLAYERS = 6;
 const string GameStarter::MAP_DIRECTORY = "maps/";
@@ -57,6 +47,7 @@ void GameStarter::startGame() {
     chooseAndCreateWorld();
     createDeck();
     createPlayers();
+    createStatistics();
 }
 
 /**
@@ -125,9 +116,16 @@ void GameStarter::chooseAndCreateWorld() {
 void GameStarter::createDeck() {
     cout << INIT_DECK << endl;
     deck = new Deck();
-    deck->shuffle();
-    deck->shuffle();
+    deck->shuffle(getWorld() );
+    deck->shuffle(getWorld() );
     cout << SHUFFLING_DECK << endl;
+}
+
+/**
+ * Create the map statistics object
+ */
+void GameStarter::createStatistics() {
+    statistics = new Statistics(world, numPlayers);
 }
 
 /**
@@ -160,4 +158,8 @@ Player** GameStarter::getPlayers() const {
  */
 unsigned int GameStarter::getNumPlayers() const {
     return numPlayers;
+}
+
+Statistics* GameStarter::getStatistics() const {
+    return statistics;
 }

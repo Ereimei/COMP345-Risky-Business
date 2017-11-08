@@ -12,16 +12,20 @@
 #include "deck.h"
 #include "hand.h"
 
+#include "../map/map.h"
+#include "../maploader/Maploader.h"
+
 using std::cout;
 
 /*
  * 
  */
 int main(int argc, char *argv[]) {
-
+    World* world = new World();
+    
     Deck deck = Deck();
     cout << "shuffling the deck" << std::endl;
-    deck.shuffle();
+    deck.shuffle(world);
     cout << "deck shuffled:" << std:: endl;
     deck.display();
     

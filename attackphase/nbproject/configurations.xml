@@ -8,6 +8,20 @@
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
+      <itemPath>../dice/Diepool.cpp</itemPath>
+      <itemPath>../dice/Diepool.h</itemPath>
+      <itemPath>../maploader/Maploader.cpp</itemPath>
+      <itemPath>../maploader/Maploader.h</itemPath>
+      <itemPath>../player/Player.cpp</itemPath>
+      <itemPath>../player/Player.h</itemPath>
+      <itemPath>../cards/card.cpp</itemPath>
+      <itemPath>../cards/card.h</itemPath>
+      <itemPath>../cards/deck.cpp</itemPath>
+      <itemPath>../cards/deck.h</itemPath>
+      <itemPath>../cards/hand.cpp</itemPath>
+      <itemPath>../cards/hand.h</itemPath>
+      <itemPath>../map/map.cpp</itemPath>
+      <itemPath>../map/map.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
@@ -25,20 +39,6 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>../maploader/Antarctica.map</itemPath>
     </logicalFolder>
-    <itemPath>../dice/Diepool.cpp</itemPath>
-    <itemPath>../dice/Diepool.h</itemPath>
-    <itemPath>../maploader/Maploader.cpp</itemPath>
-    <itemPath>../maploader/Maploader.h</itemPath>
-    <itemPath>../player/Player.cpp</itemPath>
-    <itemPath>../player/Player.h</itemPath>
-    <itemPath>../cards/card.cpp</itemPath>
-    <itemPath>../cards/card.h</itemPath>
-    <itemPath>../cards/deck.cpp</itemPath>
-    <itemPath>../cards/deck.h</itemPath>
-    <itemPath>../cards/hand.cpp</itemPath>
-    <itemPath>../cards/hand.h</itemPath>
-    <itemPath>../map/map.cpp</itemPath>
-    <itemPath>../map/map.h</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>..</Elem>

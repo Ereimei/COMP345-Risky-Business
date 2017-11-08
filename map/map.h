@@ -16,6 +16,17 @@
 #ifndef MAP_H
 #define MAP_H
 
+#include "../interfaces/interfaces.h"
+
+#include <string>
+#include <iostream>
+#include <cstdlib>
+#include <vector>
+
+using std::string;
+using std::cout;
+using std::cerr;
+using std::endl;
 
 /*
  * Just for future knowledge. Instead of adding a forward declaration for player,
@@ -62,7 +73,7 @@ private:
     Territory** territories;
 };
 
-class World {
+class World : public Subject {
 public:
     World();
     World(unsigned int terrsCount, unsigned int contsCount);
@@ -72,6 +83,10 @@ public:
     void addContinents(Continent** conts);
     unsigned int getContinentsCount() const;
     unsigned int getTerritoriesCount() const;
+    unsigned int findPositionInArrayByName(string name) const;
+    bool setTerritoryOwner(string territoryName, Player* owner);
+    bool setTerritoryOwner(unsigned int arrayPosition, Player* owner);
+    bool checkSearchResult(unsigned int arrayPosition);
     
 private:
     class Node {

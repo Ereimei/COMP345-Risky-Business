@@ -25,14 +25,16 @@ Created on September 24, 2017, 3:48 PM */
 #define DECK_H
 #include <vector>
 
+#include "../map/map.h"
+#include "../maploader/maploader.h"
 
 class Deck 
 {
 private:
     std::vector<Card> deck = std::vector<Card>();
-        
+
 public:
-    void shuffle();
+    void shuffle(World* world);
     Card draw();
     const bool isEmpty() { return deck.empty(); }
     void display();

@@ -1,0 +1,113 @@
+#
+# Generated Makefile - do not edit!
+#
+# Edit the Makefile in the project folder instead (../Makefile). Each target
+# has a -pre and a -post target defined where you can add customized code.
+#
+# This makefile implements configuration specific macros and targets.
+
+
+# Environment
+MKDIR=mkdir
+CP=cp
+GREP=grep
+NM=nm
+CCADMIN=CCadmin
+RANLIB=ranlib
+CC=gcc
+CCC=g++
+CXX=g++
+FC=gfortran
+AS=as
+
+# Macros
+CND_PLATFORM=MinGW-Windows
+CND_DLIB_EXT=dll
+CND_CONF=Release
+CND_DISTDIR=dist
+CND_BUILDDIR=build
+
+# Include project Makefile
+include Makefile
+
+# Object Directory
+OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
+
+# Object Files
+OBJECTFILES= \
+	${OBJECTDIR}/_ext/d2a2ee96/Diepool.o \
+	${OBJECTDIR}/_ext/342bee09/interfaces.o \
+	${OBJECTDIR}/_ext/511e288d/map.o \
+	${OBJECTDIR}/_ext/ca457e10/Player.o \
+	${OBJECTDIR}/Statistics.o \
+	${OBJECTDIR}/main.o
+
+
+# C Compiler Flags
+CFLAGS=
+
+# CC Compiler Flags
+CCFLAGS=
+CXXFLAGS=
+
+# Fortran Compiler Flags
+FFLAGS=
+
+# Assembler Flags
+ASFLAGS=
+
+# Link Libraries and Options
+LDLIBSOPTIONS=
+
+# Build Targets
+.build-conf: ${BUILD_SUBPROJECTS}
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/statistics.exe
+
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/statistics.exe: ${OBJECTFILES}
+	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/statistics ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/_ext/d2a2ee96/Diepool.o: ../dice/Diepool.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/d2a2ee96
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/d2a2ee96/Diepool.o ../dice/Diepool.cpp
+
+${OBJECTDIR}/_ext/342bee09/interfaces.o: ../interfaces/interfaces.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/342bee09
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/342bee09/interfaces.o ../interfaces/interfaces.cpp
+
+${OBJECTDIR}/_ext/511e288d/map.o: ../map/map.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/511e288d
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/511e288d/map.o ../map/map.cpp
+
+${OBJECTDIR}/_ext/ca457e10/Player.o: ../player/Player.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/ca457e10
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/ca457e10/Player.o ../player/Player.cpp
+
+${OBJECTDIR}/Statistics.o: Statistics.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Statistics.o Statistics.cpp
+
+${OBJECTDIR}/main.o: main.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+
+# Subprojects
+.build-subprojects:
+
+# Clean Targets
+.clean-conf: ${CLEAN_SUBPROJECTS}
+	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
+
+# Subprojects
+.clean-subprojects:
+
+# Enable dependency checking
+.dep.inc: .depcheck-impl
+
+include .dep.inc
