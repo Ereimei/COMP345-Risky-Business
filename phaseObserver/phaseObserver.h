@@ -24,10 +24,9 @@ Created on November 7, 2017, 9:43 PM */
 #define PHASEOBSERVER_H
 
 #include "../interfaces/interfaces.h"
-#include "../mainGame/mainGame.h"
 #include <iostream>
 #include <string>
-
+class mainGame;
 
 
 

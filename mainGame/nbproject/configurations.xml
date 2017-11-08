@@ -48,6 +48,8 @@
                    projectFiles="false"
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
+      <itemPath>../phaseObserver/phaseObserver.cpp</itemPath>
+      <itemPath>../phaseObserver/phaseObserver.h</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
@@ -59,6 +61,9 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
+        <ccTool>
+          <standard>8</standard>
+        </ccTool>
       </compileType>
       <item path="../cards/card.cpp" ex="false" tool="1" flavor2="0">
       </item>

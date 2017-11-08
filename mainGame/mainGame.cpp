@@ -23,6 +23,7 @@ Created on October 25, 2017, 7:12 PM */
 
 #include <iostream>
 #include <string> 
+#include "phaseObserver.h"
 
 using namespace std;
 

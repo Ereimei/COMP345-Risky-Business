@@ -30,7 +30,7 @@ Created on October 25, 2017, 7:13 PM */
 #include "../startup/startup.h"
 #include "../gamestarter/GameStarter.h"
 #include "../interfaces/interfaces.h"
-
+class phaseObserver;
 
 class MainGame: public Subject {
     
