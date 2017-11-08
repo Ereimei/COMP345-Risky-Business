@@ -6,7 +6,7 @@
  * Olivier Trepanier-Desfosses, 27850956
  * 
  *** COMP 345 SECTION D ***
- * Assignment #
+ * Assignment #3
  * Professor: Dr. Joey Paquet
  * 
  * Created on November 4, 2017, 11:13 PM
@@ -39,6 +39,9 @@ Statistics::~Statistics() {
     delete[] playerTerritoriesCount;
 }
 
+/**
+ * Generate the graph
+ */
 void Statistics::update() {
     unsigned int ownerlessTerritories, barMultiplier, spaceFiller;
     float percent;
