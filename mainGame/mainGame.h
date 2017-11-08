@@ -32,7 +32,7 @@ Created on October 25, 2017, 7:13 PM */
 #include "../interfaces/interfaces.h"
 
 
-class MainGame: public Subject {
+class MainGame{
     
 private:
     int currentPlayerNum;

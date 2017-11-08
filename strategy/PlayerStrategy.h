@@ -14,6 +14,10 @@
 #ifndef PLAYERSTRATEGY_H
 #define PLAYERSTRATEGY_H
 
+#include <vector>
+
+#include "Strategy.h"
+
 class PlayerStrategy : public Strategy {
 public:
     PlayerStrategy();

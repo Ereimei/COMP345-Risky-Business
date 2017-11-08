@@ -40,9 +40,11 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/81a96254/hand.o \
 	${OBJECTDIR}/_ext/d2a2ee96/Diepool.o \
 	${OBJECTDIR}/_ext/febfc28e/GameStarter.o \
+	${OBJECTDIR}/_ext/342bee09/interfaces.o \
 	${OBJECTDIR}/_ext/511e288d/map.o \
 	${OBJECTDIR}/_ext/5d43fae0/Maploader.o \
 	${OBJECTDIR}/_ext/ca457e10/Player.o \
+	${OBJECTDIR}/_ext/8dd064d2/Statistics.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/startup.o
 
@@ -96,6 +98,11 @@ ${OBJECTDIR}/_ext/febfc28e/GameStarter.o: ../gamestarter/GameStarter.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/febfc28e/GameStarter.o ../gamestarter/GameStarter.cpp
 
+${OBJECTDIR}/_ext/342bee09/interfaces.o: ../interfaces/interfaces.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/342bee09
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/342bee09/interfaces.o ../interfaces/interfaces.cpp
+
 ${OBJECTDIR}/_ext/511e288d/map.o: ../map/map.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/511e288d
 	${RM} "$@.d"
@@ -110,6 +117,11 @@ ${OBJECTDIR}/_ext/ca457e10/Player.o: ../player/Player.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/ca457e10
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/ca457e10/Player.o ../player/Player.cpp
+
+${OBJECTDIR}/_ext/8dd064d2/Statistics.o: ../statistics/Statistics.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/8dd064d2
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/8dd064d2/Statistics.o ../statistics/Statistics.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}

@@ -13,6 +13,12 @@
 
 #include <cstdlib>
 
+
+#include "../gamestarter/GameStarter.h"
+#include "../startup/startup.h"
+#include "../mainGame/mainGame.h"
+#include "../phaseObserver/phaseObserver.h"
+
 using namespace std;
 
 /*
@@ -20,10 +26,20 @@ using namespace std;
  */
 int main(int argc, char** argv) {
 
-    int x;
-    
-    cout << x;
-    
+    cout << "start up ..." << endl;
+    cout << "===========================" << endl;
+    GameStarter* gs = new GameStarter();
+    gs->startGame();
+    //PhaseObserver* phaseOb = new PhaseObserver();
+    cout << "===========================" << endl;
+    Startup* su = new Startup(gs->getPlayers(),gs->getNumPlayers());
+    su->displayPlayerOrder();
+    su->assignTerritory(su->getAllTerritories(gs->getWorld()));
+    su->placeArmies(su->assignArmies());
+    cout << "start up finished" << endl;
+    cout << "===========================" << endl;
+    MainGame* main = new MainGame();
+    main->loopGame(gs, su);
     
     
 }

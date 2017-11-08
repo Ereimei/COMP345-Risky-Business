@@ -48,6 +48,14 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>../strategy/AggressiveStrategy.cpp</itemPath>
+    <itemPath>../strategy/AggressiveStrategy.h</itemPath>
+    <itemPath>../strategy/BenevolentStrategy.cpp</itemPath>
+    <itemPath>../strategy/BenevolentStrategy.h</itemPath>
+    <itemPath>../strategy/PlayerStrategy.cpp</itemPath>
+    <itemPath>../strategy/PlayerStrategy.h</itemPath>
+    <itemPath>../strategy/Strategy.cpp</itemPath>
+    <itemPath>../strategy/Strategy.h</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -84,6 +92,22 @@
       <item path="../map/map.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../map/map.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../strategy/AggressiveStrategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../strategy/AggressiveStrategy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../strategy/BenevolentStrategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../strategy/BenevolentStrategy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../strategy/PlayerStrategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../strategy/PlayerStrategy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../strategy/Strategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../strategy/Strategy.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Player.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -131,6 +155,22 @@
       <item path="../map/map.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../map/map.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../strategy/AggressiveStrategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../strategy/AggressiveStrategy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../strategy/BenevolentStrategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../strategy/BenevolentStrategy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../strategy/PlayerStrategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../strategy/PlayerStrategy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../strategy/Strategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../strategy/Strategy.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Player.cpp" ex="false" tool="1" flavor2="0">
       </item>

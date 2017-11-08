@@ -28,7 +28,7 @@ void BenevolentStrategy::reinforce(int reinforcements, Player* player){
     
     Territory* weakest = player->getTerritories()->at(0);
     //Find weakest territory
-    for (int i = 1; i < player->getTerritories()->size(); i++){
+    for (int i = 0; i < player->getTerritories()->size(); i++){
         if (player->getTerritories()->at(i)->getArmies() < weakest->getArmies()){
             weakest = player->getTerritories()->at(i);
         }
@@ -36,8 +36,8 @@ void BenevolentStrategy::reinforce(int reinforcements, Player* player){
     
     //Reinforce the territory
     cout << "Current reinforcements value: " << reinforcements << endl;
-    cout << "Strongest territory: " << weakest->getName() << endl;
-    cout << "Strongest territory army value: " << weakest->getArmies() << endl;
+    cout << "Weakest territory: " << weakest->getName() << endl;
+    cout << "Weakest territory army value: " << weakest->getArmies() << endl;
     weakest->setArmies(weakest->getArmies() + reinforcements);
 }
 
@@ -50,7 +50,7 @@ void BenevolentStrategy::fortify(World* world, Player* player){
     
     Territory* weakest = player->getTerritories()->at(0);
     //Find weakest territory
-    for (int i = 1; i < player->getTerritories()->size(); i++){
+    for (int i = 0; i < player->getTerritories()->size(); i++){
         if (player->getTerritories()->at(i)->getArmies() < weakest->getArmies()){
             weakest = player->getTerritories()->at(i);
         }
@@ -64,17 +64,19 @@ void BenevolentStrategy::fortify(World* world, Player* player){
         }
     }
     
-    //Find adjacent strongest territory to move all its armies
-    int strongestLocation = 0;
-    for (int i = 1; i < world->getTerritories()[worldLocation].adjacentCount; i++){
+    //Find adjacent strongest territory to move all its armies except 1
+    int strongestLocation;
+    bool adjacentTerritory = false;
+    for (int i = 0; i < world->getTerritories()[worldLocation].adjacentCount; i++){
         if (world->getTerritories()[worldLocation].adjacentTerritories[i]->getArmies() > world->getTerritories()[worldLocation].adjacentTerritories[strongestLocation]->getArmies() &&
             world->getTerritories()[worldLocation].territory->getOwner() == player){
             strongestLocation = i;
+            adjacentTerritory = true;
         }
     }
     
     //Move armies, if possible
-    if (world->getTerritories()[worldLocation].adjacentTerritories[strongestLocation]->getArmies() > 1){
+    if (adjacentTerritory){
         int totalArmies = world->getTerritories()[worldLocation].territory->getArmies() + world->getTerritories()[worldLocation].adjacentTerritories[strongestLocation]->getArmies();
         int armies1, armies2;
         if (totalArmies % 2 == 1){

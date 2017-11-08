@@ -33,7 +33,7 @@ Created on November 7, 2017, 9:43 PM */
 
 using namespace std;
 
-class PhaseObserver: public Observer{
+class PhaseObserver{
     
 private:
     MainGame* mainGame;

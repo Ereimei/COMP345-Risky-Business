@@ -114,7 +114,7 @@ void AggressiveStrategy::attack(World* world, vector<Player*> players, Player* p
             }
             
             if(maxDef == 2 && maxAtk >= 2){
-                cout << "Attacker rolled " << player.getDiepool()->getDie2() << " Defender rolled " << defendingPlayer->getDiepool()->getDie2() << endl;
+                cout << "Attacker rolled " << player->getDiepool()->getDie2() << " Defender rolled " << defendingPlayer->getDiepool()->getDie2() << endl;
                 
                 if (player->getDiepool()->getDie2()> defendingPlayer->getDiepool()->getDie2()){
                     int n = world->getTerritories()[worldLocation].adjacentTerritories[attackableTerritory]->getArmies() - 1;
@@ -140,9 +140,9 @@ void AggressiveStrategy::attack(World* world, vector<Player*> players, Player* p
                 world->getTerritories()[worldLocation].adjacentTerritories[attackableTerritory]->setArmies(transMax);
                 player->addTerritory(world->getTerritories()[worldLocation].adjacentTerritories[attackableTerritory]);
                 defendingPlayer->removeTerritory(world->getTerritories()[worldLocation].adjacentTerritories[attackableTerritory]);
-                world->getTerritories()[worldLocation].territory->setArmies(world->getTerritories()[attackableTerritory].territory->getArmies()-transMax);
+                world->getTerritories()[worldLocation].territory->setArmies(world->getTerritories()[worldLocation].territory->getArmies()-transMax);
                 }
-            int maxAtk = world->getTerritories()[worldLocation].territory->getArmies() - 1;
+            maxAtk = world->getTerritories()[worldLocation].territory->getArmies() - 1;
         }
     }
     else {

@@ -17,9 +17,6 @@
 #include <iostream>
 #include <ostream>
 
-#include "../cards/hand.h"
-#include "../dice/Diepool.h"
-#include "../map/map.h"
 #include "Player.h"
 
 using std::cout;
@@ -29,10 +26,11 @@ using std::string;
 unsigned int Player::objectCount = 0;
         
 //Constructor
-Player::Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool) : territories(territories),
+Player::Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool, Strategy* strategy) : territories(territories),
     hand(hand),
     diepool(diepool),
-    playerNum(objectCount++){}
+    playerNum(objectCount++),
+    strategy(strategy){}
 
 //Destructors
 Player::~Player() {}
@@ -41,6 +39,7 @@ Player::~Player() {}
 vector<Territory*>* Player::getTerritories() {return territories;}
 Hand* Player::getHand() {return hand;}
 Diepool* Player::getDiepool() {return diepool;}
+Strategy* Player::getStrategy() {return strategy;}
 
 //Setters
 void Player::setHand(Hand* hand) {hand = hand;}
@@ -52,12 +51,33 @@ void Player::addTerritory(Territory* territory){
     this->territories->insert(territories->begin(), territory);
     territory->setOwner(this);
 };
-void Player::removeTerritory(Territory* territory){};
+void Player::removeTerritory(Territory* territory){
+    //Find index where territory is
+    int terrPos;
+    for (int i = 0; i < this->territories->size(); i ++){
+        if (this->territories->at(i) == territory){
+            terrPos = i;
+        }
+    }
+    
+    //Remove territory
+    this->territories->erase(this->territories->begin() + terrPos);
+    
+    
+};
 
-void Player::executeTurn(int reinforcements, World* world, vector<Player*> players){
+void Player::reinforce(World* world){
+    int reinforcements = this->numArmies(world);
     this->strategy->reinforce(reinforcements, this);
+}
+
+void Player::attack(World* world, vector<Player*> players){
     this->strategy->attack(world, players, this);
+}
+
+void Player::fortify(World* world){
     this->strategy->fortify(world, this);
+}
 
 int Player::numArmies(World* world) {
     int numCountries, numContinents, numTerrInCont, numReinf;
@@ -68,8 +88,8 @@ int Player::numArmies(World* world) {
     cout << endl << "Territory Army Bonus" << endl;
     cout << "--------------------" << endl;
     numReinf = numCountries/3;
-    if (numCountries < 3){
-        numCountries = 3;
+    if (numReinf < 3){
+        numReinf = 3;
     }
     cout << "Total amount of territory owned: " << numCountries << endl;
     cout << "Army value (territories/3 floored): " << numReinf << endl << endl;
@@ -149,6 +169,8 @@ int Player::numArmies(World* world) {
         cout << "Reinforcements amount = " << numReinf << endl;
     }
     cout << "--------------" << endl << endl;
+    
+    cout << "Reinforcements amount = " << numReinf << endl;
 
     
     return numReinf; 

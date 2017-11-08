@@ -14,9 +14,16 @@
 #ifndef STRATEGY_H
 #define STRATEGY_H
 
+#include <vector>
+
+class Player;
 
 #include "../map/map.h"
 #include "../player/Player.h"
+#include "../dice/Diepool.h"
+#include "../cards/hand.h"
+
+using std::vector;
 
 class Strategy {
 public:

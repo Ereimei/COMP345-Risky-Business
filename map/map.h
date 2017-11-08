@@ -73,7 +73,7 @@ private:
     Territory** territories;
 };
 
-class World : public Subject {
+class World : public Subject{
 public:
     World();
     World(unsigned int terrsCount, unsigned int contsCount);

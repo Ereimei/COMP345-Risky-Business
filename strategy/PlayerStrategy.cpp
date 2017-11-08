@@ -32,23 +32,23 @@ string territory;
             cout << "You have " << reinforcements << " army available for reinforcements." << endl;
             cout << "Your territories" << endl;
             cout << "----------------" << endl;
-            for (int i = 0; i < player->territories->size(); i++){
-                cout << player->territories->at(i)->getName() << " army: " << player->territories->at(i)->getArmies() << endl;
+            for (int i = 0; i < player->getTerritories()->size(); i++){
+                cout << player->getTerritories()->at(i)->getName() << " army: " << player->getTerritories()->at(i)->getArmies() << endl;
             }
             cout << "Please type the name of the territory you wish to to reinforce followed by the amount of reinforcement." << endl;
             cin >> territory >> reinAmount;
-            for (int i = 0; i < player->territories->size(); i++){
-                if (player->territories->at(i)->getName() == territory){
+            for (int i = 0; i < player->getTerritories()->size(); i++){
+                if (player->getTerritories()->at(i)->getName() == territory){
                     //If the player entered a # higher than the max amount of reinforcements
                     if (reinAmount > reinforcements){
-                       player->territories->at(i)->setArmies(player->territories->at(i)->getArmies() + reinforcements);
+                       player->getTerritories()->at(i)->setArmies(player->getTerritories()->at(i)->getArmies() + reinforcements);
                         reinforcements = 0;
                     }
                     else if (reinAmount < 0){
                         cout << "Please enter a number greater than 0." << endl;
                     }
                     else {
-                        player->territories->at(i)->setArmies(player->territories->at(i)->getArmies() + reinAmount);
+                        player->getTerritories()->at(i)->setArmies(player->getTerritories()->at(i)->getArmies() + reinAmount);
                         reinforcements -= reinAmount;
                     }    
                 }
@@ -78,7 +78,7 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
         for (int j = 0; j < world->getTerritoriesCount() ; j++){
             if (player->getTerritories()->at(i)->getName() == world->getTerritories()[j].territory->getName()){
                 for (int k = 0; k < world->getTerritories()[j].adjacentCount; k++){
-                    if (world->getTerritories()[j].adjacentTerritories[k]->getOwner() != this && player->getTerritories()->at(i)->getArmies() > 1){
+                    if (world->getTerritories()[j].adjacentTerritories[k]->getOwner() != player && player->getTerritories()->at(i)->getArmies() > 1){
                         canAtk = true;
                     }
                 } 
@@ -104,7 +104,7 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
             for (int j = 0; j < world->getTerritoriesCount() ; j++){
                 if (player->getTerritories()->at(i)->getName() == world->getTerritories()[j].territory->getName()){
                     for (int k = 0; k < world->getTerritories()[j].adjacentCount; k++){
-                        if (world->getTerritories()[j].adjacentTerritories[k]->getOwner() != this){
+                        if (world->getTerritories()[j].adjacentTerritories[k]->getOwner() != player){
                         cout << world->getTerritories()[j].adjacentTerritories[k]->getName()<< endl;
                         }
                     } 
@@ -242,7 +242,7 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
             }
             
             if(defDie == 2 && atkDie >= 2){
-                cout << "Attacker rolled " << player.getDiepool()->getDie2() << " Defender rolled " << defendingPlayer->getDiepool()->getDie2() << endl;
+                cout << "Attacker rolled " << player->getDiepool()->getDie2() << " Defender rolled " << defendingPlayer->getDiepool()->getDie2() << endl;
                 
                 if (player->getDiepool()->getDie2()> defendingPlayer->getDiepool()->getDie2()){
                     int n = world->getTerritories()[atkPos].adjacentTerritories[defPos]->getArmies() - 1;
@@ -291,13 +291,13 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
                 cout << "Transfer complete" << endl;
                 cout << "Attacker, your territories are now " << endl;
                 cout << "----------------" << endl;
-                for (int i = 0; i < player->territories->size(); i++){
-                    cout << player->territories->at(i)->getName()<< endl;
+                for (int i = 0; i < player->getTerritories()->size(); i++){
+                    cout << player->getTerritories()->at(i)->getName()<< endl;
                 }
                 cout << "Defender your territories are now " << endl;
                 cout << "----------------" << endl;
-                for (int i = 0; i < defendingPlayer->territories->size(); i++){
-                    cout << defendingPlayer->territories->at(i)->getName()<< endl;
+                for (int i = 0; i < defendingPlayer->getTerritories()->size(); i++){
+                    cout << defendingPlayer->getTerritories()->at(i)->getName()<< endl;
                 }   
             }
             
@@ -309,7 +309,7 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
                 
             //if the current atk and def setup is no longer valid, end the current setup loop
             
-            if(world->getTerritories()[atkPos].territory->getArmies() == 1 || world->getTerritories()[atkPos].adjacentTerritories[defPos]->getOwner() == this){
+            if(world->getTerritories()[atkPos].territory->getArmies() == 1 || world->getTerritories()[atkPos].adjacentTerritories[defPos]->getOwner() == player){
                 attacking = "n";
             }
             else{
@@ -362,7 +362,7 @@ string source, target, choice;
             //If we find the correct territory in the world, print all its adjacent territories that is owned by the player
             if (world->getTerritories()[j].territory->getName() == player->getTerritories()->at(i)->getName() && player->getTerritories()->at(i)->getArmies() > 1){
                 for (int k = 0; k < world->getTerritories()[j].adjacentCount; k++){
-                    if (world->getTerritories()[j].adjacentTerritories[k]->getOwner() == this){
+                    if (world->getTerritories()[j].adjacentTerritories[k]->getOwner() == player){
                         cout << "Name: " << world->getTerritories()[j].adjacentTerritories[k]->getName() << " Armies: " << world->getTerritories()[j].adjacentTerritories[k]->getArmies() << endl;
                         adjacentTerr = true;
                     }
@@ -414,7 +414,7 @@ string source, target, choice;
                 sourceArmies = world->getTerritories()[j].territory->getArmies();
                 sourceIndex = j;
                 for (int k = 0; k < world->getTerritories()[j].adjacentCount; k++){
-                    if (world->getTerritories()[j].adjacentTerritories[k]->getOwner() == this) {
+                    if (world->getTerritories()[j].adjacentTerritories[k]->getOwner() == player) {
                         cout << "Name: " << world->getTerritories()[j].adjacentTerritories[k]->getName() << " Armies: " << world->getTerritories()[j].adjacentTerritories[k]->getArmies() << endl;
                     }
                 }
@@ -430,7 +430,7 @@ string source, target, choice;
         while (!valid){
         
             for (int i = 0; i < world->getTerritories()[sourceIndex].adjacentCount; i++){
-                if (world->getTerritories()[sourceIndex].adjacentTerritories[i]->getName() == target && world->getTerritories()[sourceIndex].adjacentTerritories[i]->getOwner() == this){
+                if (world->getTerritories()[sourceIndex].adjacentTerritories[i]->getName() == target && world->getTerritories()[sourceIndex].adjacentTerritories[i]->getOwner() == player){
                     targetIndex = i;
                     valid = true;
                     cout << "Valid target country." << endl;

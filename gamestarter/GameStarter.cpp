@@ -77,14 +77,31 @@ void GameStarter::createPlayers() {
     Hand* hand;
     vector<Territory*>* territories;
     Diepool* diepool;
+    Strategy* strategy;
+    int strategyType;
     cout << INIT_PLAYERS << endl;
     players = new Player*[numPlayers];
     for (int n = 0; n < numPlayers; ++n) {
         cout << CREATING_PLAYER << n << endl;
+        cout << "Please enter a Strategy for player #" << (n + 1) << " (1 = Player, 2 = Aggressive, 3 = Benevolent)" << endl;
+        cin >> strategyType;
+        while (strategyType < 1 || strategyType > 3){
+            cout << "Please enter a correct strategy value." << endl;
+            cin >> strategyType;
+        }
         hand = new Hand();
         diepool = new Diepool();
         territories = new vector<Territory*>;
-        players[n] = new Player(territories, hand, diepool);
+        if (strategyType == 1){
+            strategy = new PlayerStrategy();
+        }
+        else if (strategyType == 2){
+            strategy = new AggressiveStrategy();
+        }
+        else if (strategyType == 3){
+            strategy = new BenevolentStrategy();
+        }
+        players[n] = new Player(territories, hand, diepool, strategy);
     }
 }
 

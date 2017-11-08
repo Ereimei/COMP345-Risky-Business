@@ -24,6 +24,10 @@
 #include "../player/Player.h"
 #include "../interfaces/interfaces.h"
 #include "../statistics/Statistics.h"
+#include "../strategy/Strategy.h"
+#include "../strategy/PlayerStrategy.h"
+#include "../strategy/AggressiveStrategy.h"
+#include "../strategy/BenevolentStrategy.h"
 
 #include <cstdlib>
 #include <string>
