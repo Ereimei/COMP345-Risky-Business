@@ -6,7 +6,7 @@
 
 /*
 
-File: phase.h
+File: phaseObserver.h
  *** AUTHORS ***
 
 Patrick Bednarski, 40002239
@@ -17,21 +17,32 @@ Olivier Trepanier-Desfosses, 27850956
 
 Assignment # 3
 Professor: Dr. Joey Paquet
-Created on November 7, 2017, 12:06 PM */
+Created on November 7, 2017, 9:43 PM */
 
-#ifndef PHASE_H
-#define PHASE_H
+
+#ifndef PHASEOBSERVER_H
+#define PHASEOBSERVER_H
+
+#include "../interfaces/interfaces.h"
+#include "../mainGame/mainGame.h"
+#include <iostream>
+#include <string>
+
+
+
 
 using namespace std;
 
-class phase : public Observer {
-public:
-    phase();
-    void update();
+class PhaseObserver: public Observer{
+    
 private:
+    MainGame* mainGame;
+public:
+    
+    void update();
     
 };
 
 
-#endif /* PHASE_H */
+#endif /* PHASEOBSERVER_H */
 

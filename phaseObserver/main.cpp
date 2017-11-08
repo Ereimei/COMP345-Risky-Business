@@ -6,7 +6,7 @@
 
 /*
 
-File: phase.h
+File: main.cpp
  *** AUTHORS ***
 
 Patrick Bednarski, 40002239
@@ -15,23 +15,19 @@ James Ferreira-Fernandez, 21964216
 Olivier Trepanier-Desfosses, 27850956
  *** COMP 345 SECTION D ***
 
-Assignment # 3
+Assignment #
 Professor: Dr. Joey Paquet
-Created on November 7, 2017, 12:06 PM */
+Created on November 7, 2017, 9:43 PM */
 
-#ifndef PHASE_H
-#define PHASE_H
+#include <cstdlib>
 
 using namespace std;
 
-class phase : public Observer {
-public:
-    phase();
-    void update();
-private:
-    
-};
+/*
+ * 
+ */
+int main(int argc, char** argv) {
 
-
-#endif /* PHASE_H */
+    return 0;
+}
 

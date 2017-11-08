@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin-Windows
-CND_ARTIFACT_NAME_Debug=phase
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/phase
+CND_ARTIFACT_NAME_Debug=phaseobserver
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/phaseobserver
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin-Windows/package
-CND_PACKAGE_NAME_Debug=phase.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/phase.tar
+CND_PACKAGE_NAME_Debug=phaseobserver.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/phaseobserver.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin-Windows
-CND_ARTIFACT_NAME_Release=phase
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/phase
+CND_ARTIFACT_NAME_Release=phaseobserver
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/phaseobserver
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin-Windows/package
-CND_PACKAGE_NAME_Release=phase.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/phase.tar
+CND_PACKAGE_NAME_Release=phaseobserver.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/phaseobserver.tar
 #
 # include compiler specific variables
 #
