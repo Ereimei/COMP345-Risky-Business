@@ -66,6 +66,7 @@ public:
     void fortify(World* world);
     int numArmies(World* world);
     
+    
 private:
     //Player attributes
     vector<Territory*>* territories;

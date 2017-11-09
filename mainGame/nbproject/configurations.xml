@@ -9,6 +9,10 @@
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
+      <itemPath>../strategy/AggressiveStrategy.cpp</itemPath>
+      <itemPath>../strategy/AggressiveStrategy.h</itemPath>
+      <itemPath>../strategy/BenevolentStrategy.cpp</itemPath>
+      <itemPath>../strategy/BenevolentStrategy.h</itemPath>
       <itemPath>../dice/Diepool.cpp</itemPath>
       <itemPath>../dice/Diepool.h</itemPath>
       <itemPath>../gamestarter/GameStarter.cpp</itemPath>
@@ -17,8 +21,12 @@
       <itemPath>../maploader/Maploader.h</itemPath>
       <itemPath>../player/Player.cpp</itemPath>
       <itemPath>../player/Player.h</itemPath>
+      <itemPath>../strategy/PlayerStrategy.cpp</itemPath>
+      <itemPath>../strategy/PlayerStrategy.h</itemPath>
       <itemPath>../statistics/Statistics.cpp</itemPath>
       <itemPath>../statistics/Statistics.h</itemPath>
+      <itemPath>../strategy/Strategy.cpp</itemPath>
+      <itemPath>../strategy/Strategy.h</itemPath>
       <itemPath>../cards/card.cpp</itemPath>
       <itemPath>../cards/card.h</itemPath>
       <itemPath>../cards/deck.cpp</itemPath>
@@ -29,6 +37,8 @@
       <itemPath>../interfaces/interfaces.h</itemPath>
       <itemPath>../map/map.cpp</itemPath>
       <itemPath>../map/map.h</itemPath>
+      <itemPath>../phaseObserver/phaseObserver.cpp</itemPath>
+      <itemPath>../phaseObserver/phaseObserver.h</itemPath>
       <itemPath>../startup/startup.cpp</itemPath>
       <itemPath>../startup/startup.h</itemPath>
     </logicalFolder>
@@ -48,6 +58,8 @@
                    projectFiles="false"
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
+      <itemPath>../phaseObserver/phaseObserver.cpp</itemPath>
+      <itemPath>../phaseObserver/phaseObserver.h</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
@@ -59,6 +71,9 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
+        <ccTool>
+          <standard>8</standard>
+        </ccTool>
       </compileType>
       <item path="../cards/card.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -92,6 +107,10 @@
       </item>
       <item path="../maploader/Maploader.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="../phaseObserver/phaseObserver.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../phaseObserver/phaseObserver.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../player/Player.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../player/Player.h" ex="false" tool="3" flavor2="0">
@@ -103,6 +122,22 @@
       <item path="../statistics/Statistics.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../statistics/Statistics.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../strategy/AggressiveStrategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../strategy/AggressiveStrategy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../strategy/BenevolentStrategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../strategy/BenevolentStrategy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../strategy/PlayerStrategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../strategy/PlayerStrategy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../strategy/Strategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../strategy/Strategy.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -163,6 +198,10 @@
       </item>
       <item path="../maploader/Maploader.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="../phaseObserver/phaseObserver.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../phaseObserver/phaseObserver.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../player/Player.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../player/Player.h" ex="false" tool="3" flavor2="0">
@@ -174,6 +213,22 @@
       <item path="../statistics/Statistics.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../statistics/Statistics.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../strategy/AggressiveStrategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../strategy/AggressiveStrategy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../strategy/BenevolentStrategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../strategy/BenevolentStrategy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../strategy/PlayerStrategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../strategy/PlayerStrategy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../strategy/Strategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../strategy/Strategy.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
