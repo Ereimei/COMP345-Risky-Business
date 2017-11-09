@@ -45,6 +45,7 @@ int main(int argc, char** argv) {
     GameStarter* gs = new GameStarter();
     gs->startGame();
     cout << "===========================" << endl;
+    
     cout << "There are " << gs->getNumPlayers() <<" players." << endl;
     //shuffle the order of the player and display it
     Startup* su = new Startup(gs->getPlayers(),gs->getNumPlayers());

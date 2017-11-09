@@ -19,6 +19,9 @@ Assignment # 2
 Professor: Dr. Joey Paquet
 Created on October 25, 2017, 7:13 PM */
 
+#ifndef MAINGAME_H
+#define MAINGAME_H
+
 #include <cstdlib>
 #include <string>
 #include <iostream>
@@ -26,22 +29,21 @@ Created on October 25, 2017, 7:13 PM */
 
 #include "../startup/startup.h"
 #include "../gamestarter/GameStarter.h"
+#include "../interfaces/interfaces.h"
 
-#ifndef MAINGAME_H
-#define MAINGAME_H
 
 class MainGame{
     
 private:
+    int currentPlayerNum;
+    string currentPhase;
+    
     
 public:
     
-    //reinforcements phase
-    void reinforcement();
-    //attack phase
-    void attack();
-    //fortification phase
-    void fortification();
+    const inline int getCurrentPlayerNum(){return currentPlayerNum;};
+    const inline string getCurrentphase(){return currentPhase;};
+
     //loop the game until a player own all the territories
     void loopGame(GameStarter* gameSt, Startup* startup);
     //check if a player own all the territories
@@ -52,6 +54,7 @@ public:
      */
     //force the a player to own all the territories
     void forceEnd(GameStarter* gameSt, Startup* startup);
+    
     
 };
 

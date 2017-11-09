@@ -26,18 +26,6 @@ Created on October 25, 2017, 7:12 PM */
 
 using namespace std;
 
-void MainGame::reinforcement(){
-    cout << "reinforcement()" << endl;
-}
-
-void MainGame::attack(){
-    cout << "attack()" << endl;
-}
-
-void MainGame::fortification(){
-    cout << "fortification()" << endl;
-}
-
 /*
  * function will loop the main game in the following sequence; reinforcement, attack and fortification
  * for test purpose, the loop will use force end on the 3rd round
@@ -56,9 +44,17 @@ void MainGame::loopGame(GameStarter* gameSt, Startup* startup){
         for(int i = 0; i < playerSize; i++){
             cout <<"--------------------"<< endl;
             cout <<"player #" << startup->getSetOfPlayer().at(i)->getPlayerNum() <<"'s turn:"<< endl;
-            reinforcement();
-            attack();
-            fortification();
+            currentPlayerNum = startup->getSetOfPlayer().at(i)->getPlayerNum();
+            
+            Player* currentPlayer = startup->getSetOfPlayer().at(i);
+            currentPhase = "reinforcement";
+            currentPlayer->reinforce(gameSt->getWorld());
+            
+            currentPhase = "attack";
+            currentPlayer->attack(gameSt->getWorld(), startup->getSetOfPlayer());
+            
+            currentPhase = "fortification";
+            currentPlayer->fortify(gameSt->getWorld());
         }
         
         roundCounter ++;

@@ -23,22 +23,24 @@ Created on September 24, 2017, 4:23 PM */
 #define CARD_H
 #include <vector>
 #include <string>
+using namespace std;
 
 class Card{
         
 public:
-    static const std::vector<std::string> COUNTRIES;
-    static const std::vector<std::string> CARD_TYPES;
+    static const vector<string> COUNTRIES;
+    static const vector<string> CARD_TYPES;
     
 private:
     
-    std::string m_Country;
-    std::string m_Type;
+    string m_Country;
+    string m_Type;
     
 public:
-    Card(std::string country, std::string type) : m_Country(country), m_Type(type) { }  
-    const std::string getCountry(){return m_Country;}
-    const std::string getType(){return m_Type;}
+    Card(string country, string type) : m_Country(country), m_Type(type) { }  
+    const string getCountry(){return m_Country;}
+    const string getType(){return m_Type;}
+    
     
 };
 

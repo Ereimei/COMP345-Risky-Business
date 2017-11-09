@@ -35,7 +35,7 @@ Startup::Startup(Player** pl, int size){
   
     //put all players into a temp vector to randomize
     for(int x = 0; x < size; x++){
-        vplayer.push_back(new Player(pl[x]->getTerritories(), pl[x]->getHand(), pl[x]->getDiepool(), x));
+        vplayer.push_back(pl[x]);
     }
     
     //get a random player and assign it to setOfPlayer
@@ -62,8 +62,9 @@ void Startup::assignTerritory(vector<Territory*> vTerritory){
     cout << "Assigning countries..." << endl;
     int randomTerritory; 
     int playerCounter=0;
+    int territoryAmount = vTerritory.size();
     Player* player;
-    for(int x = 0; x < vTerritory.size(); x++){
+    for(int x = 0; x < territoryAmount; x++){
         randomTerritory = rand() % vTerritory.size();
         player = setOfPlayer.at(playerCounter); 
         player->addTerritory(vTerritory.at(randomTerritory));

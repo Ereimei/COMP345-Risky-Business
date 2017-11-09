@@ -21,8 +21,8 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=MinGW-Windows
-CND_DLIB_EXT=dll
+CND_PLATFORM=GNU-Linux
+CND_DLIB_EXT=so
 CND_CONF=Release
 CND_DISTDIR=dist
 CND_BUILDDIR=build
@@ -42,6 +42,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/342bee09/interfaces.o \
 	${OBJECTDIR}/_ext/511e288d/map.o \
 	${OBJECTDIR}/_ext/5d43fae0/Maploader.o \
+	${OBJECTDIR}/_ext/5e200f62/phaseObserver.o \
 	${OBJECTDIR}/_ext/ca457e10/Player.o \
 	${OBJECTDIR}/_ext/8dd064d2/Statistics.o \
 	${OBJECTDIR}/GameStarter.o \
@@ -66,9 +67,9 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gamestarter.exe
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gamestarter
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gamestarter.exe: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gamestarter: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gamestarter ${OBJECTFILES} ${LDLIBSOPTIONS}
 
@@ -106,6 +107,11 @@ ${OBJECTDIR}/_ext/5d43fae0/Maploader.o: ../maploader/Maploader.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/5d43fae0
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/5d43fae0/Maploader.o ../maploader/Maploader.cpp
+
+${OBJECTDIR}/_ext/5e200f62/phaseObserver.o: ../phaseObserver/phaseObserver.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/5e200f62
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/5e200f62/phaseObserver.o ../phaseObserver/phaseObserver.cpp
 
 ${OBJECTDIR}/_ext/ca457e10/Player.o: ../player/Player.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/ca457e10

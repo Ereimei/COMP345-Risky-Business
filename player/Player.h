@@ -23,19 +23,24 @@
 
 class Territory;
 class World;
+class Strategy;
 
+#include "../strategy/Strategy.h"
 #include "../dice/Diepool.h"
 #include "../cards/hand.h"
+#include "../map/map.h"
+#include "../player/Player.h"
+
 
 using std::vector;
 using std::string;
 
 
 
-class Player {
+class Player{
 public:
     //Constructor
-    Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool);
+    Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool, Strategy* strategy);
     //Destructor
     virtual ~Player();
     
@@ -43,27 +48,30 @@ public:
     vector<Territory*>* getTerritories();
     Hand* getHand();
     Diepool* getDiepool();
+    Strategy* getStrategy();
     unsigned int getPlayerNum(){return playerNum;};
     
     //Setters
     void setHand(Hand* hand);
     void setDiePool(Diepool* diepool);
+    void setStrategy(Strategy* strategy);
+    void setPlayerNum(int x);
     
     //Player functions
     void addTerritory(Territory*);
     void removeTerritory(Territory*);
     
-    void reinforce(int reinforcements);
-
-    void fortify(World* world);
-
+    void reinforce(World* world);
     void attack(World* world, vector<Player*> players);
+    void fortify(World* world);
+    int numArmies(World* world);
     
 private:
     //Player attributes
     vector<Territory*>* territories;
     Hand* hand;
     Diepool* diepool;
+    Strategy* strategy;
     unsigned int playerNum;
     static unsigned int objectCount;
     

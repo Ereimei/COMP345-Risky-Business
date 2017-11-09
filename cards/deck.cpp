@@ -4,9 +4,6 @@
  * and open the template in the editor.
  */
 
-#include "deck.h"
-#include "card.h"
-
 /*
 
 File: deck.cpp
@@ -21,26 +18,36 @@ Olivier Trepanier-Desfosses, 27850956
 Assignment # 1
 Professor: Dr. Joey Paquet
 Created on September 24, 2017, 3:48 PM */
+#include "deck.h"
+#include "card.h"
 
 #include <cmath>
 #include <algorithm>
 #include <string>
 #include <iostream>
 
-using std::cout;
 
-void Deck::shuffle()
+using std::cout;
+using namespace std;
+
+void Deck::shuffle(World* world)
 {
+    
+    vector<string> vTerritoryName;
+    for(int e = 0; e < world->getTerritoriesCount(); e++){
+        vTerritoryName.push_back(world->getTerritories()[e].territory->getName());
+    }
+    
     // Get the maximum amount of each card type available
     int typesRemaining[Card::CARD_TYPES.size()];
     for (int i = 0; i < Card::CARD_TYPES.size(); i++ )
     {
-        typesRemaining[i] = (Card::COUNTRIES.size() / Card::CARD_TYPES.size());
+        typesRemaining[i] = (vTerritoryName.size() / Card::CARD_TYPES.size());
     }
     //Assign the maximum amount of cards each type can have 
     if(typesRemaining[0] * Card::CARD_TYPES.size() != Card::COUNTRIES.size())
     {
-        int mod = (Card::COUNTRIES.size()% Card::CARD_TYPES.size());
+        int mod = (vTerritoryName.size()% Card::CARD_TYPES.size());
         for(int x = 0; x < mod ; x++)
         {
             typesRemaining[x]++;
@@ -48,9 +55,9 @@ void Deck::shuffle()
     }
     
     // Copy the list of countries into another list to modify
-    std::vector<std::string> countries(Card::COUNTRIES.begin(), Card::COUNTRIES.end());
+    std::vector<std::string> countries(vTerritoryName.begin(), vTerritoryName.end());
     
-    for (int n = 0; n < Card::COUNTRIES.size(); n++ )
+    for (int n = 0; n < vTerritoryName.size(); n++ )
     {
         int randomCountryIndex = rand() % countries.size();
         std::string randomCountry = countries.at(randomCountryIndex);
