@@ -26,7 +26,7 @@ Created on September 24, 2017, 3:48 PM */
 #include <vector>
 
 #include "../map/map.h"
-#include "../maploader/maploader.h"
+#include "../maploader/Maploader.h"
 
 class Deck 
 {

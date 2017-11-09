@@ -62,8 +62,9 @@ void Startup::assignTerritory(vector<Territory*> vTerritory){
     cout << "Assigning countries..." << endl;
     int randomTerritory; 
     int playerCounter=0;
+    int territoryAmount = vTerritory.size();
     Player* player;
-    for(int x = 0; x < vTerritory.size(); x++){
+    for(int x = 0; x < territoryAmount; x++){
         randomTerritory = rand() % vTerritory.size();
         player = setOfPlayer.at(playerCounter); 
         player->addTerritory(vTerritory.at(randomTerritory));
