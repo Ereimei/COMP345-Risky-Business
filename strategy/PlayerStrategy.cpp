@@ -25,7 +25,11 @@ PlayerStrategy::~PlayerStrategy() {
 }
 
 void PlayerStrategy::reinforce(int reinforcements, Player* player){
+
 string territory = "";
+    //Observer update
+    currentAction = "Player is starting...";
+    notify();
     int reinAmount;
     
         while (reinforcements != 0){
@@ -52,13 +56,21 @@ string territory = "";
                     else {
                         player->getTerritories()->at(i)->setArmies(player->getTerritories()->at(i)->getArmies() + reinAmount);
                         reinforcements -= reinAmount;
+                        //Observer update
+                        currentAction = "Player reinforces " + to_string(reinAmount)+" armies to "+territory;
+                        notify();
                     }    
                 }
             }
         }
+        currentAction ="//////";
 };
 
 void PlayerStrategy::attack(World* world, vector<Player*> players, Player* player){
+    //Observer update
+    currentAction = "Player is starting...";
+    notify();
+    
     string answer;
     cout << "Do you want to attack? (y/n)" << endl;
     cin >> answer;
@@ -231,19 +243,25 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
             defendingPlayer->getDiepool()->roll(defDie);
             defendingPlayer->getDiepool()->sortDice(defDie);
             
-            cout << "Attacker rolled " << player->getDiepool()->getDie1() << " Defender rolled " << defendingPlayer->getDiepool()->getDie1() << endl;
+            //observer update
+            currentAction = "Attacker rolled " + to_string(player->getDiepool()->getDie1()) + " Defender rolled " + to_string(defendingPlayer->getDiepool()->getDie1());
+            notify();
             
             //compares the dice rolls and distributes damage appropriately
             
             if (player->getDiepool()->getDie1()> defendingPlayer->getDiepool()->getDie1()){
                 int n = world->getTerritories()[atkPos].adjacentTerritories[defPos]->getArmies() - 1;
                 world->getTerritories()[atkPos].adjacentTerritories[defPos]->setArmies(n);
-                cout << "attacker wins" << endl;
+                //observer update
+                currentAction = "Attacker wins";
+                notify();
             }
             else{
                 int n = world->getTerritories()[atkPos].territory->getArmies() - 1;
                 world->getTerritories()[atkPos].territory->setArmies(n);
-                cout << "defender wins" << endl;
+                //observer update
+                currentAction = "Defender wins";
+                notify();
             }
             
             if(defDie == 2 && atkDie >= 2){
@@ -252,12 +270,16 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
                 if (player->getDiepool()->getDie2()> defendingPlayer->getDiepool()->getDie2()){
                     int n = world->getTerritories()[atkPos].adjacentTerritories[defPos]->getArmies() - 1;
                     world->getTerritories()[atkPos].adjacentTerritories[defPos]->setArmies(n);
-                    cout << "attacker wins" << endl;
+                    //observer update
+                    currentAction = "Attacker wins";
+                    notify();
                 }
                 else{
                     int n = world->getTerritories()[atkPos].territory->getArmies() - 1;
                     world->getTerritories()[atkPos].territory->setArmies(n);
-                    cout << "defender wins" << endl;
+                    //observer update
+                    currentAction = "Defender wins";
+                    notify();
                 }
             }
             
@@ -337,11 +359,16 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
         }
     }
     cout << "attack phase complete." << endl;
-    //world->getTerritories()[i].adjacentTerritories[j]->getOwner();
+
+    currentAction ="//////";
 };
 
 void PlayerStrategy::fortify(World* world, Player* player) {
-string source, target, choice;
+    //Observer update
+    currentAction = "Player is starting...";
+    notify();
+        
+    string source, target, choice;
     int xferArmies, sourceArmies, sourceIndex, targetIndex;
     bool valid = false, adjacentTerr;
     vector <Territory*> validTerritories;
@@ -459,7 +486,9 @@ string source, target, choice;
             cout << "You did not enter a correct amount of armies. Please try again." << endl;
             cin >> xferArmies;
         }
-        cout << "Transferring " << xferArmies << " armies to the target country " << target << endl;
+        //Observer update
+        currentAction = "Transferring " + to_string(xferArmies) + " armies to the target country " + target;
+        notify();
     
         world->getTerritories()[sourceIndex].territory->setArmies(world->getTerritories()[sourceIndex].territory->getArmies() - xferArmies);
         world->getTerritories()[sourceIndex].adjacentTerritories[targetIndex]->setArmies(world->getTerritories()[sourceIndex].adjacentTerritories[targetIndex]->getArmies() + xferArmies);
@@ -475,4 +504,5 @@ string source, target, choice;
     
     }
     }
+    currentAction ="//////";
 };

@@ -54,6 +54,7 @@ void Player::addTerritory(Territory* territory){
 void Player::removeTerritory(Territory* territory){
     //Find index where territory is
     int terrPos;
+
     for (int i = 0; i < this->territories->size(); i ++){
         if (this->territories->at(i) == territory){
             terrPos = i;

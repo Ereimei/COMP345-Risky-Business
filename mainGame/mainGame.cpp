@@ -23,6 +23,7 @@ Created on October 25, 2017, 7:12 PM */
 
 #include <iostream>
 #include <string> 
+#include "../phaseObserver/phaseObserver.h"
 
 using namespace std;
 
@@ -44,16 +45,19 @@ void MainGame::loopGame(GameStarter* gameSt, Startup* startup){
         for(int i = 0; i < playerSize; i++){
             cout <<"--------------------"<< endl;
             cout <<"player #" << startup->getSetOfPlayer().at(i)->getPlayerNum() <<"'s turn:"<< endl;
+            currentPlayer = startup->getSetOfPlayer().at(i);
             currentPlayerNum = startup->getSetOfPlayer().at(i)->getPlayerNum();
-            
-            Player* currentPlayer = startup->getSetOfPlayer().at(i);
+            currentPhase = "turn starts";
+            notify();
             currentPhase = "reinforcement";
             currentPlayer->reinforce(gameSt->getWorld());
             
             currentPhase = "attack";
+
             currentPlayer->attack(gameSt->getWorld(), startup->getSetOfPlayer());
             
             currentPhase = "fortification";
+
             currentPlayer->fortify(gameSt->getWorld());
         }
         

@@ -18,7 +18,7 @@
 
 #include "Strategy.h"
 
-class PlayerStrategy : public Strategy {
+class PlayerStrategy : public Strategy{
 public:
     PlayerStrategy();
     PlayerStrategy(const PlayerStrategy& orig);
@@ -27,6 +27,7 @@ public:
     void reinforce(int reinforcements, Player* player);
     void attack(World* world, vector<Player*> players, Player* player);
     void fortify(World* world, Player* player);
+    
 private:
 
 };

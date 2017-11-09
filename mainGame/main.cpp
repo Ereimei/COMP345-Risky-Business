@@ -44,7 +44,6 @@ int main(int argc, char** argv) {
     cout << "===========================" << endl;
     GameStarter* gs = new GameStarter();
     gs->startGame();
-    PhaseObserver* phaseOb = new PhaseObserver();
     cout << "===========================" << endl;
     Startup* su = new Startup(gs->getPlayers(),gs->getNumPlayers());
     su->displayPlayerOrder();
@@ -52,7 +51,9 @@ int main(int argc, char** argv) {
     su->placeArmies(su->assignArmies());
     cout << "start up finished" << endl;
     cout << "===========================" << endl;
+    
     MainGame* main = new MainGame();
+    PhaseObserver* phaseOb = new PhaseObserver(main, su);
     main->loopGame(gs, su);
     
     return 0;
