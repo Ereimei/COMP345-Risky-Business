@@ -36,7 +36,7 @@ PhaseObserver::PhaseObserver(MainGame* mg, Startup* su){
 void PhaseObserver::update(){
 
     cout << "///// Update: Player #" << mainGame->getCurrentPlayerNum() << ": " << mainGame->getCurrentphase() <<" /////"<< endl;
-    cout << "///// " << mainGame->getCurrentPlayer()->getCurrentAction() <<" /////"<< endl;
+    //cout << "///// " << mainGame->getCurrentPlayer()->getCurrentAction() <<" /////"<< endl; //did we lose this functionality in one of the commits????
   
     
 }

@@ -11,6 +11,8 @@
                    projectFiles="true">
       <itemPath>../player/Player.cpp</itemPath>
       <itemPath>../player/Player.h</itemPath>
+      <itemPath>../cards/hand.cpp</itemPath>
+      <itemPath>../cards/hand.h</itemPath>
       <itemPath>../interfaces/interfaces.cpp</itemPath>
       <itemPath>../interfaces/interfaces.h</itemPath>
     </logicalFolder>
@@ -45,6 +47,10 @@
           <standard>11</standard>
         </ccTool>
       </compileType>
+      <item path="../cards/hand.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../cards/hand.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../interfaces/interfaces.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../interfaces/interfaces.h" ex="false" tool="3" flavor2="0">
@@ -80,6 +86,10 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="../cards/hand.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../cards/hand.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../interfaces/interfaces.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../interfaces/interfaces.h" ex="false" tool="3" flavor2="0">
