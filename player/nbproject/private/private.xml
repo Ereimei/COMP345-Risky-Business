@@ -7,10 +7,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/eagle/Documents/COMP345-Risky-Business/map/map.h</file>
-            <file>file:/C:/Users/eagle/Documents/COMP345-Risky-Business/player/Player.cpp</file>
-            <file>file:/C:/Users/eagle/Documents/COMP345-Risky-Business/map/map.cpp</file>
-            <file>file:/C:/Users/eagle/Documents/COMP345-Risky-Business/player/Player.h</file>
+            <file>file:/C:/Users/olitr/Coding/COMP345-Risky-Business/strategy/PlayerStrategy.h</file>
+            <file>file:/C:/Users/olitr/Coding/COMP345-Risky-Business/strategy/PlayerStrategy.cpp</file>
+            <file>file:/C:/Users/olitr/Coding/COMP345-Risky-Business/strategy/AggressiveStrategy.h</file>
+            <file>file:/C:/Users/olitr/Coding/COMP345-Risky-Business/strategy/AggressiveStrategy.cpp</file>
         </group>
     </open-files>
 </project-private>
