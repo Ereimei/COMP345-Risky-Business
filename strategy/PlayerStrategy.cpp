@@ -25,7 +25,7 @@ PlayerStrategy::~PlayerStrategy() {
 }
 
 void PlayerStrategy::reinforce(int reinforcements, Player* player){
-string territory;
+string territory = "";
     int reinAmount;
     
         while (reinforcements != 0){
@@ -35,8 +35,10 @@ string territory;
             for (int i = 0; i < player->getTerritories()->size(); i++){
                 cout << player->getTerritories()->at(i)->getName() << " army: " << player->getTerritories()->at(i)->getArmies() << endl;
             }
-            cout << "Please type the name of the territory you wish to to reinforce followed by the amount of reinforcement." << endl;
-            cin >> territory >> reinAmount;
+            cout << "Please type the name of the territory you wish to to reinforce." << endl;
+            getline(cin,territory);
+            cout << "Please enter the amount of reinforcement." << endl;
+            cin >> reinAmount;
             for (int i = 0; i < player->getTerritories()->size(); i++){
                 if (player->getTerritories()->at(i)->getName() == territory){
                     //If the player entered a # higher than the max amount of reinforcements
@@ -115,8 +117,11 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
         //user enter who they wish to attack with
         
         string attacker, defender;
+        attacker = "";
+        defender = "";
+        
         cout << "Please enter attacking territory" << endl;
-        cin >> attacker;
+        getline(cin, attacker);
         bool exists = false;
         
         //loop to ensure that the name entered corresponds to an existing territory
@@ -138,7 +143,7 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
             if (!exists){
                 cout << "You did not enter a correct attacking territory" << endl;
                 cout << "Please enter an attacking territory again." << endl;
-                cin >> attacker;
+                getline(cin, attacker);
             }
             
         }
@@ -149,7 +154,7 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
         //user enters which territory they wish to attack
         
         cout << "Please enter territory you wish to conquer champion" << endl;
-        cin >> defender;
+        getline(cin, defender);
         exists = false;
         
         //loop ensures that name entered corresponds to an existing territory
@@ -171,7 +176,7 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
             if (!exists){
                 cout << "You did not enter a correct territory to conquer, champion" << endl;
                 cout << "Please enter a territory again." << endl;
-                cin >> defender;
+                getline(cin, defender);
             }
         }
         
@@ -388,8 +393,8 @@ string source, target, choice;
     else {
         valid = false;
         cout << endl << "Please enter the name of the source territory." << endl;
-    
-        cin >> source;
+        source = "";
+        getline(cin, source);
     
         while (!valid){
             for (int i = 0; i < validTerritories.size(); i++) {
@@ -400,7 +405,7 @@ string source, target, choice;
             
             if (!valid){
                 cout << "You did not enter a proper valid source territory. Please try again." << endl;
-                cin >> source;
+                getline(cin, source);
             }
         
         }
@@ -423,7 +428,8 @@ string source, target, choice;
     
     
         cout << "Please enter the name the name of the target country." << endl;
-        cin >> target;
+        target = "";
+        getline(cin, target);
     
     
     
@@ -440,7 +446,7 @@ string source, target, choice;
         
             if (!valid){
                 cout << "Target country entered is wrong, please try again." << endl;
-                cin >> target;
+                getline(cin, target);
             }
         
         }
