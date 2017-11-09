@@ -38,7 +38,6 @@ private:
     int currentPlayerNum;
     string currentPhase;
     
-    
 public:
     
     inline Player* getCurrentPlayer(){return currentPlayer;};

@@ -47,6 +47,10 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/ca457e10/Player.o \
 	${OBJECTDIR}/_ext/2ac0c52e/startup.o \
 	${OBJECTDIR}/_ext/8dd064d2/Statistics.o \
+	${OBJECTDIR}/_ext/496a76e2/AggressiveStrategy.o \
+	${OBJECTDIR}/_ext/496a76e2/BenevolentStrategy.o \
+	${OBJECTDIR}/_ext/496a76e2/PlayerStrategy.o \
+	${OBJECTDIR}/_ext/496a76e2/Strategy.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/mainGame.o
 
@@ -134,6 +138,26 @@ ${OBJECTDIR}/_ext/8dd064d2/Statistics.o: ../statistics/Statistics.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/8dd064d2
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/8dd064d2/Statistics.o ../statistics/Statistics.cpp
+
+${OBJECTDIR}/_ext/496a76e2/AggressiveStrategy.o: ../strategy/AggressiveStrategy.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/496a76e2
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/496a76e2/AggressiveStrategy.o ../strategy/AggressiveStrategy.cpp
+
+${OBJECTDIR}/_ext/496a76e2/BenevolentStrategy.o: ../strategy/BenevolentStrategy.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/496a76e2
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/496a76e2/BenevolentStrategy.o ../strategy/BenevolentStrategy.cpp
+
+${OBJECTDIR}/_ext/496a76e2/PlayerStrategy.o: ../strategy/PlayerStrategy.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/496a76e2
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/496a76e2/PlayerStrategy.o ../strategy/PlayerStrategy.cpp
+
+${OBJECTDIR}/_ext/496a76e2/Strategy.o: ../strategy/Strategy.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/496a76e2
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/496a76e2/Strategy.o ../strategy/Strategy.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}

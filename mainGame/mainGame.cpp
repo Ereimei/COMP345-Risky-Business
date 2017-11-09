@@ -47,15 +47,17 @@ void MainGame::loopGame(GameStarter* gameSt, Startup* startup){
             cout <<"player #" << startup->getSetOfPlayer().at(i)->getPlayerNum() <<"'s turn:"<< endl;
             currentPlayer = startup->getSetOfPlayer().at(i);
             currentPlayerNum = startup->getSetOfPlayer().at(i)->getPlayerNum();
-            
-            Player* currentPlayer = startup->getSetOfPlayer().at(i);
+            currentPhase = "turn starts";
+            notify();
             currentPhase = "reinforcement";
             currentPlayer->reinforce(gameSt->getWorld());
             
             currentPhase = "attack";
+
             currentPlayer->attack(gameSt->getWorld(), startup->getSetOfPlayer());
             
             currentPhase = "fortification";
+
             currentPlayer->fortify(gameSt->getWorld());
         }
         

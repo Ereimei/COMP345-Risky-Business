@@ -50,7 +50,6 @@ public:
     Diepool* getDiepool();
     Strategy* getStrategy();
     unsigned int getPlayerNum(){return playerNum;};
-    const inline string getCurrentAction(){return currentAction;};
     
     //Setters
     void setHand(Hand* hand);
@@ -76,9 +75,6 @@ private:
     Strategy* strategy;
     unsigned int playerNum;
     static unsigned int objectCount;
-    
-    //Observer update line
-    string currentAction = "Player is starting";
     
 };
 
