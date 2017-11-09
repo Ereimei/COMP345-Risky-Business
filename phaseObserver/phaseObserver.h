@@ -24,9 +24,10 @@ Created on November 7, 2017, 9:43 PM */
 #define PHASEOBSERVER_H
 
 #include "../interfaces/interfaces.h"
+#include "../mainGame/mainGame.h"
+#include "../startup/startup.h"
 #include <iostream>
 #include <string>
-class mainGame;
 
 
 
@@ -36,7 +37,9 @@ class PhaseObserver: public Observer{
     
 private:
     MainGame* mainGame;
+
 public:
+    PhaseObserver(MainGame* mg, Startup* su);
     
     void update();
     

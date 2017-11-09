@@ -83,9 +83,15 @@ void Player::reinforce(int reinforcements){
                     else {
                         this->territories->at(i)->setArmies(this->territories->at(i)->getArmies() + reinAmount);
                         reinforcements -= reinAmount;
-                    }    
+                        /*
+                         * Observer notify that player is reinforcing
+                         */
+                        currentAction = "Player is reinforcing "+ to_string(reinAmount) +" armies to "+territory;
+                        notify();
+                    }   
                 }
             }
+
         }
     
 }
@@ -269,19 +275,28 @@ void Player::attack(World* world, vector<Player*> players){
             defendingPlayer->getDiepool()->roll(defDie);
             defendingPlayer->getDiepool()->sortDice(defDie);
             
-            cout << "Attacker rolled " << getDiepool()->getDie1() << " Defender rolled " << defendingPlayer->getDiepool()->getDie1() << endl;
+            currentAction = "Attacker rolled " + to_string(getDiepool()->getDie1()) + " Defender rolled " + to_string(defendingPlayer->getDiepool()->getDie1());
+            notify();
             
             //compares the dice rolls and distributes damage appropriately
             
             if (this->getDiepool()->getDie1()> defendingPlayer->getDiepool()->getDie1()){
                 int n = world->getTerritories()[atkPos].adjacentTerritories[defPos]->getArmies() - 1;
                 world->getTerritories()[atkPos].adjacentTerritories[defPos]->setArmies(n);
-                cout << "attacker wins" << endl;
+                /*
+                 * Observer update
+                 */
+                currentAction = "Attack wins";
+                notify();
             }
             else{
                 int n = world->getTerritories()[atkPos].territory->getArmies() - 1;
                 world->getTerritories()[atkPos].territory->setArmies(n);
-                cout << "defender wins" << endl;
+                /*
+                 * Observer update
+                 */
+                currentAction = "defender wins";
+                notify();
             }
             
             if(defDie == 2 && atkDie >= 2){
@@ -290,12 +305,20 @@ void Player::attack(World* world, vector<Player*> players){
                 if (this->getDiepool()->getDie2()> defendingPlayer->getDiepool()->getDie2()){
                     int n = world->getTerritories()[atkPos].adjacentTerritories[defPos]->getArmies() - 1;
                     world->getTerritories()[atkPos].adjacentTerritories[defPos]->setArmies(n);
-                    cout << "attacker wins" << endl;
+                    /*
+                     * Observer update
+                     */
+                    currentAction = "Attack wins";
+                    notify();
                 }
                 else{
                     int n = world->getTerritories()[atkPos].territory->getArmies() - 1;
                     world->getTerritories()[atkPos].territory->setArmies(n);
-                    cout << "defender wins" << endl;
+                     /*
+                     * Observer update
+                     */
+                    currentAction = "defender wins";
+                    notify();
                 }
             }
             

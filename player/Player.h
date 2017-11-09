@@ -44,6 +44,7 @@ public:
     Hand* getHand();
     Diepool* getDiepool();
     unsigned int getPlayerNum(){return playerNum;};
+    const inline string getCurrentAction(){return currentAction;};
     
     //Setters
     void setHand(Hand* hand);
@@ -60,6 +61,7 @@ public:
     void attack(World* world, vector<Player*> players);
     int numArmies(World* world);
     
+    
 private:
     //Player attributes
     vector<Territory*>* territories;
@@ -67,6 +69,9 @@ private:
     Diepool* diepool;
     unsigned int playerNum;
     static unsigned int objectCount;
+    
+    //Observer update line
+    string currentAction = "Player is starting";
     
 };
 

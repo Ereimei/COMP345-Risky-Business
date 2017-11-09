@@ -21,7 +21,7 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=MinGW-Windows
+CND_PLATFORM=Cygwin-Windows
 CND_DLIB_EXT=dll
 CND_CONF=Release
 CND_DISTDIR=dist
@@ -43,6 +43,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/342bee09/interfaces.o \
 	${OBJECTDIR}/_ext/511e288d/map.o \
 	${OBJECTDIR}/_ext/5d43fae0/Maploader.o \
+	${OBJECTDIR}/_ext/5e200f62/phaseObserver.o \
 	${OBJECTDIR}/_ext/ca457e10/Player.o \
 	${OBJECTDIR}/_ext/2ac0c52e/startup.o \
 	${OBJECTDIR}/_ext/8dd064d2/Statistics.o \
@@ -113,6 +114,11 @@ ${OBJECTDIR}/_ext/5d43fae0/Maploader.o: ../maploader/Maploader.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/5d43fae0
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/5d43fae0/Maploader.o ../maploader/Maploader.cpp
+
+${OBJECTDIR}/_ext/5e200f62/phaseObserver.o: ../phaseObserver/phaseObserver.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/5e200f62
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/5e200f62/phaseObserver.o ../phaseObserver/phaseObserver.cpp
 
 ${OBJECTDIR}/_ext/ca457e10/Player.o: ../player/Player.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/ca457e10

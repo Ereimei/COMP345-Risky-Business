@@ -30,17 +30,18 @@ Created on October 25, 2017, 7:13 PM */
 #include "../startup/startup.h"
 #include "../gamestarter/GameStarter.h"
 #include "../interfaces/interfaces.h"
-class phaseObserver;
 
 class MainGame: public Subject {
     
 private:
+    Player* currentPlayer;
     int currentPlayerNum;
     string currentPhase;
     
     
 public:
     
+    inline Player* getCurrentPlayer(){return currentPlayer;};
     const inline int getCurrentPlayerNum(){return currentPlayerNum;};
     const inline string getCurrentphase(){return currentPhase;};
 
