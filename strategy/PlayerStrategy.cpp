@@ -38,7 +38,6 @@ void PlayerStrategy::reinforce(int reinforcements, Player* player){
     currentAction = "Player is starting...";
     notify();
     int reinAmount;
-        cin.ignore(1, EOF);
         while (reinforcements != 0){
             cout << "You have " << reinforcements << " army available for reinforcements." << endl;
             cout << "Your territories" << endl;
