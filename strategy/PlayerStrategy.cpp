@@ -48,7 +48,7 @@ void PlayerStrategy::reinforce(int reinforcements, Player* player){
             }
             cout << "Please type the name of the territory you wish to to reinforce." << endl;
             
-            cin.ignore();
+            cin.ignore(1, EOF);
             getline(cin, territory);
             
             cout << "Please enter the amount of reinforcement." << endl;
@@ -145,7 +145,7 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
         string attacker, defender;
         
         cout << "Please enter attacking territory" << endl;
-        cin.ignore();
+        cin.ignore(1, EOF);
         getline(cin, attacker);
         bool exists = false;
         
@@ -168,7 +168,7 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
             if (!exists){
                 cout << "You did not enter a correct attacking territory" << endl;
                 cout << "Please enter an attacking territory again." << endl;
-                cin.ignore();
+                cin.ignore(1, EOF);
                 getline(cin, attacker);
             }
             
@@ -180,6 +180,7 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
         //user enters which territory they wish to attack
         
         cout << "Please enter territory you wish to conquer champion" << endl;
+        cin.ignore(1, EOF);
         getline(cin, defender);
         
         cout << "You entered: " << defender << endl;
@@ -204,6 +205,7 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
             if (!exists){
                 cout << "You did not enter a correct territory to conquer, champion" << endl;
                 cout << "Please enter a territory again." << endl;
+                cin.ignore(1, EOF);
                 getline(cin, defender);
             }
         }
@@ -437,6 +439,7 @@ void PlayerStrategy::fortify(World* world, Player* player) {
         valid = false;
         cout << endl << "Please enter the name of the source territory." << endl;
         source = "";
+        cin.ignore(1, EOF);
         getline(cin, source);
     
         while (!valid){
@@ -448,6 +451,7 @@ void PlayerStrategy::fortify(World* world, Player* player) {
             
             if (!valid){
                 cout << "You did not enter a proper valid source territory. Please try again." << endl;
+                istream& ignore (streamsize n = 1, int delim = EOF);
                 getline(cin, source);
             }
         
@@ -472,7 +476,7 @@ void PlayerStrategy::fortify(World* world, Player* player) {
     
         cout << "Please enter the name the name of the target country." << endl;
         target = "";
-        cin.ignore();
+        cin.ignore(1, EOF);
         getline(cin, target);
     
     
@@ -490,7 +494,7 @@ void PlayerStrategy::fortify(World* world, Player* player) {
         
             if (!valid){
                 cout << "Target country entered is wrong, please try again." << endl;
-                cin.ignore();
+                cin.ignore(1, EOF);
                 getline(cin, target);
             }
         
