@@ -39,6 +39,7 @@ int main(int argc, char** argv) {
     cout << "start up finished" << endl;
     cout << "===========================" << endl;
     MainGame* main = new MainGame();
+    cin.ignore(1, EOF);
     main->loopGame(gs, su);
     
     

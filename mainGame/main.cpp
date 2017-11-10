@@ -54,6 +54,7 @@ int main(int argc, char** argv) {
     
     MainGame* main = new MainGame();
     PhaseObserver* phaseOb = new PhaseObserver(main, su);
+    cin.ignore(1, EOF);
     main->loopGame(gs, su);
     
     return 0;
