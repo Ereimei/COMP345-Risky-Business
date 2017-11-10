@@ -28,7 +28,7 @@ PhaseObserver::PhaseObserver(MainGame* mg, Startup* su){
     mainGame = mg;
     mg->attach(this);
     for(int i = 0; i< su->getSetOfPlayer().size() ; i++)
-    su->getSetOfPlayer().at(i)->attach(this);
+    su->getSetOfPlayer().at(i)->getStrategy()->attach(this);
 
 };
 
@@ -36,7 +36,7 @@ PhaseObserver::PhaseObserver(MainGame* mg, Startup* su){
 void PhaseObserver::update(){
 
     cout << "///// Update: Player #" << mainGame->getCurrentPlayerNum() << ": " << mainGame->getCurrentphase() <<" /////"<< endl;
-    //cout << "///// " << mainGame->getCurrentPlayer()->getCurrentAction() <<" /////"<< endl; //did we lose this functionality in one of the commits????
+    cout << "///// " << mainGame->getCurrentPlayer()->getStrategy()->getCurrentAction() <<" /////"<< endl; 
   
     
 }

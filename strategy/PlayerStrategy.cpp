@@ -96,6 +96,12 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
         getline(cin, answer);
     }
     
+    //Observer update
+    if(answer == "n"){
+        currentAction = "Player is not attacking.";
+        notify();
+    }
+    
     //variables needed to check if player can attack
     bool canAtk = false;
     int atkTerr = 0;
@@ -375,6 +381,11 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
             else{
                 cout << "Champion, do you wish to keep attacking the same location? (y/n)" << endl;
                 getline(cin, attacking);
+                    //Observer update
+                    if(attacking == "n"){
+                        currentAction = "Player is not attacking the same location.";
+                        notify();
+                    }
                 while (attacking != "y" && attacking != "n"){
                     cout << "Please answer in proper format (y/n)" << endl;
                     getline(cin, attacking);
@@ -386,6 +397,11 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
         
         cout << "Do you want to attack? (y/n)" << endl;
         getline(cin, answer);
+            //Observer update
+            if(answer == "n"){
+                currentAction = "Player doesn't want to attack anymore.";
+                notify();
+            }
         while (answer != "y" && answer != "n"){
             cout << "Please answer in proper format (y/n)" << endl;
             getline(cin, answer);
@@ -413,6 +429,11 @@ void PlayerStrategy::fortify(World* world, Player* player) {
     while(choice != "y" && choice !="n"){
         cout << "Give me a valid input, peasant." << endl;
         getline(cin, choice);
+    }
+    //Observer update
+    if(choice == "n"){
+        currentAction = "Player is not fortifying.";
+        notify();
     }
     if (choice == "y"){
     //Printing out in console all the owned territories and their respective adjacent territories.
