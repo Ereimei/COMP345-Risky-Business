@@ -53,6 +53,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/BenevolentStrategy.o \
 	${OBJECTDIR}/PlayerStrategy.o \
 	${OBJECTDIR}/Strategy.o \
+	${OBJECTDIR}/cheaterStrategy.o \
 	${OBJECTDIR}/main.o
 
 
@@ -169,6 +170,11 @@ ${OBJECTDIR}/Strategy.o: Strategy.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Strategy.o Strategy.cpp
+
+${OBJECTDIR}/cheaterStrategy.o: cheaterStrategy.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cheaterStrategy.o cheaterStrategy.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
