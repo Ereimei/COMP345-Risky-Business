@@ -14,7 +14,9 @@
 #ifndef CHEATERSTRATEGY_H
 #define CHEATERSTRATEGY_H
 
-class cheaterStrategy {
+#include "Strategy.h"
+
+class cheaterStrategy: public Strategy  {
 public:
     cheaterStrategy();
     cheaterStrategy(const cheaterStrategy& orig);

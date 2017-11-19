@@ -28,6 +28,8 @@
 #include "../strategy/PlayerStrategy.h"
 #include "../strategy/AggressiveStrategy.h"
 #include "../strategy/BenevolentStrategy.h"
+#include "../strategy/cheaterStrategy.h"
+#include "../strategy/RandomStrategy.h"
 
 #include <cstdlib>
 #include <string>

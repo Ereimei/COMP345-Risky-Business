@@ -54,8 +54,12 @@
     <itemPath>../strategy/BenevolentStrategy.h</itemPath>
     <itemPath>../strategy/PlayerStrategy.cpp</itemPath>
     <itemPath>../strategy/PlayerStrategy.h</itemPath>
+    <itemPath>../strategy/RandomStrategy.cpp</itemPath>
+    <itemPath>../strategy/RandomStrategy.h</itemPath>
     <itemPath>../strategy/Strategy.cpp</itemPath>
     <itemPath>../strategy/Strategy.h</itemPath>
+    <itemPath>../strategy/cheaterStrategy.cpp</itemPath>
+    <itemPath>../strategy/cheaterStrategy.h</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -105,9 +109,17 @@
       </item>
       <item path="../strategy/PlayerStrategy.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="../strategy/RandomStrategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../strategy/RandomStrategy.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../strategy/Strategy.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../strategy/Strategy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../strategy/cheaterStrategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../strategy/cheaterStrategy.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Player.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -168,9 +180,17 @@
       </item>
       <item path="../strategy/PlayerStrategy.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="../strategy/RandomStrategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../strategy/RandomStrategy.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../strategy/Strategy.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../strategy/Strategy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../strategy/cheaterStrategy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="../strategy/cheaterStrategy.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Player.cpp" ex="false" tool="1" flavor2="0">
       </item>

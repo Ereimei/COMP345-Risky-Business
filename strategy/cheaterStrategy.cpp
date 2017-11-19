@@ -29,7 +29,7 @@ void cheaterStrategy::reinforce(int reinforcements, Player* player){
     
     //Doubles the amount of army on each territory they own
     for (int i = 0; i < player->getTerritories()->size(); i++){
-        player->getTerritories()->at(i)->setArmies(player->getTerritories()->at(i) * 2);
+        player->getTerritories()->at(i)->setArmies(player->getTerritories()->at(i)->getArmies() * 2);
     }
     
 }
@@ -41,7 +41,7 @@ void cheaterStrategy::attack(World* world, vector<Player*> players, Player* play
     //Find territory in the world, for every territory the player owns
     for (int i = 0; i < player->getTerritories()->size(); i++){
         for (int j = 0; j < world->getTerritoriesCount(); j++){
-            if (player->getTerritories()->at(i) == world->getTerritories()[j]->territory){
+            if (player->getTerritories()->at(i) == world->getTerritories()[j].territory){
                 playerTerritoryIndex = j;                
             }
             break;
@@ -66,7 +66,7 @@ void cheaterStrategy::fortify(World* world, Player* player){
     //Find territory in the world, for every territory the player owns
     for (int i = 0; i < player->getTerritories()->size(); i++){
         for (int j = 0; j < world->getTerritoriesCount(); j++){
-            if (player->getTerritories()->at(i) == world->getTerritories()[j]->territory){
+            if (player->getTerritories()->at(i) == world->getTerritories()[j].territory){
                 playerTerritoryIndex = j;                
             }
             break;
