@@ -25,19 +25,21 @@ Created on November 7, 2017, 9:43 PM */
 
 #include "../interfaces/interfaces.h"
 #include "../mainGame/mainGame.h"
+#include "../startup/startup.h"
 #include <iostream>
 #include <string>
 
 
 
-
 using namespace std;
 
-class PhaseObserver{
+class PhaseObserver : public Observer {
     
 private:
     MainGame* mainGame;
+
 public:
+    PhaseObserver(MainGame* mg, Startup* su);
     
     void update();
     

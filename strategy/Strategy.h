@@ -22,10 +22,11 @@ class Player;
 #include "../player/Player.h"
 #include "../dice/Diepool.h"
 #include "../cards/hand.h"
+#include "../interfaces/interfaces.h"
 
 using std::vector;
 
-class Strategy {
+class Strategy : public Subject{
 public:
     Strategy();
     Strategy(const Strategy& orig);
@@ -34,6 +35,8 @@ public:
     virtual void reinforce(int reinforcements, Player* player);
     virtual void attack(World* world, vector<Player*> players, Player* player);
     virtual void fortify(World* world, Player* player);
+    string currentAction = "//////";
+    string getCurrentAction(){return currentAction;};
     
 private:
 

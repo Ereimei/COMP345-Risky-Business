@@ -24,10 +24,19 @@ Created on November 7, 2017, 9:44 PM */
 #include <iostream>
 #include <string> 
 
+PhaseObserver::PhaseObserver(MainGame* mg, Startup* su){
+    mainGame = mg;
+    mg->attach(this);
+    for(int i = 0; i< su->getSetOfPlayer().size() ; i++)
+    su->getSetOfPlayer().at(i)->getStrategy()->attach(this);
+
+};
+
+
 void PhaseObserver::update(){
 
-    cout << "/// Update: Player #" << mainGame->getCurrentPlayerNum() << ":" << mainGame->getCurrentphase() <<" ///"<< endl;
-        
-    
+    cout << "///// Update: Player #" << mainGame->getCurrentPlayerNum() << ": " << mainGame->getCurrentphase() <<" /////"<< endl;
+    cout << "///// " << mainGame->getCurrentPlayer()->getStrategy()->getCurrentAction() <<" /////"<< endl; 
+  
     
 }

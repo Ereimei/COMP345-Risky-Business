@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/_ext/81a96254/hand.o \
 	${OBJECTDIR}/_ext/342bee09/interfaces.o \
 	${OBJECTDIR}/_ext/ca457e10/Player.o \
 	${OBJECTDIR}/main.o \
@@ -64,6 +65,11 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/map.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/map ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/_ext/81a96254/hand.o: ../cards/hand.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/81a96254
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/81a96254/hand.o ../cards/hand.cpp
 
 ${OBJECTDIR}/_ext/342bee09/interfaces.o: ../interfaces/interfaces.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/342bee09

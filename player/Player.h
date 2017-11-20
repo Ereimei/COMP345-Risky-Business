@@ -30,14 +30,14 @@ class Strategy;
 #include "../cards/hand.h"
 #include "../map/map.h"
 #include "../player/Player.h"
-
+#include "../interfaces/interfaces.h"
 
 using std::vector;
 using std::string;
 
 
 
-class Player{
+class Player : public Subject {
 public:
     //Constructor
     Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool, Strategy* strategy);
@@ -65,6 +65,7 @@ public:
     void attack(World* world, vector<Player*> players);
     void fortify(World* world);
     int numArmies(World* world);
+    
     
 private:
     //Player attributes

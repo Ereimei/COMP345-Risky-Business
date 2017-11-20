@@ -11,7 +11,13 @@
  * Created on November 6, 2017, 10:17 AM
  */
 
+#include <iostream>
+#include <string>
+#include <sstream>
+
 #include "PlayerStrategy.h"
+
+
 
 using namespace std;
 
@@ -25,9 +31,13 @@ PlayerStrategy::~PlayerStrategy() {
 }
 
 void PlayerStrategy::reinforce(int reinforcements, Player* player){
-string territory;
+
+    string territory = "";
+    string input = "";
+    //Observer update
+    currentAction = "Player is starting...";
+    notify();
     int reinAmount;
-    
         while (reinforcements != 0){
             cout << "You have " << reinforcements << " army available for reinforcements." << endl;
             cout << "Your territories" << endl;
@@ -35,8 +45,17 @@ string territory;
             for (int i = 0; i < player->getTerritories()->size(); i++){
                 cout << player->getTerritories()->at(i)->getName() << " army: " << player->getTerritories()->at(i)->getArmies() << endl;
             }
-            cout << "Please type the name of the territory you wish to to reinforce followed by the amount of reinforcement." << endl;
-            cin >> territory >> reinAmount;
+            cout << "Please type the name of the territory you wish to to reinforce." << endl;
+            
+            
+            getline(cin, territory);
+            
+            cout << "Please enter the amount of reinforcement." << endl;
+            
+            
+            getline(cin, input);
+            stringstream myStream(input);
+            myStream >> reinAmount;
             for (int i = 0; i < player->getTerritories()->size(); i++){
                 if (player->getTerritories()->at(i)->getName() == territory){
                     //If the player entered a # higher than the max amount of reinforcements
@@ -50,22 +69,36 @@ string territory;
                     else {
                         player->getTerritories()->at(i)->setArmies(player->getTerritories()->at(i)->getArmies() + reinAmount);
                         reinforcements -= reinAmount;
+                        //Observer update
+                        currentAction = "Player reinforces " + to_string(reinAmount)+" armies to "+territory;
+                        notify();
                     }    
                 }
             }
         }
+        currentAction ="//////";
 };
 
 void PlayerStrategy::attack(World* world, vector<Player*> players, Player* player){
+    //Observer update
+    currentAction = "Player is starting...";
+    notify();
+    
     string answer;
     cout << "Do you want to attack? (y/n)" << endl;
-    cin >> answer;
+    getline(cin, answer);
     
     //loop to ensure answer is in proper format
     
     while (answer != "y" && answer != "n"){
         cout << "Please answer in proper format (y/n)" << endl;
-        cin >> answer;
+        getline(cin, answer);
+    }
+    
+    //Observer update
+    if(answer == "n"){
+        currentAction = "Player is not attacking.";
+        notify();
     }
     
     //variables needed to check if player can attack
@@ -115,8 +148,10 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
         //user enter who they wish to attack with
         
         string attacker, defender;
+        
         cout << "Please enter attacking territory" << endl;
-        cin >> attacker;
+        
+        getline(cin, attacker);
         bool exists = false;
         
         //loop to ensure that the name entered corresponds to an existing territory
@@ -138,7 +173,8 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
             if (!exists){
                 cout << "You did not enter a correct attacking territory" << endl;
                 cout << "Please enter an attacking territory again." << endl;
-                cin >> attacker;
+                
+                getline(cin, attacker);
             }
             
         }
@@ -149,11 +185,14 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
         //user enters which territory they wish to attack
         
         cout << "Please enter territory you wish to conquer champion" << endl;
-        cin >> defender;
+        
+        getline(cin, defender);
+        
+        cout << "You entered: " << defender << endl;
         exists = false;
         
         //loop ensures that name entered corresponds to an existing territory
-        while(exists == false)
+        while(!exists)
         {
             for (int i = 0; i < world->getTerritoriesCount(); i++)
             {
@@ -171,7 +210,8 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
             if (!exists){
                 cout << "You did not enter a correct territory to conquer, champion" << endl;
                 cout << "Please enter a territory again." << endl;
-                cin >> defender;
+                
+                getline(cin, defender);
             }
         }
         
@@ -193,10 +233,15 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
             if(atkMax > 3){
                 atkMax = 3;}
             cout << "Please enter amount of dice you wish to attack with champion (min 1, max " << atkMax << " )" << endl;
-            cin >> atkDie;
+            string input = "";
+            getline(cin, input);
+            stringstream myStream(input);
+            myStream >> atkDie;
             while(atkDie != 1 && atkDie != 2 && atkDie != 3 || atkDie > atkMax){
                 cout << "I have no time for your games champion, enter an appropriate number (min 1, max " << atkMax << " )" << endl;
-                cin >> atkDie;    
+                getline(cin, input);
+                stringstream myStream(input);
+                myStream >> atkDie;
             }
         
             
@@ -208,10 +253,15 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
             if(defMax > 2){
                 defMax = 2;}
             cout << "Please enter amount of dice you wish to use to defend (min 1, max " << defMax << " )" << endl;
-            cin >> defDie;
+            string input2 = "";
+            getline(cin, input2);
+            stringstream myStream2(input2);
+            myStream2 >> defDie;
             while(defDie != 1 && defDie != 2 || defDie > defMax){
                 cout << "I have no time for your shenanigans vaunted defender, enter an appropriate number (min 1, max " << defMax << " )" << endl;
-                cin >> defDie;    
+                getline(cin, input2);
+                stringstream myStream(input2);
+                myStream >> defDie;
             }
             
             //rolls and sorts attackers dice
@@ -226,19 +276,25 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
             defendingPlayer->getDiepool()->roll(defDie);
             defendingPlayer->getDiepool()->sortDice(defDie);
             
-            cout << "Attacker rolled " << player->getDiepool()->getDie1() << " Defender rolled " << defendingPlayer->getDiepool()->getDie1() << endl;
+            //observer update
+            currentAction = "Attacker rolled " + to_string(player->getDiepool()->getDie1()) + " Defender rolled " + to_string(defendingPlayer->getDiepool()->getDie1());
+            notify();
             
             //compares the dice rolls and distributes damage appropriately
             
             if (player->getDiepool()->getDie1()> defendingPlayer->getDiepool()->getDie1()){
                 int n = world->getTerritories()[atkPos].adjacentTerritories[defPos]->getArmies() - 1;
                 world->getTerritories()[atkPos].adjacentTerritories[defPos]->setArmies(n);
-                cout << "attacker wins" << endl;
+                //observer update
+                currentAction = "Attacker wins";
+                notify();
             }
             else{
                 int n = world->getTerritories()[atkPos].territory->getArmies() - 1;
                 world->getTerritories()[atkPos].territory->setArmies(n);
-                cout << "defender wins" << endl;
+                //observer update
+                currentAction = "Defender wins";
+                notify();
             }
             
             if(defDie == 2 && atkDie >= 2){
@@ -247,12 +303,16 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
                 if (player->getDiepool()->getDie2()> defendingPlayer->getDiepool()->getDie2()){
                     int n = world->getTerritories()[atkPos].adjacentTerritories[defPos]->getArmies() - 1;
                     world->getTerritories()[atkPos].adjacentTerritories[defPos]->setArmies(n);
-                    cout << "attacker wins" << endl;
+                    //observer update
+                    currentAction = "Attacker wins";
+                    notify();
                 }
                 else{
                     int n = world->getTerritories()[atkPos].territory->getArmies() - 1;
                     world->getTerritories()[atkPos].territory->setArmies(n);
-                    cout << "defender wins" << endl;
+                    //observer update
+                    currentAction = "Defender wins";
+                    notify();
                 }
             }
             
@@ -265,11 +325,16 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
                 int transMax = world->getTerritories()[atkPos].territory->getArmies()-1;
                 cout << "min = 1, max = " << transMax << endl;
                 int transfer;
-                cin >> transfer;
+                string trans = "";
+                getline(cin, trans);
+                stringstream myStream(trans);
+                myStream >> transfer;
                 while(transfer > transMax || transfer < 1 ){
                     cout << "please enter a number in the proper range champion" << endl;
                     cout << " min = 1, max = " << transMax << endl;
-                    cin >> transfer;
+                    getline(cin, trans);
+                    stringstream myStream(trans);
+                    myStream >> transfer;
                 }
                 
                 //performs the transfer
@@ -314,10 +379,15 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
             }
             else{
                 cout << "Champion, do you wish to keep attacking the same location? (y/n)" << endl;
-                cin >> attacking;
+                getline(cin, attacking);
+                    //Observer update
+                    if(attacking == "n"){
+                        currentAction = "Player is not attacking the same location.";
+                        notify();
+                    }
                 while (attacking != "y" && attacking != "n"){
                     cout << "Please answer in proper format (y/n)" << endl;
-                    cin >> attacking;
+                    getline(cin, attacking);
                 }  
             }
         }
@@ -325,29 +395,44 @@ void PlayerStrategy::attack(World* world, vector<Player*> players, Player* playe
         //ask user if they want to keep attacking
         
         cout << "Do you want to attack? (y/n)" << endl;
-        cin >> answer;
+        getline(cin, answer);
+            //Observer update
+            if(answer == "n"){
+                currentAction = "Player doesn't want to attack anymore.";
+                notify();
+            }
         while (answer != "y" && answer != "n"){
             cout << "Please answer in proper format (y/n)" << endl;
-            cin >> answer;
+            getline(cin, answer);
         }
     }
     cout << "attack phase complete." << endl;
-    //world->getTerritories()[i].adjacentTerritories[j]->getOwner();
+
+    currentAction ="//////";
 };
 
 void PlayerStrategy::fortify(World* world, Player* player) {
-string source, target, choice;
+    //Observer update
+    currentAction = "Player is starting...";
+    notify();
+        
+    string source, target, choice;
     int xferArmies, sourceArmies, sourceIndex, targetIndex;
     bool valid = false, adjacentTerr;
     vector <Territory*> validTerritories;
     
     
     cout << "Do you want to fortify? (y/n)" << endl;
-    cin >> choice;
+    getline(cin, choice);
     
     while(choice != "y" && choice !="n"){
         cout << "Give me a valid input, peasant." << endl;
-        cin >> choice;
+        getline(cin, choice);
+    }
+    //Observer update
+    if(choice == "n"){
+        currentAction = "Player is not fortifying.";
+        notify();
     }
     if (choice == "y"){
     //Printing out in console all the owned territories and their respective adjacent territories.
@@ -388,8 +473,8 @@ string source, target, choice;
     else {
         valid = false;
         cout << endl << "Please enter the name of the source territory." << endl;
-    
-        cin >> source;
+        source = "";
+        getline(cin, source);
     
         while (!valid){
             for (int i = 0; i < validTerritories.size(); i++) {
@@ -400,7 +485,7 @@ string source, target, choice;
             
             if (!valid){
                 cout << "You did not enter a proper valid source territory. Please try again." << endl;
-                cin >> source;
+                getline(cin, source);
             }
         
         }
@@ -423,7 +508,8 @@ string source, target, choice;
     
     
         cout << "Please enter the name the name of the target country." << endl;
-        cin >> target;
+        target = "";
+        getline(cin, target);
     
     
     
@@ -440,20 +526,28 @@ string source, target, choice;
         
             if (!valid){
                 cout << "Target country entered is wrong, please try again." << endl;
-                cin >> target;
+                
+                getline(cin, target);
             }
         
         }
     
         cout << "You chose: " << target << " as the target country, please enter the amount of armies you wish to send to " << target << "." << endl;
         cout << target << " currently has " << sourceArmies << ". Therefore, you can send between 1 and " << (sourceArmies - 1) << " armies." << endl; 
-        cin >> xferArmies;
+        string temp = "";
+            getline(cin, temp);
+            stringstream myStream(temp);
+            myStream >> xferArmies;
     
         while (xferArmies < 1 || xferArmies > (sourceArmies-1) ){
             cout << "You did not enter a correct amount of armies. Please try again." << endl;
-            cin >> xferArmies;
+            getline(cin, temp);
+            stringstream myStream(temp);
+            myStream >> xferArmies;
         }
-        cout << "Transferring " << xferArmies << " armies to the target country " << target << endl;
+        //Observer update
+        currentAction = "Transferring " + to_string(xferArmies) + " armies to the target country " + target;
+        notify();
     
         world->getTerritories()[sourceIndex].territory->setArmies(world->getTerritories()[sourceIndex].territory->getArmies() - xferArmies);
         world->getTerritories()[sourceIndex].adjacentTerritories[targetIndex]->setArmies(world->getTerritories()[sourceIndex].adjacentTerritories[targetIndex]->getArmies() + xferArmies);
@@ -469,4 +563,5 @@ string source, target, choice;
     
     }
     }
+    currentAction ="//////";
 };

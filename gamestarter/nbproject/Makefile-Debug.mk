@@ -21,8 +21,8 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=GNU-Linux
-CND_DLIB_EXT=so
+CND_PLATFORM=MinGW-Windows
+CND_DLIB_EXT=dll
 CND_CONF=Debug
 CND_DISTDIR=dist
 CND_BUILDDIR=build
@@ -45,6 +45,10 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/5e200f62/phaseObserver.o \
 	${OBJECTDIR}/_ext/ca457e10/Player.o \
 	${OBJECTDIR}/_ext/8dd064d2/Statistics.o \
+	${OBJECTDIR}/_ext/496a76e2/AggressiveStrategy.o \
+	${OBJECTDIR}/_ext/496a76e2/BenevolentStrategy.o \
+	${OBJECTDIR}/_ext/496a76e2/PlayerStrategy.o \
+	${OBJECTDIR}/_ext/496a76e2/Strategy.o \
 	${OBJECTDIR}/GameStarter.o \
 	${OBJECTDIR}/main.o
 
@@ -67,9 +71,9 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gamestarter
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gamestarter.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gamestarter: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gamestarter.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gamestarter ${OBJECTFILES} ${LDLIBSOPTIONS}
 
@@ -122,6 +126,26 @@ ${OBJECTDIR}/_ext/8dd064d2/Statistics.o: ../statistics/Statistics.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/8dd064d2
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/8dd064d2/Statistics.o ../statistics/Statistics.cpp
+
+${OBJECTDIR}/_ext/496a76e2/AggressiveStrategy.o: ../strategy/AggressiveStrategy.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/496a76e2
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/496a76e2/AggressiveStrategy.o ../strategy/AggressiveStrategy.cpp
+
+${OBJECTDIR}/_ext/496a76e2/BenevolentStrategy.o: ../strategy/BenevolentStrategy.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/496a76e2
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/496a76e2/BenevolentStrategy.o ../strategy/BenevolentStrategy.cpp
+
+${OBJECTDIR}/_ext/496a76e2/PlayerStrategy.o: ../strategy/PlayerStrategy.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/496a76e2
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/496a76e2/PlayerStrategy.o ../strategy/PlayerStrategy.cpp
+
+${OBJECTDIR}/_ext/496a76e2/Strategy.o: ../strategy/Strategy.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/496a76e2
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/496a76e2/Strategy.o ../strategy/Strategy.cpp
 
 ${OBJECTDIR}/GameStarter.o: GameStarter.cpp
 	${MKDIR} -p ${OBJECTDIR}
