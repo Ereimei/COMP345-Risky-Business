@@ -39,25 +39,18 @@ void MainGame::loopGame(GameStarter* gameSt, Startup* startup){
     int roundCounter = 0;
     int playerSize = startup->getSetOfPlayer().size();
     while (!playerOwnsAll(gameSt)){
-        //display the round number
-        cout <<"============================="<< endl;
-        cout <<"round #" << roundCounter<< endl;
+        // put notify here for game statistics
         for(int i = 0; i < playerSize; i++){
             cout <<"--------------------"<< endl;
             cout <<"player #" << startup->getSetOfPlayer().at(i)->getPlayerNum() <<"'s turn:"<< endl;
             currentPlayer = startup->getSetOfPlayer().at(i);
             currentPlayerNum = startup->getSetOfPlayer().at(i)->getPlayerNum();
             currentPhase = "turn starts";
-            notify();
             currentPhase = "reinforcement";
-            currentPlayer->reinforce(gameSt->getWorld());
-            
+            currentPlayer->reinforce(gameSt->getWorld());            
             currentPhase = "attack";
-
-            currentPlayer->attack(gameSt->getWorld(), startup->getSetOfPlayer());
-            
+            currentPlayer->attack(gameSt->getWorld(), startup->getSetOfPlayer());            
             currentPhase = "fortification";
-
             currentPlayer->fortify(gameSt->getWorld());
         }
         

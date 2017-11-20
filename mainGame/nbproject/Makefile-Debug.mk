@@ -50,7 +50,9 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/496a76e2/AggressiveStrategy.o \
 	${OBJECTDIR}/_ext/496a76e2/BenevolentStrategy.o \
 	${OBJECTDIR}/_ext/496a76e2/PlayerStrategy.o \
+	${OBJECTDIR}/_ext/496a76e2/RandomStrategy.o \
 	${OBJECTDIR}/_ext/496a76e2/Strategy.o \
+	${OBJECTDIR}/_ext/496a76e2/cheaterStrategy.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/mainGame.o
 
@@ -154,10 +156,20 @@ ${OBJECTDIR}/_ext/496a76e2/PlayerStrategy.o: ../strategy/PlayerStrategy.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/496a76e2/PlayerStrategy.o ../strategy/PlayerStrategy.cpp
 
+${OBJECTDIR}/_ext/496a76e2/RandomStrategy.o: ../strategy/RandomStrategy.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/496a76e2
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/496a76e2/RandomStrategy.o ../strategy/RandomStrategy.cpp
+
 ${OBJECTDIR}/_ext/496a76e2/Strategy.o: ../strategy/Strategy.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/496a76e2
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/496a76e2/Strategy.o ../strategy/Strategy.cpp
+
+${OBJECTDIR}/_ext/496a76e2/cheaterStrategy.o: ../strategy/cheaterStrategy.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/496a76e2
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/496a76e2/cheaterStrategy.o ../strategy/cheaterStrategy.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}

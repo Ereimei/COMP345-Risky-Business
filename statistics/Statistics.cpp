@@ -14,16 +14,28 @@
 
 #include "Statistics.h"
 
-string Statistics::PLAYER_OWNERSHIP_GRAPH = "===== OWNERSHIP GRAPH =====";
-string Statistics::PLAYER = "player #";
-string Statistics::OWNERLESS = "No owner-";
-string Statistics::GRAPH_ELEMENT = "#";
-string Statistics::GRAPH_DELIMITER_START = ": [";
-string Statistics::GRAPH_DELIMITER_END = "]";
-string Statistics::SPACE = " ";
-unsigned int Statistics::GRAPH_MULTIPLIER = 50;
+GameStatistics::GameStatistics() {
 
-Statistics::Statistics(World* w, unsigned int nplayers) :
+}
+
+GameStatistics::~GameStatistics() {
+    
+}
+
+void GameStatistics::update() {
+    
+}
+
+string PlayerDomination::PLAYER_OWNERSHIP_GRAPH = "===== OWNERSHIP GRAPH =====";
+string PlayerDomination::PLAYER = "player #";
+string PlayerDomination::OWNERLESS = "No owner-";
+string PlayerDomination::GRAPH_ELEMENT = "#";
+string PlayerDomination::GRAPH_DELIMITER_START = ": [";
+string PlayerDomination::GRAPH_DELIMITER_END = "]";
+string PlayerDomination::SPACE = " ";
+unsigned int PlayerDomination::GRAPH_MULTIPLIER = 50;
+
+PlayerDomination::PlayerDomination(World* w, unsigned int nplayers) :
     numPlayers(nplayers),
     numTerritories(w->getTerritoriesCount()) {
     worldSubject = w;
@@ -34,7 +46,7 @@ Statistics::Statistics(World* w, unsigned int nplayers) :
     }
 }
 
-Statistics::~Statistics() {
+PlayerDomination::~PlayerDomination() {
     worldSubject->detach(this);
     delete[] playerTerritoriesCount;
 }
@@ -42,7 +54,7 @@ Statistics::~Statistics() {
 /**
  * Generate the graph
  */
-void Statistics::update() {
+void PlayerDomination::update() {
     unsigned int ownerlessTerritories, barMultiplier, spaceFiller;
     float percent;
     string output = "";

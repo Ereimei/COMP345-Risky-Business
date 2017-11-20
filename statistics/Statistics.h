@@ -28,10 +28,17 @@ using std::cout;
 using std::string;
 using std::endl;
 
-class Statistics : public Observer {
+class GameStatistics : public Observer {
 public:
-    Statistics(World* w, unsigned int nplayers);
-    virtual ~Statistics();
+    GameStatistics();
+    virtual ~GameStatistics();
+    void update();
+};
+
+class PlayerDomination : public Observer {
+public:
+    PlayerDomination(World* w, unsigned int nplayers);
+    virtual ~PlayerDomination();
     void update();
 private:
     World* worldSubject;
