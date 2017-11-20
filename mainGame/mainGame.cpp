@@ -47,11 +47,11 @@ void MainGame::loopGame(GameStarter* gameSt, Startup* startup){
             currentPlayerNum = startup->getSetOfPlayer().at(i)->getPlayerNum();
             currentPhase = "turn starts";
             currentPhase = "reinforcement";
-            currentPlayer->reinforce(gameSt->getWorld());            
+            currentPlayer->reinforce();            
             currentPhase = "attack";
-            currentPlayer->attack(gameSt->getWorld(), startup->getSetOfPlayer());            
+            currentPlayer->attack(startup->getSetOfPlayer());            
             currentPhase = "fortification";
-            currentPlayer->fortify(gameSt->getWorld());
+            currentPlayer->fortify();
         }
         
         roundCounter ++;

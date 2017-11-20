@@ -106,7 +106,7 @@ void GameStarter::createPlayers() {
         else if (strategyType == 5){
             strategy = new cheaterStrategy();
         }
-        players[n] = new Player(territories, hand, diepool, strategy);
+        players[n] = new Player(territories, hand, diepool, strategy, world);
     }
 }
 

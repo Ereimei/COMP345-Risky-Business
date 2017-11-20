@@ -26,11 +26,12 @@ using std::string;
 unsigned int Player::objectCount = 0;
         
 //Constructor
-Player::Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool, Strategy* strategy) : territories(territories),
+Player::Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool, Strategy* strategy, World* w) : territories(territories),
     hand(hand),
     diepool(diepool),
     playerNum(objectCount++),
-    strategy(strategy){}
+    strategy(strategy),
+    world(w) {}
 
 //Destructors
 Player::~Player() {}
@@ -67,20 +68,20 @@ void Player::removeTerritory(Territory* territory){
     
 };
 
-void Player::reinforce(World* world){
-    int reinforcements = this->numArmies(world);
+void Player::reinforce(){
+    int reinforcements = this->numArmies();
     this->strategy->reinforce(reinforcements, this);
 }
 
-void Player::attack(World* world, vector<Player*> players){
+void Player::attack(vector<Player*> players){
     this->strategy->attack(world, players, this);
 }
 
-void Player::fortify(World* world){
+void Player::fortify(){
     this->strategy->fortify(world, this);
 }
 
-int Player::numArmies(World* world) {
+int Player::numArmies() {
     int numCountries, numContinents, numTerrInCont, numReinf;
     bool ownsTerr = false, ownsCont;
     string exchangeCards;

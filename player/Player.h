@@ -40,7 +40,7 @@ using std::string;
 class Player : public Subject {
 public:
     //Constructor
-    Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool, Strategy* strategy);
+    Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool, Strategy* strategy, World* w);
     //Destructor
     virtual ~Player();
     
@@ -61,10 +61,10 @@ public:
     void addTerritory(Territory*);
     void removeTerritory(Territory*);
     
-    void reinforce(World* world);
-    void attack(World* world, vector<Player*> players);
-    void fortify(World* world);
-    int numArmies(World* world);
+    void reinforce();
+    void attack(vector<Player*> players);
+    void fortify();
+    int numArmies();
     
     
 private:
@@ -75,7 +75,7 @@ private:
     Strategy* strategy;
     unsigned int playerNum;
     static unsigned int objectCount;
-    
+    World* world;
 };
 
 #endif /* PLAYER_H */
