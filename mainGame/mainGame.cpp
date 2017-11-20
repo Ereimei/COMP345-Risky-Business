@@ -22,22 +22,24 @@ Created on October 25, 2017, 7:12 PM */
 #include "mainGame.h"
 
 MainGame::MainGame() : turn(1) {
-    //gameStatistics = new GameStatistics(this);
+    
 }
 
 MainGame::~MainGame() {
-    //delete gameStatistics;
+    
 }
 
 /*
  * function will loop the main game in the following sequence; reinforcement, attack and fortification
  * for test purpose, the loop will use force end on the 3rd round
  */
-void MainGame::loopGame(GameStarter* gameSt, Startup* startup){
+void MainGame::loopGame(GameStarter* gameSt, Startup* startup) {
+    GameStatistics* gameStatistics = new GameStatistics(this);
     int playerSize = startup->getSetOfPlayer().size();
+    PlayerDomination* playerDomination = new PlayerDomination(gameSt->getWorld(), playerSize);
     while (!playerOwnsAll(gameSt)){
         notify();
-        for(int i = 0; i < playerSize; i++){
+        for(int i = 0; i < playerSize; i++) {
             cout <<"player #" << startup->getSetOfPlayer().at(i)->getPlayerNum() <<"'s turn:"<< endl;
             currentPlayer = startup->getSetOfPlayer().at(i);
             currentPlayerNum = startup->getSetOfPlayer().at(i)->getPlayerNum();
@@ -48,11 +50,10 @@ void MainGame::loopGame(GameStarter* gameSt, Startup* startup){
             currentPlayer->attack(startup->getSetOfPlayer());            
             currentPhase = "fortification";
             currentPlayer->fortify();
-        }
-        
+        }        
         ++turn;
         //on the 3rd round, the game will force end by assigning a player to own all the territories 
-        if(turn == 3){
+        if(turn == 10){
             forceEnd(gameSt, startup);
         }
     }

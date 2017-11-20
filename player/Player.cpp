@@ -50,7 +50,7 @@ void Player::setStrategy(Strategy* strategy) {strategy = strategy;}
 
 void Player::addTerritory(Territory* territory){
     this->territories->insert(territories->begin(), territory);
-    territory->setOwner(this);
+    world->setTerritoryOwner(territory->getName(), this);
 };
 void Player::removeTerritory(Territory* territory){
     //Find index where territory is

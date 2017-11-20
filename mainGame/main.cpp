@@ -28,7 +28,6 @@ Created on October 25, 2017, 7:12 PM */
 #include "mainGame.h"
 #include "../startup/startup.h"
 #include "../gamestarter2/GameStarter.h"
-#include "../phaseObserver/phaseObserver.h"
 
 using namespace std;
 
@@ -53,7 +52,6 @@ int main(int argc, char** argv) {
     cout << "===========================" << endl;
     
     MainGame* main = new MainGame();
-    PhaseObserver* phaseOb = new PhaseObserver(main, su);
     cin.ignore(1, EOF);
     main->loopGame(gs, su);
     

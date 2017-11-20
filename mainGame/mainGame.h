@@ -30,17 +30,13 @@ Created on October 25, 2017, 7:13 PM */
 #include "../startup/startup.h"
 #include "../gamestarter2/GameStarter.h"
 #include "../interfaces/interfaces.h"
-//#include "../statistics/Statistics.h"
+#include "../statistics/Statistics.h"
 
 using std::cin;
 using std::cout;
 using std::endl;
 using std::vector;
 using std::string;
-
-//class GameStatistics;
-//class GameStarter;
-//class Startup;
 
 class MainGame: public Subject {
     
@@ -49,7 +45,6 @@ private:
     int currentPlayerNum;
     string currentPhase;
     int turn;
-    //GameStatistics* gameStatistics;
     
 public:
     MainGame();

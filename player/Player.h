@@ -37,7 +37,7 @@ using std::string;
 
 
 
-class Player : public Subject {
+class Player {
 public:
     //Constructor
     Player(vector<Territory*>* territories, Hand* hand, Diepool* diepool, Strategy* strategy, World* w);
