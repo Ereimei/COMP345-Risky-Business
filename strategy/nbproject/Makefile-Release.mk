@@ -39,7 +39,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/81a96254/deck.o \
 	${OBJECTDIR}/_ext/81a96254/hand.o \
 	${OBJECTDIR}/_ext/d2a2ee96/Diepool.o \
-	${OBJECTDIR}/_ext/febfc28e/GameStarter.o \
 	${OBJECTDIR}/_ext/342bee09/interfaces.o \
 	${OBJECTDIR}/_ext/de5414ba/mainGame.o \
 	${OBJECTDIR}/_ext/511e288d/map.o \
@@ -53,6 +52,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/BenevolentStrategy.o \
 	${OBJECTDIR}/PlayerStrategy.o \
 	${OBJECTDIR}/Strategy.o \
+	${OBJECTDIR}/cheaterStrategy.o \
 	${OBJECTDIR}/main.o
 
 
@@ -99,11 +99,6 @@ ${OBJECTDIR}/_ext/d2a2ee96/Diepool.o: ../dice/Diepool.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/d2a2ee96
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/d2a2ee96/Diepool.o ../dice/Diepool.cpp
-
-${OBJECTDIR}/_ext/febfc28e/GameStarter.o: ../gamestarter/GameStarter.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/febfc28e
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/febfc28e/GameStarter.o ../gamestarter/GameStarter.cpp
 
 ${OBJECTDIR}/_ext/342bee09/interfaces.o: ../interfaces/interfaces.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/342bee09
@@ -169,6 +164,11 @@ ${OBJECTDIR}/Strategy.o: Strategy.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Strategy.o Strategy.cpp
+
+${OBJECTDIR}/cheaterStrategy.o: cheaterStrategy.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cheaterStrategy.o cheaterStrategy.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}

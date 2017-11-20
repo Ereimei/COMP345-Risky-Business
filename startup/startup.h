@@ -22,7 +22,7 @@ Created on October 17, 2017, 10:20 PM */
 #ifndef STARTUP_H
 #define STARTUP_H
 
-#include "../gamestarter/GameStarter.h"
+#include "../gamestarter2/GameStarter.h"
 #include "../player/Player.h"
 
 #include <cstdlib>

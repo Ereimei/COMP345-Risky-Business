@@ -27,7 +27,7 @@ Created on October 25, 2017, 7:12 PM */
 
 #include "mainGame.h"
 #include "../startup/startup.h"
-#include "../gamestarter/GameStarter.h"
+#include "../gamestarter2/GameStarter.h"
 #include "../phaseObserver/phaseObserver.h"
 
 using namespace std;

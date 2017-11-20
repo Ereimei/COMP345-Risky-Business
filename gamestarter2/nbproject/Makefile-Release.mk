@@ -39,20 +39,18 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/81a96254/deck.o \
 	${OBJECTDIR}/_ext/81a96254/hand.o \
 	${OBJECTDIR}/_ext/d2a2ee96/Diepool.o \
-	${OBJECTDIR}/_ext/d9388f64/GameStarter.o \
 	${OBJECTDIR}/_ext/342bee09/interfaces.o \
 	${OBJECTDIR}/_ext/511e288d/map.o \
 	${OBJECTDIR}/_ext/5d43fae0/Maploader.o \
 	${OBJECTDIR}/_ext/ca457e10/Player.o \
-	${OBJECTDIR}/_ext/8dd064d2/Statistics.o \
 	${OBJECTDIR}/_ext/496a76e2/AggressiveStrategy.o \
 	${OBJECTDIR}/_ext/496a76e2/BenevolentStrategy.o \
 	${OBJECTDIR}/_ext/496a76e2/PlayerStrategy.o \
 	${OBJECTDIR}/_ext/496a76e2/RandomStrategy.o \
 	${OBJECTDIR}/_ext/496a76e2/Strategy.o \
 	${OBJECTDIR}/_ext/496a76e2/cheaterStrategy.o \
-	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/startup.o
+	${OBJECTDIR}/GameStarter.o \
+	${OBJECTDIR}/main.o
 
 
 # C Compiler Flags
@@ -73,11 +71,11 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/startup.exe
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gamestarter2.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/startup.exe: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gamestarter2.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/startup ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/gamestarter2 ${OBJECTFILES} ${LDLIBSOPTIONS}
 
 ${OBJECTDIR}/_ext/81a96254/card.o: ../cards/card.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/81a96254
@@ -99,11 +97,6 @@ ${OBJECTDIR}/_ext/d2a2ee96/Diepool.o: ../dice/Diepool.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/d2a2ee96/Diepool.o ../dice/Diepool.cpp
 
-${OBJECTDIR}/_ext/d9388f64/GameStarter.o: ../gamestarter2/GameStarter.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/d9388f64
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/d9388f64/GameStarter.o ../gamestarter2/GameStarter.cpp
-
 ${OBJECTDIR}/_ext/342bee09/interfaces.o: ../interfaces/interfaces.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/342bee09
 	${RM} "$@.d"
@@ -123,11 +116,6 @@ ${OBJECTDIR}/_ext/ca457e10/Player.o: ../player/Player.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/ca457e10
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/ca457e10/Player.o ../player/Player.cpp
-
-${OBJECTDIR}/_ext/8dd064d2/Statistics.o: ../statistics/Statistics.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/8dd064d2
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/8dd064d2/Statistics.o ../statistics/Statistics.cpp
 
 ${OBJECTDIR}/_ext/496a76e2/AggressiveStrategy.o: ../strategy/AggressiveStrategy.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/496a76e2
@@ -159,15 +147,15 @@ ${OBJECTDIR}/_ext/496a76e2/cheaterStrategy.o: ../strategy/cheaterStrategy.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/496a76e2/cheaterStrategy.o ../strategy/cheaterStrategy.cpp
 
+${OBJECTDIR}/GameStarter.o: GameStarter.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/GameStarter.o GameStarter.cpp
+
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
-
-${OBJECTDIR}/startup.o: startup.cpp
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/startup.o startup.cpp
 
 # Subprojects
 .build-subprojects:

@@ -25,7 +25,7 @@ Created on October 15, 2017, 11:25 PM */
 #include <vector> 
 
 #include "startup.h"
-#include "../gamestarter/GameStarter.h"
+#include "../gamestarter2/GameStarter.h"
 
 using namespace std;
 

@@ -28,7 +28,7 @@ Created on October 25, 2017, 7:13 PM */
 #include <vector>
 
 #include "../startup/startup.h"
-#include "../gamestarter/GameStarter.h"
+#include "../gamestarter2/GameStarter.h"
 #include "../interfaces/interfaces.h"
 //#include "../statistics/Statistics.h"
 
