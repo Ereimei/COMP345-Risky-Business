@@ -19,6 +19,7 @@
 #include "../map/map.h"
 #include "../player/Player.h"
 #include "../dice/Diepool.h"
+#include "../mainGame/mainGame.h"
 
 #include <iostream>
 #include <string>
@@ -28,11 +29,17 @@ using std::cout;
 using std::string;
 using std::endl;
 
+class MainGame;
+
 class GameStatistics : public Observer {
 public:
-    GameStatistics();
+    GameStatistics(MainGame* mg);
     virtual ~GameStatistics();
     void update();
+private:
+    MainGame* mainGameSubject;
+    static const string TURN_START;
+    static const string TURN_END;
 };
 
 class PlayerDomination : public Observer {

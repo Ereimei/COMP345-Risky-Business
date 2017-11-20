@@ -37,6 +37,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/_ext/d2a2ee96/Diepool.o \
 	${OBJECTDIR}/_ext/342bee09/interfaces.o \
+	${OBJECTDIR}/_ext/de5414ba/mainGame.o \
 	${OBJECTDIR}/_ext/511e288d/map.o \
 	${OBJECTDIR}/_ext/ca457e10/Player.o \
 	${OBJECTDIR}/Statistics.o \
@@ -76,6 +77,11 @@ ${OBJECTDIR}/_ext/342bee09/interfaces.o: ../interfaces/interfaces.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/342bee09
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/342bee09/interfaces.o ../interfaces/interfaces.cpp
+
+${OBJECTDIR}/_ext/de5414ba/mainGame.o: ../mainGame/mainGame.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/de5414ba
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/de5414ba/mainGame.o ../mainGame/mainGame.cpp
 
 ${OBJECTDIR}/_ext/511e288d/map.o: ../map/map.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/511e288d

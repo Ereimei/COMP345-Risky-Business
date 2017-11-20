@@ -21,27 +21,23 @@ Created on October 25, 2017, 7:12 PM */
 
 #include "mainGame.h"
 
-#include <iostream>
-#include <string> 
-#include "../phaseObserver/phaseObserver.h"
+MainGame::MainGame() : turn(1) {
+    //gameStatistics = new GameStatistics(this);
+}
 
-using namespace std;
+MainGame::~MainGame() {
+    //delete gameStatistics;
+}
 
 /*
  * function will loop the main game in the following sequence; reinforcement, attack and fortification
  * for test purpose, the loop will use force end on the 3rd round
  */
 void MainGame::loopGame(GameStarter* gameSt, Startup* startup){
-    
-    cout << "Gaming is starting ..." << endl;
-    
-    //use round counter force the game to end on the 3rd round
-    int roundCounter = 0;
     int playerSize = startup->getSetOfPlayer().size();
     while (!playerOwnsAll(gameSt)){
-        // put notify here for game statistics
+        notify();
         for(int i = 0; i < playerSize; i++){
-            cout <<"--------------------"<< endl;
             cout <<"player #" << startup->getSetOfPlayer().at(i)->getPlayerNum() <<"'s turn:"<< endl;
             currentPlayer = startup->getSetOfPlayer().at(i);
             currentPlayerNum = startup->getSetOfPlayer().at(i)->getPlayerNum();
@@ -54,9 +50,9 @@ void MainGame::loopGame(GameStarter* gameSt, Startup* startup){
             currentPlayer->fortify();
         }
         
-        roundCounter ++;
+        ++turn;
         //on the 3rd round, the game will force end by assigning a player to own all the territories 
-        if(roundCounter == 3){
+        if(turn == 3){
             forceEnd(gameSt, startup);
         }
     }
@@ -98,4 +94,8 @@ void MainGame:: forceEnd(GameStarter* gameSt, Startup* startup){
     }
     cout << "==================================" << endl;
     cout << "A player owns all the territories." << endl;
+}
+
+int MainGame::getTurn() const {
+    return turn;
 }

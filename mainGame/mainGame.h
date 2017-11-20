@@ -30,6 +30,17 @@ Created on October 25, 2017, 7:13 PM */
 #include "../startup/startup.h"
 #include "../gamestarter/GameStarter.h"
 #include "../interfaces/interfaces.h"
+//#include "../statistics/Statistics.h"
+
+using std::cin;
+using std::cout;
+using std::endl;
+using std::vector;
+using std::string;
+
+//class GameStatistics;
+//class GameStarter;
+//class Startup;
 
 class MainGame: public Subject {
     
@@ -37,12 +48,15 @@ private:
     Player* currentPlayer;
     int currentPlayerNum;
     string currentPhase;
+    int turn;
+    //GameStatistics* gameStatistics;
     
 public:
-    
-    inline Player* getCurrentPlayer(){return currentPlayer;};
-    const inline int getCurrentPlayerNum(){return currentPlayerNum;};
-    const inline string getCurrentphase(){return currentPhase;};
+    MainGame();
+    virtual ~MainGame();
+    Player* getCurrentPlayer(){return currentPlayer;};
+    int getCurrentPlayerNum() const {return currentPlayerNum;};
+    string getCurrentphase() const {return currentPhase;};
 
     //loop the game until a player own all the territories
     void loopGame(GameStarter* gameSt, Startup* startup);
@@ -55,7 +69,7 @@ public:
     //force the a player to own all the territories
     void forceEnd(GameStarter* gameSt, Startup* startup);
     
-    
+    int getTurn() const;
 };
 
 

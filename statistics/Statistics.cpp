@@ -14,16 +14,20 @@
 
 #include "Statistics.h"
 
-GameStatistics::GameStatistics() {
+const string GameStatistics::TURN_START = "====== TURN ";
+const string GameStatistics::TURN_END = " ======";
 
+GameStatistics::GameStatistics(MainGame* mg) {
+    mainGameSubject = mg;
+    mainGameSubject->attach(this);
 }
 
 GameStatistics::~GameStatistics() {
-    
+    mainGameSubject->detach(this);
 }
 
 void GameStatistics::update() {
-    
+    cout << TURN_START << mainGameSubject->getTurn() << TURN_END << endl;
 }
 
 string PlayerDomination::PLAYER_OWNERSHIP_GRAPH = "===== OWNERSHIP GRAPH =====";
