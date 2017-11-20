@@ -14,7 +14,7 @@
 #include <cstdlib>
 
 
-#include "../gamestarter/GameStarter.h"
+#include "../gamestarter2/GameStarter.h"
 #include "../startup/startup.h"
 #include "../mainGame/mainGame.h"
 #include "../phaseObserver/phaseObserver.h"
