@@ -82,7 +82,7 @@ void GameStarter::createPlayers() {
     players = new Player*[numPlayers];
     for (int n = 0; n < numPlayers; ++n) {
         cout << CREATING_PLAYER << n << endl;
-        cout << "Please enter a Strategy for player #" << (n + 1) << " (1 = Player, 2 = Aggressive, 3 = Benevolent, 4 = Random, 5 = Cheater)" << endl;
+        cout << "Please enter a Strategy for player #" << n << " (1 = Player, 2 = Aggressive, 3 = Benevolent, 4 = Random, 5 = Cheater)" << endl;
         cin >> strategyType;
         while (strategyType < 1 || strategyType > 5){
             cout << "Please enter a correct strategy value." << endl;
