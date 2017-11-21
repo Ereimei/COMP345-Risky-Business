@@ -31,6 +31,7 @@ Created on October 25, 2017, 7:13 PM */
 #include "../gamestarter2/GameStarter.h"
 #include "../interfaces/interfaces.h"
 #include "../statistics/Statistics.h"
+#include "../map/map.h"
 
 using std::cin;
 using std::cout;
@@ -44,7 +45,17 @@ private:
     Player* currentPlayer;
     int currentPlayerNum;
     string currentPhase;
-    int turn;
+    unsigned int turn;
+    Observer* gameStatistics;
+    bool* decorators;
+    bool askUser;
+    unsigned int decoratorsCount;
+    unsigned int playerSize;
+    unsigned int lastDecoratorAdded;
+    World* world;
+    void chooseDecorators();
+    void addPlayerDecorator();
+    void removeDecorator();
     
 public:
     MainGame();
@@ -64,7 +75,16 @@ public:
     //force the a player to own all the territories
     void forceEnd(GameStarter* gameSt, Startup* startup);
     
-    int getTurn() const;
+    unsigned int getTurn() const;
+    
+    static const unsigned int totalDecoratorsCount;
+    static const string REMOVE_DECORATOR;
+    static const string PLAYER_DECORATOR;
+    static const string HANDS_DECORATOR;
+    static const string CONTINENT_DECORATOR;
+    static const string DONT_ASK;
+    static const string DECORATOR_OPTIONS;
+    static const string BAD_INPUT;
 };
 
 

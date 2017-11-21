@@ -21,8 +21,25 @@ Created on October 25, 2017, 7:12 PM */
 
 #include "mainGame.h"
 
-MainGame::MainGame() : turn(1) {
-    
+const unsigned int MainGame::totalDecoratorsCount = 3;
+const string MainGame::REMOVE_DECORATOR = "0. Remove last decorator";
+const string MainGame::PLAYER_DECORATOR = "1. Player domination decorator";
+const string MainGame::HANDS_DECORATOR = "2. Player hands decorator";
+const string MainGame::CONTINENT_DECORATOR = "3. Continent control decorator";
+const string MainGame::DONT_ASK = "4. Stop asking me!";
+const string MainGame::DECORATOR_OPTIONS = "Please choose from the following options...";
+const string MainGame::BAD_INPUT = "Bad input, ignoring...";
+
+MainGame::MainGame() : turn(1),
+    decoratorsCount(0),
+    askUser(true),
+    world(NULL),
+    playerSize(0),
+    lastDecoratorAdded(0) {
+    decorators = new bool[totalDecoratorsCount];
+    for (int n = 0; n < totalDecoratorsCount; ++n) {
+        decorators[n] = false;
+    }
 }
 
 MainGame::~MainGame() {
@@ -34,9 +51,9 @@ MainGame::~MainGame() {
  * for test purpose, the loop will use force end on the 3rd round
  */
 void MainGame::loopGame(GameStarter* gameSt, Startup* startup) {
-    Observer* gameStatistics = new GameStatistics(this);
-    int playerSize = startup->getSetOfPlayer().size();
-    gameStatistics = new PlayerDomination(gameStatistics, gameSt->getWorld(), playerSize);
+    gameStatistics = new GameStatistics(this);
+    world = gameSt->getWorld();
+    playerSize = startup->getSetOfPlayer().size();
     while (!playerOwnsAll(gameSt)){
         notify();
         for(int i = 0; i < playerSize; i++) {
@@ -50,9 +67,12 @@ void MainGame::loopGame(GameStarter* gameSt, Startup* startup) {
             currentPlayer->attack(startup->getSetOfPlayer());            
             currentPhase = "fortification";
             currentPlayer->fortify();
-        }        
+        }
+        
         ++turn;
-        //on the 3rd round, the game will force end by assigning a player to own all the territories 
+        chooseDecorators();
+        
+        //force game to end 
         if(turn == 10){
             forceEnd(gameSt, startup);
         }
@@ -97,6 +117,67 @@ void MainGame:: forceEnd(GameStarter* gameSt, Startup* startup){
     cout << "A player owns all the territories." << endl;
 }
 
-int MainGame::getTurn() const {
+unsigned int MainGame::getTurn() const {
     return turn;
+}
+
+void MainGame::chooseDecorators() {
+    unsigned int input;
+    if (askUser) {
+        cout << DECORATOR_OPTIONS << endl;
+        if (decoratorsCount > 0) {
+            cout << REMOVE_DECORATOR << endl;
+        }
+        if (!decorators[0]) {
+            cout << PLAYER_DECORATOR << endl;
+        }
+        if (!decorators[1]) {
+            cout << HANDS_DECORATOR << endl;
+        }
+        if (!decorators[2]) {
+            cout << CONTINENT_DECORATOR << endl;
+        }
+        cout << DONT_ASK << endl;
+        cin >> input;
+        switch(input) {
+            case 0:
+                removeDecorator();
+                break;
+            case 1:
+                addPlayerDecorator();
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                askUser = false;
+                break;
+            default:
+                cout << BAD_INPUT << endl;
+                break;
+        }
+    }
+}
+
+void MainGame::addPlayerDecorator() {
+    if (!decorators[0]) {
+        gameStatistics = new PlayerDomination(gameStatistics, world, playerSize);
+        decorators[0] = true;
+        lastDecoratorAdded = 0;
+        ++decoratorsCount;
+    }
+}
+
+void MainGame::removeDecorator() {
+    if (decoratorsCount > 0) {
+        ObserverDecorator* decoratedObserver = dynamic_cast<ObserverDecorator*>(gameStatistics);
+        if (decoratedObserver) {
+            Observer* temp = decoratedObserver->getDecoratedObserver();
+            delete gameStatistics;
+            gameStatistics = temp;
+            decorators[lastDecoratorAdded] = false;
+            --decoratorsCount;
+        }
+    }
 }

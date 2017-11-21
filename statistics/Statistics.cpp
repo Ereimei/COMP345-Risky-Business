@@ -32,7 +32,7 @@ GameStatistics::~GameStatistics() {
 }
 
 void GameStatistics::update() {
-    cout << STATISTICS << TURN_START << mainGameSubject->getTurn() << TURN_END << endl;
+    cout << TURN_START << mainGameSubject->getTurn() << TURN_END << endl;
 }
 
 ObserverDecorator::ObserverDecorator() : decoratedObserver(NULL) {
