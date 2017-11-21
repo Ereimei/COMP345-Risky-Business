@@ -14,11 +14,16 @@
 
 #include "Statistics.h"
 
-const string GameStatistics::TURN_START = "====== TURN ";
-const string GameStatistics::TURN_END = " ======";
+const string GameStatistics::TURN_START = "===== Turn: ";
+const string GameStatistics::TURN_END = " =====";
+const string GameStatistics::STATISTICS = "\n########## STATISTICS ##########\n";
+
+GameStatistics::GameStatistics() {
+    mainGameSubject = NULL;
+}
 
 GameStatistics::GameStatistics(MainGame* mg) {
-    mainGameSubject = mg;
+    mainGameSubject = mg; 
     mainGameSubject->attach(this);
 }
 
@@ -27,7 +32,27 @@ GameStatistics::~GameStatistics() {
 }
 
 void GameStatistics::update() {
-    cout << TURN_START << mainGameSubject->getTurn() << TURN_END << endl;
+    cout << STATISTICS << TURN_START << mainGameSubject->getTurn() << TURN_END << endl;
+}
+
+ObserverDecorator::ObserverDecorator() : decoratedObserver(NULL) {
+    
+}
+
+ObserverDecorator::ObserverDecorator(Observer* o) : decoratedObserver(o) {
+    
+}
+
+ObserverDecorator::~ObserverDecorator() {
+    
+}
+
+void ObserverDecorator::update() {
+    decoratedObserver->update();
+}
+
+Observer* ObserverDecorator::getDecoratedObserver() const {
+    return decoratedObserver;
 }
 
 string PlayerDomination::PLAYER_OWNERSHIP_GRAPH = "===== OWNERSHIP GRAPH =====";
@@ -39,7 +64,8 @@ string PlayerDomination::GRAPH_DELIMITER_END = "]";
 string PlayerDomination::SPACE = " ";
 unsigned int PlayerDomination::GRAPH_MULTIPLIER = 50;
 
-PlayerDomination::PlayerDomination(World* w, unsigned int nplayers) :
+PlayerDomination::PlayerDomination(Observer* o, World* w, unsigned int nplayers) :
+    ObserverDecorator::ObserverDecorator(o),
     numPlayers(nplayers),
     numTerritories(w->getTerritoriesCount()) {
     worldSubject = w;

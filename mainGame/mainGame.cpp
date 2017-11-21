@@ -34,9 +34,9 @@ MainGame::~MainGame() {
  * for test purpose, the loop will use force end on the 3rd round
  */
 void MainGame::loopGame(GameStarter* gameSt, Startup* startup) {
-    GameStatistics* gameStatistics = new GameStatistics(this);
+    Observer* gameStatistics = new GameStatistics(this);
     int playerSize = startup->getSetOfPlayer().size();
-    PlayerDomination* playerDomination = new PlayerDomination(gameSt->getWorld(), playerSize);
+    gameStatistics = new PlayerDomination(gameStatistics, gameSt->getWorld(), playerSize);
     while (!playerOwnsAll(gameSt)){
         notify();
         for(int i = 0; i < playerSize; i++) {

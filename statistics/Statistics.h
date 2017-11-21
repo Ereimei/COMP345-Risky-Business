@@ -29,22 +29,35 @@ using std::cout;
 using std::string;
 using std::endl;
 
-class MainGame;
+class MainGame; //actually necessary because MainGame is a subject and the controller
 
 class GameStatistics : public Observer {
 public:
+    GameStatistics();
     GameStatistics(MainGame* mg);
     virtual ~GameStatistics();
-    void update();
+    virtual void update();
 private:
     MainGame* mainGameSubject;
     static const string TURN_START;
     static const string TURN_END;
+    static const string STATISTICS;
 };
 
-class PlayerDomination : public Observer {
+class ObserverDecorator : public Observer {
 public:
-    PlayerDomination(World* w, unsigned int nplayers);
+    ObserverDecorator();
+    ObserverDecorator(Observer* o);
+    virtual ~ObserverDecorator();
+    virtual void update();
+    Observer* getDecoratedObserver() const;
+private:
+    Observer* decoratedObserver;
+};
+
+class PlayerDomination : public ObserverDecorator {
+public:
+    PlayerDomination(Observer* o, World* w, unsigned int nplayers);
     virtual ~PlayerDomination();
     void update();
 private:
