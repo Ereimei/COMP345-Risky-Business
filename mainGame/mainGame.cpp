@@ -60,8 +60,6 @@ void MainGame::loopGame(GameStarter* gameSt, Startup* startup) {
         world->getContinents()[n]->checkIfSingleOwner();
     }
     
-    ContinentControl* continentControl = new ContinentControl(world->getContinents(), world->getContinentsCount());
-    
     while (!playerOwnsAll(gameSt)){
         notify();
         chooseDecorators();
@@ -80,7 +78,7 @@ void MainGame::loopGame(GameStarter* gameSt, Startup* startup) {
         ++turn;
         
         //force game to end 
-        if(turn == 50){
+        if(turn == 20){
             forceEnd(gameSt, startup);
         }
     }
@@ -156,6 +154,7 @@ void MainGame::chooseDecorators() {
             case 2:
                 break;
             case 3:
+                addContinentDecorator();
                 break;
             case 4:
                 askUser = false;
@@ -172,6 +171,15 @@ void MainGame::addPlayerDecorator() {
         gameStatistics = new PlayerDomination(gameStatistics, world, playerSize);
         decorators[0] = true;
         lastDecoratorAdded = 0;
+        ++decoratorsCount;
+    }
+}
+
+void MainGame::addContinentDecorator() {
+    if (!decorators[2]) {
+        gameStatistics = new ContinentControl(gameStatistics, world->getContinents(), world->getContinentsCount());
+        decorators[2] = true;
+        lastDecoratorAdded = 2;
         ++decoratorsCount;
     }
 }

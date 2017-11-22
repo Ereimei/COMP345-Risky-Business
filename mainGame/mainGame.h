@@ -55,6 +55,7 @@ private:
     World* world;
     void chooseDecorators();
     void addPlayerDecorator();
+    void addContinentDecorator();
     void removeDecorator();
     
 public:

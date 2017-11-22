@@ -132,7 +132,8 @@ const string ContinentControl::CONTINENT_START = "##### Continent ";
 const string ContinentControl::NOT_OWNED = " is not owned by a single player";
 const string ContinentControl::OWNED = " is owned by player ";
 
-ContinentControl::ContinentControl(Continent** c, unsigned int cCount) : continentCount(cCount) {
+ContinentControl::ContinentControl(Observer* o, Continent** c, unsigned int cCount) : continentCount(cCount),
+    ObserverDecorator::ObserverDecorator(o) {
     continentSubjects = c;
     for (int n = 0; n < continentCount; ++n) {
         continentSubjects[n]->attach(this);

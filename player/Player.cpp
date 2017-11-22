@@ -103,12 +103,14 @@ int Player::numArmies() {
     cout << "------------------" << endl;
     for (int i = 0; i < numContinents; i++) {
         if (playerNum == world->getContinents()[i]->getOwnerPlayerNumber()){
-            cout << "Player owns continent: " << world->getContinents()[i]->getName() << " adding army bonus of " << world->getContinents()[i]->getArmyBonus() << endl;
+            //commented out because now there's an observer for this
+            //cout << "Player owns continent: " << world->getContinents()[i]->getName() << " adding army bonus of " << world->getContinents()[i]->getArmyBonus() << endl;
             numReinf += world->getContinents()[i]->getArmyBonus();
             cout << "Reinforcements amount = " << numReinf << endl << endl;
         }
         else {
-            cout << "Player does not own continent: " << world->getContinents()[i]->getName() << endl ;
+            //commented out because now there's an observer for this
+            //cout << "Player does not own continent: " << world->getContinents()[i]->getName() << endl ;
         }
 
     }

@@ -74,9 +74,9 @@ private:
     static unsigned int GRAPH_MULTIPLIER;
 };
 
-class ContinentControl : public Observer {
+class ContinentControl : public ObserverDecorator {
 public:
-    ContinentControl(Continent** c, unsigned int cCount);
+    ContinentControl(Observer* o, Continent** c, unsigned int cCount);
     virtual ~ContinentControl();
     void update();
 private:
