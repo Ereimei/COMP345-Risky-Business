@@ -49,7 +49,7 @@ public:
     Hand* getHand();
     Diepool* getDiepool();
     Strategy* getStrategy();
-    unsigned int getPlayerNum(){return playerNum;};
+    unsigned int getPlayerNum(){return playerNum;}
     
     //Setters
     void setHand(Hand* hand);

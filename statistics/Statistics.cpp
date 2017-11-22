@@ -23,7 +23,7 @@ GameStatistics::GameStatistics() {
 }
 
 GameStatistics::GameStatistics(MainGame* mg) {
-    mainGameSubject = mg; 
+    mainGameSubject = mg;
     mainGameSubject->attach(this);
 }
 
@@ -36,15 +36,15 @@ void GameStatistics::update() {
 }
 
 ObserverDecorator::ObserverDecorator() : decoratedObserver(NULL) {
-    
+
 }
 
 ObserverDecorator::ObserverDecorator(Observer* o) : decoratedObserver(o) {
-    
+
 }
 
 ObserverDecorator::~ObserverDecorator() {
-    
+
 }
 
 void ObserverDecorator::update() {
@@ -65,9 +65,9 @@ string PlayerDomination::SPACE = " ";
 unsigned int PlayerDomination::GRAPH_MULTIPLIER = 50;
 
 PlayerDomination::PlayerDomination(Observer* o, World* w, unsigned int nplayers) :
-    ObserverDecorator::ObserverDecorator(o),
-    numPlayers(nplayers),
-    numTerritories(w->getTerritoriesCount()) {
+ObserverDecorator::ObserverDecorator(o),
+numPlayers(nplayers),
+numTerritories(w->getTerritoriesCount()) {
     worldSubject = w;
     worldSubject->attach(this);
     playerTerritoriesCount = new unsigned int[numPlayers];
@@ -100,7 +100,7 @@ void PlayerDomination::update() {
     }
     cout << PLAYER_OWNERSHIP_GRAPH << endl;
     for (int n = 0; n < numPlayers; ++n) {
-        percent = (float)playerTerritoriesCount[n] / numTerritories;
+        percent = (float) playerTerritoriesCount[n] / numTerritories;
         barMultiplier = percent * GRAPH_MULTIPLIER;
         spaceFiller = GRAPH_MULTIPLIER - barMultiplier;
         output += PLAYER + std::to_string(n) + GRAPH_DELIMITER_START;
@@ -115,7 +115,7 @@ void PlayerDomination::update() {
         output = "";
     }
     output = OWNERLESS + GRAPH_DELIMITER_START;
-    percent = (float)ownerlessTerritories / numTerritories;
+    percent = (float) ownerlessTerritories / numTerritories;
     barMultiplier = percent * GRAPH_MULTIPLIER;
     spaceFiller = GRAPH_MULTIPLIER - barMultiplier;
     for (int n = 0; n < barMultiplier; ++n) {
@@ -126,4 +126,36 @@ void PlayerDomination::update() {
     }
     output += GRAPH_DELIMITER_END;
     cout << output << endl;
+}
+
+const string ContinentControl::CONTINENT_START = "##### Continent ";
+const string ContinentControl::NOT_OWNED = " is not owned by a single player";
+const string ContinentControl::OWNED = " is owned by player ";
+
+ContinentControl::ContinentControl(Continent** c, unsigned int cCount) : continentCount(cCount) {
+    continentSubjects = c;
+    for (int n = 0; n < continentCount; ++n) {
+        continentSubjects[n]->attach(this);
+    }
+}
+
+ContinentControl::~ContinentControl() {
+    for (int n = 0; n < continentCount; ++n) {
+        continentSubjects[n]->detach(this);
+    }
+}
+
+/**
+ * update the continental control view
+ */
+void ContinentControl::update() {
+    int ownedByPlayer;
+    for (int n = 0; n < continentCount; ++n) {
+        ownedByPlayer = continentSubjects[n]->getOwnerPlayerNumber();
+        if (ownedByPlayer == continentSubjects[n]->NOT_CONTROLLED) {
+            cout << CONTINENT_START << continentSubjects[n]->getName() << NOT_OWNED << endl;
+        } else {
+            cout << CONTINENT_START << continentSubjects[n]->getName() << OWNED << ownedByPlayer << endl;
+        }
+    }
 }

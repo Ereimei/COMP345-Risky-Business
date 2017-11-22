@@ -54,8 +54,17 @@ void MainGame::loopGame(GameStarter* gameSt, Startup* startup) {
     gameStatistics = new GameStatistics(this);
     world = gameSt->getWorld();
     playerSize = startup->getSetOfPlayer().size();
+    
+    // go through all the continents at the beginning and see if any one player owns a single continent
+    for (int n = 0; n < world->getContinentsCount(); ++n) {
+        world->getContinents()[n]->checkIfSingleOwner();
+    }
+    
+    ContinentControl* continentControl = new ContinentControl(world->getContinents(), world->getContinentsCount());
+    
     while (!playerOwnsAll(gameSt)){
         notify();
+        chooseDecorators();
         for(int i = 0; i < playerSize; i++) {
             cout <<"player #" << startup->getSetOfPlayer().at(i)->getPlayerNum() <<"'s turn:"<< endl;
             currentPlayer = startup->getSetOfPlayer().at(i);
@@ -68,12 +77,10 @@ void MainGame::loopGame(GameStarter* gameSt, Startup* startup) {
             currentPhase = "fortification";
             currentPlayer->fortify();
         }
-        
         ++turn;
-        chooseDecorators();
         
         //force game to end 
-        if(turn == 10){
+        if(turn == 50){
             forceEnd(gameSt, startup);
         }
     }

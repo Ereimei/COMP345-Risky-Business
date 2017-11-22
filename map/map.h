@@ -54,7 +54,7 @@ private:
     const string name;
 };
 
-class Continent {
+class Continent : public Subject {
 public:
     Continent();
     Continent(string n, unsigned int terrsCount, unsigned int bonus);
@@ -64,16 +64,20 @@ public:
     string getName() const;
     unsigned int getTerritoriesCount() const;
     unsigned int getArmyBonus() const;
+    int getOwnerPlayerNumber() const;
     Territory** getTerritories() const;
+    void checkIfSingleOwner();
+    static const int NOT_CONTROLLED;
 private:
     const string name;
     const unsigned int territoriesCount;
     const unsigned int armyBonus;
     unsigned int insertPosition;
+    int ownedByPlayer;
     Territory** territories;
 };
 
-class World : public Subject{
+class World : public Subject {
 public:
     World();
     World(unsigned int terrsCount, unsigned int contsCount);

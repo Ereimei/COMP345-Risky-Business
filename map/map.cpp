@@ -17,57 +17,82 @@
 #include "../player/Player.h"
 
 unsigned int Territory::objectCount = 1;
+const int Continent::NOT_CONTROLLED = -1;
 
 Territory::Territory() : armies(0),
-    owner(NULL),
-    name("Default"),
-    id(objectCount++) {
+owner(NULL),
+name("Default"),
+id(objectCount++) {
     cerr << "Called Territory default constructor" << endl;
     exit(EXIT_FAILURE);
 }
 
 Territory::Territory(string n) : armies(0),
-    owner(NULL),
-    name(n),
-    id(objectCount++) {}
+owner(NULL),
+name(n),
+id(objectCount++) {
+}
 
 Territory::Territory(const Territory& orig) : armies(orig.getArmies()),
-    owner(orig.getOwner()),
-    name(orig.getName()),
-    id(objectCount++) {}
+owner(orig.getOwner()),
+name(orig.getName()),
+id(objectCount++) {
+}
 
-Territory::~Territory() {}
+Territory::~Territory() {
+}
 
-unsigned int Territory::getArmies() const {return armies;}
-Player* Territory::getOwner() const {return owner;}
-string Territory::getName() const {return name;}
-void Territory::setArmies(unsigned int arm) {armies = arm;}
-void Territory::setOwner(Player* own) {owner = own;}
-unsigned int Territory::getId() {return id;}
+unsigned int Territory::getArmies() const {
+    return armies;
+}
+
+Player* Territory::getOwner() const {
+    return owner;
+}
+
+string Territory::getName() const {
+    return name;
+}
+
+void Territory::setArmies(unsigned int arm) {
+    armies = arm;
+}
+
+void Territory::setOwner(Player* own) {
+    owner = own;
+}
+
+unsigned int Territory::getId() {
+    return id;
+}
 
 Continent::Continent() : name(""),
-    territoriesCount(0),
-    insertPosition(0),
-    armyBonus(0) {
+territoriesCount(0),
+insertPosition(0),
+armyBonus(0),
+ownedByPlayer(NOT_CONTROLLED) {
     cerr << "Called Continent default constructor" << endl;
     exit(EXIT_FAILURE);
 }
 
 Continent::Continent(string n, unsigned int terrsCount, unsigned int bonus) : name(n),
-    territoriesCount(terrsCount),
-    insertPosition(0),
-    armyBonus(bonus) {
+territoriesCount(terrsCount),
+insertPosition(0),
+armyBonus(bonus),
+ownedByPlayer(NOT_CONTROLLED) {
     Territory** terrs = new Territory*[territoriesCount];
     territories = terrs;
 }
 
 Continent::Continent(const Continent& orig) : name(orig.getName()),
-    territoriesCount(orig.getTerritoriesCount()),
-    insertPosition(0),
-    armyBonus(orig.getArmyBonus()) {}
+territoriesCount(orig.getTerritoriesCount()),
+insertPosition(0),
+armyBonus(orig.getArmyBonus()),
+ownedByPlayer(orig.ownedByPlayer) {
+}
 
 Continent::~Continent() {
-    delete[] territories;    
+    delete[] territories;
 }
 
 void Continent::addTerritory(Territory* terr) {
@@ -79,30 +104,72 @@ void Continent::addTerritory(Territory* terr) {
     }
 }
 
-string Continent::getName() const {return name;}
+string Continent::getName() const {
+    return name;
+}
 
-unsigned int Continent::getTerritoriesCount() const {return territoriesCount;}
+unsigned int Continent::getTerritoriesCount() const {
+    return territoriesCount;
+}
 
-Territory** Continent::getTerritories() const {return territories;}
+Territory** Continent::getTerritories() const {
+    return territories;
+}
 
-unsigned int Continent::getArmyBonus() const {return armyBonus;}
+unsigned int Continent::getArmyBonus() const {
+    return armyBonus;
+}
+
+int Continent::getOwnerPlayerNumber() const {
+    return ownedByPlayer;
+}
+
+void Continent::checkIfSingleOwner() {
+    if (ownedByPlayer >= 0) {
+        for (int n = 0; n < territoriesCount; ++n) {
+            if (territories[n]->getOwner()->getPlayerNum() != ownedByPlayer) {
+                ownedByPlayer = NOT_CONTROLLED;
+                notify();
+                break;
+            }
+        }
+    } else {
+        if (territories[0]->getOwner() == NULL) {
+            return;
+        }
+        ownedByPlayer = territories[0]->getOwner()->getPlayerNum();
+        for (int n = 1; n < territoriesCount; ++n) {
+            if (territories[n]->getOwner() == NULL) {
+                ownedByPlayer = NOT_CONTROLLED;
+                return;
+            }
+            if (territories[n]->getOwner()->getPlayerNum() != ownedByPlayer) {
+                ownedByPlayer = NOT_CONTROLLED;
+                break;
+            }
+        }
+        if (ownedByPlayer >= 0) {
+            notify();
+        }
+    }
+}
 
 World::World() : territoriesCount(0),
-    insertPosition(0),
-    continentsCount(0) {
+insertPosition(0),
+continentsCount(0) {
     cerr << "Called World default constructor" << endl;
     exit(EXIT_FAILURE);
 }
 
 World::World(unsigned int terrsCount, unsigned int contsCount) : territoriesCount(terrsCount),
-    insertPosition(0),
-    continentsCount(contsCount) {
+insertPosition(0),
+continentsCount(contsCount) {
     territories = new Node[territoriesCount];
 }
 
 World::World(const World& orig) : territoriesCount(orig.getTerritoriesCount()),
-    insertPosition(0),
-    continentsCount(orig.getContinentsCount()) {
+insertPosition(0),
+continentsCount(orig.getContinentsCount()) {
     territories = new Node[territoriesCount];
 }
 
@@ -129,7 +196,7 @@ void World::addTerritory(Territory* terr, unsigned int adjCount, Territory** adj
 }
 
 World::Node::Node() : territory(NULL), adjacentTerritories(NULL), adjacentCount(0) {
-    
+
 }
 
 World::Node::~Node() {
@@ -137,9 +204,13 @@ World::Node::~Node() {
     delete[] adjacentTerritories;
 }
 
-unsigned int World::getContinentsCount() const {return continentsCount;}
+unsigned int World::getContinentsCount() const {
+    return continentsCount;
+}
 
-unsigned int World::getTerritoriesCount() const {return territoriesCount;}
+unsigned int World::getTerritoriesCount() const {
+    return territoriesCount;
+}
 
 void World::addContinents(Continent** conts) {
     unsigned int terrsCount = 0;
@@ -167,12 +238,12 @@ void World::DFS() {
     ++stackPosition;
     while (keepGoing) {
         keepGoing = false;
-        
+
         //pop the stack
         (stackPosition == 0) ? : --stackPosition;
         idToVisit = stack[stackPosition];
         stack[stackPosition] = 0;
-        
+
         //visit the node
         positionInArray = findPositionInArrayById(idToVisit);
         if (positionInArray >= territoriesCount) {
@@ -180,13 +251,13 @@ void World::DFS() {
             break;
         }
         visited[positionInArray] = true;
-        
+
         //add adjacent territories to stack if they aren't visited
         for (unsigned int n = 0; n < territories[positionInArray].adjacentCount; ++n) {
             adjacentId = territories[positionInArray].adjacentTerritories[n]->getId();
             adjacentPositionInArray = findPositionInArrayById(adjacentId);
             if (!visited[adjacentPositionInArray]) {
-                
+
                 //push to stack
                 stack[stackPosition] = adjacentId;
                 ++stackPosition;
@@ -197,7 +268,7 @@ void World::DFS() {
                 //to the stack another time.
             }
         }
-        
+
         //check if stack is empty        
         for (unsigned int n = 0; n < territoriesCount; ++n) {
             if (stack[n] > 0) {
@@ -229,9 +300,13 @@ unsigned int World::findPositionInArrayById(unsigned int id) {
     return n;
 }
 
-World::Node* World::getTerritories() const {return territories;}
+World::Node* World::getTerritories() const {
+    return territories;
+}
 
-Continent** World::getContinents() const {return continents;}
+Continent** World::getContinents() const {
+    return continents;
+}
 
 /**
  * 
@@ -262,6 +337,9 @@ bool World::setTerritoryOwner(string territoryName, Player* owner) {
     if (checkSearchResult(arrayPosition)) {
         territories[arrayPosition].territory->setOwner(owner);
         notify();
+        for (int n = 0; n < continentsCount; ++n) {
+            continents[n]->checkIfSingleOwner();
+        }
         result = true;
     }
     return result;
@@ -278,6 +356,9 @@ bool World::setTerritoryOwner(unsigned int arrayPosition, Player* owner) {
     if (checkSearchResult(arrayPosition)) {
         territories[arrayPosition].territory->setOwner(owner);
         notify();
+        for (int n = 0; n < continentsCount; ++n) {
+            continents[n]->checkIfSingleOwner();
+        }
         result = true;
     }
     return result;

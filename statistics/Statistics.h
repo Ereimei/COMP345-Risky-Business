@@ -74,5 +74,18 @@ private:
     static unsigned int GRAPH_MULTIPLIER;
 };
 
+class ContinentControl : public Observer {
+public:
+    ContinentControl(Continent** c, unsigned int cCount);
+    virtual ~ContinentControl();
+    void update();
+private:
+    Continent** continentSubjects;
+    const unsigned int continentCount;
+    static const string CONTINENT_START;
+    static const string NOT_OWNED;
+    static const string OWNED;
+};
+
 #endif /* STATISTICS_H */
 

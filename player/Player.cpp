@@ -101,31 +101,8 @@ int Player::numArmies() {
     numContinents = world->getContinentsCount();
     cout << "Continent Army Bonus" << endl;
     cout << "------------------" << endl;
-    for (int i = 0; i < numContinents; i++){
-        //Assume player owns the continent
-        ownsCont = true;
-        ownsTerr = false;
-        numTerrInCont = world->getContinents()[i]->getTerritoriesCount();
-        
-        //Checking for every territory in the continent if the player has control over it
-        
-        for (int j = 0; j < numTerrInCont; j++){
-            for (int k = 0; k < numCountries; k++){
-                if (world->getContinents()[i]->getTerritories()[j]->getName() == this->getTerritories()->at(k)->getName()){
-                    ownsTerr = true;
-                    break;
-                }
-            }
-            //If player doesn't own a territory in a continent, he doesn't own the continent
-            if (!ownsTerr){
-                ownsCont = false;
-                //Skipping other territory checking
-                break;
-            }
-        }
-        
-        //If player owns the continent
-        if (ownsCont){
+    for (int i = 0; i < numContinents; i++) {
+        if (playerNum == world->getContinents()[i]->getOwnerPlayerNumber()){
             cout << "Player owns continent: " << world->getContinents()[i]->getName() << " adding army bonus of " << world->getContinents()[i]->getArmyBonus() << endl;
             numReinf += world->getContinents()[i]->getArmyBonus();
             cout << "Reinforcements amount = " << numReinf << endl << endl;

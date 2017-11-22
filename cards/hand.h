@@ -1,12 +1,4 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-#include "card.h"
-
-/*
 
 File: hand.h
  *** AUTHORS ***
@@ -23,6 +15,8 @@ Created on September 25, 2017, 9:49 PM */
 
 #ifndef HAND_H
 #define HAND_H
+
+#include "card.h"
 #include <vector>
 
 
