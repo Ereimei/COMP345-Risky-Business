@@ -31,6 +31,7 @@ int Hand::counterArmy = 1;
 void Hand::insert(Card card)
 {
     playerHand.insert(playerHand.begin(), card);
+    notify();
 }
 
 void Hand::display()
@@ -164,6 +165,7 @@ int Hand::exchange(){
                 }
     
     if (exchanged == true){
+        notify();
         return exchangeArmy();
     }else{
         return 0;

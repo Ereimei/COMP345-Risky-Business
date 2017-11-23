@@ -17,10 +17,11 @@ Created on September 25, 2017, 9:49 PM */
 #define HAND_H
 
 #include "card.h"
+#include "../interfaces/interfaces.h"
 #include <vector>
 
 
-class Hand{
+class Hand : public Subject {
 private:
     static int counterArmy;
     int army = 4;

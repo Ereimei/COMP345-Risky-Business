@@ -19,6 +19,7 @@
 #include "../map/map.h"
 #include "../player/Player.h"
 #include "../dice/Diepool.h"
+#include "../cards/hand.h"
 #include "../mainGame/mainGame.h"
 
 #include <iostream>
@@ -85,6 +86,16 @@ private:
     static const string CONTINENT_START;
     static const string NOT_OWNED;
     static const string OWNED;
+};
+
+class HandDecorator : public ObserverDecorator {
+public:
+    HandDecorator(Observer* o, Hand** h, unsigned int hCount);
+    virtual ~HandDecorator();
+    void update();
+private:
+    Hand** handSubjects;
+    unsigned int handCount;
 };
 
 #endif /* STATISTICS_H */

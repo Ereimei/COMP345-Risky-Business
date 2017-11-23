@@ -115,11 +115,11 @@ int Player::numArmies() {
 
     }
     
-    //Display player's hand
-    cout << endl << "Player's hand" << endl;
-    cout << "--------------" << endl;
-    this->getHand()->display();
-    cout << endl;
+    //Display player's hand, commented out because there is now an observer for this
+//    cout << endl << "Player's hand" << endl;
+//    cout << "--------------" << endl;
+//    this->getHand()->display();
+//    cout << endl;
     //If player has enough cards to exchange but not more than 5 cards, give them the choice to exchange
     if (2 < this->getHand()->getCards().size() && this->getHand()->getCards().size() < 6) {
         cout << "Do you want to try to exchange your cards for additional reinforcements? (y/n)" << endl;

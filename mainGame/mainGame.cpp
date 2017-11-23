@@ -31,11 +31,10 @@ const string MainGame::DECORATOR_OPTIONS = "Please choose from the following opt
 const string MainGame::BAD_INPUT = "Bad input, ignoring...";
 
 MainGame::MainGame() : turn(1),
-    decoratorsCount(0),
     askUser(true),
     world(NULL),
-    playerSize(0),
-    lastDecoratorAdded(0) {
+    playerSize(0) {
+    decoratorsAdded = new vector<unsigned int>;
     decorators = new bool[totalDecoratorsCount];
     for (int n = 0; n < totalDecoratorsCount; ++n) {
         decorators[n] = false;
@@ -53,7 +52,8 @@ MainGame::~MainGame() {
 void MainGame::loopGame(GameStarter* gameSt, Startup* startup) {
     gameStatistics = new GameStatistics(this);
     world = gameSt->getWorld();
-    playerSize = startup->getSetOfPlayer().size();
+    players = startup->getSetOfPlayer();
+    playerSize = players.size();
     
     // go through all the continents at the beginning and see if any one player owns a single continent
     for (int n = 0; n < world->getContinentsCount(); ++n) {
@@ -64,14 +64,14 @@ void MainGame::loopGame(GameStarter* gameSt, Startup* startup) {
         notify();
         chooseDecorators();
         for(int i = 0; i < playerSize; i++) {
-            cout <<"player #" << startup->getSetOfPlayer().at(i)->getPlayerNum() <<"'s turn:"<< endl;
-            currentPlayer = startup->getSetOfPlayer().at(i);
-            currentPlayerNum = startup->getSetOfPlayer().at(i)->getPlayerNum();
+            cout <<"player #" << players.at(i)->getPlayerNum() <<"'s turn:"<< endl;
+            currentPlayer = players.at(i);
+            currentPlayerNum = players.at(i)->getPlayerNum();
             currentPhase = "turn starts";
             currentPhase = "reinforcement";
             currentPlayer->reinforce();            
             currentPhase = "attack";
-            currentPlayer->attack(startup->getSetOfPlayer());            
+            currentPlayer->attack(players);            
             currentPhase = "fortification";
             currentPlayer->fortify();
         }
@@ -172,7 +172,7 @@ void MainGame::chooseDecorators() {
     unsigned int input;
     if (askUser) {
         cout << DECORATOR_OPTIONS << endl;
-        if (decoratorsCount > 0) {
+        if (decoratorsAdded->size() > 0) {
             cout << REMOVE_DECORATOR << endl;
         }
         if (!decorators[0]) {
@@ -194,6 +194,7 @@ void MainGame::chooseDecorators() {
                 addPlayerDecorator();
                 break;
             case 2:
+                addHandDecorator();
                 break;
             case 3:
                 addContinentDecorator();
@@ -212,8 +213,20 @@ void MainGame::addPlayerDecorator() {
     if (!decorators[0]) {
         gameStatistics = new PlayerDomination(gameStatistics, world, playerSize);
         decorators[0] = true;
-        lastDecoratorAdded = 0;
-        ++decoratorsCount;
+        decoratorsAdded->push_back(0);
+    }
+}
+
+void MainGame::addHandDecorator() {
+    if (!decorators[1]) {
+        Hand** hands = new Hand*[playerSize];
+        for (int n = 0; n < playerSize; ++n) {
+            hands[n] = players.at(n)->getHand();
+        }
+        gameStatistics = new HandDecorator(gameStatistics, hands, playerSize);
+        decorators[1] = true;
+        decoratorsAdded->push_back(1);
+        delete[] hands;
     }
 }
 
@@ -221,20 +234,19 @@ void MainGame::addContinentDecorator() {
     if (!decorators[2]) {
         gameStatistics = new ContinentControl(gameStatistics, world->getContinents(), world->getContinentsCount());
         decorators[2] = true;
-        lastDecoratorAdded = 2;
-        ++decoratorsCount;
+        decoratorsAdded->push_back(2);
     }
 }
 
 void MainGame::removeDecorator() {
-    if (decoratorsCount > 0) {
+    if (decoratorsAdded->size() > 0) {
         ObserverDecorator* decoratedObserver = dynamic_cast<ObserverDecorator*>(gameStatistics);
         if (decoratedObserver) {
             Observer* temp = decoratedObserver->getDecoratedObserver();
             delete gameStatistics;
             gameStatistics = temp;
-            decorators[lastDecoratorAdded] = false;
-            --decoratorsCount;
+            decorators[decoratorsAdded->back()] = false;
+            decoratorsAdded->pop_back();
         }
     }
 }
