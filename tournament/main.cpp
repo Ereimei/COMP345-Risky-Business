@@ -21,7 +21,7 @@
 #include "../phaseObserver/phaseObserver.h"
 #include "../strategy/Strategy.h"
 #include "../strategy/AggressiveStrategy.h"
-
+#include "../interfaces/interfaces.h"
 #include "tournament.h"
 
 using namespace std;
@@ -78,19 +78,19 @@ int main(int argc, char** argv) {
     //stash selected maps   
     for (int i = 0; i < sizeof (mapSelection); i++) {
         if (mapSelection[i] == 1) {
-            mapNames[i] = "World";
+            mapNames[i] = "World.map";
         }
         if (mapSelection[i] == 2) {
-            mapNames[i] = "Antarctica";
+            mapNames[i] = "Antarctica.map";
         }
         if (mapSelection[i] == 3) {
-            mapNames[i] = "Canada";
+            mapNames[i] = "Canada.map";
         }
         if (mapSelection[i] == 4) {
-            mapNames[i] = "India";
+            mapNames[i] = "India.map";
         }
         if (mapSelection[i] == 5) {
-            mapNames[i] = "Europe";
+            mapNames[i] = "Europe.map";
         }
     }//end of stashing selected maps
 

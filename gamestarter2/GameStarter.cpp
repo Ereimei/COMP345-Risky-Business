@@ -48,6 +48,7 @@ void GameStarter::startGame() {
     createDeck();
     createPlayers();
 }
+
 /**
  * Control method for starting the game
  * It calls helper methods to get
@@ -59,6 +60,7 @@ void GameStarter::startGame(int playerNum, int p1[], string mapName) {
     createDeck();
     createPlayers(p1);
 }
+
 /**
  * Choose how many players and validate
  */
@@ -143,14 +145,12 @@ void GameStarter::createPlayers(int p1[]) {
         diepool = new Diepool();
         territories = new vector<Territory*>;
         if (strategyType == 1) {
-            strategy = new PlayerStrategy();
-        } else if (strategyType == 2) {
             strategy = new AggressiveStrategy();
-        } else if (strategyType == 3) {
+        } else if (strategyType == 2) {
             strategy = new BenevolentStrategy();
-        } else if (strategyType == 4) {
+        } else if (strategyType == 3) {
             strategy = new RandomStrategy();
-        } else if (strategyType == 5) {
+        } else if (strategyType == 4) {
             strategy = new cheaterStrategy();
         }
         players[n] = new Player(territories, hand, diepool, strategy, world);

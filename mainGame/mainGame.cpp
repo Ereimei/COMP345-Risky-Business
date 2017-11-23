@@ -93,7 +93,8 @@ void MainGame::loopGame(GameStarter* gameSt, Startup* startup) {
 int MainGame::loopGame(GameStarter* gameSt, Startup* startup, int maxTurns) {
     gameStatistics = new GameStatistics(this);
     world = gameSt->getWorld();
-    playerSize = startup->getSetOfPlayer().size();
+    players = startup->getSetOfPlayer();
+    playerSize = players.size();
     
     // go through all the continents at the beginning and see if any one player owns a single continent
     for (int n = 0; n < world->getContinentsCount(); ++n) {
