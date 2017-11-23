@@ -35,6 +35,25 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/_ext/81a96254/card.o \
+	${OBJECTDIR}/_ext/81a96254/deck.o \
+	${OBJECTDIR}/_ext/81a96254/hand.o \
+	${OBJECTDIR}/_ext/d2a2ee96/Diepool.o \
+	${OBJECTDIR}/_ext/d9388f64/GameStarter.o \
+	${OBJECTDIR}/_ext/de5414ba/mainGame.o \
+	${OBJECTDIR}/_ext/511e288d/map.o \
+	${OBJECTDIR}/_ext/5d43fae0/Maploader.o \
+	${OBJECTDIR}/_ext/8263846c/phase.o \
+	${OBJECTDIR}/_ext/5e200f62/phaseObserver.o \
+	${OBJECTDIR}/_ext/ca457e10/Player.o \
+	${OBJECTDIR}/_ext/2ac0c52e/startup.o \
+	${OBJECTDIR}/_ext/8dd064d2/Statistics.o \
+	${OBJECTDIR}/_ext/496a76e2/AggressiveStrategy.o \
+	${OBJECTDIR}/_ext/496a76e2/BenevolentStrategy.o \
+	${OBJECTDIR}/_ext/496a76e2/PlayerStrategy.o \
+	${OBJECTDIR}/_ext/496a76e2/RandomStrategy.o \
+	${OBJECTDIR}/_ext/496a76e2/Strategy.o \
+	${OBJECTDIR}/_ext/496a76e2/cheaterStrategy.o \
 	${OBJECTDIR}/main.o
 
 
@@ -61,6 +80,101 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tournament.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tournament ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/_ext/81a96254/card.o: ../cards/card.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/81a96254
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/81a96254/card.o ../cards/card.cpp
+
+${OBJECTDIR}/_ext/81a96254/deck.o: ../cards/deck.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/81a96254
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/81a96254/deck.o ../cards/deck.cpp
+
+${OBJECTDIR}/_ext/81a96254/hand.o: ../cards/hand.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/81a96254
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/81a96254/hand.o ../cards/hand.cpp
+
+${OBJECTDIR}/_ext/d2a2ee96/Diepool.o: ../dice/Diepool.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/d2a2ee96
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/d2a2ee96/Diepool.o ../dice/Diepool.cpp
+
+${OBJECTDIR}/_ext/d9388f64/GameStarter.o: ../gamestarter2/GameStarter.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/d9388f64
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/d9388f64/GameStarter.o ../gamestarter2/GameStarter.cpp
+
+${OBJECTDIR}/_ext/de5414ba/mainGame.o: ../mainGame/mainGame.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/de5414ba
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/de5414ba/mainGame.o ../mainGame/mainGame.cpp
+
+${OBJECTDIR}/_ext/511e288d/map.o: ../map/map.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/511e288d
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/511e288d/map.o ../map/map.cpp
+
+${OBJECTDIR}/_ext/5d43fae0/Maploader.o: ../maploader/Maploader.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/5d43fae0
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/5d43fae0/Maploader.o ../maploader/Maploader.cpp
+
+${OBJECTDIR}/_ext/8263846c/phase.o: ../phase/phase.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/8263846c
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/8263846c/phase.o ../phase/phase.cpp
+
+${OBJECTDIR}/_ext/5e200f62/phaseObserver.o: ../phaseObserver/phaseObserver.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/5e200f62
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/5e200f62/phaseObserver.o ../phaseObserver/phaseObserver.cpp
+
+${OBJECTDIR}/_ext/ca457e10/Player.o: ../player/Player.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/ca457e10
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/ca457e10/Player.o ../player/Player.cpp
+
+${OBJECTDIR}/_ext/2ac0c52e/startup.o: ../startup/startup.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/2ac0c52e
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/2ac0c52e/startup.o ../startup/startup.cpp
+
+${OBJECTDIR}/_ext/8dd064d2/Statistics.o: ../statistics/Statistics.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/8dd064d2
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/8dd064d2/Statistics.o ../statistics/Statistics.cpp
+
+${OBJECTDIR}/_ext/496a76e2/AggressiveStrategy.o: ../strategy/AggressiveStrategy.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/496a76e2
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/496a76e2/AggressiveStrategy.o ../strategy/AggressiveStrategy.cpp
+
+${OBJECTDIR}/_ext/496a76e2/BenevolentStrategy.o: ../strategy/BenevolentStrategy.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/496a76e2
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/496a76e2/BenevolentStrategy.o ../strategy/BenevolentStrategy.cpp
+
+${OBJECTDIR}/_ext/496a76e2/PlayerStrategy.o: ../strategy/PlayerStrategy.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/496a76e2
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/496a76e2/PlayerStrategy.o ../strategy/PlayerStrategy.cpp
+
+${OBJECTDIR}/_ext/496a76e2/RandomStrategy.o: ../strategy/RandomStrategy.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/496a76e2
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/496a76e2/RandomStrategy.o ../strategy/RandomStrategy.cpp
+
+${OBJECTDIR}/_ext/496a76e2/Strategy.o: ../strategy/Strategy.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/496a76e2
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/496a76e2/Strategy.o ../strategy/Strategy.cpp
+
+${OBJECTDIR}/_ext/496a76e2/cheaterStrategy.o: ../strategy/cheaterStrategy.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/496a76e2
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/496a76e2/cheaterStrategy.o ../strategy/cheaterStrategy.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}

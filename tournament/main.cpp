@@ -19,6 +19,9 @@
 #include "../startup/startup.h"
 #include "../mainGame/mainGame.h"
 #include "../phaseObserver/phaseObserver.h"
+#include "../strategy/Strategy.h"
+#include "../strategy/AggressiveStrategy.h"
+
 #include "tournament.h"
 
 using namespace std;
