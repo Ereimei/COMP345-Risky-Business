@@ -46,16 +46,23 @@ public:
     GameStarter(const GameStarter& orig);
     virtual ~GameStarter();
     void startGame();
+    void startGame(int playerNum, int p1[], string mapName);
     unsigned int getNumPlayers() const;
     World* getWorld() const;
     Deck* getDeck() const;
     Player** getPlayers() const;
 private:
     void assignNumOfPlayers();
+    void assignNumOfPlayers(int playerNum);
     void createPlayers();
+    void createPlayers(int p1[]);
     void chooseAndCreateWorld();
+    void chooseAndCreateWorld(string mapName);
     void createDeck();
     void createStatistics();
+
+    
+    
     World* world;
     Deck* deck;
     Player** players;

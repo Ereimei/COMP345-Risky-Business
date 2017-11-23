@@ -86,6 +86,47 @@ void MainGame::loopGame(GameStarter* gameSt, Startup* startup) {
     cout << "Congratulation on owning all the territories. " << endl;
     cout << "Game over." << endl;
 }
+/*
+ * function will loop the main game in the following sequence; reinforcement, attack and fortification
+ * for test purpose, the loop will use force end on the 3rd round
+ */
+void MainGame::loopGame(GameStarter* gameSt, Startup* startup, int maxTurns) {
+    gameStatistics = new GameStatistics(this);
+    world = gameSt->getWorld();
+    playerSize = startup->getSetOfPlayer().size();
+    
+    // go through all the continents at the beginning and see if any one player owns a single continent
+    for (int n = 0; n < world->getContinentsCount(); ++n) {
+        world->getContinents()[n]->checkIfSingleOwner();
+    }
+    
+    while (!playerOwnsAll(gameSt)){
+        notify();
+        chooseDecorators();
+        for(int i = 0; i < playerSize; i++) {
+            cout <<"player #" << startup->getSetOfPlayer().at(i)->getPlayerNum() <<"'s turn:"<< endl;
+            currentPlayer = startup->getSetOfPlayer().at(i);
+            currentPlayerNum = startup->getSetOfPlayer().at(i)->getPlayerNum();
+            currentPhase = "turn starts";
+            currentPhase = "reinforcement";
+            currentPlayer->reinforce();            
+            currentPhase = "attack";
+            currentPlayer->attack(startup->getSetOfPlayer());            
+            currentPhase = "fortification";
+            currentPlayer->fortify();
+        }
+        ++turn;
+        
+        //force game to end 
+        if(turn == maxTurns){
+            forceEnd(gameSt, startup);
+        }
+    }
+    
+    cout << "Congratulation on owning all the territories. " << endl;
+    cout << "Game over." << endl;
+    return gameSt->getWorld()->getTerritories()[0].territory->getOwner()->getPlayerNum();
+}
 
 /* 
  * playerOwnsAll function will check if a player owns all the territories

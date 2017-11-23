@@ -52,6 +52,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/AggressiveStrategy.o \
 	${OBJECTDIR}/BenevolentStrategy.o \
 	${OBJECTDIR}/PlayerStrategy.o \
+	${OBJECTDIR}/RandomStrategy.o \
 	${OBJECTDIR}/Strategy.o \
 	${OBJECTDIR}/cheaterStrategy.o \
 	${OBJECTDIR}/main.o
@@ -165,6 +166,11 @@ ${OBJECTDIR}/PlayerStrategy.o: PlayerStrategy.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PlayerStrategy.o PlayerStrategy.cpp
+
+${OBJECTDIR}/RandomStrategy.o: RandomStrategy.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/RandomStrategy.o RandomStrategy.cpp
 
 ${OBJECTDIR}/Strategy.o: Strategy.cpp
 	${MKDIR} -p ${OBJECTDIR}
