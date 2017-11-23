@@ -153,7 +153,7 @@ int main(int argc, char** argv) {
             winner[i][j] = 0;
         }
     }
-
+    //run all the games per map and store winning player number in winner array
     for (int i = 0; i < numMaps; i++) {
         for (int j = 0; j < numGames; j++) {
 
@@ -171,6 +171,8 @@ int main(int argc, char** argv) {
         }
     }
     string win;
+    //cycle through winner array and store winning strategy, or draw, in win var
+    //print out the winner of each game for each map
     for (int i = 0; i < numMaps; i++) {
         for (int j = 0; j < numGames; j++) {
 
