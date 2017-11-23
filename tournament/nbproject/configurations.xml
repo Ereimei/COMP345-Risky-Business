@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>tournament.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -23,7 +24,45 @@
                    displayName="Important Files"
                    projectFiles="false"
                    kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>../strategy/AggressiveStrategy.cpp</itemPath>
+      <itemPath>../strategy/AggressiveStrategy.h</itemPath>
+      <itemPath>../strategy/BenevolentStrategy.cpp</itemPath>
+      <itemPath>../strategy/BenevolentStrategy.h</itemPath>
+      <itemPath>../dice/Diepool.cpp</itemPath>
+      <itemPath>../dice/Diepool.h</itemPath>
+      <itemPath>../gamestarter2/GameStarter.cpp</itemPath>
+      <itemPath>../gamestarter2/GameStarter.h</itemPath>
       <itemPath>Makefile</itemPath>
+      <itemPath>../maploader/Maploader.cpp</itemPath>
+      <itemPath>../maploader/Maploader.h</itemPath>
+      <itemPath>../player/Player.cpp</itemPath>
+      <itemPath>../player/Player.h</itemPath>
+      <itemPath>../strategy/PlayerStrategy.cpp</itemPath>
+      <itemPath>../strategy/PlayerStrategy.h</itemPath>
+      <itemPath>../strategy/RandomStrategy.cpp</itemPath>
+      <itemPath>../strategy/RandomStrategy.h</itemPath>
+      <itemPath>../statistics/Statistics.cpp</itemPath>
+      <itemPath>../statistics/Statistics.h</itemPath>
+      <itemPath>../strategy/Strategy.cpp</itemPath>
+      <itemPath>../strategy/Strategy.h</itemPath>
+      <itemPath>../cards/card.cpp</itemPath>
+      <itemPath>../cards/card.h</itemPath>
+      <itemPath>../strategy/cheaterStrategy.cpp</itemPath>
+      <itemPath>../strategy/cheaterStrategy.h</itemPath>
+      <itemPath>../cards/deck.cpp</itemPath>
+      <itemPath>../cards/deck.h</itemPath>
+      <itemPath>../cards/hand.cpp</itemPath>
+      <itemPath>../cards/hand.h</itemPath>
+      <itemPath>../interfaces/interfaces.cpp</itemPath>
+      <itemPath>../interfaces/interfaces.h</itemPath>
+      <itemPath>../map/map.cpp</itemPath>
+      <itemPath>../map/map.h</itemPath>
+      <itemPath>../phase/phase.cpp</itemPath>
+      <itemPath>../phase/phase.h</itemPath>
+      <itemPath>../phaseObserver/phaseObserver.cpp</itemPath>
+      <itemPath>../phaseObserver/phaseObserver.h</itemPath>
+      <itemPath>../startup/startup.cpp</itemPath>
+      <itemPath>../startup/startup.h</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
@@ -36,10 +75,12 @@
       </toolsSet>
       <compileType>
         <ccTool>
-          <standard>8</standard>
+          <standard>11</standard>
         </ccTool>
       </compileType>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tournament.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -63,6 +104,8 @@
         </asmTool>
       </compileType>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tournament.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

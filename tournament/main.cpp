@@ -14,10 +14,12 @@
 #include <cstdlib>
 #include <string>
 #include <iostream>
+#include <vector>
 #include "../gamestarter2/GameStarter.h"
 #include "../startup/startup.h"
 #include "../mainGame/mainGame.h"
 #include "../phaseObserver/phaseObserver.h"
+#include "tournament.h"
 
 using namespace std;
 
@@ -44,11 +46,11 @@ int main(int argc, char** argv) {
     // select the maps
     for (int i = 0; i < numMaps; i++) {
         cout << "Select map" << (i + 1) << "by typing appropriate number (please no repeat maps)" << endl;
-        cout << "1 Option1" << endl;
-        cout << "2 Option2" << endl;
-        cout << "3 Option1" << endl;
-        cout << "4 Option1" << endl;
-        cout << "5 Option1" << endl;
+        cout << "1 World" << endl;
+        cout << "2 Antarctica" << endl;
+        cout << "3 Canada" << endl;
+        cout << "4 India" << endl;
+        cout << "5 Europe" << endl;
         cin >> select;
         while (select < 1 || select > 5) {
             cout << "Please enter a number between 1 and 5" << endl;
@@ -73,19 +75,19 @@ int main(int argc, char** argv) {
     //stash selected maps   
     for (int i = 0; i < sizeof (mapSelection); i++) {
         if (mapSelection[i] == 1) {
-            mapNames[i] = "option1";
+            mapNames[i] = "World";
         }
         if (mapSelection[i] == 2) {
-            mapNames[i] = "option1";
+            mapNames[i] = "Antarctica";
         }
         if (mapSelection[i] == 3) {
-            mapNames[i] = "option1";
+            mapNames[i] = "Canada";
         }
         if (mapSelection[i] == 4) {
-            mapNames[i] = "option1";
+            mapNames[i] = "India";
         }
         if (mapSelection[i] == 5) {
-            mapNames[i] = "option1";
+            mapNames[i] = "Europe";
         }
     }//end of stashing selected maps
 
@@ -142,26 +144,52 @@ int main(int argc, char** argv) {
         cin >> numGames;
     }
     //initialize winner array
-    string winner[numMaps-1][numGames-1];
-    for(int i = 0; i < numMaps; i++){
-        for(int j = 0; j < numGames; j++){
+    int winner[numMaps - 1][numGames - 1];
+    for (int i = 0; i < numMaps; i++) {
+        for (int j = 0; j < numGames; j++) {
             winner[i][j] = 0;
         }
     }
-    
-    GameStarter* gs = new GameStarter();
-    gs->startGame();
-    
-    Startup* su = new Startup(gs->getPlayers(),gs->getNumPlayers());
-    su->displayPlayerOrder();
-    su->assignTerritory(su->getAllTerritories(gs->getWorld()));
-    su->placeArmies(su->assignArmies());
-    cout << "start up finished" << endl;
-    cout << "===========================" << endl;
-    MainGame* main = new MainGame();
-    cin.ignore(1, EOF);
-    main->loopGame(gs, su);
 
+    for (int i = 0; i < numMaps; i++) {
+        for (int j = 0; j < numGames; j++) {
+
+            GameStarter* gs = new GameStarter();
+            gs->startGame(numPlayers, playerStrat, mapNames[i]);
+            Startup* su = new Startup(gs->getPlayers(), gs->getNumPlayers());
+            su->displayPlayerOrder();
+            su->assignTerritory(su->getAllTerritories(gs->getWorld()));
+            su->placeArmies(su->assignArmies());
+            cout << "start up finished" << endl;
+            cout << "===========================" << endl;
+            MainGame* main = new MainGame();
+            winner[i][j] = main->loopGame(gs, su, maxTurns);
+
+        }
+    }
+    string win;
+    for (int i = 0; i < numMaps; i++) {
+        for (int j = 0; j < numGames; j++) {
+
+            if (winner[i][j] == 5) {
+                win = "Draw";
+            } else {
+                if (playerStrat[winner[i][j]] == 0) {
+                    win = "Aggressive";
+                }
+                if (playerStrat[winner[i][j] - 1] == 1) {
+                    win = "Benevolent";
+                }
+                if (playerStrat[winner[i][j] - 1] == 2) {
+                    win = "Random";
+                }
+                if (playerStrat[winner[i][j] - 1] == 3) {
+                    win = "Cheater";
+                }
+            }
+            cout << "Map: " << mapNames[i] << " Game: " << j << "Winner: " << win << endl;
+        }
+    }
 
     return 0;
 }

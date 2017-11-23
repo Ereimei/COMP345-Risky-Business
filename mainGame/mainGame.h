@@ -67,7 +67,7 @@ public:
 
     //loop the game until a player own all the territories
     void loopGame(GameStarter* gameSt, Startup* startup);
-    void loopGame(GameStarter* gameSt, Startup* startup, int maxTurns);
+    int loopGame(GameStarter* gameSt, Startup* startup, int maxTurns);
     //check if a player own all the territories
     bool playerOwnsAll(GameStarter* gameSt);
     

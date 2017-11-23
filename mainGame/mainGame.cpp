@@ -90,7 +90,7 @@ void MainGame::loopGame(GameStarter* gameSt, Startup* startup) {
  * function will loop the main game in the following sequence; reinforcement, attack and fortification
  * for test purpose, the loop will use force end on the 3rd round
  */
-void MainGame::loopGame(GameStarter* gameSt, Startup* startup, int maxTurns) {
+int MainGame::loopGame(GameStarter* gameSt, Startup* startup, int maxTurns) {
     gameStatistics = new GameStatistics(this);
     world = gameSt->getWorld();
     playerSize = startup->getSetOfPlayer().size();
@@ -119,6 +119,7 @@ void MainGame::loopGame(GameStarter* gameSt, Startup* startup, int maxTurns) {
         
         //force game to end 
         if(turn == maxTurns){
+            return 5;
             forceEnd(gameSt, startup);
         }
     }
