@@ -49,13 +49,14 @@ private:
     Observer* gameStatistics;
     bool* decorators;
     bool askUser;
-    unsigned int decoratorsCount;
     unsigned int playerSize;
-    unsigned int lastDecoratorAdded;
+    vector<unsigned int>* decoratorsAdded;
     World* world;
+    vector<Player*> players;
     void chooseDecorators();
     void addPlayerDecorator();
     void addContinentDecorator();
+    void addHandDecorator();
     void removeDecorator();
     
 public:

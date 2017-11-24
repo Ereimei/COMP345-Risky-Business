@@ -160,3 +160,24 @@ void ContinentControl::update() {
         }
     }
 }
+
+HandDecorator::HandDecorator(Observer* o, Hand** h, unsigned int hCount) :
+    ObserverDecorator::ObserverDecorator(o),
+    handCount(hCount) {
+    handSubjects = h;
+    for (int n = 0; n < handCount; ++n) {
+        handSubjects[n]->attach(this);
+    }
+}
+
+HandDecorator::~HandDecorator() {
+    for (int n = 0; n < handCount; ++n) {
+        handSubjects[n]->detach(this);
+    }
+}
+
+void HandDecorator::update() {
+    for (int n = 0; n < handCount; ++n) {
+        handSubjects[n]->display();
+    }
+}
