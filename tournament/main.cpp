@@ -140,7 +140,7 @@ int main(int argc, char** argv) {
         cout << "Please enter a number between 10 and 50" << endl;
         cin >> maxTurns;
     }
-    cout << "Set number of games per map" << endl;
+    cout << "Set number of games per map (between 1 and 5)" << endl;
     cin >> numGames;
     while (numGames < 1 || numGames > 5) {
         cout << "Please enter a number between 1 and 5" << endl;
