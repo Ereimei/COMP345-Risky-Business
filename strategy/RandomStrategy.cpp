@@ -185,11 +185,14 @@ void RandomStrategy:: fortify(World* world, Player* player){
     Territory* randomTerritoryTo = player->getTerritories()->at(randomIndexTo);
     
     int transferArmy = randomTerritoryFrom->getArmies() - 1;
-    randomTerritoryFrom->setArmies(1);
-    randomTerritoryTo->setArmies(transferArmy);
     
-     
-     cout << "Transferring " << transferArmy << " armies from " << randomTerritoryFrom->getName() << " to " << randomTerritoryTo->getName() << endl;
-     
+    //ensure that random territory has enough army to transfer
+    if(transferArmy > 0 ){
+        randomTerritoryFrom->setArmies(1);
+        randomTerritoryTo->setArmies(transferArmy);     
+        cout << "Transferring " << transferArmy << " armies from " << randomTerritoryFrom->getName() << " to " << randomTerritoryTo->getName() << endl;
+    }else{
+        cout << randomTerritoryFrom->getName() << " does not have enough army to transfer. " << endl;
+    }
 }
         
