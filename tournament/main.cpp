@@ -179,20 +179,20 @@ int main(int argc, char** argv) {
             if (winner[i][j] == 5) {
                 win = "Draw";
             } else {
-                if (playerStrat[winner[i][j]] == 0) {
+                if (playerStrat[winner[i][j]] % numPlayers == 0) {
                     win = "Aggressive";
                 }
-                if (playerStrat[winner[i][j] - 1] == 1) {
+                if (playerStrat[winner[i][j] - 1] % numPlayers == 1) {
                     win = "Benevolent";
                 }
-                if (playerStrat[winner[i][j] - 1] == 2) {
+                if (playerStrat[winner[i][j] - 1] % numPlayers == 2) {
                     win = "Random";
                 }
-                if (playerStrat[winner[i][j] - 1] == 3) {
+                if (playerStrat[winner[i][j] - 1] % numPlayers == 3) {
                     win = "Cheater";
                 }
             }
-            cout << "Map: " << mapNames[i] << " Game: " << j << "Winner: " << win << endl;
+            cout << "Map: " << mapNames[i] << " Game: " << j+1 << "Winner: " << win << endl;
         }
     }
 
