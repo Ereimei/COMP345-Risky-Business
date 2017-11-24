@@ -4,54 +4,15 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>AggressiveStrategy.h</itemPath>
-      <itemPath>BenevolentStrategy.h</itemPath>
-      <itemPath>PlayerStrategy.h</itemPath>
-      <itemPath>RandomStrategy.h</itemPath>
-      <itemPath>Strategy.h</itemPath>
-      <itemPath>cheaterStrategy.h</itemPath>
+      <itemPath>tournament.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
-      <itemPath>../dice/Diepool.cpp</itemPath>
-      <itemPath>../dice/Diepool.h</itemPath>
-      <itemPath>../gamestarter2/GameStarter.cpp</itemPath>
-      <itemPath>../gamestarter2/GameStarter.h</itemPath>
-      <itemPath>../maploader/Maploader.cpp</itemPath>
-      <itemPath>../maploader/Maploader.h</itemPath>
-      <itemPath>../player/Player.cpp</itemPath>
-      <itemPath>../player/Player.h</itemPath>
-      <itemPath>../statistics/Statistics.cpp</itemPath>
-      <itemPath>../statistics/Statistics.h</itemPath>
-      <itemPath>../cards/card.cpp</itemPath>
-      <itemPath>../cards/card.h</itemPath>
-      <itemPath>../cards/deck.cpp</itemPath>
-      <itemPath>../cards/deck.h</itemPath>
-      <itemPath>../cards/hand.cpp</itemPath>
-      <itemPath>../cards/hand.h</itemPath>
-      <itemPath>../interfaces/interfaces.cpp</itemPath>
-      <itemPath>../interfaces/interfaces.h</itemPath>
-      <itemPath>../mainGame/mainGame.cpp</itemPath>
-      <itemPath>../mainGame/mainGame.h</itemPath>
-      <itemPath>../map/map.cpp</itemPath>
-      <itemPath>../map/map.h</itemPath>
-      <itemPath>../phase/phase.cpp</itemPath>
-      <itemPath>../phase/phase.h</itemPath>
-      <itemPath>../phaseObserver/phaseObserver.cpp</itemPath>
-      <itemPath>../phaseObserver/phaseObserver.h</itemPath>
-      <itemPath>../startup/startup.cpp</itemPath>
-      <itemPath>../startup/startup.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>AggressiveStrategy.cpp</itemPath>
-      <itemPath>BenevolentStrategy.cpp</itemPath>
-      <itemPath>PlayerStrategy.cpp</itemPath>
-      <itemPath>RandomStrategy.cpp</itemPath>
-      <itemPath>Strategy.cpp</itemPath>
-      <itemPath>cheaterStrategy.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -63,8 +24,86 @@
                    displayName="Important Files"
                    projectFiles="false"
                    kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>../strategy/AggressiveStrategy.cpp</itemPath>
+      <itemPath>../strategy/AggressiveStrategy.h</itemPath>
+      <itemPath>../strategy/BenevolentStrategy.cpp</itemPath>
+      <itemPath>../strategy/BenevolentStrategy.h</itemPath>
+      <itemPath>../dice/Diepool.cpp</itemPath>
+      <itemPath>../dice/Diepool.h</itemPath>
+      <itemPath>../gamestarter2/GameStarter.cpp</itemPath>
+      <itemPath>../gamestarter2/GameStarter.h</itemPath>
       <itemPath>Makefile</itemPath>
+      <itemPath>../maploader/Maploader.cpp</itemPath>
+      <itemPath>../maploader/Maploader.h</itemPath>
+      <itemPath>../player/Player.cpp</itemPath>
+      <itemPath>../player/Player.h</itemPath>
+      <itemPath>../strategy/PlayerStrategy.cpp</itemPath>
+      <itemPath>../strategy/PlayerStrategy.h</itemPath>
+      <itemPath>../strategy/RandomStrategy.cpp</itemPath>
+      <itemPath>../strategy/RandomStrategy.h</itemPath>
+      <itemPath>../statistics/Statistics.cpp</itemPath>
+      <itemPath>../statistics/Statistics.h</itemPath>
+      <itemPath>../strategy/Strategy.cpp</itemPath>
+      <itemPath>../strategy/Strategy.h</itemPath>
+      <itemPath>../cards/card.cpp</itemPath>
+      <itemPath>../cards/card.h</itemPath>
+      <itemPath>../strategy/cheaterStrategy.cpp</itemPath>
+      <itemPath>../strategy/cheaterStrategy.h</itemPath>
+      <itemPath>../cards/deck.cpp</itemPath>
+      <itemPath>../cards/deck.h</itemPath>
+      <itemPath>../cards/hand.cpp</itemPath>
+      <itemPath>../cards/hand.h</itemPath>
+      <itemPath>../interfaces/interfaces.cpp</itemPath>
+      <itemPath>../interfaces/interfaces.h</itemPath>
+      <itemPath>../map/map.cpp</itemPath>
+      <itemPath>../map/map.h</itemPath>
+      <itemPath>../phase/phase.cpp</itemPath>
+      <itemPath>../phase/phase.h</itemPath>
+      <itemPath>../phaseObserver/phaseObserver.cpp</itemPath>
+      <itemPath>../phaseObserver/phaseObserver.h</itemPath>
+      <itemPath>../startup/startup.cpp</itemPath>
+      <itemPath>../startup/startup.h</itemPath>
     </logicalFolder>
+    <itemPath>../strategy/AggressiveStrategy.cpp</itemPath>
+    <itemPath>../strategy/AggressiveStrategy.h</itemPath>
+    <itemPath>../strategy/BenevolentStrategy.cpp</itemPath>
+    <itemPath>../strategy/BenevolentStrategy.h</itemPath>
+    <itemPath>../dice/Diepool.cpp</itemPath>
+    <itemPath>../dice/Diepool.h</itemPath>
+    <itemPath>../gamestarter2/GameStarter.cpp</itemPath>
+    <itemPath>../gamestarter2/GameStarter.h</itemPath>
+    <itemPath>../maploader/Maploader.cpp</itemPath>
+    <itemPath>../maploader/Maploader.h</itemPath>
+    <itemPath>../player/Player.cpp</itemPath>
+    <itemPath>../player/Player.h</itemPath>
+    <itemPath>../strategy/PlayerStrategy.cpp</itemPath>
+    <itemPath>../strategy/PlayerStrategy.h</itemPath>
+    <itemPath>../strategy/RandomStrategy.cpp</itemPath>
+    <itemPath>../strategy/RandomStrategy.h</itemPath>
+    <itemPath>../statistics/Statistics.cpp</itemPath>
+    <itemPath>../statistics/Statistics.h</itemPath>
+    <itemPath>../strategy/Strategy.cpp</itemPath>
+    <itemPath>../strategy/Strategy.h</itemPath>
+    <itemPath>../cards/card.cpp</itemPath>
+    <itemPath>../cards/card.h</itemPath>
+    <itemPath>../strategy/cheaterStrategy.cpp</itemPath>
+    <itemPath>../strategy/cheaterStrategy.h</itemPath>
+    <itemPath>../cards/deck.cpp</itemPath>
+    <itemPath>../cards/deck.h</itemPath>
+    <itemPath>../cards/hand.cpp</itemPath>
+    <itemPath>../cards/hand.h</itemPath>
+    <itemPath>../interfaces/interfaces.cpp</itemPath>
+    <itemPath>../interfaces/interfaces.h</itemPath>
+    <itemPath>../mainGame/mainGame.cpp</itemPath>
+    <itemPath>../mainGame/mainGame.h</itemPath>
+    <itemPath>../map/map.cpp</itemPath>
+    <itemPath>../map/map.h</itemPath>
+    <itemPath>../phase/phase.cpp</itemPath>
+    <itemPath>../phase/phase.h</itemPath>
+    <itemPath>../phaseObserver/phaseObserver.cpp</itemPath>
+    <itemPath>../phaseObserver/phaseObserver.h</itemPath>
+    <itemPath>../startup/startup.cpp</itemPath>
+    <itemPath>../startup/startup.h</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -135,31 +174,33 @@
       </item>
       <item path="../statistics/Statistics.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="AggressiveStrategy.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../strategy/AggressiveStrategy.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="AggressiveStrategy.h" ex="false" tool="3" flavor2="0">
+      <item path="../strategy/AggressiveStrategy.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="BenevolentStrategy.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../strategy/BenevolentStrategy.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="BenevolentStrategy.h" ex="false" tool="3" flavor2="0">
+      <item path="../strategy/BenevolentStrategy.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="PlayerStrategy.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../strategy/PlayerStrategy.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="PlayerStrategy.h" ex="false" tool="3" flavor2="0">
+      <item path="../strategy/PlayerStrategy.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="RandomStrategy.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../strategy/RandomStrategy.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="RandomStrategy.h" ex="false" tool="3" flavor2="0">
+      <item path="../strategy/RandomStrategy.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Strategy.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../strategy/Strategy.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Strategy.h" ex="false" tool="3" flavor2="0">
+      <item path="../strategy/Strategy.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="cheaterStrategy.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../strategy/cheaterStrategy.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="cheaterStrategy.h" ex="false" tool="3" flavor2="0">
+      <item path="../strategy/cheaterStrategy.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tournament.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -238,31 +279,33 @@
       </item>
       <item path="../statistics/Statistics.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="AggressiveStrategy.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../strategy/AggressiveStrategy.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="AggressiveStrategy.h" ex="false" tool="3" flavor2="0">
+      <item path="../strategy/AggressiveStrategy.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="BenevolentStrategy.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../strategy/BenevolentStrategy.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="BenevolentStrategy.h" ex="false" tool="3" flavor2="0">
+      <item path="../strategy/BenevolentStrategy.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="PlayerStrategy.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../strategy/PlayerStrategy.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="PlayerStrategy.h" ex="false" tool="3" flavor2="0">
+      <item path="../strategy/PlayerStrategy.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="RandomStrategy.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../strategy/RandomStrategy.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="RandomStrategy.h" ex="false" tool="3" flavor2="0">
+      <item path="../strategy/RandomStrategy.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Strategy.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../strategy/Strategy.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Strategy.h" ex="false" tool="3" flavor2="0">
+      <item path="../strategy/Strategy.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="cheaterStrategy.cpp" ex="false" tool="1" flavor2="0">
+      <item path="../strategy/cheaterStrategy.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="cheaterStrategy.h" ex="false" tool="3" flavor2="0">
+      <item path="../strategy/cheaterStrategy.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tournament.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

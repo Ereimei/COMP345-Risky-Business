@@ -50,6 +50,18 @@ void GameStarter::startGame() {
 }
 
 /**
+ * Control method for starting the game
+ * It calls helper methods to get
+ * everything going
+ */
+void GameStarter::startGame(int playerNum, int p1[], string mapName) {
+    assignNumOfPlayers(playerNum);
+    chooseAndCreateWorld(mapName);
+    createDeck();
+    createPlayers(p1);
+}
+
+/**
  * Choose how many players and validate
  */
 void GameStarter::assignNumOfPlayers() {
@@ -65,6 +77,13 @@ void GameStarter::assignNumOfPlayers() {
             cout << PLAYER_NUM_ERROR << endl;
         }
     }
+}
+
+/**
+ * Sets how many players there are based on input
+ */
+void GameStarter::assignNumOfPlayers(int playerNum) {
+    numPlayers = playerNum;
 }
 
 /**
@@ -84,26 +103,54 @@ void GameStarter::createPlayers() {
         cout << CREATING_PLAYER << n << endl;
         cout << "Please enter a Strategy for player #" << n << " (1 = Player, 2 = Aggressive, 3 = Benevolent, 4 = Random, 5 = Cheater)" << endl;
         cin >> strategyType;
-        while (strategyType < 1 || strategyType > 5){
+        while (strategyType < 1 || strategyType > 5) {
             cout << "Please enter a correct strategy value." << endl;
             cin >> strategyType;
         }
         hand = new Hand();
         diepool = new Diepool();
         territories = new vector<Territory*>;
-        if (strategyType == 1){
+        if (strategyType == 1) {
             strategy = new PlayerStrategy();
-        }
-        else if (strategyType == 2){
+        } else if (strategyType == 2) {
             strategy = new AggressiveStrategy();
-        }
-        else if (strategyType == 3){
+        } else if (strategyType == 3) {
             strategy = new BenevolentStrategy();
-        }
-        else if (strategyType == 4){
+        } else if (strategyType == 4) {
             strategy = new RandomStrategy();
+        } else if (strategyType == 5) {
+            strategy = new cheaterStrategy();
         }
-        else if (strategyType == 5){
+        players[n] = new Player(territories, hand, diepool, strategy, world);
+    }
+}
+
+/**
+ * Actually create players and assign
+ * an empty hands of cards, a vector
+ * of territories, and a die pool
+ * based on the input value
+ */
+void GameStarter::createPlayers(int p1[]) {
+    Hand* hand;
+    vector<Territory*>* territories;
+    Diepool* diepool;
+    Strategy* strategy;
+    int strategyType;
+    cout << INIT_PLAYERS << endl;
+    players = new Player*[numPlayers];
+    for (int n = 0; n < numPlayers; ++n) {
+        strategyType = p1[n];
+        hand = new Hand();
+        diepool = new Diepool();
+        territories = new vector<Territory*>;
+        if (strategyType == 1) {
+            strategy = new AggressiveStrategy();
+        } else if (strategyType == 2) {
+            strategy = new BenevolentStrategy();
+        } else if (strategyType == 3) {
+            strategy = new RandomStrategy();
+        } else if (strategyType == 4) {
             strategy = new cheaterStrategy();
         }
         players[n] = new Player(territories, hand, diepool, strategy, world);
@@ -133,13 +180,24 @@ void GameStarter::chooseAndCreateWorld() {
 }
 
 /**
+ * Load world based on input filename
+ */
+void GameStarter::chooseAndCreateWorld(string filename) {
+    Maploader* maploader;
+    maploader = new Maploader(MAP_DIRECTORY + filename);
+    world = maploader->getWorld();
+    delete maploader;
+
+}
+
+/**
  * Create a deck of cards and shuffle them
  */
 void GameStarter::createDeck() {
     cout << INIT_DECK << endl;
     deck = new Deck();
-    deck->shuffle(getWorld() );
-    deck->shuffle(getWorld() );
+    deck->shuffle(getWorld());
+    deck->shuffle(getWorld());
     cout << SHUFFLING_DECK << endl;
 }
 

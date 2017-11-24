@@ -49,12 +49,12 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/ca457e10/Player.o \
 	${OBJECTDIR}/_ext/2ac0c52e/startup.o \
 	${OBJECTDIR}/_ext/8dd064d2/Statistics.o \
-	${OBJECTDIR}/AggressiveStrategy.o \
-	${OBJECTDIR}/BenevolentStrategy.o \
-	${OBJECTDIR}/PlayerStrategy.o \
-	${OBJECTDIR}/RandomStrategy.o \
-	${OBJECTDIR}/Strategy.o \
-	${OBJECTDIR}/cheaterStrategy.o \
+	${OBJECTDIR}/_ext/496a76e2/AggressiveStrategy.o \
+	${OBJECTDIR}/_ext/496a76e2/BenevolentStrategy.o \
+	${OBJECTDIR}/_ext/496a76e2/PlayerStrategy.o \
+	${OBJECTDIR}/_ext/496a76e2/RandomStrategy.o \
+	${OBJECTDIR}/_ext/496a76e2/Strategy.o \
+	${OBJECTDIR}/_ext/496a76e2/cheaterStrategy.o \
 	${OBJECTDIR}/main.o
 
 
@@ -76,11 +76,11 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/strategy.exe
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tournament.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/strategy.exe: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tournament.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/strategy ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tournament ${OBJECTFILES} ${LDLIBSOPTIONS}
 
 ${OBJECTDIR}/_ext/81a96254/card.o: ../cards/card.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/81a96254
@@ -152,35 +152,35 @@ ${OBJECTDIR}/_ext/8dd064d2/Statistics.o: ../statistics/Statistics.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/8dd064d2/Statistics.o ../statistics/Statistics.cpp
 
-${OBJECTDIR}/AggressiveStrategy.o: AggressiveStrategy.cpp
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/_ext/496a76e2/AggressiveStrategy.o: ../strategy/AggressiveStrategy.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/496a76e2
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/AggressiveStrategy.o AggressiveStrategy.cpp
+	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/496a76e2/AggressiveStrategy.o ../strategy/AggressiveStrategy.cpp
 
-${OBJECTDIR}/BenevolentStrategy.o: BenevolentStrategy.cpp
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/_ext/496a76e2/BenevolentStrategy.o: ../strategy/BenevolentStrategy.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/496a76e2
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/BenevolentStrategy.o BenevolentStrategy.cpp
+	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/496a76e2/BenevolentStrategy.o ../strategy/BenevolentStrategy.cpp
 
-${OBJECTDIR}/PlayerStrategy.o: PlayerStrategy.cpp
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/_ext/496a76e2/PlayerStrategy.o: ../strategy/PlayerStrategy.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/496a76e2
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PlayerStrategy.o PlayerStrategy.cpp
+	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/496a76e2/PlayerStrategy.o ../strategy/PlayerStrategy.cpp
 
-${OBJECTDIR}/RandomStrategy.o: RandomStrategy.cpp
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/_ext/496a76e2/RandomStrategy.o: ../strategy/RandomStrategy.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/496a76e2
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/RandomStrategy.o RandomStrategy.cpp
+	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/496a76e2/RandomStrategy.o ../strategy/RandomStrategy.cpp
 
-${OBJECTDIR}/Strategy.o: Strategy.cpp
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/_ext/496a76e2/Strategy.o: ../strategy/Strategy.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/496a76e2
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Strategy.o Strategy.cpp
+	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/496a76e2/Strategy.o ../strategy/Strategy.cpp
 
-${OBJECTDIR}/cheaterStrategy.o: cheaterStrategy.cpp
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/_ext/496a76e2/cheaterStrategy.o: ../strategy/cheaterStrategy.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/496a76e2
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cheaterStrategy.o cheaterStrategy.cpp
+	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/496a76e2/cheaterStrategy.o ../strategy/cheaterStrategy.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
